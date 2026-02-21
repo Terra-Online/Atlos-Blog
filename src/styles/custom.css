@@ -1,0 +1,62 @@
+/*
+  Custom Cloudflare-inspired theme overrides for Starlight.
+  Cloudflare signature orange: #F6821F
+*/
+
+:root {
+  /* Cloudflare Orange accent */
+  --sl-color-accent-low:  hsl(27, 91%, 88%);   /* lightest tint */
+  --sl-color-accent:      hsl(27, 91%, 54%);   /* #F6821F base */
+  --sl-color-accent-high: hsl(38, 100%, 48%);   /* darker shade */
+
+  /* Text on accent backgrounds */
+  --sl-color-white: #fff;
+
+  /* Subtle warm-dark background inspired by Cloudflare dashboard */
+  --sl-color-bg-nav:     hsl(220, 20%, 10%);
+  --sl-color-bg-sidebar: hsl(220, 18%, 12%);
+}
+
+/* Active sidebar link gets orange highlight */
+.sidebar-content a[aria-current='page'],
+.sidebar-content a[aria-current='true'] {
+  color: var(--sl-color-accent);
+  border-left: 3px solid var(--sl-color-accent);
+  background-color: hsl(27, 91%, 54%, 0.10);
+}
+
+/* Links use Cloudflare orange */
+a {
+  color: var(--sl-color-accent);
+}
+a:hover {
+  color: var(--sl-color-accent-high);
+}
+
+/* Buttons */
+.sl-button,
+a.sl-button {
+  background-color: var(--sl-color-accent);
+  border-color: var(--sl-color-accent);
+  color: var(--sl-color-white);
+}
+.sl-button:hover,
+a.sl-button:hover {
+  background-color: var(--sl-color-accent-high);
+  border-color: var(--sl-color-accent-high);
+}
+
+/* Code blocks — subtle warm tint */
+code,
+pre {
+  background-color: hsl(220, 15%, 14%) !important;
+}
+
+/* Hero action button */
+.hero .action.primary {
+  background-color: var(--sl-color-accent);
+  border: 2px solid var(--sl-color-accent);
+}
+.hero .action.primary:hover {
+  background-color: var(--sl-color-accent-high);
+}

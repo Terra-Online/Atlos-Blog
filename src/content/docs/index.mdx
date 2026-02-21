@@ -1,0 +1,38 @@
+---
+title: Welcome to Open Endfield Map
+description: The official documentation hub for the Open Endfield Map project.
+template: splash
+hero:
+  tagline: Ever best online interactive map for Endfield - Open, Explore, Massive.
+  actions:
+    - text: Get Started
+      link: /tos/
+      icon: right-arrow
+      variant: primary
+    - text: View on GitHub
+      link: https://github.com/Terra-Online/Atlos
+      icon: external
+      variant: secondary
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Explore the Docs
+
+<CardGrid stagger>
+  <LinkCard
+    title="Terms of Service"
+    description="Read the rules and guidelines governing your use of Open Endfield Map."
+    href="/tos/"
+  />
+  <LinkCard
+    title="Privacy Policy"
+    description="Understand how we collect, use, and protect your data."
+    href="/privacy/"
+  />
+  <LinkCard
+    title="Partners & Friends"
+    description="The services and communities we proudly work with."
+    href="/friends/"
+  />
+</CardGrid>
