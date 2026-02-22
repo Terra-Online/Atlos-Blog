@@ -1,62 +1,164 @@
 /*
   Custom Cloudflare-inspired theme overrides for Starlight.
   Cloudflare signature orange: #F6821F
+  ─────────────────────────────────────────────────────────
+  Features:
+  • VitePress-style header nav (see Header.astro)
+  • Hover / page-transition / dark-light animations
+  • Accent-orange links, buttons, sidebar highlight
 */
 
+/* ══════════════════════════════════════════
+   0.  Global transition for dark ↔ light
+   ══════════════════════════════════════════ */
 :root {
   /* Cloudflare Orange accent */
-  --sl-color-accent-low:  hsl(27, 91%, 88%);   /* lightest tint */
-  --sl-color-accent:      hsl(27, 91%, 54%);   /* #F6821F base */
-  --sl-color-accent-high: hsl(38, 100%, 48%);   /* darker shade */
+  --sl-color-accent-low:  hsl(27, 91%, 88%);
+  --sl-color-accent:      hsl(27, 91%, 54%);
+  --sl-color-accent-high: hsl(38, 100%, 48%);
 
-  /* Text on accent backgrounds */
   --sl-color-white: #fff;
 
-  /* Subtle warm-dark background inspired by Cloudflare dashboard */
   --sl-color-bg-nav:     hsl(220, 20%, 10%);
   --sl-color-bg-sidebar: hsl(220, 18%, 12%);
 }
 
-/* Active sidebar link gets orange highlight */
-.sidebar-content a[aria-current='page'],
-.sidebar-content a[aria-current='true'] {
-  color: var(--sl-color-accent);
-  border-left: 3px solid var(--sl-color-accent);
-  background-color: hsl(27, 91%, 54%, 0.10);
+/* Smooth dark / light transition on every colour property */
+*,
+*::before,
+*::after {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
 }
 
-/* Links use Cloudflare orange */
+/* ══════════════════════════════════════════
+   1.  Page-transition animation (View Transitions API fallback)
+   ══════════════════════════════════════════ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+main {
+  animation: fadeIn 0.35s ease both;
+}
+
+/* ══════════════════════════════════════════
+   2.  Links
+   ══════════════════════════════════════════ */
 a {
   color: var(--sl-color-accent);
+  transition: color 0.2s ease;
 }
 a:hover {
   color: var(--sl-color-accent-high);
 }
 
-/* Buttons */
+/* ══════════════════════════════════════════
+   3.  Sidebar active link
+   ══════════════════════════════════════════ */
+.sidebar-content a[aria-current='page'],
+.sidebar-content a[aria-current='true'] {
+  color: var(--sl-color-accent);
+  border-left: 3px solid var(--sl-color-accent);
+  background-color: hsl(27 91% 54% / 0.10);
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+/* ══════════════════════════════════════════
+   4.  Buttons
+   ══════════════════════════════════════════ */
 .sl-button,
 a.sl-button {
   background-color: var(--sl-color-accent);
   border-color: var(--sl-color-accent);
   color: var(--sl-color-white);
+  transition: background-color 0.25s ease, transform 0.15s ease;
 }
 .sl-button:hover,
 a.sl-button:hover {
   background-color: var(--sl-color-accent-high);
   border-color: var(--sl-color-accent-high);
+  transform: translateY(-1px);
+}
+.sl-button:active,
+a.sl-button:active {
+  transform: translateY(0);
 }
 
-/* Code blocks — subtle warm tint */
+/* ══════════════════════════════════════════
+   5.  Code blocks
+   ══════════════════════════════════════════ */
 code,
 pre {
   background-color: hsl(220, 15%, 14%) !important;
 }
 
-/* Hero action button */
+/* ══════════════════════════════════════════
+   6.  Hero button
+   ══════════════════════════════════════════ */
 .hero .action.primary {
   background-color: var(--sl-color-accent);
   border: 2px solid var(--sl-color-accent);
+  transition: background-color 0.25s ease, transform 0.15s ease;
 }
 .hero .action.primary:hover {
   background-color: var(--sl-color-accent-high);
+  transform: translateY(-1px);
 }
+
+/* ══════════════════════════════════════════
+   7.  Sidebar & navigation hover animations
+   ══════════════════════════════════════════ */
+/* General sidebar link hover */
+[data-pagefind-ignore] a,
+nav a {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Sidebar group toggle smooth */
+details summary {
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+details summary:hover {
+  color: var(--sl-color-white);
+}
+
+/* ══════════════════════════════════════════
+   8.  Card hover scale
+   ══════════════════════════════════════════ */
+.sl-link-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.sl-link-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px hsl(0 0% 0% / 0.15);
+}
+
+/* ══════════════════════════════════════════
+   9.  Mobile menu slide-in
+   ══════════════════════════════════════════ */
+@media (max-width: 49.999rem) {
+  nav.sidebar {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* ══════════════════════════════════════════
+  10.  Light-mode overrides
+   ══════════════════════════════════════════ */
+:root[data-theme='light'] {
+  --sl-color-bg-nav:     hsl(0, 0%, 100%);
+  --sl-color-bg-sidebar: hsl(0, 0%, 97%);
+}
+
+:root[data-theme='light'] code,
+:root[data-theme='light'] pre {
+  background-color: hsl(220, 15%, 95%) !important;
+}
+

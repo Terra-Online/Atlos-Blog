@@ -1,0 +1,178 @@
+---
+/**
+ * Custom Sidebar:
+ * - Desktop: TOC (top, fixed height) + current section file navigation (bottom)
+ * - Mobile:  Top-level nav links (Docs/Community/Blogs/More) + current page TOC
+ */
+import MobileMenuFooter from 'virtual:starlight/components/MobileMenuFooter';
+import SidebarPersister from '@astrojs/starlight/components/SidebarPersister.astro';
+import SidebarSublist from '@astrojs/starlight/components/SidebarSublist.astro';
+import TableOfContents from '@astrojs/starlight/components/TableOfContents.astro';
+import MobileTableOfContents from '@astrojs/starlight/components/MobileTableOfContents.astro';
+
+const route = Astro.locals.starlightRoute;
+const { sidebar, toc, locale } = route;
+const currentPath = Astro.url.pathname;
+const localePrefix = locale ? `/${locale}` : '';
+const isZhCn = locale === 'zh-cn';
+
+// ── Build top-nav items ──
+const navItems = [
+  { label: isZhCn ? '文档' : 'Docs', href: `${localePrefix}/docs/tos/`, section: '/docs/' },
+  { label: isZhCn ? '社区' : 'Community', href: `${localePrefix}/community/about-us/`, section: '/community/' },
+  { label: isZhCn ? '博客' : 'Blogs', href: `${localePrefix}/blogs/reports/sample-report/`, section: '/blogs/' },
+  { label: isZhCn ? '更多' : 'More', href: `${localePrefix}/more/credits/`, section: '/more/' },
+];
+
+function isActiveSection(section: string): boolean {
+  return currentPath.includes(section);
+}
+
+// ── Filter sidebar to the current section ──
+function hasCurrentEntry(item: any): boolean {
+  if (item.isCurrent) return true;
+  if (item.entries) return item.entries.some((e: any) => hasCurrentEntry(e));
+  return false;
+}
+
+const currentGroup = sidebar.filter((item) => hasCurrentEntry(item));
+const hasToc = toc && toc.items && toc.items.length > 0;
+---
+
+<!-- ═══════════════  MOBILE  ═══════════════ -->
+<div class="mobile-sidebar-content md:sl-hidden">
+  <nav class="mobile-nav-links">
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class:list={['mobile-nav-item', { active: isActiveSection(item.section) }]}
+      >
+        {item.label}
+      </a>
+    ))}
+  </nav>
+
+  {hasToc && (
+    <div class="mobile-toc-section">
+      <MobileTableOfContents />
+    </div>
+  )}
+</div>
+
+<!-- ═══════════════  DESKTOP  ═══════════════ -->
+<div class="desktop-sidebar-content sl-hidden md:sl-flex">
+  {hasToc && (
+    <div class="sidebar-toc-panel">
+      <TableOfContents />
+    </div>
+  )}
+
+  <div class="sidebar-section-nav">
+    <SidebarPersister>
+      <SidebarSublist sublist={currentGroup} />
+    </SidebarPersister>
+  </div>
+</div>
+
+<div class="md:sl-hidden">
+  <MobileMenuFooter />
+</div>
+
+<style>
+  /* ─── Mobile Nav Links ─── */
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--sl-color-gray-6);
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0.625rem 1rem;
+    font-size: var(--sl-text-base);
+    font-weight: 500;
+    color: var(--sl-color-gray-2);
+    text-decoration: none;
+    border-radius: 0.375rem;
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .mobile-nav-item:hover {
+    color: var(--sl-color-white);
+    background-color: var(--sl-color-gray-6);
+  }
+
+  .mobile-nav-item.active {
+    color: var(--sl-color-accent);
+    background-color: hsla(27, 91%, 54%, 0.08);
+  }
+
+  /* ─── Mobile TOC ─── */
+  .mobile-toc-section {
+    padding: 0.75rem 0;
+  }
+
+  .mobile-toc-heading {
+    font-size: var(--sl-text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--sl-color-gray-3);
+    padding: 0.25rem 1rem;
+    margin: 0;
+  }
+
+  /* ─── Desktop Sidebar ─── */
+  .desktop-sidebar-content {
+    flex-direction: column;
+    height: 100%;
+    gap: 0;
+  }
+
+  /* TOC panel (fixed height, scrollable) */
+  .sidebar-toc-panel {
+    max-height: 40vh;
+    overflow-y: auto;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--sl-color-gray-6);
+    margin-bottom: 0.75rem;
+    scrollbar-width: thin;
+  }
+
+  .sidebar-toc-heading {
+    color: var(--sl-color-white);
+    font-size: var(--sl-text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .sidebar-toc-panel :global(a) {
+    display: block;
+    font-size: var(--sl-text-xs);
+    text-decoration: none;
+    color: var(--sl-color-gray-3);
+    overflow-wrap: anywhere;
+    padding: 0.2rem 0;
+    transition: color 0.2s ease;
+  }
+
+  .sidebar-toc-panel :global(a:hover) {
+    color: var(--sl-color-white);
+  }
+
+  .sidebar-toc-panel :global(a[aria-current='true']) {
+    color: var(--sl-color-text-accent);
+  }
+
+  /* Section nav (fills remaining space) */
+  .sidebar-section-nav {
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+</style>

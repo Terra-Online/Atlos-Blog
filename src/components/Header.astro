@@ -1,0 +1,151 @@
+---
+/**
+ * Custom VitePress-style Header for Open Endfield Map.
+ * Layout: SiteTitle | Nav Links (Docs/Community/Blogs/More) | ThemeSelect | LanguageSelect
+ * Mobile: SiteTitle | MobileMenuToggle (hamburger)
+ */
+import SiteTitle from 'virtual:starlight/components/SiteTitle';
+import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
+import LanguageSelect from 'virtual:starlight/components/LanguageSelect';
+import MobileMenuToggle from 'virtual:starlight/components/MobileMenuToggle';
+
+const route = Astro.locals.starlightRoute;
+const currentPath = Astro.url.pathname;
+const locale = route.locale || 'en';
+const localePrefix = `/${locale}`;
+const isZhCn = locale === 'zh-cn';
+
+const navItems = [
+  {
+    label: isZhCn ? '文档' : 'Docs',
+    href: `${localePrefix}/docs/tos/`,
+    section: '/docs/',
+  },
+  {
+    label: isZhCn ? '社区' : 'Community',
+    href: `${localePrefix}/community/about-us/`,
+    section: '/community/',
+  },
+  {
+    label: isZhCn ? '博客' : 'Blogs',
+    href: `${localePrefix}/blogs/reports/sample-report/`,
+    section: '/blogs/',
+  },
+  {
+    label: isZhCn ? '更多' : 'More',
+    href: `${localePrefix}/more/credits/`,
+    section: '/more/',
+  },
+];
+
+function isActive(section: string): boolean {
+  return currentPath.includes(section);
+}
+---
+
+<div class="header sl-flex">
+  <div class="title-wrapper sl-flex">
+    <SiteTitle />
+  </div>
+
+  <nav class="vp-nav sl-hidden md:sl-flex">
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class:list={['vp-nav-link', { active: isActive(item.section) }]}
+      >
+        {item.label}
+      </a>
+    ))}
+  </nav>
+
+  <div class="sl-flex print:hidden right-group">
+    <div class="sl-hidden md:sl-flex right-items">
+      <ThemeSelect />
+      <LanguageSelect />
+    </div>
+    <MobileMenuToggle />
+  </div>
+</div>
+
+<style>
+  .header {
+    gap: var(--sl-nav-gap);
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  .title-wrapper {
+    overflow: clip;
+    padding: 0.25rem;
+    margin: -0.25rem;
+    min-width: 0;
+    flex-shrink: 0;
+  }
+
+  /* ─── VitePress-style Navigation ─── */
+  .vp-nav {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    margin-inline-start: 1.5rem;
+    margin-inline-end: auto;
+  }
+
+  .vp-nav-link {
+    position: relative;
+    padding: 0.375rem 0.875rem;
+    font-size: var(--sl-text-sm);
+    font-weight: 500;
+    color: var(--sl-color-gray-2);
+    text-decoration: none;
+    border-radius: 0.375rem;
+    transition: color 0.25s ease, background-color 0.25s ease;
+  }
+
+  .vp-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--sl-color-accent);
+    transform: translateX(-50%);
+    transition: width 0.25s ease;
+    border-radius: 1px;
+  }
+
+  .vp-nav-link:hover {
+    color: var(--sl-color-white);
+    background-color: hsla(var(--sl-color-gray-5-hsl, 0 0% 30%), 0.25);
+  }
+
+  .vp-nav-link:hover::after {
+    width: 60%;
+  }
+
+  .vp-nav-link.active {
+    color: var(--sl-color-accent);
+  }
+
+  .vp-nav-link.active::after {
+    width: 80%;
+  }
+
+  /* ─── Right Group ─── */
+  .right-group,
+  .right-items {
+    gap: 0.75rem;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  /* ─── Desktop grid (matches Starlight's expected structure) ─── */
+  @media (min-width: 50rem) {
+    .header {
+      display: flex;
+    }
+  }
+</style>
