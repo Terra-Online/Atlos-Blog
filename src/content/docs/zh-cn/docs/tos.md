@@ -42,7 +42,7 @@ lastUpdated: 2026-02-28
 
 ---
 
-## 三、知识产权与版权声明 (Intellectual Property and Copyright)
+## 三、知识产权与版权声明
 
 ### 3.1 游戏 IP 及资源归属
 
