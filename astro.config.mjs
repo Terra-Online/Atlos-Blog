@@ -16,6 +16,19 @@ export default defineConfig({
     starlight({
       title: 'Open Endfield Map',
       lastUpdated: true,
+      head: [
+        // ── Favicon light (default) ──────────────────────────────────────────
+        { tag: 'link', attrs: { rel: 'icon', sizes: '32x32', type: 'image/x-icon', href: '/icons/favicon.ico' } },
+        { tag: 'link', attrs: { rel: 'icon', type: 'image/svg+xml', href: '/icons/favicon.svg' } },
+        { tag: 'link', attrs: { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/icons/favicon-96x96.png' } },
+        // ── Favicon dark (prefers-color-scheme: dark) ────────────────────────
+        { tag: 'link', attrs: { rel: 'icon', sizes: '32x32', type: 'image/x-icon', href: '/icons/favicon_dark.ico',        media: '(prefers-color-scheme: dark)' } },
+        { tag: 'link', attrs: { rel: 'icon', type: 'image/svg+xml',               href: '/icons/favicon_dark.svg',        media: '(prefers-color-scheme: dark)' } },
+        { tag: 'link', attrs: { rel: 'icon', type: 'image/png', sizes: '96x96',   href: '/icons/favicon-96x96_dark.png',  media: '(prefers-color-scheme: dark)' } },
+        // ── Apple touch icon ─────────────────────────────────────────────────
+        { tag: 'link', attrs: { rel: 'apple-touch-icon', sizes: '180x180', href: '/icons/apple-touch-icon.png' } },
+        { tag: 'link', attrs: { rel: 'apple-touch-icon', sizes: '180x180', href: '/icons/apple-touch-icon_dark.png', media: '(prefers-color-scheme: dark)' } },
+      ],
       locales: {
         en:      { label: 'English',    lang: 'en' },
         'zh-cn': { label: '简体中文',   lang: 'zh-CN' },

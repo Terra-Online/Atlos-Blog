@@ -1,8 +1,9 @@
 ---
 /**
  * Custom VitePress-style Header for Open Endfield Map.
- * Layout: SiteTitle | Nav Links (Docs/Community/Blogs/More) | ThemeSelect | LanguageSelect
- * Mobile: SiteTitle | MobileMenuToggle (hamburger)
+ * Desktop: Logo + SiteTitle | Nav Links | ThemeToggle + LangSelect
+ * Mobile:  Logo + SiteTitle | ThemeToggle + Hamburger
+ *          (Nav + LangSelect live inside mobile sidebar)
  */
 import SiteTitle from 'virtual:starlight/components/SiteTitle';
 import MobileMenuToggle from 'virtual:starlight/components/MobileMenuToggle';
@@ -39,10 +40,12 @@ function isActive(section: string): boolean {
 
 <div class="header sl-flex">
   <div class="title-wrapper sl-flex">
+    <img src="/icons/main.webp" alt="" class="site-logo" aria-hidden="true" width="28" height="28" />
     <SiteTitle />
   </div>
 
-  <nav class="vp-nav sl-hidden md:sl-flex">
+  <!-- Desktop-only nav -->
+  <nav class="vp-nav">
     {navItems.map((item) => (
       <a
         href={item.href}
@@ -54,9 +57,14 @@ function isActive(section: string): boolean {
   </nav>
 
   <div class="sl-flex print:hidden right-group">
+    <!-- Desktop: theme + lang -->
     <div class="sl-hidden md:sl-flex right-items">
       <CustomThemeToggle />
       <CustomLanguageSelect />
+    </div>
+    <!-- Mobile: theme toggle always visible, hamburger for sidebar -->
+    <div class="md:sl-hidden sl-flex right-items-mobile">
+      <CustomThemeToggle />
     </div>
     <MobileMenuToggle />
   </div>
@@ -76,15 +84,41 @@ function isActive(section: string): boolean {
     margin: -0.25rem;
     min-width: 0;
     flex-shrink: 0;
+    gap: 0.5rem;
+    align-items: center;
   }
 
-  /* ─── VitePress-style Navigation ─── */
+  /* ─── Site Title: pure black/white instead of accent colour ─── */
+  .title-wrapper :global(.site-title),
+  .title-wrapper :global(a.site-title) {
+    color: #f5f0eb !important;
+  }
+  :root[data-theme='light'] .title-wrapper :global(.site-title),
+  :root[data-theme='light'] .title-wrapper :global(a.site-title) {
+    color: #333 !important;
+  }
+
+  .site-logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  /* ─── VitePress-style Navigation (desktop only) ─── */
   .vp-nav {
-    display: flex;
+    display: none !important; /* hidden on mobile; shown via media query below */
     gap: 0.25rem;
     align-items: center;
     margin-inline-start: 1.5rem;
     margin-inline-end: auto;
+  }
+
+  @media (min-width: 50rem) {
+    .vp-nav {
+      display: flex !important;
+    }
   }
 
   .vp-nav-link {
@@ -130,7 +164,8 @@ function isActive(section: string): boolean {
 
   /* ─── Right Group ─── */
   .right-group,
-  .right-items {
+  .right-items,
+  .right-items-mobile {
     gap: 0.75rem;
     align-items: center;
     flex-shrink: 0;

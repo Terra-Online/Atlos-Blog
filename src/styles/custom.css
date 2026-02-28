@@ -144,6 +144,8 @@ code, pre, kbd, samp {
 
   --sl-color-white: #fff;
 
+  --sl-color-text: #f5f0eb;
+
   --sl-color-bg-nav:     hsl(220, 20%, 10%);
   --sl-color-bg-sidebar: hsl(220, 18%, 12%);
 }
@@ -269,6 +271,10 @@ details summary:hover {
    9.  Mobile menu slide-in
    ══════════════════════════════════════════ */
 @media (max-width: 49.999rem) {
+  nav.vp-nav {
+    display: none !important;
+  }
+
   nav.sidebar {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -280,6 +286,7 @@ details summary:hover {
 :root[data-theme='light'] {
   --sl-color-bg-nav:     hsl(0, 0%, 100%);
   --sl-color-bg-sidebar: hsl(0, 0%, 97%);
+  --sl-color-text: #333;
 }
 
 :root[data-theme='light'] code,
