@@ -5,37 +5,31 @@
  * Mobile: SiteTitle | MobileMenuToggle (hamburger)
  */
 import SiteTitle from 'virtual:starlight/components/SiteTitle';
-import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
-import LanguageSelect from 'virtual:starlight/components/LanguageSelect';
 import MobileMenuToggle from 'virtual:starlight/components/MobileMenuToggle';
+import CustomThemeToggle from './CustomThemeToggle.astro';
+import CustomLanguageSelect from './CustomLanguageSelect.astro';
 
 const route = Astro.locals.starlightRoute;
 const currentPath = Astro.url.pathname;
 const locale = route.locale || 'en';
 const localePrefix = `/${locale}`;
-const isZhCn = locale === 'zh-cn';
+
+// Nav labels per locale
+const t = {
+  docs:      { en: 'Docs',      'zh-cn': '文档', 'zh-hk': '文件',     ja: 'ドキュメント' },
+  community: { en: 'Community', 'zh-cn': '社区', 'zh-hk': '社群',     ja: 'コミュニティ' },
+  blogs:     { en: 'Blogs',     'zh-cn': '博客', 'zh-hk': '部落格',   ja: 'ブログ' },
+  more:      { en: 'More',      'zh-cn': '更多', 'zh-hk': '更多',     ja: 'その他' },
+} as const;
+
+type LocaleKey = keyof typeof t.docs;
+const l = (locale in t.docs ? locale : 'en') as LocaleKey;
 
 const navItems = [
-  {
-    label: isZhCn ? '文档' : 'Docs',
-    href: `${localePrefix}/docs/tos/`,
-    section: '/docs/',
-  },
-  {
-    label: isZhCn ? '社区' : 'Community',
-    href: `${localePrefix}/community/about-us/`,
-    section: '/community/',
-  },
-  {
-    label: isZhCn ? '博客' : 'Blogs',
-    href: `${localePrefix}/blogs/reports/sample-report/`,
-    section: '/blogs/',
-  },
-  {
-    label: isZhCn ? '更多' : 'More',
-    href: `${localePrefix}/more/credits/`,
-    section: '/more/',
-  },
+  { label: t.docs[l],      href: `${localePrefix}/docs/tos/`,                        section: '/docs/' },
+  { label: t.community[l], href: `${localePrefix}/community/about-us/`,              section: '/community/' },
+  { label: t.blogs[l],     href: `${localePrefix}/blogs/reports/sample-report/`,    section: '/blogs/' },
+  { label: t.more[l],      href: `${localePrefix}/more/credits/`,                    section: '/more/' },
 ];
 
 function isActive(section: string): boolean {
@@ -61,8 +55,8 @@ function isActive(section: string): boolean {
 
   <div class="sl-flex print:hidden right-group">
     <div class="sl-hidden md:sl-flex right-items">
-      <ThemeSelect />
-      <LanguageSelect />
+      <CustomThemeToggle />
+      <CustomLanguageSelect />
     </div>
     <MobileMenuToggle />
   </div>

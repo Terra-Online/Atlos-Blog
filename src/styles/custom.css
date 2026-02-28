@@ -9,6 +9,131 @@
 */
 
 /* ══════════════════════════════════════════
+   Fonts
+   ── Inter               English pages only  (full Latin, via :lang(en))
+   ── Montserrat          non-English Latin   (all other pages)
+   ── HarmonyOS Sans SC   Simplified Chinese  (local variable font, zh-CN pages)
+   ── TC Local Font       Traditional Chinese (local variable font placeholder, zh-TW pages)
+   ── JP Local Font       Japanese            (local variable font placeholder, ja pages)
+   ── M PLUS 2            CJK / kana fallback for all above (Google CDN)
+   ── M PLUS Code Latin 60  code / monospace
+   ══════════════════════════════════════════ */
+
+/* Load Latin fonts + M PLUS 2 + M PLUS Code Latin 60 via single Google CDN request.
+   Google handles per-subset woff2 splitting on its side.                   */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=M+PLUS+2:wght@100..900&family=M+PLUS+Code+Latin+60:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ── HarmonyOS Sans SC ──────────────────────────────────────────────────────
+   Variable font (local file). Simplified Chinese CJK ONLY.
+   unicode-range intentionally excludes hiragana/katakana (U+3040-30FF)
+   and other kana ranges so it never interferes with zh-HK or ja pages.
+   Place file at: public/fonts/HarmonyOS_Sans_SC/HarmonyOS_Sans_SC_VF.woff2 */
+@font-face {
+  font-family: 'HarmonyOS Sans SC';
+  src: url('/fonts/HarmonyOS_Sans_SC/HarmonyOS_Sans_SC_VF.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    /* CJK Radicals & Kangxi */
+    U+2E80-2EFF, U+2F00-2FDF,
+    /* CJK Punctuation (no kana) */
+    U+3000-303F,
+    /* Bopomofo */
+    U+3100-312F,
+    /* CJK Compatibility / Enclosed */
+    U+3200-33FF,
+    /* CJK Extension A */
+    U+3400-4DBF,
+    /* CJK Unified Ideographs */
+    U+4E00-9FFF,
+    /* CJK Compatibility Ideographs */
+    U+F900-FAFF,
+    /* CJK Compatibility Forms */
+    U+FE10-FE1F, U+FE30-FE4F,
+    /* Halfwidth/Fullwidth Forms (punctuation only, not kana) */
+    U+FF01-FF60, U+FFE0-FFEF;
+}
+
+/* ── TC Local Font (Traditional Chinese) ───────────────────────────────────
+   PLACEHOLDER — place a variable woff2 here when ready:
+     public/fonts/TC/TC_VF.woff2
+   Suggested fonts: Noto Serif TC, GenWanMin TW, or any TC variable font. */
+@font-face {
+  font-family: 'TC Local Font';
+  src: url('/fonts/TC/TC_VF.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+2E80-2EFF, U+2F00-2FDF, U+3000-303F, U+3100-312F,
+    U+31F0-31FF, U+3200-33FF, U+3400-4DBF,
+    U+4E00-9FFF, U+F900-FAFF, U+FE10-FE1F, U+FE30-FE4F,
+    U+FF00-FFEF;
+}
+
+/* ── JP Local Font (Japanese) ───────────────────────────────────────────────
+   PLACEHOLDER — place a variable woff2 here when ready:
+     public/fonts/JP/JP_VF.woff2
+   Suggested fonts: Noto Sans JP, BIZ UDGothic, or any JP variable font.  */
+@font-face {
+  font-family: 'JP Local Font';
+  src: url('/fonts/JP/JP_VF.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    /* Hiragana + Katakana */
+    U+3040-30FF, U+31F0-31FF, U+FF65-FF9F,
+    /* CJK Unified Ideographs */
+    U+4E00-9FFF, U+3400-4DBF,
+    /* CJK Compatibility + Radicals */
+    U+2E80-2EFF, U+2F00-2FDF, U+3200-33FF,
+    U+F900-FAFF, U+FE10-FE1F, U+FE30-FE4F, U+FF00-FFEF;
+}
+
+/* ── Per-locale font stacks ─────────────────────────────────────────────────
+   Strategy: :lang() selectors override --sl-font so the browser picks the
+   correct primary font based on the page's declared language.
+   The mono stack and code elements are the same for all locales.           */
+
+/* Default (all non-English pages): Montserrat leads Latin */
+:root {
+  --sl-font: 'Montserrat', 'HarmonyOS Sans SC', 'M PLUS 2',
+             ui-sans-serif, system-ui, sans-serif;
+  --sl-font-mono: 'M PLUS Code Latin 60', ui-monospace, 'Cascadia Code',
+                  'Fira Code', monospace;
+}
+
+/* English pages: Inter covers full Latin — no CJK needed */
+:root:lang(en) {
+  --sl-font: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Simplified Chinese pages: HarmonyOS SC before M PLUS 2 */
+:root:lang(zh-CN) {
+  --sl-font: 'Montserrat', 'HarmonyOS Sans SC', 'M PLUS 2',
+             ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Traditional Chinese pages (zh-HK locale): TC local font before M PLUS 2 */
+:root:lang(zh-HK) {
+  --sl-font: 'Montserrat', 'TC Local Font', 'M PLUS 2',
+             ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Japanese pages: JP local font before M PLUS 2 */
+:root:lang(ja) {
+  --sl-font: 'Montserrat', 'JP Local Font', 'M PLUS 2',
+             ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Ensure code elements use the monospace stack in all locales */
+code, pre, kbd, samp {
+  font-family: var(--sl-font-mono);
+}
+
+/* ══════════════════════════════════════════
    0.  Global transition for dark ↔ light
    ══════════════════════════════════════════ */
 :root {
