@@ -1,11 +1,21 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import icon from 'astro-icon';
+import { remarkGitMeta } from './src/plugins/remark-git-meta.mjs';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://blog.opendfieldmap.org',
+  markdown: {
+    remarkPlugins: [remarkGitMeta],
+  },
   integrations: [
+    icon({
+      include: {
+        lucide: ['*'],
+      },
+    }),
     starlight({
       title: 'Open Endfield Map',
       lastUpdated: true,
@@ -19,8 +29,8 @@ export default defineConfig({
       ],
       components: {
         Header: './src/components/Header.astro',
-        Sidebar: './src/components/Sidebar.astro',
-        PageSidebar: './src/components/PageSidebar.astro',
+        Sidebar: './src/components/LeftBar.astro',
+        PageSidebar: './src/components/RightBar.astro',
       },
       sidebar: [
         {
