@@ -1,40 +1,50 @@
 ---
-title: 内容来源
-description: Open Endfield Map 的内容来源、版权声明、用户生成内容协议及支持平台。
+title: コンテンツ出所
+description: Open Endfield Map におけるコンテンツ出所、著作権表示、ユーザー生成コンテンツ規約および利用プラットフォームについて。
 ---
 
-Open Endfield Map（以下简称“本项目”）的运营与发展依赖于游戏内容、开源软件生态以及广大用户的共建支持。本页面详细列明了项目的内容来源、版权归属、平台使用情况以及用户生成内容（UGC）的相关权利与义务协议。
+Open Endfield Map（以下「本プロジェクト」といいます）の運営および発展は、ゲームコンテンツ、オープンソースソフトウェアのエコシステム、ならびに多くのユーザーの共同参加と支援によって成り立っています。本ページでは、本プロジェクトにおけるコンテンツの出所、著作権の帰属、利用プラットフォームの状況、ならびにユーザー生成コンテンツ（UGC）に関する権利および義務について定めます。
 
-## 游戏知识产权及资源归属
+## ゲームに関する知的財産権および素材の帰属
 
-本项目为非官方、非营利性的社区开源项目。
+本プロジェクトは、非公式かつ非営利のコミュニティ主導型オープンソースプロジェクトです。
 
-* **版权归属**：本项目内所引用、展示的所有与《明日方舟：终末地》（Arknights: Endfield）相关的图像资源（包括但不限于地图底图、图标、UI 元素、插画）、文字说明、音效、世界观设定及游戏数据，其使用目的仅为更准确呈现游戏内元素及提升用户体验。上述内容的全部版权、商标权及其他知识产权均完全属于 **上海鹰角网络科技有限公司（Hypergryph）** 及/或其关联公司（如 Gryphline 等游戏服务提供者及著作权人）。
-* **侵权处理与用户限制**：本项目无意侵犯官方任何权利。未经权利人明确授权，严禁任何用户擅自公开、商业化或再分发本网站所引用的官方美术资源。
+* **著作権の帰属**：本プロジェクト内で引用または表示される『アークナイツ：エンドフィールド』（Arknights: Endfield）に関連するすべての画像素材（マップ背景、アイコン、UI要素、イラストを含みますが、これらに限りません）、テキスト説明、音声、世界観設定およびゲームデータは、ゲーム内要素を正確に再現し、ユーザー体験を向上させる目的のみに使用されています。これらのコンテンツに関する著作権、商標権その他一切の知的財産権は、**上海鷹角網絡科技有限公司（Hypergryph）** および／またはその関連会社（Gryphline 等のゲームサービス提供者および著作権者を含みます）に帰属します。
+* **権利侵害への対応および利用制限**：本プロジェクトは、公式権利者の権利を侵害する意図はありません。権利者の明示的な許諾なく、本サイトに掲載されている公式アート素材を公開、商用利用、再配布することを固く禁止します。万一、本プロジェクトの内容が権利侵害に該当するとお考えの場合は、速やかにご連絡ください。
+
 ---
-## 用户生成内容 (UGC) 协议
 
-我们在地图中提供了标记、第三视角截图等互动功能。当您在本项目中创建或同步任何数据时，需遵守以下协议：
+## ユーザー生成コンテンツ（UGC）規約
 
-1. **内容定义**：“用户生成内容”（UGC）是指您在使用本项目过程中主动创建、上传或通过云端同步的任何数据（如自定义点位、评论以及第三视角截图）。
-2. **所有权与授权许可**：您对您的原创内容保留所有权。但当您提交 UGC 时，即表示您授予本项目一项全球性、免版税、非独占且永久有效的许可，允许我们在提供和优化地图服务的范围内使用、存储、展示或修改您的内容。如您上传任何公共内容，即同意其他用户访问并合理使用这些内容。
-3. **内容限制与行为准则**：您必须对您账号下产生的所有 UGC 负完全责任。严禁提交侵犯第三方知识产权、违反法律法规、包含恶意代码、发布垃圾广告，或蓄意上传错误图片以误导他人的内容。
-4. **审核与免责声明**：本项目不对 UGC 的准确性或合法性做出任何保证。我们保留在不事先通知的情况下，自行决定修改、隐藏或永久删除任何违规内容的权利，且不对因用户内容导致的纠纷或数据丢失承担责任。如果您提供改进建议（Feedback），我们有权无偿且不受限制地使用这些反馈来优化项目。
-> **注意**：针对 UGC 内容的完整相关条款与限制，请查阅 [UGC 内容声明](../ugc)。
+本プロジェクトでは、マップ上のマーカー機能や第三者視点のスクリーンショット投稿機能などを提供しています。ユーザーが本プロジェクト上でデータを作成、アップロード、または同期する場合、以下の規約に同意したものとみなされます。
+
+1. **定義**：「ユーザー生成コンテンツ」（UGC）とは、ユーザーが本プロジェクトの利用過程において自発的に作成、アップロード、またはクラウド同期を通じて保存するあらゆるデータ（カスタムポイント、コメント、第三者視点のスクリーンショット等を含みますが、これらに限りません）をいいます。
+
+2. **所有権および利用許諾**：ユーザーは自身が創作したオリジナルコンテンツの所有権を保持します。ただし、UGCを投稿した時点で、ユーザーは本プロジェクトに対し、世界的、無償、非独占的、再許諾可能かつ恒久的な利用権を付与するものとします。当該利用権には、本プロジェクトの提供、維持、改善の範囲内で、コンテンツを使用、保存、表示、複製、修正する権利が含まれます。公開設定で投稿されたコンテンツについては、他のユーザーが合理的かつ合法的な範囲でアクセスおよび利用することに同意したものとみなされます。
+
+3. **内容制限および行動規範**：ユーザーは、自身のアカウントを通じて生成されたすべてのUGCについて責任を負います。第三者の知的財産権を侵害する内容、適用法令に違反する内容、悪意あるコードを含む内容、スパム広告や虚偽情報の投稿、または意図的に誤った画像をアップロードして他者を誤認させる行為を禁止します。違反が確認された場合、本プロジェクトはアカウントの停止または削除を行う権利を有します。
+
+4. **審査および免責事項**：本プロジェクトは、UGCの正確性、完全性、合法性についていかなる保証も行いません。本プロジェクトは、事前通知なく、独自の判断により違反コンテンツを修正、非表示、制限または削除する権利を留保します。また、ユーザーコンテンツに起因する紛争、損害またはデータ損失について一切の責任を負いません。ユーザーが改善提案やフィードバックを提供した場合、本プロジェクトは当該提案を無償かつ制限なく利用できるものとします。
+
+> **注意**：UGCに関する完全な規定については、[UGCコンテンツ声明](../ugc)をご参照ください。
+
 ---
-## 基础设施与平台支持
 
-本项目的基础网络、数据存储与团队协作使用了以下平台的服务。在此特别感谢为本项目的开发与部署提供基础支撑的企业/平台：
+## インフラストラクチャおよびプラットフォーム支援
 
-* **Atlassian**：感谢 Atlassian 为本项目授予的开源许可（Open Source License），使开发团队得以免费使用 Jira 进行敏捷项目管理，并使用 Confluence 建设团队知识库。
-* **Upstash**：感谢 Upstash 为本项目提供的开源项目支持计划（Open Source Support），其 Serverless Redis 服务支撑了本项目跨设备的高频数据同步与缓存。
-* **Cloudflare**：本项目的核心网络架构使用了 Cloudflare 的付费服务，包括全球内容分发网络（CDN）、DDoS 防护、DNS 解析，Argo 智能路由，以及基于 Cloudflre Worker 与 D1 Database 的边缘结构化数据存储。
+本プロジェクトのネットワーク基盤、データ保存およびチーム協業は、以下のプラットフォームサービスにより支えられています。ここに、本プロジェクトの開発および運用を支援している各企業・プラットフォームに感謝の意を表します。
+
+* **Atlassian**：Atlassianよりオープンソースライセンス（Open Source License）の提供を受け、Jiraによるアジャイル開発管理およびConfluenceによるナレッジベース構築を行っています。
+* **Upstash**：Upstashのオープンソース支援プログラム（Open Source Support）により、Serverless Redisを用いた高頻度データ同期およびキャッシュ機能を実現しています。
+* **Cloudflare**：本プロジェクトのネットワーク基盤はCloudflareの有償サービスを利用しており、グローバルCDN、DDoS対策、DNS管理、Argoスマートルーティング、ならびにCloudflare WorkerおよびD1 Databaseを活用したエッジ型構造化データ保存を行っています。
+
 ---
-## 开源依赖使用情况
 
-本项目的 Web 客户端构建于以下开源技术之上。我们在此向所有开源贡献者致谢。
+## オープンソース依存関係の利用状況
 
-### 框架与核心库
+本プロジェクトのWebクライアントは、多数のオープンソース技術を基盤として構築されています。すべてのオープンソース貢献者の皆様に深く感謝いたします。
+
+### フレームワークおよびコアライブラリ
 
 #### React
 
@@ -42,7 +52,7 @@ Open Endfield Map（以下简称“本项目”）的运营与发展依赖于游
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 MIT License
@@ -76,7 +86,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 MIT License
@@ -110,12 +120,12 @@ SOFTWARE.
 * License: Apache-2.0 License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 Apache License
 Version 2.0, January 2004
-http://www.apache.org/licenses/
+[http://www.apache.org/licenses/](http://www.apache.org/licenses/)
 
 TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
@@ -277,7 +287,7 @@ END OF TERMS AND CONDITIONS
 
 </details>
 
-### 地图引擎与可视化
+### 地図エンジンおよび可視化
 
 #### Leaflet
 
@@ -285,7 +295,7 @@ END OF TERMS AND CONDITIONS
 * License: BSD-2-Clause License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 BSD 2-Clause License
@@ -324,7 +334,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 Copyright 2012 David Leaver
@@ -357,7 +367,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 * License: Hippocratic-2.1 License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 Copyright 2020-present Paul Le Cam and contributors ("Licensor")
@@ -491,7 +501,7 @@ terms and conditions:
   ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THIS LICENSE,
   UNDER ANY KIND OF LEGAL CLAIM.
 
-This Hippocratic License is an Ethical Source license (https://ethicalsource.dev)
+This Hippocratic License is an Ethical Source license ([https://ethicalsource.dev](https://ethicalsource.dev))
 and is offered for use by licensors and licensees at their own risk, on an
 "AS IS" basis, and with no warranties express or implied, to the maximum extent
 permitted by Laws.
@@ -505,7 +515,7 @@ permitted by Laws.
 * License: ISC License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 Copyright 2010-2023 Mike Bostock
@@ -525,7 +535,7 @@ THIS SOFTWARE.
 
 </details>
 
-### 用户界面与交互
+### ユーザーインターフェースおよびインタラクション
 
 #### motion
 
@@ -533,12 +543,12 @@ THIS SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 The MIT License (MIT)
 
-Copyright (c) 2024 Motion (https://motion.dev) B.V.
+Copyright (c) 2024 Motion ([https://motion.dev](https://motion.dev)) B.V.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -567,7 +577,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 Copyright (c) 2018-present Paul Henschel <drcmda@gmail.com>
@@ -599,7 +609,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 MIT License
@@ -633,7 +643,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 MIT License
@@ -667,7 +677,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 The MIT License (MIT)
@@ -701,7 +711,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 Copyright 2025 MAX ROVENSKY
@@ -733,7 +743,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 Copyright (c) 2024 Andrew Prifer
@@ -765,7 +775,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 The MIT License (MIT)
@@ -793,7 +803,7 @@ SOFTWARE.
 
 </details>
 
-### 工具与实用库
+### ツールおよびユーティリティライブラリ
 
 #### ahooks
 
@@ -801,7 +811,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 MIT License
@@ -835,7 +845,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 The MIT License (MIT)
@@ -868,7 +878,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 The MIT License
@@ -901,7 +911,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 MIT License
@@ -935,7 +945,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 MIT License
@@ -963,7 +973,7 @@ SOFTWARE.
 
 </details>
 
-### 测试框架
+### テストフレームワーク
 
 #### @testing-library/dom
 
@@ -971,7 +981,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 The MIT License (MIT)
@@ -1004,7 +1014,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 The MIT License (MIT)
@@ -1037,7 +1047,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 The MIT License (MIT)
@@ -1070,7 +1080,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 The MIT License (MIT)
@@ -1097,7 +1107,7 @@ SOFTWARE.
 
 </details>
 
-### 构建工具与开发环境
+### ビルドツールおよび開発環境
 
 #### Vite
 
@@ -1105,7 +1115,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 MIT License
@@ -1139,7 +1149,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 MIT License
@@ -1173,7 +1183,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 Copyright (c) 2016, Google Inc.
@@ -1205,7 +1215,7 @@ SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 Copyright Node.js contributors. All rights reserved.
@@ -1237,7 +1247,7 @@ IN THE SOFTWARE.
 * License: MIT License
 
 <details>
-<summary>查看授权协议全文</summary>
+<summary>ライセンス契約の全文をご確認ください</summary>
 
 ```text
 The MIT License (MIT)
