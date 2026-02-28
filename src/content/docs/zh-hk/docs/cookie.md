@@ -3,15 +3,13 @@ title: Cookie 政策
 description: Open Endfield Map Cookie 及本機資料同步政策。
 ---
 
-# Cookie 及本機儲存政策
-
-歡迎瀏覽 Open Endfield Map（以下簡稱「本項目」或「我們」）。我們深明閣下的私隱及資料安全之重要性。本政策旨在詳細說明我們在閣下瀏覽及使用本網站時，如何使用 Cookie、本機儲存技術（LocalStorage / IndexedDB）以及資料同步機制。
+歡迎使用 **Open Endfield Map**（以下簡稱「我們」、「本項目」或「OEM」）。我們深明閣下的私隱及資料安全之重要性。本政策旨在詳細說明我們在閣下瀏覽及使用本網站時，如何使用 Cookie、本機儲存技術（LocalStorage / IndexedDB）以及資料同步機制。
 
 > **注意**：本政策乃[《服務條款》](../tos)之補充文件，與[《私隱權政策》](../privacy)共同構成閣下使用本項目服務時的完整約束協議，具有同等效力。
 
 ---
 
-## 一、Cookie 及本機儲存技術概述
+## Cookie 及本機儲存技術概述
 
 為提供流暢、個人化且安全的地圖互動體驗，我們需要在閣下的裝置上儲存少量資料。我們主要依賴以下兩種技術：
 
@@ -25,7 +23,7 @@ description: Open Endfield Map Cookie 及本機資料同步政策。
 
 ---
 
-## 二、我們為何使用此等技術
+## 我們為何使用此等技術
 
 我們使用 Cookie 及相關儲存技術之目的分為以下四大類，每一類對於保障及提升閣下的使用體驗均至關重要：
 
@@ -47,7 +45,7 @@ description: Open Endfield Map Cookie 及本機資料同步政策。
 
 ---
 
-## 三、Cookie 分類與明細列表
+## Cookie 分類與明細列表
 
 以下為我們目前使用的主要 Cookie 類型及其具體用途：
 
@@ -62,7 +60,7 @@ description: Open Endfield Map Cookie 及本機資料同步政策。
 
 ---
 
-## 四、未登入狀態：本機儲存（Local Storage）機制
+## 未登入狀態：本機儲存（Local Storage）機制
 
 在閣下未登入時，作為互動式地圖產生的大量資料將完全保留在閣下的前端裝置中。我們透過 LocalStorage 及 IndexedDB 在閣下的裝置上儲存以下資訊：
 
@@ -76,7 +74,7 @@ description: Open Endfield Map Cookie 及本機資料同步政策。
 
 ---
 
-## 五、登入狀態：資料同步與雲端備份
+## 登入狀態：資料同步與雲端備份
 
 當閣下主動註冊並登入 Open Endfield Map 帳戶時，為防止閣下的資料遺失並允許閣下在不同裝置（如手機和電腦）上無縫切換，我們將啟動資料同步服務。
 
@@ -97,7 +95,7 @@ description: Open Endfield Map Cookie 及本機資料同步政策。
 
 ---
 
-## 六、閣下的權利與控制方式
+## 閣下的權利與控制方式
 
 閣下對自身的 Cookie 及本機資料擁有絕對的控制權：
 
@@ -109,7 +107,7 @@ description: Open Endfield Map Cookie 及本機資料同步政策。
 
 ---
 
-## 七、關於第三方基礎設施 Cookie 的特別聲明
+## 關於第三方基礎設施 Cookie 的特別聲明
 
 本項目部署於 **Cloudflare** 全球內容傳遞網路（CDN）上。為防範惡意攻擊（如 DDoS）並加速網頁載入，Cloudflare 亦可能在閣下的瀏覽器中寫入特定的安全 Cookie（如前文提及的 `__cf_bm`）。
 
@@ -117,7 +115,7 @@ description: Open Endfield Map Cookie 及本機資料同步政策。
 
 ---
 
-## 八、政策之修訂與通知
+## 政策之修訂與通知
 
 隨著項目功能的更新或法律法規的變更，我們可能會不定期修訂本《Cookie 及本機儲存政策》。
 - 當發生涉及資料同步範圍擴大或 Cookie 核心用途變更的**重大修改**時，我們將透過網站頂部橫幅、系統公告或向閣下的註冊電郵發送郵件進行顯著通知。

@@ -3,15 +3,13 @@ title: Cookie 政策
 description: Open Endfield Map Cookie 与本地数据同步政策。
 ---
 
-# Cookie 与本地存储政策
-
 欢迎使用 **Open Endfield Map**（以下简称“我们”、“本项目”或“OEM”）。我们深谙您的隐私和数据安全之重要性。本政策旨在详细说明我们在您访问和使用本网站时，如何使用 Cookie、本地存储技术（LocalStorage / IndexedDB）以及数据同步机制。
 
 > **注意**：本政策系[《服务条款》](../tos)的补充文件，与[《隐私权政策》](../privacy)共同构成您使用本项目服务时的完整约束协议，具有同等效力。
 
 ---
 
-## 一、Cookie 与本地存储技术概述
+## Cookie 与本地存储技术概述
 
 为了提供顺畅、个性化且安全的地图交互体验，我们需要在您的设备上存储少量数据。我们主要依赖以下两种技术：
 
@@ -25,7 +23,7 @@ description: Open Endfield Map Cookie 与本地数据同步政策。
 
 ---
 
-## 二、我们为何使用这些技术
+## 我们为何使用这些技术
 
 我们使用 Cookie 及相关存储技术的目的分为以下四大类，每一类都对保障和提升您的使用体验至关重要：
 
@@ -47,7 +45,7 @@ description: Open Endfield Map Cookie 与本地数据同步政策。
 
 ---
 
-## 三、Cookie 分类与明细列表
+## Cookie 分类与明细列表
 
 以下是我们目前使用的主要 Cookie 类型及其具体用途：
 
@@ -62,7 +60,7 @@ description: Open Endfield Map Cookie 与本地数据同步政策。
 
 ---
 
-## 四、未登录状态：本地存储（Local Storage）机制
+## 未登录状态：本地存储（Local Storage）机制
 
 在您未登录时，作为交互式地图产生的大量数据将完全保留在您的前端设备中。我们通过 LocalStorage 和 IndexedDB 在您的设备上存储以下信息：
 
@@ -76,7 +74,7 @@ description: Open Endfield Map Cookie 与本地数据同步政策。
 
 ---
 
-## 五、登录状态：数据同步与云端备份
+## 登录状态：数据同步与云端备份
 
 当您主动注册并登录 Open Endfield Map 账户时，为了防止您的数据丢失并允许您在不同设备（如手机和电脑）上无缝切换，我们将启动数据同步服务。
 
@@ -97,7 +95,7 @@ description: Open Endfield Map Cookie 与本地数据同步政策。
 
 ---
 
-## 六、您的权利与控制方式
+## 您的权利与控制方式
 
 您对自己的 Cookie 和本地数据拥有绝对的控制权：
 
@@ -109,7 +107,7 @@ description: Open Endfield Map Cookie 与本地数据同步政策。
 
 ---
 
-## 七、关于第三方基础设施 Cookie 的特别说明
+## 关于第三方基础设施 Cookie 的特别说明
 
 本项目部署于 **Cloudflare** 全球内容分发网络（CDN）上。为了防范恶意攻击（如 DDoS）并加速网页加载，Cloudflare 可能会在您的浏览器中注入特定的安全 Cookie（如前文提到的 `__cf_bm`）。
 
@@ -117,7 +115,7 @@ description: Open Endfield Map Cookie 与本地数据同步政策。
 
 ---
 
-## 八、政策的修订与通知
+## 政策的修订与通知
 
 随着项目功能的迭代或法律法规的变化，我们可能会不定期更新本《Cookie 与本地存储政策》。
 - 当发生涉及数据同步范围扩大或 Cookie 核心用途变更的**重大修改**时，我们将通过网站顶部横幅、系统公告或向您的注册邮箱发送邮件进行显著通知。
