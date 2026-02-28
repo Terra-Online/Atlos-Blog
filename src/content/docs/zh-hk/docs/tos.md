@@ -121,14 +121,6 @@ description: 終末地地圖集（Open Endfield Map）使用條款。
 
 ---
 
-## 條款之修訂
-
-- 開發團隊保留隨時修改或替換本《使用條款》之權利。
-- 如屬重大修訂（特別涉及用戶帳戶及數據處理權變更時），將於網站顯著位置（例如首頁公告彈窗）發佈通知，並更新文件頂部之「lastUpdated」日期。
-- 用戶於條款修訂後繼續登入或使用本項目，即表示已閱讀、理解並接受經修訂之條款；如不同意，應立即停止使用服務，並可選擇註銷帳戶。
-
----
-
 ## 適用法律與爭議解決
 
 - 本使用條款及附屬政策之訂立、執行、解釋及爭議解決，均適用中華人民共和國法律。
@@ -136,10 +128,12 @@ description: 終末地地圖集（Open Endfield Map）使用條款。
 
 ---
 
-## 聯絡我們
+## 條款之修訂與聯絡方式
 
-如對本使用條款有任何疑問，或需提出帳戶數據請求、版權或業務相關事宜，請透過以下方式聯絡：
+隨著項目迭代及法律法規之變更，我們可能隨時修訂本聲明。重大變更將透過網站顯著位置或相關電郵通知。閣下於修訂內容生效後繼續使用本項目之互動及同步服務，即視為閣下接受經修訂之條款。
 
-- **支援及版權處理電郵**：support@opendfieldmap.org  
-- **項目開源代碼倉庫**：[Atlos on Github](https://github.com/Terra-Online/Atlos)  
-- **Discord 玩家社群**：[Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)
+如對本聲明有任何疑問，或需諮詢任何與用使用條款相關之內容，請透過以下方式與我們聯絡：
+
+* **支援與合規團隊電郵**：support@opendfieldmap.org  
+* **項目開源代碼倉庫**：https://github.com/Terra-Online/Atlos  
+* **Discord 玩家社群**：https://discord.gg/BFMAKZSUG7

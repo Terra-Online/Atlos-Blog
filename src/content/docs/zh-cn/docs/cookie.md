@@ -115,9 +115,12 @@ description: Open Endfield Map Cookie 与本地数据同步政策。
 
 ---
 
-## 政策的修订与通知
+## 条款修改与联系方式
 
-随着项目功能的迭代或法律法规的变化，我们可能会不定期更新本《Cookie 与本地存储政策》。
-- 当发生涉及数据同步范围扩大或 Cookie 核心用途变更的**重大修改**时，我们将通过网站顶部横幅、系统公告或向您的注册邮箱发送邮件进行显著通知。
-- 您在政策更新后继续使用本服务，即表示您已充分阅读、理解并接受修订后的政策内容。
-- 本政策页面底部的 `lastUpdated` 字段始终显示当前生效版本的最新修订日期。
+随着项目的迭代及法律法规的变化，我们可能会随时修改本声明。重大变更（如涉及数据同步范围扩大或 Cookie 核心用途变更）将通过网站显著位置或关联邮箱进行通知。您在修改发布后继续使用本项目的互动与同步服务，即视为您接受修订后的条款。
+
+如对本声明有任何疑问，或对本项目的 Cookie 使用领域有任何意见，请通过以下方式联系我们：
+
+* **支持与合规团队邮箱**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
+* **项目开源代码仓库**：[Atlos on Github](https://github.com/Terra-Online/Atlos)
+* **Discord 玩家社区**：[Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)

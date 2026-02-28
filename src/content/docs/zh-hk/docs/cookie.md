@@ -115,9 +115,10 @@ description: Open Endfield Map Cookie 及本機資料同步政策。
 
 ---
 
-## 政策之修訂與通知
+## 條款之修訂與聯絡方式
 
-隨著項目功能的更新或法律法規的變更，我們可能會不定期修訂本《Cookie 及本機儲存政策》。
-- 當發生涉及資料同步範圍擴大或 Cookie 核心用途變更的**重大修改**時，我們將透過網站頂部橫幅、系統公告或向閣下的註冊電郵發送郵件進行顯著通知。
-- 閣下在政策修訂後繼續使用本服務，即表示閣下已充分閱讀、理解並接受修訂後的政策內容。
-- 本政策頁面底部的 `lastUpdated` 欄位將始終顯示當前生效版本的最新修訂日期。
+隨著項目之迭代及適用法律法規之變更，我們可能不時修訂本聲明。任何重大變更（例如涉及數據同步範圍之擴大或 Cookie 核心用途之變更），將透過網站顯著位置公告或以關聯電郵方式通知閣下。閣下於修訂內容發布後繼續使用本項目之互動及同步服務，即視為閣下已接受經修訂之條款。
+
+* **支援與合規團隊電郵**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
+* **項目開源代碼倉庫**：[Atlos on Github](https://github.com/Terra-Online/Atlos)
+* **Discord 玩家社群**：[Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)
