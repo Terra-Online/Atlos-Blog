@@ -1,32 +1,125 @@
 ---
 title: Cookie 政策
-description: Cookie Policy for Open Endfield Map.
+description: Open Endfield Map Cookie 及本機資料同步政策。
 ---
 
-## 1. What Are Cookies
+# Cookie 及本機儲存政策
 
-Cookies are small text files placed on your device when you visit a website. They help the site remember your preferences and usage patterns.
+歡迎瀏覽 Open Endfield Map（以下簡稱「本項目」或「我們」）。我們深明閣下的私隱及資料安全之重要性。本政策旨在詳細說明我們在閣下瀏覽及使用本網站時，如何使用 Cookie、本機儲存技術（LocalStorage / IndexedDB）以及資料同步機制。
 
-## 2. Cookies We Use
+> **注意**：本政策乃[《服務條款》](../tos)之補充文件，與[《私隱權政策》](../privacy)共同構成閣下使用本項目服務時的完整約束協議，具有同等效力。
 
-| Cookie | Purpose | Duration |
-|--------|---------|----------|
-| Session token | Authentication and session management | Session |
-| Theme preference | Remembers your light/dark mode choice | 1 year |
-| Locale preference | Remembers your language selection | 1 year |
+---
 
-## 3. Third-Party Cookies
+## 一、Cookie 及本機儲存技術概述
 
-We use Cloudflare for CDN and security services. Cloudflare may set cookies for bot detection and performance optimization.
+為提供流暢、個人化且安全的地圖互動體驗，我們需要在閣下的裝置上儲存少量資料。我們主要依賴以下兩種技術：
 
-## 4. Managing Cookies
+1. **Cookie**：是由網站發送並儲存在閣下瀏覽器中的小型文字檔案。其通常用於識別閣下的裝置、維持登入會話狀態、提升安全性或記錄閣下的基礎瀏覽偏好。
+2. **本機儲存（LocalStorage / IndexedDB）**：此乃現代瀏覽器提供的資料儲存機制，允許我們在閣下的裝置上保存比 Cookie 容量更大、結構更複雜的資料（如閣下在地圖上標記的點位、圖層篩選狀態等）。
 
-You can disable cookies through your browser settings. Note that disabling session cookies may impair Service functionality.
+**登入前後的資料行為差異**
+我們將閣下的資料處理分為兩種明確的狀態：
+- **未登入時**：閣下的所有地圖互動資料（如標記、偏好設定）僅儲存於閣下當前的裝置上，不會上傳至我們的伺服器。
+- **登入帳戶後**：為實現跨裝置體驗，我們會將閣下的本機資料與伺服器進行同步。
 
-## 5. Changes to This Policy
+---
 
-We may update this Cookie Policy periodically. Continued use of the Service constitutes acceptance of the revised policy.
+## 二、我們為何使用此等技術
 
-## 6. Contact
+我們使用 Cookie 及相關儲存技術之目的分為以下四大類，每一類對於保障及提升閣下的使用體驗均至關重要：
 
-For questions about this Cookie Policy, please open an issue on our public repository.
+1. **維持網站核心功能（必要性操作）**
+   - **會話維護**：確保閣下在登入後瀏覽不同頁面時保持登入狀態，無需重複驗證。
+   - **安全防禦**：生成並驗證 XSRF-TOKEN，防止跨站請求偽造（CSRF）等惡意攻擊，保障閣下的帳戶安全。
+   - **API 驗證**：確保所有發往伺服器的數據請求均來自合法且經授權的用戶端。
+
+2. **提升效能與用戶體驗（功能性操作）**
+   - **狀態記憶**：記住閣下的介面偏好（如深色模式/淺色模式）、語言選擇以及上一次離開時的地圖縮放層級與座標。
+   - **資源最佳化**：快取部分靜態資源或資料索引，大幅縮短地圖和圖鑑的載入時間。
+
+3. **安全與合規保障**
+   - **異常流量偵測**：識別並攔截自動化程式（Bot）、DDoS 攻擊等異常造訪，維護平台整體穩定性。
+   - **合規審計**：在發生安全事件時，提供必要的基礎日誌支援。
+
+4. **分析與服務改善（分析性操作）**
+   - **匿名統計**：透過去識別化的方式，了解用戶最常瀏覽的地圖區域或使用的功能，協助我們決定後續版本的開發優先次序。
+
+---
+
+## 三、Cookie 分類與明細列表
+
+以下為我們目前使用的主要 Cookie 類型及其具體用途：
+
+| 類型 | 示例 Cookie | 用途說明 | 提供方 | 有效期 |
+| --- | --- | --- | --- | --- |
+| **必要性 Cookie** | `__cf_bm` / `XSRF-TOKEN` / `Session` | **無法停用**。用於登入狀態維護、CSRF 安全防護以及 Cloudflare 提供的機械人偵測與攔截。 | Cloudflare / 本項目 | 30 分鐘至會話期結束 |
+| **效能與功能性** | `_cfuvid` | 協助識別可信流量，限制存取頻率以保護伺服器效能。 | Cloudflare | 會話期 |
+| **分析與定製** | `s7` | 收集網站瀏覽數據、點擊事件等去識別化資訊，用於生成網站流量報告及效能最佳化。 | Adobe Analytics | 2 小時至 11 個月不等 |
+| **未分類 Cookie** | （隨機字串，如 `qzld...`） | 正在進行分類或處於測試階段的內部識別碼，不對用戶私隱構成額外風險。 | 本項目 | 2 小時或更短 |
+
+> **注意**：必要性 Cookie 是維持網站正常運作所不可或缺的。倘若閣下透過瀏覽器強制停用此等 Cookie，閣下將無法登入帳戶，且地圖的部分核心互動功能將會失效。
+
+---
+
+## 四、未登入狀態：本機儲存（Local Storage）機制
+
+在閣下未登入時，作為互動式地圖產生的大量資料將完全保留在閣下的前端裝置中。我們透過 LocalStorage 及 IndexedDB 在閣下的裝置上儲存以下資訊：
+
+- **地圖狀態**：當前的縮放層級（Zoom Level）、中心座標（Center Coordinates）及視圖邊界。
+- **內容過濾**：圖層（Layers）的顯示/隱藏狀態、篩選器的選取條件。
+- **用戶產生內容（UGC）**：閣下個人的自訂標記、收藏點、路線規劃等。
+- **介面偏好**：側邊欄展開/摺疊狀態、主題顏色等 UI 設定。
+- **快取資料**：臨時匯入的資料包或用於加速渲染的地圖瓦片索引。
+
+> **私隱提示**：未登入時，上述資料絕對不會離開閣下的裝置。閣下只需清除瀏覽器的網站資料或快取，即可徹底銷毀此等資訊。
+
+---
+
+## 五、登入狀態：資料同步與雲端備份
+
+當閣下主動註冊並登入 Open Endfield Map 帳戶時，為防止閣下的資料遺失並允許閣下在不同裝置（如手機和電腦）上無縫切換，我們將啟動資料同步服務。
+
+**1. 同步範圍**
+- 用戶產生的標記與點位資料
+- 圖層設定與自訂篩選方案
+- UI 偏好設定
+- 地圖內容編輯或糾錯紀錄
+
+**2. 同步基礎設施與安全性**
+我們將閣下的資料透過加密通道（HTTPS/TLS）傳輸，並安全地儲存於以下雲端服務中：
+- **Upstash Serverless Redis**：用於高頻讀取的快取及快速狀態同步。
+- **Cloudflare D1 Database**：用於核心結構化資料的持久化安全儲存。
+
+**3. 資料用途嚴格限制**
+- **僅限提供服務**：閣下的同步資料僅用於提供「跨裝置一致性」與「資料備份及還原」服務。
+- **商業化隔離**：本項目承諾，**絕不**將閣下的同步資料、標記習慣或瀏覽紀錄出售予任何第三方，亦**絕不**用於精準廣告投放。
+
+---
+
+## 六、閣下的權利與控制方式
+
+閣下對自身的 Cookie 及本機資料擁有絕對的控制權：
+
+1. **停止雲端同步**：只需執行登出操作，閣下的狀態將變回「未登入」模式，所有後續產生的本機資料將停止上傳至伺服器。
+2. **清除本機資料**：
+   - 登入狀態下：閣下於網頁端刪除某個標記，該操作將同步至伺服器。
+   - 徹底清空：閣下可透過瀏覽器的「設定 -> 私隱權和安全性 -> 清除瀏覽資料」選項，選擇清除本項目的所有 Cookie 及網站資料（此舉將同時重設閣下的所有本機偏好）。
+3. **瀏覽器級別的 Cookie 攔截**：閣下可透過瀏覽器設定拒絕所有第三方 Cookie，此舉不會影響閣下使用本項目的地圖瀏覽功能，但可能影響某些依賴第三方的統計功能。
+
+---
+
+## 七、關於第三方基礎設施 Cookie 的特別聲明
+
+本項目部署於 **Cloudflare** 全球內容傳遞網路（CDN）上。為防範惡意攻擊（如 DDoS）並加速網頁載入，Cloudflare 亦可能在閣下的瀏覽器中寫入特定的安全 Cookie（如前文提及的 `__cf_bm`）。
+
+此等 Cookie 是由基礎設施服務商自動管理的，目的在於驗證閣下為真實用戶而非惡意程式。**此等安全 Cookie 嚴格不包含閣下的個人身份識別資訊，且絕不用於任何形式的廣告或營銷追蹤。**
+
+---
+
+## 八、政策之修訂與通知
+
+隨著項目功能的更新或法律法規的變更，我們可能會不定期修訂本《Cookie 及本機儲存政策》。
+- 當發生涉及資料同步範圍擴大或 Cookie 核心用途變更的**重大修改**時，我們將透過網站頂部橫幅、系統公告或向閣下的註冊電郵發送郵件進行顯著通知。
+- 閣下在政策修訂後繼續使用本服務，即表示閣下已充分閱讀、理解並接受修訂後的政策內容。
+- 本政策頁面底部的 `lastUpdated` 欄位將始終顯示當前生效版本的最新修訂日期。

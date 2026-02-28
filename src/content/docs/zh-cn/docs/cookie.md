@@ -1,32 +1,125 @@
 ---
 title: Cookie 政策
-description: Cookie Policy for Open Endfield Map.
+description: Open Endfield Map Cookie 与本地数据同步政策。
 ---
 
-## 1. What Are Cookies
+# Cookie 与本地存储政策
 
-Cookies are small text files placed on your device when you visit a website. They help the site remember your preferences and usage patterns.
+欢迎访问 Open Endfield Map（以下简称“本项目”或“我们”）。我们深谙您的隐私和数据安全之重要性。本政策旨在详细说明我们在您访问和使用本网站时，如何使用 Cookie、本地存储技术（LocalStorage / IndexedDB）以及数据同步机制。
 
-## 2. Cookies We Use
+> **注意**：本政策系[《服务条款》](../tos)的补充文件，与[《隐私权政策》](../privacy)共同构成您使用本项目服务时的完整约束协议，具有同等效力。
 
-| Cookie | Purpose | Duration |
-|--------|---------|----------|
-| Session token | Authentication and session management | Session |
-| Theme preference | Remembers your light/dark mode choice | 1 year |
-| Locale preference | Remembers your language selection | 1 year |
+---
 
-## 3. Third-Party Cookies
+## 一、Cookie 与本地存储技术概述
 
-We use Cloudflare for CDN and security services. Cloudflare may set cookies for bot detection and performance optimization.
+为了提供顺畅、个性化且安全的地图交互体验，我们需要在您的设备上存储少量数据。我们主要依赖以下两种技术：
 
-## 4. Managing Cookies
+1. **Cookie**：是由网站发送并存储在您浏览器中的小型文本文件。它们通常用于识别您的设备、维持登录会话状态、提升安全性或记录您的基础访问偏好。
+2. **本地存储（LocalStorage / IndexedDB）**：这是现代浏览器提供的数据存储机制，允许我们在您的设备上保存比 Cookie 更大、结构更复杂的数据（如您在地图上标注的点位、图层筛选状态等）。
 
-You can disable cookies through your browser settings. Note that disabling session cookies may impair Service functionality.
+**登录前后的数据行为差异**
+我们将您的数据处理分为两种明确的状态：
+- **未登录时**：您的所有地图交互数据（如标记、偏好设置）仅保存在您的当前设备上，不会上传至我们的服务器。
+- **登录账户后**：为实现跨设备体验，我们会将您的本地数据与服务器进行同步。
 
-## 5. Changes to This Policy
+---
 
-We may update this Cookie Policy periodically. Continued use of the Service constitutes acceptance of the revised policy.
+## 二、我们为何使用这些技术
 
-## 6. Contact
+我们使用 Cookie 及相关存储技术的目的分为以下四大类，每一类都对保障和提升您的使用体验至关重要：
 
-For questions about this Cookie Policy, please open an issue on our public repository.
+1. **维持网站核心功能（必要性操作）**
+   - **会话维护**：确保您在登录后浏览不同页面时保持登录状态，无需重复验证。
+   - **安全防御**：生成并验证 XSRF-TOKEN，防止跨站请求伪造（CSRF）等恶意攻击，保障您的账户安全。
+   - **API 校验**：确保所有发往服务器的数据请求均来自合法且经过授权的客户端。
+
+2. **提升性能与用户体验（功能性操作）**
+   - **状态记忆**：记住您的界面偏好（如暗黑模式/明亮模式）、语言选择以及上一次离开时的地图层级与坐标。
+   - **资源优化**：缓存部分静态资源或数据索引，大幅缩短地图和图鉴的加载时间。
+
+3. **安全与合规保障**
+   - **异常流量检测**：识别并拦截自动化脚本（Bot）、DDoS 攻击等异常访问，维护平台整体稳定性。
+   - **合规审计**：在发生安全事件时，提供必要的基础日志支持。
+
+4. **分析与服务改进（分析性操作）**
+   - **匿名统计**：通过去标识化的方式，了解用户最常访问的地图区域或使用的功能，帮助我们决定后续版本的开发优先级。
+
+---
+
+## 三、Cookie 分类与明细列表
+
+以下是我们目前使用的主要 Cookie 类型及其具体用途：
+
+| 类型 | 示例 Cookie | 用途说明 | 提供方 | 有效期 |
+| --- | --- | --- | --- | --- |
+| **必要性 Cookie** | `__cf_bm` / `XSRF-TOKEN` / `Session` | **无法禁用**。用于登录状态维护、CSRF 安全防护以及 Cloudflare 提供的机器人检测与拦截。 | Cloudflare / 本项目 | 30 分钟至会话期结束 |
+| **性能与功能性** | `_cfuvid` | 帮助识别可信流量，限制访问频率以保护服务器性能。 | Cloudflare | 会话期 |
+| **分析与定制** | `s7` | 收集网站浏览数据、点击事件等去标识化信息，用于生成网站流量报告和性能优化。 | Adobe Analytics | 2 小时至 11 个月不等 |
+| **未分类 Cookie** | （随机字符串，如 `qzld...`） | 正在进行分类或处于测试阶段的内部标识符，不对用户隐私构成额外风险。 | 本项目 | 2 小时或更短 |
+
+> **注意**：必要性 Cookie 是维持网站正常运行所不可或缺的。如果您通过浏览器强制禁用这些 Cookie，您将无法登录账户，且地图的部分核心交互功能将失效。
+
+---
+
+## 四、未登录状态：本地存储（Local Storage）机制
+
+在您未登录时，作为交互式地图产生的大量数据将完全保留在您的前端设备中。我们通过 LocalStorage 和 IndexedDB 在您的设备上存储以下信息：
+
+- **地图状态**：当前的缩放层级（Zoom Level）、中心坐标（Center Coordinates）及视图边界。
+- **内容过滤**：图层（Layers）的显示/隐藏状态、筛选器的选中条件。
+- **用户生产内容（UGC）**：您个人的自定义标记、收藏点、路线规划等。
+- **界面偏好**：侧边栏展开/折叠状态、主题颜色等 UI 设置。
+- **缓存数据**：临时导入的数据包或用于加速渲染的地图瓦片索引。
+
+> **隐私提示**：未登录时，上述数据绝对不会离开您的设备。您只需清除浏览器的网站数据或缓存，即可彻底销毁这些信息。
+
+---
+
+## 五、登录状态：数据同步与云端备份
+
+当您主动注册并登录 Open Endfield Map 账户时，为了防止您的数据丢失并允许您在不同设备（如手机和电脑）上无缝切换，我们将启动数据同步服务。
+
+**1. 同步范围**
+- 用户生成的标记和点位数据
+- 图层设置与自定义过滤方案
+- UI 偏好设置
+- 地图内容编辑或纠错记录
+
+**2. 同步基础设施与安全性**
+我们将您的数据通过加密通道（HTTPS/TLS）传输，并安全地存储于以下云服务中：
+- **Upstash Serverless Redis**：用于高频读取的缓存及快速状态同步。
+- **Cloudflare D1 Database**：用于核心结构化数据的持久化安全存储。
+
+**3. 数据用途严格限制**
+- **仅限服务提供**：您的同步数据仅用于提供“跨设备一致性”与“数据备份与恢复”服务。
+- **商业化隔离**：本项目承诺，**绝不**将您的同步数据、标记习惯或浏览记录出售给任何第三方，也**绝不**用于精准广告投放。
+
+---
+
+## 六、您的权利与控制方式
+
+您对自己的 Cookie 和本地数据拥有绝对的控制权：
+
+1. **停止云端同步**：只需执行登出操作，您的状态将退回“未登录”模式，所有后续产生的本地数据将停止上传至服务器。
+2. **清除本地数据**：
+   - 登录状态下：您在网页端删除某个标记，该操作将同步至服务器。
+   - 彻底清空：您可以通过浏览器的“设置 -> 隐私和安全 -> 清除浏览数据”选项，选择清除本项目的所有 Cookie 及网站数据（这将同时重置您的所有本地偏好）。
+3. **浏览器级别的 Cookie 拦截**：您可以通过浏览器设置拒绝所有第三方 Cookie，这不会影响您使用本项目的地图浏览功能，但可能影响某些依赖第三方的统计功能。
+
+---
+
+## 七、关于第三方基础设施 Cookie 的特别说明
+
+本项目部署于 **Cloudflare** 全球内容分发网络（CDN）上。为了防范恶意攻击（如 DDoS）并加速网页加载，Cloudflare 可能会在您的浏览器中注入特定的安全 Cookie（如前文提到的 `__cf_bm`）。
+
+这些 Cookie 是由基础设施提供商自动管理的，目的是验证您是真实用户而非恶意程序。**这些安全 Cookie 严格不包含您的个人身份信息，且绝不用于任何形式的广告或营销追踪。**
+
+---
+
+## 八、政策的修订与通知
+
+随着项目功能的迭代或法律法规的变化，我们可能会不定期更新本《Cookie 与本地存储政策》。
+- 当发生涉及数据同步范围扩大或 Cookie 核心用途变更的**重大修改**时，我们将通过网站顶部横幅、系统公告或向您的注册邮箱发送邮件进行显著通知。
+- 您在政策更新后继续使用本服务，即表示您已充分阅读、理解并接受修订后的政策内容。
+- 本政策页面底部的 `lastUpdated` 字段始终显示当前生效版本的最新修订日期。
