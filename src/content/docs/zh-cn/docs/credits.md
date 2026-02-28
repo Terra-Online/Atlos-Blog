@@ -1,9 +1,7 @@
 ---
-title: 致谢
+title: 内容来源
 description: Open Endfield Map 项目的致谢和鸣谢。
 ---
-
-> **本页面为占位页面。**
 
 ## 基础设施
 
