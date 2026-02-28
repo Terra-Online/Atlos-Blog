@@ -1,7 +1,6 @@
 ---
 title: "Dev Log #1 — Project Kickoff"
 description: First development log entry for the Open Endfield Map project.
-lastUpdated: 2026-02-22
 ---
 
 > **This is a sample article placeholder.**

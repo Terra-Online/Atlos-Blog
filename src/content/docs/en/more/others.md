@@ -1,7 +1,6 @@
 ---
 title: Others
 description: Miscellaneous information about the Open Endfield Map project.
-lastUpdated: 2026-02-22
 ---
 
 > **This page is a placeholder.**

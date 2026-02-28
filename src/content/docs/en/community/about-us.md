@@ -1,7 +1,6 @@
 ---
 title: About Us
 description: Learn about the Open Endfield Map project and the team behind it.
-lastUpdated: 2026-02-22
 ---
 
 > **This page is a placeholder.**

@@ -1,7 +1,6 @@
 ---
 title: Terms of Service
 description: The Terms of Service for Open Endfield Map.
-lastUpdated: 2026-02-27
 ---
 
 > **This document is a placeholder and is subject to change.**  

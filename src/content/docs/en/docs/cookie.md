@@ -1,7 +1,6 @@
 ---
 title: Cookie Policy
 description: Cookie Policy for Open Endfield Map.
-lastUpdated: 2026-02-22
 ---
 
 > **This document is a placeholder and is subject to change.**

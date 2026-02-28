@@ -1,7 +1,6 @@
 ---
 title: Cookie 政策
 description: Cookie Policy for Open Endfield Map.
-lastUpdated: 2026-02-28
 ---
 
 ## 1. What Are Cookies

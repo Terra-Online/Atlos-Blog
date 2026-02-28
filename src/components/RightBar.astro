@@ -2,30 +2,55 @@
 /**
  * RightBar.astro — Right sidebar: document metadata.
  *
- * gitLastUpdated / gitAuthors are injected at build time
- * by the remark-git-meta plugin reading live Git history.
+ * Last-updated: Starlight reads git log automatically when
+ *   `lastUpdated: true` is set in astro.config.mjs and the file
+ *   frontmatter has no `lastUpdated` field — result exposed as
+ *   `route.lastUpdated` (a proper Date in UTC, no timezone skew).
+ *
+ * Authors: execSync runs once per page during SSG build.
+ *   Remark-plugin frontmatter injection cannot write into
+ *   entry.data in Astro v5's Content Layer, so we run git here.
  *
  * Icons: astro-icon + @iconify-json/lucide
  */
-import { Icon } from 'astro-icon/components';
+import { execSync }  from 'node:child_process';
+import { join }      from 'node:path';
+import { existsSync } from 'node:fs';
+import { Icon }      from 'astro-icon/components';
 
 const route = Astro.locals.starlightRoute;
 const { locale, entry } = route;
 const isZh = locale === 'zh-cn';
 
-// ── Last-updated timestamp ────────────────────────────────────
-const gitIso = (entry.data as any).gitLastUpdated as string | undefined;
-const updateDate: Date = gitIso
-  ? new Date(gitIso)
-  : (route.lastUpdated ?? new Date());
+// ── Last-updated timestamp ─────────────────────────────────────────────
+// route.lastUpdated is populated by Starlight's git integration.
+// Fallback to build-time Date for uncommitted files.
+const updateDate: Date = route.lastUpdated ?? new Date();
 const isoTimestamp = updateDate.toISOString();
 
-// ── Authors ───────────────────────────────────────────────────
-const rawAuthors = (entry.data as any).gitAuthors as string[] | undefined;
-const authors: string[] =
-  rawAuthors && rawAuthors.length > 0
-    ? rawAuthors
-    : ['Open Endfield Map Team'];
+// ── Authors — direct git log at SSG build time ─────────────────────────
+// entry.id = locale-relative path WITHOUT extension in Astro v5 glob loader,
+// e.g. "en/docs/tos". Resolve the actual file by trying known extensions.
+const authors: string[] = (() => {
+  try {
+    const base = join(process.cwd(), 'src/content/docs', entry.id);
+    const filePath =
+      [base, `${base}.md`, `${base}.mdx`].find(existsSync) ?? base;
+    const raw = execSync(
+      `git log --format="%aN" -- "${filePath}"`,
+      { encoding: 'utf-8', timeout: 5000, stdio: ['pipe', 'pipe', 'pipe'] },
+    ).trim();
+    if (!raw) return ['Open Endfield Map Team'];
+    const seen = new Set<string>();
+    const unique: string[] = [];
+    for (const name of raw.split('\n').map((n) => n.trim()).filter(Boolean)) {
+      if (!seen.has(name)) { seen.add(name); unique.push(name); }
+    }
+    return unique.length > 0 ? unique : ['Open Endfield Map Team'];
+  } catch {
+    return ['Open Endfield Map Team'];
+  }
+})();
 
 // Detect GitHub-style handle (no spaces, not the fallback string)
 const isHandle = (s: string) =>

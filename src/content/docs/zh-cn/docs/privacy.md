@@ -1,7 +1,6 @@
 ---
 title: 隐私权政策
 description: Open Endfield Map 的隐私权政策。
-lastUpdated: 2026-02-28
 ---
 
 ## 一、引言与生效条款

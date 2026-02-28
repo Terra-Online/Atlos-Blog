@@ -1,7 +1,6 @@
 ---
 title: 致谢
 description: Open Endfield Map 项目的致谢和鸣谢。
-lastUpdated: 2026-02-22
 ---
 
 > **本页面为占位页面。**

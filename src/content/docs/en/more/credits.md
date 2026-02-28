@@ -1,7 +1,6 @@
 ---
 title: Credits
 description: Acknowledgements and credits for the Open Endfield Map project.
-lastUpdated: 2026-02-22
 ---
 
 > **This page is a placeholder.**

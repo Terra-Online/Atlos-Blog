@@ -2,14 +2,10 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import icon from 'astro-icon';
-import { remarkGitMeta } from './src/plugins/remark-git-meta.mjs';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://blog.opendfieldmap.org',
-  markdown: {
-    remarkPlugins: [remarkGitMeta],
-  },
   integrations: [
     icon({
       include: {

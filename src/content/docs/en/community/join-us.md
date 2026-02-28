@@ -1,7 +1,6 @@
 ---
 title: Join Us
 description: How to contribute to the Open Endfield Map project.
-lastUpdated: 2026-02-22
 ---
 
 > **This page is a placeholder.**
