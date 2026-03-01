@@ -166,3 +166,6 @@ html:not([data-theme-ready]) *::after {
   transition: none !important;
 }
 
+* {
+  scroll-behavior: smooth;
+}

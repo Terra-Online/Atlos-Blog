@@ -13,6 +13,7 @@
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
+    "date-fns": "^4.1.0",
     "fumadocs-core": "^14.0.0",
     "fumadocs-mdx": "^11.0.0",
     "fumadocs-ui": "^14.0.0",

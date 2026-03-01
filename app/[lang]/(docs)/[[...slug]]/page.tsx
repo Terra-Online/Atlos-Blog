@@ -5,6 +5,7 @@ import {
   DocsTitle,
   DocsDescription,
 } from 'fumadocs-ui/page';
+import { formatDistanceToNow } from 'date-fns';
 import { notFound } from 'next/navigation';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { type Metadata } from 'next';
@@ -27,10 +28,6 @@ function githubIdentity(email: string): GitHubIdentity | null {
     .replace(/^mailto:/i, '')
     .toLowerCase();
 
-  // GitHub noreply commonly appears as:
-  // - <id>+<username>@users.noreply.github.com
-  // - <username>@users.noreply.github.com
-  // It may also be wrapped in angle brackets or prefixed with mailto:.
   const noreply = normalized.match(/^(?:(\d+)\+)?([a-z0-9-]+(?:\[bot\])?)@users\.noreply\.github\.com$/i);
   if (noreply) {
     return {
@@ -39,7 +36,6 @@ function githubIdentity(email: string): GitHubIdentity | null {
     };
   }
 
-  // Fallback for unexpected wrappers: extract address first, then retry.
   const extracted = normalized.match(/([a-z0-9._%+-]+@users\.noreply\.github\.com)/i);
   if (extracted) {
     const retry = extracted[1].match(/^(?:(\d+)\+)?([a-z0-9-]+(?:\[bot\])?)@users\.noreply\.github\.com$/i);
@@ -61,7 +57,7 @@ function AuthorChip({ author }: { author: GitAuthor }) {
     ? `https://avatars.githubusercontent.com/u/${identity.userId}?v=4&s=96`
     : identity?.username
       ? `https://github.com/${identity.username}.png?size=96`
-    : 'https://github.com/ghost.png?size=96';
+      : 'https://github.com/ghost.png?size=96';
 
   const inner = (
     <span className="inline-flex items-center gap-1.5">
@@ -109,26 +105,32 @@ export default async function Page(props: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const gitAuthors = (page.data as any).gitAuthors as GitAuthor[] | undefined;
   const lastModified = page.data.lastModified;
+  const lastModifiedDate = lastModified ? new Date(lastModified) : null;
+  const hasValidLastModified = !!lastModifiedDate && !Number.isNaN(lastModifiedDate.getTime());
+  const lastModifiedAgo = hasValidLastModified
+    ? formatDistanceToNow(lastModifiedDate, { addSuffix: true })
+    : null;
 
   return (
     <DocsPage
       toc={page.data.toc}
       tableOfContent={{ style: 'clerk' }}
-      lastUpdate={lastModified}
+      lastUpdate={hasValidLastModified ? lastModifiedDate : undefined}
       full={page.data.full}
     >
-      <DocsTitle>{page.data.title}</DocsTitle>
+      <DocsTitle className="mb-3">{page.data.title}</DocsTitle>
       <DocsDescription className="mb-3">{page.data.description}</DocsDescription>
-      {(gitAuthors && gitAuthors.length > 0) || lastModified ? (
-        <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-fd-border pb-4 text-xs text-fd-muted-foreground">
+      {(gitAuthors && gitAuthors.length > 0) || lastModifiedAgo ? (
+        <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 gap-1 border-b border-fd-border pb-4 text-xs text-fd-muted-foreground">
           {gitAuthors && gitAuthors.length > 0 && (
             <div className="flex flex-wrap items-center gap-1.5">
-              <span className="mr-1 opacity-70">Author(s):</span>
+              <span className="mr-1 opacity-70">By</span>
               {gitAuthors.map((a) => (
                 <AuthorChip key={a.email} author={a} />
               ))}
             </div>
           )}
+          {lastModifiedAgo && <span>{lastModifiedAgo}.</span>}
         </div>
       ) : null}
       <DocsBody>
