@@ -1,0 +1,26 @@
+// ── Blockquote overrides ────────────────────────────────────────────────────
+// fumadocs-ui (via @tailwindcss/typography) applies italic font-style and
+// injects open/close-quote pseudo-content on blockquote paragraphs.
+// The source rules use :where(), giving them 0 specificity, so a single
+// class selector is sufficient to win without !important.
+
+.prose {
+  // 1. Remove italic from all content inside blockquotes
+  blockquote,
+  blockquote * {
+    font-style: normal;
+  }
+
+  // 2. Kill the CSS `quotes` property so open-quote / close-quote resolve to ""
+  blockquote {
+    quotes: none;
+  }
+
+  // 3. Remove the auto-injected opening and closing quotation marks
+  blockquote {
+    p:first-of-type::before,
+    p:last-of-type::after {
+      content: none;
+    }
+  }
+}

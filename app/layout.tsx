@@ -1,4 +1,5 @@
-import './global.css';
+import './global.scss';
+import './overrides.scss';
 import { RootProvider } from 'fumadocs-ui/provider';
 import { Inter, Montserrat, M_PLUS_2 } from 'next/font/google';
 import type { ReactNode } from 'react';
@@ -20,7 +21,7 @@ const montserrat = Montserrat({
   display: 'swap',
 });
 
-/** M PLUS 2 — latin only via next/font; CJK loaded via Google Fonts CDN in global.css */
+/** M PLUS 2 — latin only via next/font; CJK loaded via Google Fonts CDN in global.scss */
 const mPlus2 = M_PLUS_2({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
