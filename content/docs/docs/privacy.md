@@ -82,7 +82,7 @@ This Project strictly limits the abuse of Cookies, utilizing such technologies o
 
 * **Strictly Necessary Cookies**: Used to maintain your login session and defend against Cross-Site Request Forgery (CSRF) attacks.
 * **Functional Local Storage**: We prioritize the use of HTML5 Web Storage (`LocalStorage` / `IndexedDB`) to save your dark mode preferences, map view zoom levels, and local markers.
-* **Management Choices**: You may clear or disable Cookies and local storage at any time via your browser settings. Please note that disabling these features may compel you to reconfigure preferences or render you unable to use features like account synchronization. For more details, please see our [Cookie Policy](../cookie).
+* **Management Choices**: You may clear or disable Cookies and local storage at any time via your browser settings. Please note that disabling these features may compel you to reconfigure preferences or render you unable to use features like account synchronization. For more details, please see our [Cookie Policy](./cookie).
 
 ---
 

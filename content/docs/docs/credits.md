@@ -20,7 +20,7 @@ We provide interactive features on the map, such as markers and third-person per
 2. **Ownership and Licensing**: You retain ownership of your original content. However, by submitting UGC, you grant this Project a worldwide, royalty-free, non-exclusive, and perpetual license to use, store, display, or modify your content within the scope of providing and optimizing map services. If you upload any public content, you agree that other users may access and reasonably use such content.
 3. **Content Restrictions and Code of Conduct**: You must take full responsibility for all UGC generated under your account. It is strictly prohibited to submit content that infringes upon third-party intellectual property rights, violates laws and regulations, contains malicious code, posts spam advertisements, or deliberately uploads incorrect images to mislead others.
 4. **Moderation and Disclaimer**: This Project makes no guarantees regarding the accuracy or legality of UGC. We reserve the right to modify, hide, or permanently delete any violating content at our sole discretion without prior notice, and we shall not be held liable for any disputes or data loss resulting from user content. If you provide improvement suggestions (Feedback), we reserve the right to use this feedback free of charge and without restriction to optimize the Project.
-> **Note**: For the complete terms and restrictions regarding UGC, please refer to the [UGC Content Declaration](../ugc).
+> **Note**: For the complete terms and restrictions regarding UGC, please refer to the [UGC Content Declaration](./ugc).
 ---
 ## Infrastructure and Platform Support
 

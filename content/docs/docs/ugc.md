@@ -5,7 +5,7 @@ description: User-Generated Content Agreement and Guidelines for Open Endfield M
 
 Welcome to **Open Endfield Map** (hereinafter referred to as "we", "this Project", or "OEM"). We permit registered users to upload third-person perspective screenshots to facilitate better utilization of map features by the entire user base. This *UGC Content Statement* is designed to maintain a healthy community environment and safeguard the secure and compliant operation of the project.
 
-**Please read this statement carefully. By creating, uploading, or synchronizing any content within this Project, you signify that you have fully read, understood, and agreed to be bound by the entirety of this statement.** This statement serves as an effective supplementary component to the Project's [Terms of Service](../tos), [Privacy Policy](../privacy), and [Content Sources](../credits), and carries equal legal force.
+**Please read this statement carefully. By creating, uploading, or synchronizing any content within this Project, you signify that you have fully read, understood, and agreed to be bound by the entirety of this statement.** This statement serves as an effective supplementary component to the Project's [Terms of Service](./tos), [Privacy Policy](./privacy), and [Content Sources](./credits), and carries equal legal force.
 
 ## Protocol Overview and UGC Definition
 
@@ -41,7 +41,7 @@ You must assume full responsibility for all UGC generated under your account. Yo
 
 ## Data Storage and Synchronization Mechanisms
 
-In alignment with this Project's "Local-First" design and [Cookie Policy](../cookie), the storage of your UGC data will vary according to your login status:
+In alignment with this Project's "Local-First" design and [Cookie Policy](./cookie), the storage of your UGC data will vary according to your login status:
 
 * **Logged Out State**: Your UGC data (such as custom markers, preference settings) is stored exclusively in the local storage (`LocalStorage` / `IndexedDB`) of your current device and will never leave your device.
 * **Logged In State**: Your UGC data will be transmitted via strongly encrypted channels and synchronized into our **Upstash** (Serverless Redis) and **Cloudflare D1 Database** infrastructure to achieve cross-device consistency. This Project pledges that it will never use your synchronized data for commercial sale or advertising tracking.

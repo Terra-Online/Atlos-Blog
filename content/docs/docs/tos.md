@@ -10,7 +10,7 @@ description: Terms of Service for users of Open Endfield Map.
 - **User**: Refers to any individual or organization accessing and/or utilizing this Project.
 - **User Account**: Refers to the exclusive digital credentials registered and owned by a user to utilize advanced features of this Project (such as cloud data synchronization, cross-device access, etc.).
 
-> **Note:** For detailed information on this Project's privacy data collection standards, Cookie usage instructions, API usage regulations, and content source attributions, please refer to the separate [Privacy Policy](../privacy), [Cookie Policy](../cookie), [API Terms of Use](../api-terms), and [Content Sources](../credits). Acceptance of these Terms of Service shall be deemed as your concurrent acknowledgement and agreement to the aforementioned supplementary policies.
+> **Note:** For detailed information on this Project's privacy data collection standards, Cookie usage instructions, API usage regulations, and content source attributions, please refer to the separate [Privacy Policy](./privacy), [Cookie Policy](./cookie), [API Terms of Use](./api-terms), and [Content Sources](./credits). Acceptance of these Terms of Service shall be deemed as your concurrent acknowledgement and agreement to the aforementioned supplementary policies.
 
 ---
 

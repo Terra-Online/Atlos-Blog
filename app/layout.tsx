@@ -24,6 +24,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Mark the html element as ready once JS runs, enabling theme transitions */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.setAttribute('data-theme-ready','')`,
+          }}
+        />
+      </head>
       <body>
         <RootProvider>
           {children}

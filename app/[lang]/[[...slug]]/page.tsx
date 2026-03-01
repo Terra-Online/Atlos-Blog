@@ -9,6 +9,61 @@ import { notFound } from 'next/navigation';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { type Metadata } from 'next';
 
+interface GitAuthor {
+  name: string;
+  email: string;
+}
+
+/** Derive a probable GitHub username from the git email. */
+function githubUsername(email: string): string | null {
+  // GitHub noreply: <id>+<username>@users.noreply.github.com
+  const noreply = email.match(/^(?:\d+\+)?([^@]+)@users\.noreply\.github\.com$/i);
+  if (noreply) return noreply[1];
+  return null;
+}
+
+function AuthorChip({ author }: { author: GitAuthor }) {
+  const username = githubUsername(author.email);
+  const href = username ? `https://github.com/${username}` : undefined;
+  const avatarSrc = username
+    ? `https://github.com/${username}.png?size=32`
+    : `https://www.gravatar.com/avatar/${author.email}?s=32&d=identicon`;
+
+  const inner = (
+    <span className="inline-flex items-center gap-1.5">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={avatarSrc}
+        alt={author.name}
+        width={18}
+        height={18}
+        className="rounded-full"
+        loading="lazy"
+      />
+      <span>{author.name}</span>
+    </span>
+  );
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer noopener"
+        className="inline-flex items-center gap-1 rounded-md border border-fd-border bg-fd-card px-2 py-0.5 text-xs text-fd-muted-foreground transition-colors hover:bg-fd-accent hover:text-fd-accent-foreground"
+      >
+        {inner}
+      </a>
+    );
+  }
+
+  return (
+    <span className="inline-flex items-center gap-1 rounded-md border border-fd-border bg-fd-card px-2 py-0.5 text-xs text-fd-muted-foreground">
+      {inner}
+    </span>
+  );
+}
+
 export default async function Page(props: {
   params: Promise<{ lang: string; slug?: string[] }>;
 }) {
@@ -18,21 +73,41 @@ export default async function Page(props: {
 
   const MDX = page.data.body;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const gitAuthors = (page.data as any).gitAuthors as string[] | undefined;
+  const gitAuthors = (page.data as any).gitAuthors as GitAuthor[] | undefined;
+  const lastModified = page.data.lastModified;
 
   return (
     <DocsPage
       toc={page.data.toc}
-      lastUpdate={page.data.lastModified}
+      lastUpdate={lastModified}
       full={page.data.full}
     >
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
-      {gitAuthors && gitAuthors.length > 0 && (
-        <div className="mb-4 text-sm text-fd-muted-foreground">
-          Authors: {gitAuthors.join(', ')}
+      {(gitAuthors && gitAuthors.length > 0) || lastModified ? (
+        <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-fd-border pb-4 text-xs text-fd-muted-foreground">
+          {gitAuthors && gitAuthors.length > 0 && (
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="mr-1 opacity-70">Author(s):</span>
+              {gitAuthors.map((a) => (
+                <AuthorChip key={a.email} author={a} />
+              ))}
+            </div>
+          )}
+          {lastModified && (
+            <div className="ml-auto flex items-center gap-1">
+              <span className="opacity-70">Last updated:</span>
+              <time dateTime={new Date(lastModified).toISOString()}>
+                {new Date(lastModified).toLocaleDateString(undefined, {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric',
+                })}
+              </time>
+            </div>
+          )}
         </div>
-      )}
+      ) : null}
       <DocsBody>
         <MDX components={{ ...defaultMdxComponents }} />
       </DocsBody>

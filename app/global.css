@@ -29,3 +29,21 @@
   --font-sans: 'HarmonyOS Sans', 'HarmonyOS Sans SC', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'M PLUS 1 Code 60', ui-monospace, SFMono-Regular, monospace;
 }
+
+/* Smooth light/dark theme transition */
+*,
+*::before,
+*::after {
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Suppress transitions during initial page load (before JS hydrates) */
+html:not([data-theme-ready]) *,
+html:not([data-theme-ready]) *::before,
+html:not([data-theme-ready]) *::after {
+  transition: none !important;
+}

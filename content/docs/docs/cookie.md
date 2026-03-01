@@ -5,7 +5,7 @@ description: Open Endfield Map Cookie and Local Data Synchronization Policy.
 
 Welcome to **Open Endfield Map** (hereinafter referred to as "we", "this Project", or "OEM"). We deeply understand the importance of your privacy and data security. This policy is intended to detail how we utilize Cookies, local storage technologies (LocalStorage / IndexedDB), and data synchronization mechanisms when you access and use this website.
 
-> **Note**: This policy acts as a supplementary document to the [Terms of Service](../tos) and, together with the [Privacy Policy](../privacy), constitutes the complete binding agreement governing your use of this Project's services, holding equal legal force.
+> **Note**: This policy acts as a supplementary document to the [Terms of Service](./tos) and, together with the [Privacy Policy](./privacy), constitutes the complete binding agreement governing your use of this Project's services, holding equal legal force.
 
 ---
 
