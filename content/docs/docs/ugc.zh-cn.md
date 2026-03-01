@@ -59,5 +59,5 @@ description: 终末地地图集 (Open Endfield Map) 用户生成内容协议及�
 如对本声明有任何疑问，或需要报告违规的 UGC 内容，请通过以下方式联系我们：
 
 * **支持与合规团队邮箱**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
-* **项目开源代码仓库**：[Atlos on Github](https://github.com/Terra-Online/Atlos)
+* **项目开源代码仓库**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)
 * **Discord 玩家社区**：[Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)

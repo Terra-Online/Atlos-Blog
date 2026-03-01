@@ -122,5 +122,5 @@ Open Endfield Mapアカウントに自発的に登録してログインすると
 本声明に関するご質問、または本プロジェクトのCookie使用に関してご意見がある場合は、以下の方法で当社までご連絡ください。
 
 * **サポートおよびコンプライアンスチームのメールアドレス**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
-* **プロジェクトのオープンソースコードリポジトリ**：[Atlos on Github](https://github.com/Terra-Online/Atlos)
+* **プロジェクトのオープンソースコードリポジトリ**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)
 * **Discordプレイヤーコミュニティ**：[Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)

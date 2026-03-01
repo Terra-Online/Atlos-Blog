@@ -73,5 +73,5 @@ As the project iterates and laws and regulations change, we may modify this stat
 If you have any questions regarding this statement, or require API technical support or commercial authorization applications, please contact us via the following methods:
 
 * **Support and Compliance Team Email**: [support@opendfieldmap.org](mailto:support@opendfieldmap.org)
-* **Project Open Source Code Repository**: [Atlos on Github](https://github.com/Terra-Online/Atlos)
+* **Project Open Source Code Repository**: [Atlos on GitHub](https://github.com/Terra-Online/Atlos)
 * **Discord Player Community**: [Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)

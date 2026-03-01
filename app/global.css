@@ -29,42 +29,23 @@
   font-display: swap;
 }
 
-/* ── Color Palette
- *
- * Mapped from the project's design tokens to fumadocs HSL variables.
- * Format is "H S% L%" (no hsl() wrapper — fumadocs uses hsl(var(--fd-x)/α)).
- *
- * Light token reference:
- *   background  → $light-1    rgb(242,242,235)
- *   foreground  → $black-1    rgb(32,32,32)
- *   border      → $white-2    rgb(228,228,228)
- *   muted-fg    → $dim-1      rgb(108,113,115)
- *   primary     → $primary-accent-7  rgb(189,29,32)   deep red
- *
- * Dark token reference:
- *   background  → dark neutral rgb(23,23,21)
- *   foreground  → $white-1    rgb(252,252,252)
- *   muted-fg    → $dim-2      rgb(144,154,158)
- *   primary     → $primary-accent-3  rgb(255,229,36)  golden yellow
- * ──────────────────────────────────────────────────────────────────────────── */
-
 :root {
-  --fd-background:           60 21% 94%;   /* $light-1  */
+  --fd-background:           0  0% 98.8%;   /* $light-1  */
   --fd-foreground:            0  0% 13%;   /* $black-1  */
   --fd-muted:                60  8% 91%;   /* warm light grey */
   --fd-muted-foreground:    198  3% 44%;   /* $dim-1    */
   --fd-popover:               0  0% 100%;  /* $white-0  */
   --fd-popover-foreground:    0  0% 13%;
-  --fd-card:                  0  0% 98.8%; /* $white-1  */
+  --fd-card:                 60, 15.4%, 93.5%;  /* $white-1  */
   --fd-card-foreground:       0  0% 13%;
   --fd-border:                0  0% 88%;   /* $white-2  */
-  --fd-primary:             359 73% 43%;   /* $primary-accent-7 deep red */
+  --fd-primary:             10 64.4% 56.3%;   /* $primary-accent-7 deep red */
   --fd-primary-foreground:    0  0% 98%;
   --fd-secondary:            60  5% 91%;
   --fd-secondary-foreground:  0  0% 13%;
-  --fd-accent:               44 80% 94%;   /* light amber tint on hover */
-  --fd-accent-foreground:   359 60% 35%;   /* dark red on amber */
-  --fd-ring:                359 73% 43%;
+  --fd-accent:               0 0% 0% 0;   /* light amber tint on hover */
+  --fd-accent-foreground:   10 64.4% 56.3%;   /* dark red on amber */
+  --fd-ring:                10 64.4% 56.3%;
 }
 
 .dark {
@@ -77,13 +58,13 @@
   --fd-card:                  0  0% 12%;
   --fd-card-foreground:       0  0% 91%;
   --fd-border:                0  0% 20%;
-  --fd-primary:              53 100% 57%;  /* $primary-accent-3 golden yellow */
+  --fd-primary:              38 100% 57.8%;  /* $primary-accent-3 golden yellow */
   --fd-primary-foreground:    0  0%  9%;   /* dark text on yellow */
   --fd-secondary:             0  0% 15%;
   --fd-secondary-foreground:  0  0% 90%;
   --fd-accent:               44 20% 18%;   /* dark amber tint */
-  --fd-accent-foreground:    44 90% 70%;   /* light amber on dark bg */
-  --fd-ring:                 53 100% 57%;
+  --fd-accent-foreground:    38 100% 57.8%;   /* light amber on dark bg */
+  --fd-ring:                 38 100% 57.8%;
 }
 
 /* ── Font Application ─────────────────────────────────────────────────────── *
@@ -168,4 +149,12 @@ html:not([data-theme-ready]) *::after {
 
 * {
   scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: hsl(var(--fd-primary) / 0.5);
+}
+
+h2 a {
+  color: hsl(var(--fd-primary));
 }

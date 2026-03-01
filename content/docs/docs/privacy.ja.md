@@ -119,5 +119,5 @@ description: Open Endfield Mapのプライバシーポリシー。
 本プライバシーポリシーに関するご質問、または当社のデータ処理の運用に関する疑問、ご提案、または苦情がある場合は、以下の方法で当社までご連絡ください。
 
 * **サポートおよびプライバシーチームのメールアドレス**：[privacy@opendfieldmap.org](mailto:privacy@opendfieldmap.org)
-* **プロジェクトのオープンソースコードリポジトリ**：[Atlos on Github](https://github.com/Terra-Online/Atlos)
+* **プロジェクトのオープンソースコードリポジトリ**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)
 * **Discordプレイヤーコミュニティ**：[Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)

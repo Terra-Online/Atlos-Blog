@@ -120,5 +120,5 @@ description: Open Endfield Map Cookie 及本機資料同步政策。
 隨著項目之迭代及適用法律法規之變更，我們可能不時修訂本聲明。任何重大變更（例如涉及數據同步範圍之擴大或 Cookie 核心用途之變更），將透過網站顯著位置公告或以關聯電郵方式通知閣下。閣下於修訂內容發布後繼續使用本項目之互動及同步服務，即視為閣下已接受經修訂之條款。
 
 * **支援與合規團隊電郵**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
-* **項目開源代碼倉庫**：[Atlos on Github](https://github.com/Terra-Online/Atlos)
+* **項目開源代碼倉庫**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)
 * **Discord 玩家社群**：[Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)

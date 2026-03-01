@@ -117,5 +117,5 @@ As the project iterates and laws and regulations change, we may modify this stat
 If you have any questions regarding this Privacy Policy, or have any inquiries, suggestions, or complaints concerning our data processing practices, please contact us via the following methods:
 
 * **Support and Privacy Team Email**: [privacy@opendfieldmap.org](mailto:privacy@opendfieldmap.org)
-* **Project Open Source Code Repository**: [Atlos on Github](https://github.com/Terra-Online/Atlos)
+* **Project Open Source Code Repository**: [Atlos on GitHub](https://github.com/Terra-Online/Atlos)
 * **Discord Player Community**: [Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)

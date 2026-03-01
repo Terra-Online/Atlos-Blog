@@ -116,5 +116,5 @@ description: Open Endfield Map 的隐私权政策。
 如您对本隐私权政策有任何疑问，或对我们的数据处理实践有任何疑问、建议或投诉，请通过以下方式联系我们：
 
 * **支持与隐私团队邮箱**：[privacy@opendfieldmap.org](mailto:privacy@opendfieldmap.org)
-* **项目开源代码仓库**：[Atlos on Github](https://github.com/Terra-Online/Atlos)
+* **项目开源代码仓库**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)
 * **Discord 玩家社区**：[Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)

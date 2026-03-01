@@ -72,5 +72,5 @@ OEMは、理由の如何を問わず（お客様が本規約に違反したと�
 本声明に関するご質問、またはAPIの技術サポートや商業ライセンス申請が必要な場合は、以下の方法で当社までご連絡ください。
 
 * **サポートおよびコンプライアンスチームのメールアドレス**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
-* **プロジェクトのオープンソースコードリポジトリ**：[Atlos on Github](https://github.com/Terra-Online/Atlos)
+* **プロジェクトのオープンソースコードリポジトリ**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)
 * **Discordプレイヤーコミュニティ**：[Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)

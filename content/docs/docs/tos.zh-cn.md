@@ -129,5 +129,5 @@ description: 终末地地图集 (Open Endfield Map) 用户使用条款。
 如对本声明有任何疑问，或需要咨询任何与使用条款有关的内容，请通过以下方式联系我们：
 
 * **支持与合规团队邮箱**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
-* **项目开源代码仓库**：[Atlos on Github](https://github.com/Terra-Online/Atlos)
+* **项目开源代码仓库**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)
 * **Discord 玩家社区**：[Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)

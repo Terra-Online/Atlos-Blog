@@ -59,5 +59,5 @@ description: 終末地地図（Open Endfield Map）のユーザー生成コン�
 本声明に関するご質問、または違反しているUGCコンテンツを報告する必要がある場合は、以下の方法で当社までご連絡ください。
 
 * **サポートおよびコンプライアンスチームのメールアドレス**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
-* **プロジェクトのオープンソースコードリポジトリ**：[Atlos on Github](https://github.com/Terra-Online/Atlos)
+* **プロジェクトのオープンソースコードリポジトリ**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)
 * **Discordプレイヤーコミュニティ**：[Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)

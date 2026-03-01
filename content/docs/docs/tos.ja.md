@@ -128,5 +128,5 @@ description: 終末地地図（Open Endfield Map）ユーザー利用規約。
 本声明に関するご質問、または利用規約に関連する内容の相談が必要な場合は、以下の方法で当社までご連絡ください。
 
 * **サポートおよびコンプライアンスチームのメールアドレス**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
-* **プロジェクトのオープンソースコードリポジトリ**：[Atlos on Github](https://github.com/Terra-Online/Atlos)
+* **プロジェクトのオープンソースコードリポジトリ**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)
 * **Discordプレイヤーコミュニティ**：[Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)

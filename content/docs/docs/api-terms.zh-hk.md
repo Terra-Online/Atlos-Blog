@@ -71,5 +71,5 @@ OEM 保留於任何時間、以任何理由（包括但不限於我們合理懷�
 如閣下對本聲明有任何疑問，或需要 API 技術支援或商業授權申請，請透過以下方式與我們聯絡：
 
 * **支援與合規團隊電郵**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
-* **項目開源代碼倉庫**：[Atlos on Github](https://github.com/Terra-Online/Atlos)
+* **項目開源代碼倉庫**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)
 * **Discord 玩家社群**：[Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)
