@@ -83,7 +83,7 @@ export default async function Page(props: {
       full={page.data.full}
     >
       <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
+      <DocsDescription className="mb-3">{page.data.description}</DocsDescription>
       {(gitAuthors && gitAuthors.length > 0) || lastModified ? (
         <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-fd-border pb-4 text-xs text-fd-muted-foreground">
           {gitAuthors && gitAuthors.length > 0 && (
@@ -92,18 +92,6 @@ export default async function Page(props: {
               {gitAuthors.map((a) => (
                 <AuthorChip key={a.email} author={a} />
               ))}
-            </div>
-          )}
-          {lastModified && (
-            <div className="ml-auto flex items-center gap-1">
-              <span className="opacity-70">Last updated:</span>
-              <time dateTime={new Date(lastModified).toISOString()}>
-                {new Date(lastModified).toLocaleDateString(undefined, {
-                  year: 'numeric',
-                  month: 'short',
-                  day: 'numeric',
-                })}
-              </time>
             </div>
           )}
         </div>

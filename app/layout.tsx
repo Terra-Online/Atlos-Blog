@@ -62,7 +62,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body>
-        <RootProvider theme={{ disableTransitionOnChange: false }}>
+        <RootProvider
+          search={{ options: { type: 'static' } }}
+          theme={{ disableTransitionOnChange: false }}
+        >
           {children}
         </RootProvider>
       </body>
