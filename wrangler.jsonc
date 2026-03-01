@@ -1,27 +1,28 @@
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"main": ".open-next/worker.js",
-	"name": "open-endfield-map-blog",
-	"compatibility_date": "2026-03-01",
-	"compatibility_flags": [
-		"nodejs_compat",
-		"global_fetch_strictly_public"
-	],
-	"assets": {
-		"directory": ".open-next/assets",
-		"binding": "ASSETS"
-	},
-	"services": [
-		{
-			// Self-reference service binding, the service name must match the worker name
-			// see https://opennext.js.org/cloudflare/caching
-			"binding": "WORKER_SELF_REFERENCE",
-			"service": "open-endfield-map-blog"
-		}
-	],
-	"images": {
-		// Enable image optimization
-		// see https://opennext.js.org/cloudflare/howtos/image
-		"binding": "IMAGES"
-	}
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "open-endfield-map-blog",
+  "compatibility_date": "2026-03-01",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public"
+  ],
+  "routes": [
+    {
+      "pattern": "blog.opendfieldmap.org/*",
+      "custom_domain": true
+    }
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      // Self-reference service binding — name must match the worker name above.
+      // See https://opennext.js.org/cloudflare/caching
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "open-endfield-map-blog"
+    }
+  ]
 }

@@ -31,10 +31,10 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build (Next.js → OpenNext → Cloudflare Worker)
-        run: pnpm run build:cloudflare
+        run: pnpm exec opennextjs-cloudflare build
 
       - name: Deploy to Cloudflare Workers
-        run: pnpm wrangler deploy
+        run: pnpm exec wrangler deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
