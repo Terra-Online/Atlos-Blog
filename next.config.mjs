@@ -3,13 +3,12 @@ import { createMDX } from 'fumadocs-mdx/next';
 const withMDX = createMDX();
 
 /** @type {import('next').NextConfig} */
-/** @type {import('next').NextConfig} */
 const config = {
-  output: 'export',
-  trailingSlash: true,
   images: {
-    unoptimized: true, // required for static export
+    unoptimized: true,
   },
 };
 
 export default withMDX(config);
+
+import('@opennextjs/cloudflare').then(m => m.initOpenNextCloudflareForDev());
