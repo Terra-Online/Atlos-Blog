@@ -1,0 +1,31 @@
+@import 'fumadocs-ui/style.css';
+
+@font-face {
+  font-family: 'HarmonyOS Sans';
+  src: url('/fonts/HarmonyOS_Sans/HMSans.woff2') format('woff2'),
+       url('/fonts/HarmonyOS_Sans/HMSans.woff') format('woff'),
+       url('/fonts/HarmonyOS_Sans/HMSans.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HarmonyOS Sans SC';
+  src: url('/fonts/HarmonyOS_Sans_SC/HMSans_SC.woff2') format('woff2'),
+       url('/fonts/HarmonyOS_Sans_SC/HMSans_SC.woff') format('woff'),
+       url('/fonts/HarmonyOS_Sans_SC/HMSans_SC.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'M PLUS 1 Code 60';
+  src: url('/fonts/MPlus1Code60/MplusCodeLatin60-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --font-sans: 'HarmonyOS Sans', 'HarmonyOS Sans SC', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'M PLUS 1 Code 60', ui-monospace, SFMono-Regular, monospace;
+}
