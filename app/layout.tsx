@@ -1,7 +1,32 @@
 import './global.css';
 import { RootProvider } from 'fumadocs-ui/provider';
+import { Inter, Montserrat, M_PLUS_2 } from 'next/font/google';
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
+
+/* ── Google Fonts ─────────────────────────────────────────────────────────── */
+
+/** English: Inter for Latin text */
+const inter = Inter({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+/** Latin glyphs inside CJK pages (zh-cn / zh-hk / ja) */
+const montserrat = Montserrat({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-montserrat',
+  display: 'swap',
+});
+
+/** M PLUS 2 — latin only via next/font; CJK loaded via Google Fonts CDN in global.css */
+const mPlus2 = M_PLUS_2({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-mplus2',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -23,9 +48,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${montserrat.variable} ${mPlus2.variable}`}
+    >
       <head>
-        {/* Mark the html element as ready once JS runs, enabling theme transitions */}
+        {/* Enable theme transitions after JS is ready to avoid FOUC flash */}
         <script
           dangerouslySetInnerHTML={{
             __html: `document.documentElement.setAttribute('data-theme-ready','')`,
@@ -33,10 +62,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body>
-        <RootProvider>
+        <RootProvider theme={{ disableTransitionOnChange: false }}>
           {children}
         </RootProvider>
       </body>
     </html>
   );
 }
+

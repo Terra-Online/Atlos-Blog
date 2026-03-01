@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
 import { I18nProvider } from 'fumadocs-ui/i18n';
 import { i18n, languageLabels } from '@/lib/i18n';
+import { LangSetter } from '@/app/components/LangSetter';
 
 export default async function LangDocsLayout({
   params,
@@ -25,6 +26,8 @@ export default async function LangDocsLayout({
         locale: l,
       }))}
     >
+      {/* Updates html[lang] client-side so per-language CSS font stacks apply */}
+      <LangSetter lang={lang} />
       <DocsLayout
         tree={tree}
         nav={{
@@ -37,3 +40,4 @@ export default async function LangDocsLayout({
     </I18nProvider>
   );
 }
+

@@ -1,4 +1,8 @@
 @import 'fumadocs-ui/style.css';
+/* M PLUS 2: Google Fonts CDN supplies all Unicode ranges (Latin + CJK + Japanese) */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@400;500;700&display=swap');
+
+/* ── Local Fonts ──────────────────────────────────────────────────────────── */
 
 @font-face {
   font-family: 'HarmonyOS Sans';
@@ -19,31 +23,146 @@
 }
 
 @font-face {
-  font-family: 'M PLUS 1 Code 60';
+  font-family: 'MPlus1Code60';
   src: url('/fonts/MPlus1Code60/MplusCodeLatin60-Regular.otf') format('opentype');
   font-weight: 400;
   font-display: swap;
 }
 
+/* ── Color Palette
+ *
+ * Mapped from the project's design tokens to fumadocs HSL variables.
+ * Format is "H S% L%" (no hsl() wrapper — fumadocs uses hsl(var(--fd-x)/α)).
+ *
+ * Light token reference:
+ *   background  → $light-1    rgb(242,242,235)
+ *   foreground  → $black-1    rgb(32,32,32)
+ *   border      → $white-2    rgb(228,228,228)
+ *   muted-fg    → $dim-1      rgb(108,113,115)
+ *   primary     → $primary-accent-7  rgb(189,29,32)   deep red
+ *
+ * Dark token reference:
+ *   background  → dark neutral rgb(23,23,21)
+ *   foreground  → $white-1    rgb(252,252,252)
+ *   muted-fg    → $dim-2      rgb(144,154,158)
+ *   primary     → $primary-accent-3  rgb(255,229,36)  golden yellow
+ * ──────────────────────────────────────────────────────────────────────────── */
+
 :root {
-  --font-sans: 'HarmonyOS Sans', 'HarmonyOS Sans SC', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'M PLUS 1 Code 60', ui-monospace, SFMono-Regular, monospace;
+  --fd-background:           60 21% 94%;   /* $light-1  */
+  --fd-foreground:            0  0% 13%;   /* $black-1  */
+  --fd-muted:                60  8% 91%;   /* warm light grey */
+  --fd-muted-foreground:    198  3% 44%;   /* $dim-1    */
+  --fd-popover:               0  0% 100%;  /* $white-0  */
+  --fd-popover-foreground:    0  0% 13%;
+  --fd-card:                  0  0% 98.8%; /* $white-1  */
+  --fd-card-foreground:       0  0% 13%;
+  --fd-border:                0  0% 88%;   /* $white-2  */
+  --fd-primary:             359 73% 43%;   /* $primary-accent-7 deep red */
+  --fd-primary-foreground:    0  0% 98%;
+  --fd-secondary:            60  5% 91%;
+  --fd-secondary-foreground:  0  0% 13%;
+  --fd-accent:               44 80% 94%;   /* light amber tint on hover */
+  --fd-accent-foreground:   359 60% 35%;   /* dark red on amber */
+  --fd-ring:                359 73% 43%;
 }
 
-/* Smooth light/dark theme transition */
+.dark {
+  --fd-background:            0  0%  9%;   /* near $black-1 */
+  --fd-foreground:            0  0% 91%;   /* near $white-1 */
+  --fd-muted:                 0  0% 14%;
+  --fd-muted-foreground:    198  7% 59%;   /* $dim-2    */
+  --fd-popover:               0  0% 11%;
+  --fd-popover-foreground:    0  0% 88%;
+  --fd-card:                  0  0% 12%;
+  --fd-card-foreground:       0  0% 91%;
+  --fd-border:                0  0% 20%;
+  --fd-primary:              53 100% 57%;  /* $primary-accent-3 golden yellow */
+  --fd-primary-foreground:    0  0%  9%;   /* dark text on yellow */
+  --fd-secondary:             0  0% 15%;
+  --fd-secondary-foreground:  0  0% 90%;
+  --fd-accent:               44 20% 18%;   /* dark amber tint */
+  --fd-accent-foreground:    44 90% 70%;   /* light amber on dark bg */
+  --fd-ring:                 53 100% 57%;
+}
+
+/* ── Font Application ─────────────────────────────────────────────────────── *
+ *
+ * Override fumadocs-ui's hardcoded `ui-sans-serif` body font.
+ * CSS variables --font-inter / --font-montserrat / --font-mplus2 are injected
+ * by next/font's className on <html> (see app/layout.tsx).
+ *
+ * Stack logic:
+ *   en      → Inter (Latin) → HarmonyOS Sans (CJK fallback)
+ *   zh-cn   → Montserrat (Latin glyphs) → HarmonyOS Sans SC (Simplified CJK)
+ *   zh-hk   → Montserrat (Latin glyphs) → M PLUS 2 (CJK + JP) → PingFang TC
+ *   ja      → Montserrat (Latin glyphs) → M PLUS 2 (Japanese) → Hiragino
+ * ──────────────────────────────────────────────────────────────────────────── */
+
+/* Default / English */
+html,
+html body {
+  font-family:
+    var(--font-inter),
+    'HarmonyOS Sans',
+    ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Simplified Chinese */
+html[lang='zh-cn'],
+html[lang='zh-cn'] body {
+  font-family:
+    var(--font-montserrat),
+    'HarmonyOS Sans SC',
+    'PingFang SC', 'Microsoft YaHei',
+    ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Traditional Chinese */
+html[lang='zh-hk'],
+html[lang='zh-hk'] body {
+  font-family:
+    var(--font-montserrat),
+    'M PLUS 2',
+    'PingFang TC', 'Microsoft JhengHei',
+    ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Japanese */
+html[lang='ja'],
+html[lang='ja'] body {
+  font-family:
+    var(--font-montserrat),
+    'M PLUS 2',
+    'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo',
+    ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Code / monospace */
+html code,
+html kbd,
+html pre {
+  font-family:
+    'MPlus1Code60',
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* ── Theme Transition ─────────────────────────────────────────────────────── */
+
 *,
 *::before,
 *::after {
   transition:
     background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease;
+    border-color     0.2s ease,
+    color            0.2s ease,
+    box-shadow       0.2s ease;
 }
 
-/* Suppress transitions during initial page load (before JS hydrates) */
+/* Suppress transitions on initial page load to avoid FOUC */
 html:not([data-theme-ready]) *,
 html:not([data-theme-ready]) *::before,
 html:not([data-theme-ready]) *::after {
   transition: none !important;
 }
+
