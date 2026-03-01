@@ -14,19 +14,53 @@ interface GitAuthor {
   email: string;
 }
 
-/** Derive a probable GitHub username from the git email. */
-function githubUsername(email: string): string | null {
-  // GitHub noreply: <id>+<username>@users.noreply.github.com
-  const noreply = email.match(/^(?:\d+\+)?([^@]+)@users\.noreply\.github\.com$/i);
-  if (noreply) return noreply[1];
+interface GitHubIdentity {
+  username: string;
+  userId?: string;
+}
+
+/** Derive a probable GitHub identity from the git email. */
+function githubIdentity(email: string): GitHubIdentity | null {
+  const normalized = email
+    .trim()
+    .replace(/^<|>$/g, '')
+    .replace(/^mailto:/i, '')
+    .toLowerCase();
+
+  // GitHub noreply commonly appears as:
+  // - <id>+<username>@users.noreply.github.com
+  // - <username>@users.noreply.github.com
+  // It may also be wrapped in angle brackets or prefixed with mailto:.
+  const noreply = normalized.match(/^(?:(\d+)\+)?([a-z0-9-]+(?:\[bot\])?)@users\.noreply\.github\.com$/i);
+  if (noreply) {
+    return {
+      userId: noreply[1] || undefined,
+      username: noreply[2],
+    };
+  }
+
+  // Fallback for unexpected wrappers: extract address first, then retry.
+  const extracted = normalized.match(/([a-z0-9._%+-]+@users\.noreply\.github\.com)/i);
+  if (extracted) {
+    const retry = extracted[1].match(/^(?:(\d+)\+)?([a-z0-9-]+(?:\[bot\])?)@users\.noreply\.github\.com$/i);
+    if (retry) {
+      return {
+        userId: retry[1] || undefined,
+        username: retry[2],
+      };
+    }
+  }
+
   return null;
 }
 
 function AuthorChip({ author }: { author: GitAuthor }) {
-  const username = githubUsername(author.email);
-  const href = username ? `https://github.com/${username}` : undefined;
-  const avatarSrc = username
-    ? `https://github.com/${username}.png?size=96`
+  const identity = githubIdentity(author.email);
+  const href = identity ? `https://github.com/${identity.username}` : undefined;
+  const avatarSrc = identity?.userId
+    ? `https://avatars.githubusercontent.com/u/${identity.userId}?v=4&s=96`
+    : identity?.username
+      ? `https://github.com/${identity.username}.png?size=96`
     : 'https://github.com/ghost.png?size=96';
 
   const inner = (
