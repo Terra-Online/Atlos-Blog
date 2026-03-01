@@ -26,8 +26,8 @@ function AuthorChip({ author }: { author: GitAuthor }) {
   const username = githubUsername(author.email);
   const href = username ? `https://github.com/${username}` : undefined;
   const avatarSrc = username
-    ? `https://github.com/${username}.png?size=32`
-    : `https://www.gravatar.com/avatar/${author.email}?s=32&d=identicon`;
+    ? `https://github.com/${username}.png?size=96`
+    : 'https://github.com/ghost.png?size=96';
 
   const inner = (
     <span className="inline-flex items-center gap-1.5">
@@ -35,8 +35,8 @@ function AuthorChip({ author }: { author: GitAuthor }) {
       <img
         src={avatarSrc}
         alt={author.name}
-        width={18}
-        height={18}
+        width={20}
+        height={20}
         className="rounded-full"
         loading="lazy"
       />
@@ -79,6 +79,7 @@ export default async function Page(props: {
   return (
     <DocsPage
       toc={page.data.toc}
+      tableOfContent={{ style: 'clerk' }}
       lastUpdate={lastModified}
       full={page.data.full}
     >
