@@ -9,7 +9,7 @@
   ],
   "routes": [
     {
-      "pattern": "blog.opendfieldmap.org/*",
+      "pattern": "blog.opendfieldmap.org",
       "custom_domain": true
     }
   ],
