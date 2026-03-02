@@ -24,3 +24,38 @@
     }
   }
 }
+
+@media (min-width: 1024px) {
+  #nd-nav {
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    width: 100%;
+    max-width: none;
+    transform: none;
+    border-radius: 0;
+  }
+
+  #nd-nav > nav {
+    padding-inline: 4rem;
+    height: 3.5rem;
+  }
+}
+
+#nd-nav a[aria-label='GitHub'],
+#nd-nav a[aria-label='Discord'],
+#nd-nav a[aria-label='Bluesky'] {
+  color: hsl(var(--fd-muted-foreground));
+  transition: color 0.2s ease;
+}
+
+#nd-nav a[aria-label='GitHub']:hover,
+#nd-nav a[aria-label='Discord']:hover,
+#nd-nav a[aria-label='Bluesky']:hover {
+  color: hsl(var(--fd-primary));
+}
+
+#nd-nav {
+  font-family: var(--font-geist), 'HarmonyOS Sans', 'HarmonyOS Sans SC', 'M PLUS 2', ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -.2px;
+}

@@ -5,6 +5,8 @@ out/
 .next/
 .open-next/
 
+_REF
+
 # Generated files
 .source/
 
