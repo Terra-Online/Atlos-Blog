@@ -3,19 +3,17 @@
 import React, { useEffect, useRef, useCallback, useState } from "react";
 import { LinearBlur } from "progressive-blur";
 
-// ── Config ─────────────────────────────────────────────────────────────────
 const IMAGES = [
-  "/home/bg/bg1.png",
-  "/home/bg/bg2.png",
-  "/home/bg/bg3.png",
-  "/home/bg/bg4.png",
-  "/home/bg/bg5.png",
-  "/home/bg/bg6.png",
+  "/home/bg/bg1.webp",
+  "/home/bg/bg2.webp",
+  "/home/bg/bg3.webp",
+  "/home/bg/bg4.webp",
+  "/home/bg/bg5.webp",
+  "/home/bg/bg6.webp",
 ];
 
-// ── Timing ────────────────────────────────────────────────────────────────
 /** ms each image is held before the next transition begins. */
-const DISPLAY_MS = 1000;
+const DISPLAY_MS = 30000;
 /** Total RAF-driven transition duration (ms). */
 const TRANSITION_MS = 7500;
 
@@ -141,31 +139,23 @@ function TextLines({ slideIndex }: { slideIndex: number }) {
   return (
     <>
       <p
+        className="hero-banner__title"
         style={{
-          fontFamily: SF_DISPLAY_FAMILY,
-          fontSize: "3.5rem",
-          fontWeight: 600,
-          lineHeight: 1.05,
           color: style.titleColor,
           mixBlendMode: resolveBlendMode(style.titleBlendMode),
           transition: colorTransition,
-          margin: 0,
-          letterSpacing: "-0.02em",
+          fontFamily: SF_DISPLAY_FAMILY,
         }}
       >
         Try Open Endfield Map
       </p>
       <p
+        className="hero-banner__subtitle"
         style={{
-          fontFamily: SF_DISPLAY_FAMILY,
-          fontSize: "1.75rem",
-          fontWeight: 600,
-          lineHeight: 1.2,
           color: style.subtitle.color,
           mixBlendMode: resolveBlendMode(style.subtitle.blendMode),
           transition: colorTransition,
-          margin: 0,
-          letterSpacing: "-0.01em",
+          fontFamily: SF_DISPLAY_FAMILY,
         }}
       >
         Omnipresent, Efficient, Meticulous.
@@ -372,65 +362,31 @@ export function HeroBanner() {
     targetMouseRef.current = { x: 0.5, y: 0.5 };
   }, []);
 
-  // ── Shared text layer style ───────────────────────────────────────────────
-  const textLayerBase: React.CSSProperties = {
-    position: "absolute",
-    inset: 0,
-    pointerEvents: "none",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",   // vertical centre
-    alignItems: "flex-start",   // horizontal left
-    padding: "2.5rem 3rem",
-    gap: "0.75rem",
-    // mix-blend-mode and opacity are set imperatively via refs
-  };
-
-  // ── Render ────────────────────────────────────────────────────────────────
   return (
     <div
+      className="hero-banner"
       ref={outerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{
-        width: "calc(100vw - 7rem)",
-        height: "70dvh",
-        position: "relative",
-        overflow: "hidden",
-        border: "2px solid hsl(var(--fd-border))",
-        borderRadius: "16px",
-        userSelect: "none",
-      }}
     >
-      {/* ── 1. Images layer (parallax + blur/contrast filter) ─────────────── */}
       <div
+        className="hero-banner__layer"
         ref={layerRef}
         style={{
-          position: "absolute",
           width: `${100 + PARALLAX_PCT * 2}%`,
           height: `${100 + PARALLAX_PCT * 2}%`,
           left: `-${PARALLAX_PCT}%`,
           top: `-${PARALLAX_PCT}%`,
-          pointerEvents: "none",
-          willChange: "transform, filter",
         }}
       >
         <div
+          className="hero-banner__image"
           ref={currentRef}
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
         />
         <div
+          className="hero-banner__image"
           ref={nextRef}
           style={{
-            position: "absolute",
-            inset: 0,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
             opacity: 0,
           }}
         />
@@ -443,40 +399,15 @@ export function HeroBanner() {
        * ensures text is NOT in this element's backdrop → text stays sharp.
        */}
       <LinearBlur
+        className="hero-banner__progressive-blur"
         side="left"
         strength={135}
         steps={12}
         falloffPercentage={100}
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "65%",
-        }}
+        style={{ width: "65%" }}
       />
-
-      {/*
-       * ── 3. Text layer (single, no stacking-context wrapper) ─────────────
-       * Rules for mix-blend-mode to work against the background image:
-       *  • This wrapper must NOT create a stacking context:
-       *    → no z-index, no opacity, no transform, no filter, no will-change
-       *  • Placed AFTER LinearBlur in DOM → text is not in LinearBlur's
-       *    backdrop → backdrop-filter does not blur the text.
-       *  • The individual <p> elements carry mix-blend-mode; they resolve
-       *    their blend against the nearest ancestor stacking context
-       *    (the outer banner div), which already contains the painted image.
-       */}
       <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          pointerEvents: "none",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "flex-start",
-          padding: "2.5rem 3rem",
-          gap: "0.75rem",
-        }}
+        className="hero-banner__text"
       >
         <TextLines slideIndex={slideTextIdx} />
       </div>
