@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useCallback, useState } from "react";
 import { LinearBlur } from "progressive-blur";
+import { PillButton } from "./pill-button";
 
 const IMAGES = [
   "/home/bg/bg1.webp",
@@ -406,10 +407,32 @@ export function HeroBanner() {
         falloffPercentage={100}
         style={{ width: "65%" }}
       />
-      <div
-        className="hero-banner__text"
-      >
+      <div className="hero-banner__text">
         <TextLines slideIndex={slideTextIdx} />
+          <div className="hero-banner__cta">
+            <PillButton
+              href="https://opendfieldmap.org/"
+              label="Getting Started"
+              iconMask="/ui/forward.svg"
+              iconOffsetX={-1.5}
+              iconOffsetY={0}
+              iconScale={1.3}
+              backgroundColor="#FFC428"
+              backgroundColorHovered="#FFAD28"
+              color="#333"
+            />
+            <PillButton
+              href="https://github.com/Terra-Online/Atlos"
+              label="View on GitHub"
+              iconMask="/ui/gh.svg"
+              iconOffsetX={-1.5}
+              iconOffsetY={0}
+              iconScale={1.25}
+              backgroundColor="#222"
+              color="#F2F2EB"
+              textureInvert="1"
+            />
+        </div>
       </div>
     </div>
   );

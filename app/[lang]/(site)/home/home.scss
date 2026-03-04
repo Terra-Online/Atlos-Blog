@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Odor+Mean+Chey&display=swap');
+
 .home-page {
   width: 100%;
   display: flex;
@@ -61,11 +63,98 @@
 }
 
 .hero-banner__subtitle {
-  margin: 0;
+  padding-left: 6px;
   font-size: 1.75rem;
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.01em;
+}
+
+.hero-banner__cta {
+  position: absolute;
+  bottom: 20%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.pill-button {
+  --pill-bg: #333;
+  --pill-bg-hovered: #444;
+  --pill-fg: #fff;
+  --pill-icon-mask: none;
+  --pill-icon-offset-x: 0px;
+  --pill-icon-offset-y: 0px;
+  --pill-icon-scale: 1;
+  --texture-invert: 0%;
+
+  display: inline-flex;
+  transition: all 0.3s ease;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 0.75rem;
+  min-height: 3.3rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 1.65rem;
+  text-decoration: none;
+  pointer-events: auto;
+  user-select: none;
+  color: var(--pill-fg);
+  background-color: var(--pill-bg);
+  box-shadow: 0 0 3px 0px hsl(0deg 0% 20% / 60%);
+
+  &::after {
+    position: absolute;
+    content: "";
+    inset: 0;
+    background-image: url('/ui/bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: difference;
+    z-index: 1;
+    border-radius: 1.65rem;
+    filter: invert(var(--texture-invert));
+  }
+  &:hover {
+    background-color: var(--pill-bg-hovered, var(--pill-bg));
+    box-shadow: 0 0 4px 0px hsl(0deg 0% 20% / 70%);
+  }
+}
+
+.pill-button__icon {
+  display: flex;
+  width: 1.2rem;
+  height: 1.2rem;
+  flex: 0 0 auto;
+  background-color: currentColor;
+  transform: translate(var(--pill-icon-offset-x), var(--pill-icon-offset-y)) scale(var(--pill-icon-scale));
+  transform-origin: center;
+  -webkit-mask-image: var(--pill-icon-mask);
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: var(--pill-icon-mask);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+.pill-button__iconWrap {
+  width: 1.2rem;
+  height: 1.2rem;
+  inset: 0;
+  filter: drop-shadow(0 1px 1px hsl(var(--fd-foreground) / 0.25));
+  z-index: 2;
+}
+.pill-button__label {
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: .2px;
+  font-family: "Odor Mean Chey", serif;
+  padding-right: .75rem;
+  z-index: 3;
 }
 
 .home-info {
