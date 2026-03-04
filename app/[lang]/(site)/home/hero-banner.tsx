@@ -429,6 +429,7 @@ export function HeroBanner() {
               iconOffsetY={0}
               iconScale={1.25}
               backgroundColor="#222"
+              mixBlendMode="luminosity"
               color="#F2F2EB"
               textureInvert="1"
             />

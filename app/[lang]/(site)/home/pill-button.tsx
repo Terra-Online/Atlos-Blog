@@ -9,6 +9,7 @@ type PillButtonStyleVars = React.CSSProperties & {
   "--pill-icon-offset-y"?: string;
   "--pill-icon-scale"?: string;
   "--texture-invert"?: string;
+  mixBlendMode?: React.CSSProperties["mixBlendMode"];
 };
 
 type PillButtonProps = {
@@ -20,6 +21,7 @@ type PillButtonProps = {
   iconScale?: number;
   backgroundColor?: string;
   backgroundColorHovered?: string;
+  mixBlendMode?: React.CSSProperties["mixBlendMode"];
   color?: string;
   textureInvert?: string;
   className?: string;
@@ -36,6 +38,7 @@ export function PillButton({
   iconScale = 1,
   backgroundColor = "#333",
   backgroundColorHovered = "#444",
+  mixBlendMode = "normal",
   color = "#fff",
   textureInvert = "0",
   className,
@@ -50,6 +53,7 @@ export function PillButton({
     "--pill-icon-offset-y": `${iconOffsetY}px`,
     "--pill-icon-scale": `${iconScale}`,
     "--texture-invert": `${textureInvert}`,
+    "mixBlendMode": mixBlendMode,
   };
 
   if (iconMask) {
