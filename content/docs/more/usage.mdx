@@ -1,0 +1,21 @@
+---
+title: Usage Dashboard
+description: 数据源D1。
+---
+
+import { UsageD3Panel } from '@/app/components/UsageD3Panel';
+
+## 监控面板
+
+<UsageD3Panel />
+
+## TODO
+
+1. `app/api/cloudflare/usage/route.ts` 写真实 SQL 和字段映射。
+2. `app/components/UsageD3Panel.tsx` 用 D3 写渲染。
+3. `wrangler.jsonc` 填写真实 D1 `database_id` 和 `preview_database_id`。
+
+## D1 表结构约定
+
+- 示例 SQL 模板在 `sql/cloudflare_usage.sql`。
+- API 期望返回字段：`bucket`, `requests`, `bytes`

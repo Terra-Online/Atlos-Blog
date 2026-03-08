@@ -52,6 +52,16 @@ export const metadata: Metadata = {
       { url: '/icons/apple-touch-icon.png', sizes: '180x180' },
     ],
   },
+  alternates: {
+    types: {
+      'application/rss+xml': [
+        {
+          title: 'OEM Blog',
+          url: 'https://blog.opendfieldmap.org/rss.xml',
+        },
+      ],
+    },
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

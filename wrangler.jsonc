@@ -24,5 +24,13 @@
       "binding": "WORKER_SELF_REFERENCE",
       "service": "open-endfield-map-blog"
     }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "REPLACE_WITH_D1_NAME",
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "preview_database_id": "REPLACE_WITH_D1_PREVIEW_ID"
+    }
   ]
 }
