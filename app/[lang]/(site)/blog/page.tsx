@@ -17,6 +17,10 @@ const copy: Record<string, { title: string; subtitle: string }> = {
     title: 'ブログ',
     subtitle: '開発記事・運営報告・プロジェクトの最新情報。',
   },
+  ko: {
+    title: '블로그',
+    subtitle: '개발 아티클, 운영 리포트, 프로젝트 업데이트.',
+  },
 };
 
 export default async function BlogIndexPage({

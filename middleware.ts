@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 const defaultLocale = 'zh-hk';
-const locales = ['zh-hk', 'en', 'zh-cn', 'ja'];
+const locales = ['zh-hk', 'en', 'zh-cn', 'ja', 'ko'];
 
 function isBypassPath(pathname: string) {
   return (

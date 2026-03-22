@@ -8,6 +8,7 @@ import {
 import { formatDistanceToNow } from 'date-fns';
 import { notFound } from 'next/navigation';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
+import { ImageZoom } from 'fumadocs-ui/components/image-zoom';
 import { type Metadata } from 'next';
 
 interface GitAuthor {
@@ -134,7 +135,12 @@ export default async function Page(props: {
         </div>
       ) : null}
       <DocsBody>
-        <MDX components={{ ...defaultMdxComponents }} />
+        <MDX
+          components={{
+            ...defaultMdxComponents,
+            img: (props) => <ImageZoom {...(props as any)} />,
+          }}
+        />
       </DocsBody>
     </DocsPage>
   );

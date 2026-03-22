@@ -35,6 +35,7 @@ const search = createFromSource(source, undefined, {
     'zh-cn': { tokenizer: cjkTokenizer },
     'zh-hk': { tokenizer: cjkTokenizer },
     ja: { tokenizer: cjkTokenizer },
+    ko: { tokenizer: cjkTokenizer },
   },
 });
 
