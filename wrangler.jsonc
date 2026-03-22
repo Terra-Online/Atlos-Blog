@@ -25,12 +25,6 @@
       "service": "open-endfield-map-blog"
     }
   ],
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "REPLACE_WITH_D1_NAME",
-      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
-      "preview_database_id": "REPLACE_WITH_D1_PREVIEW_ID"
-    }
-  ]
+  // Add d1_databases only after you have real Cloudflare D1 IDs.
+  // Keeping placeholder IDs here will make deploy fail with validation error 10021.
 }
