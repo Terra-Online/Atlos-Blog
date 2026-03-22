@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
-  "name": "open-endfield-map-blog",
+  "name": "oem-blog",
   "compatibility_date": "2026-03-01",
   "compatibility_flags": [
     "nodejs_compat",
@@ -22,7 +22,7 @@
       // Self-reference service binding — name must match the worker name above.
       // See https://opennext.js.org/cloudflare/caching
       "binding": "WORKER_SELF_REFERENCE",
-      "service": "open-endfield-map-blog"
+      "service": "oem-blog"
     }
   ],
   // Add d1_databases only after you have real Cloudflare D1 IDs.
