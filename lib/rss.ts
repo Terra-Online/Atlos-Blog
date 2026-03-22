@@ -16,12 +16,16 @@ export function getRSS() {
   });
 
   for (const page of source.getPages()) {
+    const fallbackDate = page.data.lastModified
+      ? new Date(page.data.lastModified)
+      : new Date();
+
     feed.addItem({
       id: page.url,
       title: page.data.title,
       description: page.data.description,
       link: `${baseUrl}${page.url}`,
-      date: new Date(page.data.lastModified),
+      date: fallbackDate,
 
       author: [
         {
