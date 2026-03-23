@@ -41,7 +41,7 @@ Several existing maps (including the official map) only fold archive markers int
 ---
 
 ## Global Search System
-As shown in **Figure 3**, the search function has received an update.
+As shown in **Figure 3**, the **Overall Search** has received an update.
 - Quickly find **any archive and marker content**. Search results include body summaries and marker distributions.
 - For category search results, clicking the search result is equivalent to clicking the corresponding filter and will select that type of marker.  
 - For single-marker search results, clicking will **jump to the corresponding marker**.

@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "generate:announcements": "node scripts/generate-announcements-json.cjs",
+    "build": "pnpm run generate:announcements && next build",
     "dev": "next dev",
     "start": "next start",
     "postinstall": "fumadocs-mdx",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "preview": "pnpm run generate:announcements && opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "pnpm run generate:announcements && opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "pnpm run generate:announcements && opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
