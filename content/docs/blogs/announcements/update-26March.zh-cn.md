@@ -25,7 +25,8 @@ date: 2026-03-22
 ---
 
 ## 新增档案数据集
-经过审慎地数据采集与清洗，我们为OEM添加了游戏内「档案库」中所有可在地图上收集的点位——并且提供了单独检索任何单一档案的能力。现有的几个地图（包括官方地图）对于档案点的收集并不便利，因为他们仅将档案点位折叠为一大类进行展示；然而在大部分场景中，用户需要查找特定档案进行补全，目前 OEM 提供了最方便的解决方案：
+经过审慎的数据采集与清洗，我们为OEM添加了游戏内「档案库」中所有可在地图上收集的点位，并提供了单独检索任何单一档案的能力。
+现有的几个地图（包括官方地图）仅将档案点位折叠为一大类进行展示，然而在大部分场景中，用户需要查找特定档案进行补全，目前 OEM 提供了最方便的解决方案：
 - 所有可收集档案现在都在侧边栏中单独列出。  
 - 通过上文提及的**分类选择器**，档案的属性现已与游戏内档案库的「纸质记录」「电子档案」等完全对齐，方便您分类检索缺失点位；
 - 整合全局搜索系统，您可以通过档案的**标题或正文**直接检索点位（**图3**）。
@@ -58,5 +59,6 @@ date: 2026-03-22
 
 * **项目 QQ 群组**：[加入 终末地大地图交流](https://qm.qq.com/q/OQbocvQzCO)
 * **Discord 玩家社区**：[加入 Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)
-* **支持与合规团队邮箱**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
-* **项目开源代码仓库**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)
+* **支持团队邮箱**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
+* **代码仓库**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)
+* **Bluesky 账户**：[追蹤 Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)

@@ -1,67 +1,63 @@
 ---
 title: "Map Update Log"
-description: "Version 1.1 update notes: archive markers and newly added features"
+description: "Version 1.1 Update Notes: Archive Markers and New Features Introduction"
 date: 2026-03-22
 ---
 
-Thank you for using and supporting OEM.
+Thank you for your continued support and use of OEM.
 
-Since the 1.1 release, the OEM development team has been focused on new features to make **Open Endfield Map** the most practical Endfield map tool. We are glad to share a major update focused on **map data and usage workflow**. The notes below can significantly improve your experience:
+Since the version 1.1 update, the OEM development team has been focusing on developing new features, striving to make **Open Endfield Map** the best Endfield map tool available. We are excited to bring you a major feature update regarding **map data and usage**. Reading the following introduction may improve your user experience:
 
 ## Sidebar and Filter Updates
-As the number of points and filter conditions grows, we added a resizable sidebar. You can drag the right edge of the sidebar to adjust its width (**Fig. 1**).
+With the increase in markers and the complexity of search criteria, we have added an adjustable width feature to the sidebar. You can adjust its width by dragging the right edge of the sidebar (**Figure 1**).
 
-![Figure 1: Resizable sidebar](./26March/fig1.webp)
-*Figure 1: Drag the right edge of the sidebar to resize it.*
+![Figure 1: Adjustable width sidebar](./26March/fig1.zh-cn.webp)
+*Figure 1: Drag the right edge of the sidebar to adjust the width.*
 
-- In wider mode, filters switch to a three-column layout.
-- For point types with multi-dimensional attributes (such as "Enemies" and "Archives"), we added a category selector (**Fig. 2**) to group filters by shared attributes, so you can quickly pick related points.
+- In a wider sidebar, the filters will change to a three-column layout.
+- For markers like "Enemies" and "Archives" that have multi-dimensional attributes such as drops, we have added a category selector (**Figure 2**). This aggregates filters with consistent attributes, allowing you to quickly select markers of the same type.
 
-![Figure 2: Filter category selector](./26March/fig2.webp)
-*Figure 2: Use the category selector to switch between grouped filter sets quickly.*
+![Figure 2: Filter category selector](./26March/fig2.zh-cn.webp)
+*Figure 2: Quickly switch between filter items with the same attributes via the category selector.*
 
-In a future update, we will also add customizable aggregation logic, so you can filter enemies by faction and tier.
+In future updates, we will also introduce a feature to change the aggregation method, allowing you to filter by enemy faction/tier as well.
 
 ---
 
 ## New Archive Dataset
-After careful data collection and cleanup, OEM now includes every collectible point from the in-game "Archive Library" that can be found on the map, with support for searching any individual archive entry.
+After careful data collection and cleaning, we have added all collectible map markers from the in-game "Archives" to OEM, providing the ability to individually search for any single archive.
+Several existing maps (including the official map) only fold archive markers into one large category for display. However, in most scenarios, users need to locate specific archives for completion. Currently, OEM provides the most convenient solution:
+- All collectible archives are now listed individually in the sidebar.  
+- Through the **category selector** mentioned above, the attributes of the archives are now fully aligned with the "Paper Records", "Electronic Archives", etc., in the in-game archives, making it easier for you to categorize and search for missing markers.
+- Integrated with the global search system, you can directly search for markers by the **title or body** of the archive (**Figure 3**).
+- You can directly click **View Full Content** in the marker details to read the archive information without leaving the map (**Figure 4**). 
 
-Most existing maps (including the official one) are not convenient for archive completion because archive points are shown as one large merged category. In real use, players usually need to locate specific entries to fill gaps. OEM now provides a much easier solution:
+![Figure 3: Archive retrieval in global search](./26March/fig3.zh-cn.webp)
+*Figure 3: Search archives and markers by title or body keywords.*
 
-- All collectible archives are now listed individually in the sidebar.
-- Using the **category selector** mentioned above, archive attributes now align with in-game categories such as "Paper Records" and "Digital Files" for accurate filtering.
-- Integrated global search lets you find points by archive **title or body text** (**Fig. 3**).
-- In point details, you can click **View Full Content** to read full archive text without leaving the map (**Fig. 4**).
-
-![Figure 3: Archive search in global search](./26March/fig3.webp)
-*Figure 3: Search archives and map points by title or content keywords.*
-
-![Figure 4: Full archive content in point details](./26March/fig4.webp)
-*Figure 4: Open full archive content directly in point details and share target points quickly.*
+![Figure 4: Full archive content in marker details](./26March/fig4.zh-cn.webp)
+*Figure 4: Directly view the full text of the archive within the marker details; sharing and jumping are supported.*
 
 ---
 
 ## Global Search System
-As shown in **Fig. 3**, search has been upgraded:
-
-- Quickly search **any archive and point content**, with result snippets and distribution hints.
-- For type results, clicking the result behaves like clicking the corresponding filter and selects that category.
-- For unique point results, clicking will **jump directly to that point**.
-
----
-
-## Deep Links and Point Sharing
-As shown in **Fig. 4**:
-
-- Every point now supports **copy share link**.
-- You can send links to friends or save them as **bookmarks**. Opening a shared link navigates directly to the target point with a highlight animation.
+As shown in **Figure 3**, the search function has received an update.
+- Quickly find **any archive and marker content**. Search results include body summaries and marker distributions.
+- For category search results, clicking the search result is equivalent to clicking the corresponding filter and will select that type of marker.  
+- For single-marker search results, clicking will **jump to the corresponding marker**.
 
 ---
 
-If you have any questions, suggestions, or feedback, feel free to contact us:
+## Deep Links and Marker Sharing
+As shown in **Figure 4**:
+- Currently, every marker supports **copying a sharing link**.  
+- It can be sent to friends or used as a **bookmark** to return to at any time. Using the sharing link will navigate directly to the corresponding marker and highlight it with an animation.
 
-* **Project QQ Group**: [Join Endfield Map Discussion](https://qm.qq.com/q/OQbocvQzCO)
+---
+
+If you have any questions during use, or any comments and suggestions for this project, please contact us through the following ways:
+
 * **Discord Player Community**: [Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)
-* **Support & Compliance Email**: [support@opendfieldmap.org](mailto:support@opendfieldmap.org)
-* **Open-source Repository**: [Atlos on GitHub](https://github.com/Terra-Online/Atlos)
+* **Support and Compliance Team Email**: [support@opendfieldmap.org](mailto:support@opendfieldmap.org)
+* **Project Open Source Repository**: [Atlos on GitHub](https://github.com/Terra-Online/Atlos)
+* **Official Account on Bluesky**: [Follow Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)
