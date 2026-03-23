@@ -11,13 +11,13 @@ Since the version 1.1 update, the OEM development team has been focusing on deve
 ## Sidebar and Filter Updates
 With the increase in markers and the complexity of search criteria, we have added an adjustable width feature to the sidebar. You can adjust its width by dragging the right edge of the sidebar (**Figure 1**).
 
-![Figure 1: Adjustable width sidebar](./26March/fig1.zh-cn.webp)
+![Figure 1: Adjustable width sidebar](/blogs/announcements/26March/fig1.webp)
 *Figure 1: Drag the right edge of the sidebar to adjust the width.*
 
 - In a wider sidebar, the filters will change to a three-column layout.
 - For markers like "Enemies" and "Archives" that have multi-dimensional attributes such as drops, we have added a category selector (**Figure 2**). This aggregates filters with consistent attributes, allowing you to quickly select markers of the same type.
 
-![Figure 2: Filter category selector](./26March/fig2.zh-cn.webp)
+![Figure 2: Filter category selector](/blogs/announcements/26March/fig2.webp)
 *Figure 2: Quickly switch between filter items with the same attributes via the category selector.*
 
 In future updates, we will also introduce a feature to change the aggregation method, allowing you to filter by enemy faction/tier as well.
@@ -32,10 +32,10 @@ Several existing maps (including the official map) only fold archive markers int
 - Integrated with the global search system, you can directly search for markers by the **title or body** of the archive (**Figure 3**).
 - You can directly click **View Full Content** in the marker details to read the archive information without leaving the map (**Figure 4**). 
 
-![Figure 3: Archive retrieval in global search](./26March/fig3.zh-cn.webp)
+![Figure 3: Archive retrieval in global search](/blogs/announcements/26March/fig3.webp)
 *Figure 3: Search archives and markers by title or body keywords.*
 
-![Figure 4: Full archive content in marker details](./26March/fig4.zh-cn.webp)
+![Figure 4: Full archive content in marker details](/blogs/announcements/26March/fig4.webp)
 *Figure 4: Directly view the full text of the archive within the marker details; sharing and jumping are supported.*
 
 ---
