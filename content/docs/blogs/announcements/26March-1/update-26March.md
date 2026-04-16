@@ -1,5 +1,5 @@
 ---
-title: "Map Update Log"
+title: "Markers Update Log"
 description: "Version 1.1 Update Notes: Archive Markers and New Features Introduction"
 date: 2026-03-22
 ---

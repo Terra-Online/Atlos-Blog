@@ -1,5 +1,5 @@
 ---
-title: "地圖更新日誌"
+title: "點位更新日誌"
 description: "1.1版本更新說明：檔案標記點與新增功能介紹"
 date: 2026-03-22
 ---
@@ -55,7 +55,7 @@ date: 2026-03-22
 
 ---
 
-如在使用過程中有任何疑問，或對本專案有任何意見和建議，請透過以下方式聯絡我們：
+如在使用過程中有任何疑問，或對本項目有任何意見和建議，請使用以下方式聯絡我們：
 
 * **Discord 玩家社群**：[加入 Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)
 * **支援團隊電郵**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
