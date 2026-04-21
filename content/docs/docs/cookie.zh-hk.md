@@ -1,6 +1,6 @@
 ---
-title: Cookie 政策
-description: Open Endfield Map Cookie 及本機資料同步政策。
+title: Cookies 政策
+description: Open Endfield Map Cookies 及本機資料同步政策。
 ---
 
 歡迎使用 **Open Endfield Map**（以下簡稱「我們」、「本項目」或「OEM」）。我們深明閣下的私隱及資料安全之重要性。本政策旨在詳細說明我們在閣下瀏覽及使用本網站時，如何使用 Cookie、本機儲存技術（LocalStorage / IndexedDB）以及資料同步機制。

@@ -1,11 +1,11 @@
 ---
 title: 利用規約
-description: 終末地地図（Open Endfield Map）ユーザー利用規約。
+description: 終末地マップ集（Open Endfield Map）ユーザー利用規約。
 ---
 
 ## 定義と背景
 
-- **本プロジェクト**：開発チーム（[OEM-1](https://github.com/orgs/Terra-Online/teams/oem-1)内の[cirisus](https://github.com/cirisus)、[mwx0621](https://github.com/mwx0621)、[502y](https://github.com/502y)等の貢献者を含みます）によって開発・保守されている[終末地地図（Open Endfield Map）](https://opendfieldmap.org/)のウェブサイトおよび関連サービスを指します。ゲーム内のデータに基づいた地図の閲覧、マーカーの分析、進捗状況の追跡、クラウド同期などの機能をユーザーに提供することを目的としています。
+- **本プロジェクト**：開発チーム（[OEM-1](https://github.com/orgs/Terra-Online/teams/oem-1)内の[cirisus](https://github.com/cirisus)、[mwx0621](https://github.com/mwx0621)、[502y](https://github.com/502y)等の貢献者を含みます）によって開発・保守されている[終末地マップ集（Open Endfield Map）](https://opendfieldmap.org/)のウェブサイトおよび関連サービスを指します。ゲーム内のデータに基づいた地図の閲覧、マーカーの分析、進捗状況の追跡、クラウド同期などの機能をユーザーに提供することを目的としています。
 - **サービス**：本プロジェクトが提供する、地図の表示、ルート計画、ユーザーインタラクション、アカウントシステムサービス、およびデータの保存・アクセス、進捗の追跡などの機能を指します。
 - **ユーザー**：本プロジェクトにアクセス、および/または利用する個人または組織を指します。
 - **ユーザーアカウント**：ユーザーが本プロジェクトの高度な機能（クラウドデータ同期、クロスデバイスアクセスなど）を利用するために登録し所有する、専用のデジタル認証情報を指します。

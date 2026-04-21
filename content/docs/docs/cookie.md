@@ -1,5 +1,5 @@
 ---
-title: Cookie Policy
+title: Cookies Policy
 description: Open Endfield Map Cookie and Local Data Synchronization Policy.
 ---
 

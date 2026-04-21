@@ -1,3 +1,4 @@
+---
 title: "用户系统更新"
 description: "1.2版本更新说明：用户系统与相关功能"
 
@@ -41,7 +42,7 @@ date: 2026-04-15
 
 ## 社区系统前瞻
 
-我们原本的计划是完成所有后端计划后，再进行整体部署；我们规划了包括但不限于以下的账号相关功能：
+我们原本的计划是完成所有后端功能后，再进行整体部署；我们规划了包括但不限于以下的账号相关功能：
 
 * 收集进度的云同步——在任何设备或者浏览器间共用一套属于您的收集进度；
 * 点位截图的查看与上传——查看其他活跃用户上传的游戏内点位截图，协助您的收集，任何用户都可以上传点位的截图，并共享全体用户的成果。
@@ -60,5 +61,5 @@ date: 2026-04-15
 * **项目 QQ 群组**：[加入【终末地大地图交流】](https://qm.qq.com/q/OQbocvQzCO)
 * **Discord 玩家社区**：[加入【Endfield Surveying Institute】](https://discord.gg/BFMAKZSUG7)
 * **支持团队邮箱**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
-* **代码仓库**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)
+* **代码仓库**：[在 GitHub 上查看 Atlos](https://github.com/Terra-Online/Atlos)
 * **Bluesky 账户**：[追踪 Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)

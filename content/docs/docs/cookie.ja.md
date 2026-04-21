@@ -1,5 +1,5 @@
 ---
-title: Cookieポリシー
+title: Cookies ポリシー
 description: Open Endfield MapのCookieおよびローカルデータ同期ポリシー。
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Cookie 政策
-description: Open Endfield Map Cookie 与本地数据同步政策。
+title: Cookies 政策
+description: Open Endfield Map Cookies 与本地数据同步政策。
 ---
 
 欢迎使用 **Open Endfield Map**（以下简称“我们”、“本项目”或“OEM”）。我们深谙您的隐私和数据安全之重要性。本政策旨在详细说明我们在您访问和使用本网站时，如何使用 Cookie、本地存储技术（LocalStorage / IndexedDB）以及数据同步机制。
