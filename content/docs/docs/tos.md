@@ -10,7 +10,7 @@ description: Terms of Service for users of Open Endfield Map.
 - **User**: Refers to any individual or organization accessing and/or utilizing this Project.
 - **User Account**: Refers to the exclusive digital credentials registered and owned by a user to utilize advanced features of this Project (such as cloud data synchronization, cross-device access, etc.).
 
-> **Note:** For detailed information on this Project's privacy data collection standards, Cookie usage instructions, API usage regulations, and content source attributions, please refer to the separate [Privacy Policy](./privacy), [Cookie Policy](./cookie), [API Terms of Use](./api-terms), and [Content Sources](./credits). Acceptance of these Terms of Service shall be deemed as your concurrent acknowledgement and agreement to the aforementioned supplementary policies.
+> **Note:** For detailed information regarding our data collection standards, Cookies usage, API guidelines, and content attributions, please refer to our separate [Privacy Policy](./privacy), [Cookie Policy](./cookie), [API Terms](./api-terms), and [Credits](./credits). Accepting these Terms of Service indicates that you acknowledge and agree to the aforementioned affiliated policies.
 
 ---
 
@@ -18,11 +18,12 @@ description: Terms of Service for users of Open Endfield Map.
 
 ### Account Registration, Security, and Management
 
-You must comply with the following stipulations when registering and using an account:
-1. **Information Authenticity**: Users must provide a valid and lawful method of contact (e.g., email address) upon registration.
-2. **Account Security**: Users must properly secure their account passwords and other login credentials. This Project and its developer team bear no liability for account loss, data breaches, or damages resulting from the user's own negligence (such as disclosing passwords to third parties, falling victim to phishing attacks, etc.).
-3. **Account Limitations**: Accounts are strictly restricted to the registered user. Gifting, borrowing, renting, transferring, or selling accounts in any form is prohibited.
-4. **Disposal Rights**: Should any account be found involved in malicious registration, API abuse, or any behavior violating the provisions of these Terms, the developer team reserves the right to **freeze, ban, or permanently delete the account and its associated data** without prior notice.
+When registering and using an account, you must abide by the following rules:
+1. **Information Authenticity and Third-Party Login**: You may register using an email address or log in quickly via supported third-party accounts (e.g., Google, Discord). You guarantee that the information provided is legal and valid.
+2. **Account Security**: Users must properly safe-keep their account passwords and other login credentials. This project and the developer team bear no responsibility for account loss or data leakage caused by the user's own negligence.
+3. **Third-Party Game Credentials (Skland/SKPORT) Authorization**: When using the "Locator Sync" feature, **you must exclusively provide the Skland or SKPORT account credentials legally owned by you**. It is strictly prohibited to misappropriate others' credentials for binding. Since this feature involves proxying official APIs, you must independently bear any official risk control or account banning risks that may arise (see below and the "Disclaimer" for details).
+4. **Account Restrictions**: Accounts are limited to personal use by the registrant. Gifting, borrowing, renting, transferring, or selling accounts in any form is prohibited.
+5. **Disposal Rights**: If an account is found to involve malicious registration, API abuse, or any behavior violating these terms, the developer team reserves the right to **freeze, ban, or permanently delete the account and its associated data** without prior notice.
 
 ### Access Permissions and General Restrictions
 
@@ -32,6 +33,13 @@ Users must observe the following constraints when accessing and using this Proje
 3. Do not engage in behaviors that disrupt, reverse-engineer, or interfere with the normal operations of this Project (including, but not limited to, maliciously dispatching massive volumes of requests, DDoS attacks, or maliciously scraping map tiles and server interface data).
 4. Do not utilize personal profiles, comments, or custom marker features to upload or publish any illegal, harmful, infringing, or offensive content (including, but not limited to, politically sensitive information, pornography, promotion of cheat tools, or the private data of others).
 5. Users must ensure their conduct complies with local laws and regulations. Users under the legal age of majority must use this Project under the guidance of a legal guardian.
+
+### User-Generated Content (UGC) and Feedback
+
+1. **Content Authorization**: When you submit custom markers, third-person screenshots, comments, or correction suggestions on the map, you retain ownership of them. However, you simultaneously grant this project a free, global, and perpetual license to display and use them for map development.
+2. **Compliance Review**: It is strictly forbidden to upload content that is illegal, harmful, pornographic, infringing, or contains sensitive privacy information of others. This project may use automated tools (such as the OpenAI Moderation API) to conduct compliance reviews of your public text.
+3. **Dispute Disclaimer**: You bear full legal responsibility for all UGC you publish. For details, please carefully read our [UGC Content Statement](./ugc).
+4. **Feedback Adoption**: Bug reports or improvement suggestions you submit to the team are deemed as your consent to grant the developer team free authorization to use them to improve this project.
 
 ### User Feedback and Content Maintenance
 
@@ -72,6 +80,9 @@ Data storage strategies are contingent upon the user's operational state.
 ### Storage Conditions While Logged In
 
 - For users who have registered and logged into an account, their progress data and application settings will be **encrypted, synchronized, and stored in our D1 database** to enable cross-device interoperability.
+- **Location Sync and Heatmap Project**:
+   - By default, Your real-time location only circulates temporarily in memory and is not recorded.
+   - **Only when you explicitly authorize and enable the "Heatmap Project"** will we collect your historical movement trajectories. This trajectory will be **de-identified (anonymized)** before entering the database, stripping its association with your OEM account and game UID, and will be retained long-term purely as aggregated statistical data.
 - The developer team pledges that collected data (such as account identifiers, encrypted passwords, and encrypted game progress data) is **used exclusively to provide the map synchronization service**.
 - This Project **will not** sell, share, or leak your personal data and operational logs to any third-party commercial entities.
 
@@ -117,7 +128,7 @@ To the maximum extent permitted by applicable law, this Project and its develope
 ## Governing Law and Dispute Resolution
 
 - The formulation, execution, and interpretation of these Terms of Service and their supplementary policies, as well as the resolution of any disputes, shall be governed by the laws of the People's Republic of China.
-- Any dispute arising from these Terms shall primarily be resolved through amicable negotiation based on the principle of good faith. Should negotiations fail, either party possesses the right to submit the dispute to a competent People's Court located in the **jurisdiction of the principal members of the developer team or the server deployment location** for litigation.
+- Any dispute arising from these Terms shall primarily be resolved through amicable negotiation based on the principle of good faith. Should negotiations fail, either party possesses the right to submit the dispute to a competent court located in the **jurisdiction of the principal members of the developer team or the server deployment location** for litigation.
 
 ---
 

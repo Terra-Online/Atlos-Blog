@@ -1,22 +1,42 @@
 ---
-title: 个人信息收集与使用清单
-description: 终末地地图集 (Open Endfield Map) 个人信息收集与使用详细清单。
+title: Data Collection and Usage Checklist
+description: Detailed checklist of personal data collection and usage for Open Endfield Map.
 ---
 
-欢迎使用 **Open Endfield Map**。为了帮助您清晰、直观地了解我们在您使用各核心业务功能时收集和使用个人信息的情况，我们特制定本清单。
+Welcome to **Open Endfield Map**. To help you clearly and intuitively understand how we collect and use personal data when you use our core business features, we have developed this checklist.
 
-> **提示**：本清单是对《隐私权政策》的提炼与补充。我们秉持“本地优先”与“最小必要”原则，只有在您主动开启特定云端或跨设备功能时，才会收集对应的数据。
+> **Note**: This checklist is a summary and supplement to our [Privacy Policy](./privacy). We adhere to a "Local-First" and "Data Minimization" principle. We only collect corresponding data when you actively enable specific cloud or cross-device features.
 
-## 核心业务功能与信息收集明细
+## Core Business Features and Data Collection Details
 
-| 业务功能 | 收集的个人信息字段 | 收集目的 | 处理方式与存储位置 | 存储期限 |
-| :--- | :--- | :--- | :--- | :--- |
-| **账户注册与管理** | 用户名、电子邮箱地址、密码凭证 | 用于创建和验证 OEM 专属数字账号，为您提供配置与进度的跨设备同步服务。 | 密码经强哈希算法（单向不可逆）加密。数据持久化存储于 Cloudflare D1 数据库中。 | 账号存续期间保留；注销后彻底删除。 |
-| **森空岛账号授权（游戏数据同步）** | 森空岛身份凭证（如 `cred` / `token`） | 获取访问鹰角网络官方 API 的合法权限，以实现游戏内跨屏实时坐标同步等高级功能。 | 凭证加密后，通过我们的边缘节点代理请求。凭证仅在 D1 数据库或 Upstash 缓存中加密流转。**绝不用于读取抽卡记录或游戏资产。** | 仅在功能开启及绑定期间保留。您可随时手动解绑，解绑后服务器将立即且彻底销毁该凭证。 |
-| **游戏内状态流转** | 游戏角色 UID、服务器信息、实时坐标 (X, Y, Z) | 区分不同角色的地图进度，并在前端交互式地图上渲染玩家当前的实时位置。 | 坐标数据随前端请求实时拉取，仅作为临时状态在内存和 Serverless 缓存中流转，绝不进行历史轨迹的持久化存储。 | 会话结束后、解除绑定或前端页面关闭后自动销毁。 |
-| **地图互动与 UGC 贡献** | 自定义标注点坐标、评论文本、第三视角截图、编辑历史 | 支撑地图的维基与共创体系，展示社区用户的修改建议和路线规划。 | 内容经过自动化合规审核后，关联您的账户标识公开展示或仅做本地存储。 | 只要账户存在或未主动删除则一直保留；公开贡献可能以归档形式长期留存。 |
-| **安全防护与性能监控** | IP 地址、设备型号、浏览器类型 (User-Agent)、访问时间戳 | 识别异常流量（如机器人、DDoS 攻击）、防御 CSRF 攻击、优化 CDN 边缘节点分发策略。 | 日志数据在基础设施层自动生成，仅用于整体趋势与安全分析，不与您的真实身份直接挂钩。 | 通常在生成后的 30 天内自动滚动覆盖或永久删除。 |
+| Business Feature | Personal Data Collected | Purpose of Collection | Legal Basis | Processing Method & Storage Location | Retention Period |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Account Registration & Management** | Username, Email address, Password credentials | To create and verify your exclusive OEM digital account, providing cross-device synchronization for settings and progress. | **Performance of a Contract** / **User Consent** | Passwords are encrypted using strong one-way hashing algorithms. Data is persistently stored in the Cloudflare D1 database. | Retained for the duration of the account; permanently deleted upon account cancellation. |
+| **Skland or SKPORT Account Authorization** | Skland or SKPORT identity credentials (e.g., `cred` / `token`) | To obtain permission to access Hypergryph and Gryphline official APIs to enable advanced features like in-game coordinate synchronization. | **Explicit Consent** | Credentials are encrypted and proxied through our edge nodes. Credentials solely securely circulate within the D1 database or Upstash cache. **Never used to read any information or assets other than map locations.** | Retained only while the feature is active and bound. You can manually unbind at any time, after which the server will immediately and permanently destroy the credential. |
+| **Real-time Location Sync (Visible Only to You)** | In-game Character UID, Server information, Single real-time coordinate (X, Y, Z) | To differentiate map progress across characters and render the player's current real-time location on the frontend interactive map. | **Performance of a Contract** / **Explicit Consent** | Circulates only as temporary states in memory and Serverless cache. **Unless you actively authorize participation in the Heatmap Project, we never persistently store historical movement trajectories.** | Automatically destroyed after the session ends, unbinding, or when the frontend page is closed. |
+| **Route Recording & Community Heatmap Contribution** | Historical movement trajectories (coordinate sequences), Dwell time in specific areas | Used to analyze popular in-game exploration areas, optimize route recommendations, and generate global or regional aggregated heatmaps for community reference. | **Explicit Consent** | Before or upon uploading to the D1 database, trajectory data is immediately anonymized, strictly stripping any personal identifiers related to your OEM account or game UID, stored only as aggregated coordinate sets. | The original trajectory stream with identity markers is destroyed immediately after anonymization; anonymous aggregated heatmap baseline data is retained long-term. |
+| **Map Interaction & UGC Contribution** | Custom marker coordinates, Comment text, Third-person screenshots, Edit history | To support the map's wiki and co-creation system, displaying community users' modification suggestions and route planning. | **User Consent** / **Legitimate Interests** | After automated compliance review (e.g., OpenAI Moderation), publicly displayed associated with your account identifier. For detailed guidelines, please refer to the [UGC Content Statement](./ugc). | Retained as long as the account exists or is not actively deleted; public contributions may be retained long-term in an archived form. |
+| **Security Protection & Performance Monitoring** | IP address, Device model, Browser type (User-Agent), Access timestamp | To identify abnormal traffic (e.g., bots, DDoS attacks), defend against CSRF attacks, and optimize CDN edge node distribution strategies. | **Legitimate Interests** (Ensuring network and information security) | Log data is automatically generated at the infrastructure layer, used only for overall trend and security analysis, and is not directly linked to your real identity. | Typically automatically overwritten on a rolling basis or permanently deleted within 30 days of generation. |
 
 ---
 
-如需了解您的数据管理权利（如导出、删除、撤回同意等）及完整的隐私保护策略，请参阅完整的[《隐私权政策》](./privacy)。
+## Third-Party Sharing and Cross-Border Data Transfer
+
+This Project is deployed using a globally decentralized architecture (Serverless & Edge Computing). When you use our synchronization or interaction features, some of your encrypted data or request characteristics will be legally transferred to servers outside your country/region for processing:
+
+1. **Infrastructure and Storage Circulation**: We rely on **Cloudflare** (global CDN and edge database) and **Upstash** (globally distributed Serverless Redis) to provide underlying services. Your data may be encrypted and persistently stored on offshore nodes based on optimal network routing strategies.
+2. **Compliance Review Sharing**: When you submit public UGC content (such as comments), relevant text data may be briefly transferred to **OpenAI**'s Moderation API for automated safety screening. We promise that the above third-party providers are strictly bound by Data Processing Agreements (DPA) and will not use your data for unrelated commercial purposes or AI model training.
+
+---
+
+## UGC (User-Generated Content) Special Risk Warning
+
+As an open-source project, the co-creation of community content is the foundation of our development. However, please be aware of the potential risks of providing UGC content:
+
+* **Public Visibility**: Once you submit third-person screenshots, comments, and coordinate markers, you authorize us to display them publicly, and **all users accessing this project can view them**. Please strictly avoid including sensitive privacy information such as your real name, contact information, or plaintext official account passwords in screenshots.
+* **Independent Responsibility**: You are fully legally responsible for all UGC you generate. This project is not responsible for any in-game losses or disputes caused by trusting erroneous UGC submitted by others.
+* **Agreement Constraints**: Regarding the transfer of UGC content ownership, review and disposal permissions, and disclaimer clauses, please ensure you carefully read and agree to the complete **[UGC Content Statement](./ugc)** before submitting any content.
+
+---
+
+To understand your data management rights (such as export, deletion, withdrawal of consent, etc.) and complete privacy protection strategies, please refer to the full [Privacy Policy](./privacy).
