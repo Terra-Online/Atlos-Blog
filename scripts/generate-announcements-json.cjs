@@ -4,6 +4,7 @@ const path = require('path');
 const SUPPORTED_LOCALES = new Set(['en', 'zh-cn', 'zh-hk', 'ja', 'ko']);
 const ANNOUNCEMENTS_ROOT = path.join(process.cwd(), 'content/docs/blogs/announcements');
 const OUTPUT_PATH = path.join(process.cwd(), 'app/api/[locale]/announcements/data.json');
+const OUTPUT_META_PATH = path.join(process.cwd(), 'app/api/[locale]/announcements/meta.json');
 
 function collectMarkdownFiles(dirPath) {
   const files = [];
@@ -112,5 +113,21 @@ for (const locale of Object.keys(result)) {
   result[locale].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
+const buildVersion = String(Date.now());
+const localesMeta = {};
+for (const locale of SUPPORTED_LOCALES) {
+  const latestItem = result[locale]?.[0];
+  localesMeta[locale] = {
+    latestId: latestItem?.id ?? null,
+  };
+}
+
+const metadata = {
+  version: buildVersion,
+  locales: localesMeta,
+};
+
 fs.writeFileSync(OUTPUT_PATH, JSON.stringify(result, null, 2) + '\n', 'utf8');
+fs.writeFileSync(OUTPUT_META_PATH, JSON.stringify(metadata, null, 2) + '\n', 'utf8');
 console.log('wrote', OUTPUT_PATH);
+console.log('wrote', OUTPUT_META_PATH);

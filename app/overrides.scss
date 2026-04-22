@@ -3,7 +3,9 @@
 // injects open/close-quote pseudo-content on blockquote paragraphs.
 // The source rules use :where(), giving them 0 specificity, so a single
 // class selector is sufficient to win without !important.
-
+#nd-sidebar {
+  backdrop-filter: blur(20px) brightness(1.1) !important;
+}
 .prose {
   // 1. Remove italic from all content inside blockquotes
   blockquote,
@@ -58,4 +60,8 @@
 #nd-nav {
   font-family: var(--font-geist), 'HarmonyOS Sans', 'HarmonyOS Sans SC', 'M PLUS 2', ui-sans-serif, system-ui, sans-serif;
   letter-spacing: -.2px;
+}
+
+#nd-side {
+  backdrop-filter: blur(20px) brightness(1.1) !important;
 }
