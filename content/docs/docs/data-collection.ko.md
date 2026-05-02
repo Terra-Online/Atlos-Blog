@@ -1,5 +1,5 @@
 ---
-title:개인정보 수집 및 이용 안내
+title: 개인정보 수집 및 이용 안내
 description: Open Endfield Map의 개인 데이터 수집 및 사용에 대한 상세한 체크리스트입니다.
 ---
 
