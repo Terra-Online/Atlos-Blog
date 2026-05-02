@@ -127,7 +127,7 @@ To the maximum extent permitted by applicable law, this Project and its develope
 
 ## Governing Law and Dispute Resolution
 
-- The formulation, execution, and interpretation of these Terms of Service and their supplementary policies, as well as the resolution of any disputes, shall be governed by the laws of the People's Republic of China.
+- The formation, execution, interpretation of these Terms of Service and any supplementary policies, as well as the resolution of any disputes arising therefrom, shall not be governed by any specific applicable law
 - Any dispute arising from these Terms shall primarily be resolved through amicable negotiation based on the principle of good faith. Should negotiations fail, either party possesses the right to submit the dispute to a competent court located in the **jurisdiction of the principal members of the developer team or the server deployment location** for litigation.
 
 ---

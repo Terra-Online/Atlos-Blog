@@ -1,6 +1,6 @@
 ---
 title: "사용자 시스템 업데이트"
-description: "1.2 버전 업데이트 노트: 사용자 시스템 및 관련 기능"
+description: "1.2 업데이트 안내 (1): 사용자 시스템 및 관련 기능"
 date: 2026-04-15
 ---
 
@@ -52,9 +52,9 @@ date: 2026-04-15
 
 ---
 
-이번 업데이트 공지는 여기까지입니다. 지도를 사용하시면서 궁금한 점이 있거나, 본 프로젝트에 대한 의견 및 제안이 있으시다면 언제든지 아래의 채널을 통해 연락해 주세요:
+이번 업데이트 안내는 여기까지입니다. 이용 중 궁금한 점이나 의견이 있으시면 아래 채널을 통해 문의해 주세요:
 
-* **Discord 플레이어 커뮤니티**: [【Endfield Surveying Institute】 참여하기](https://discord.gg/BFMAKZSUG7)
-* **지원팀 이메일**: [support@opendfieldmap.org](mailto:support@opendfieldmap.org)
-* **코드 저장소**: [GitHub의 Atlos](https://github.com/Terra-Online/Atlos)
-* **Bluesky 계정**: [Open Endfield Map 팔로우하기](https://bsky.app/profile/opendfieldmap.bsky.social)
+* **Discord 커뮤니티**: [Endfield Surveying Institute 참여하기](https://discord.gg/BFMAKZSUG7)
+* **지원 이메일**: [support@opendfieldmap.org](mailto:support@opendfieldmap.org)
+* **GitHub**: [Atlos On Github](https://github.com/Terra-Online/Atlos)
+* **Bluesky**: [Open Endfield Map 팔로우하기](https://bsky.app/profile/opendfieldmap.bsky.social)

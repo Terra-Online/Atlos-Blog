@@ -13,7 +13,7 @@ date: 2026-04-15
 
 ![圖1：用戶面板概覽](/blogs/announcements/26April/fig1.zh-cn.webp)
 
-於現階段，閣下可使用電郵地址收發驗證碼，或透過本平台支援的第三方 OAuth 服務供應商（目前支援 Discord 與 Google），以註冊及登入 Open Endfield Map 帳號（**圖2**）。
+於現階段，閣下可使用電郵地址收發驗證碼，或透過本平台支援的第三方 OAuth 服務供應商（目前支援 Discord 與 Google），以註冊及登入 Open Endfield Map 帳戶（**圖2**）。
 
 ![圖2：註冊面板概覽](/blogs/announcements/26April/fig2.zh-cn.webp)
 
@@ -30,15 +30,15 @@ date: 2026-04-15
 閣下的用戶面板包含以下資訊：（**圖3**）
 ![圖3：資訊檔案概覽](/blogs/announcements/26April/fig3.zh-cn.webp)
 * **閣下的用戶組與 Karma 等級。** 未登入的用戶均會顯示為「訪客」；已註冊的用戶則預設獲分配至「常規」用戶組。Karma 等級是顯示於用戶組徽章下方、類似電池的進度列，代表閣下的活躍程度與貢獻值。更多的高級用戶組（如「先鋒」與「管理員」）及詳細的 Karma 規則，將與後續推出的社群功能掛鈎。
-* **帳號註冊時間。**
+* **帳戶註冊時間。**
 * **閣下的暱稱。** 完成首次註冊後，系統會指引閣下設定暱稱——暱稱可隨時更改！
-* **閣下的 UID。** UID 會在首次設定暱稱時獲分配，且一經分配便無法更改。但請放心！此 UID 僅用於閣下在社交媒體分享面板時作展示之用，與核心用戶身份及帳號數據無關。
+* **閣下的 UID。** UID 會在首次設定暱稱時獲分配，且一經分配便無法更改。但請放心！此 UID 僅用於閣下在社交媒體分享面板時作展示之用，與核心用戶身份及帳戶數據無關。
 * ——當然，還有可愛的管理員及幹員們的頭像！
 
 ---
 
 ## 社群系統前瞻
-我們的原定計劃是待所有後端項目完成後，再作全面部署。我們規劃了多項帳號相關功能，當中包括但不限於：
+我們的原定計劃是待所有後端項目完成後，再作全面部署。我們規劃了多項帳戶相關功能，當中包括但不限於：
 * 收集進度雲端同步——在任何裝置或瀏覽器之間，無縫共用閣下專屬的收集進度；
 * 點位截圖查看與上傳——查看其他活躍用戶上傳的遊戲內點位截圖，以協助閣下進行探索。任何用戶均可上傳截圖，並與全體用戶共享成果；
 * Karma 系統——Karma 是活躍度的象徵。透過使用 OEM、上傳點位資訊及留下有價值的評論，即可提升 Karma；
@@ -57,4 +57,4 @@ date: 2026-04-15
 * **Discord 玩家社群**：[加入 Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)
 * **支援團隊電郵**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
 * **代碼倉庫**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)
-* **Bluesky 帳號**：[追蹤 Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)
+* **Bluesky 帳戶**：[追蹤 Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)

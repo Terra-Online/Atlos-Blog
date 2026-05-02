@@ -1,5 +1,5 @@
 ---
-title: "지도 포인트 업데이트"
+title: "지도 포인트 업데이트 1.1"
 description: "1.1 버전 업데이트 안내: 아카이브 마커 및 새로운 기능 소개"
 date: 2026-03-22
 ---
@@ -55,9 +55,9 @@ OEM을 이용해 주시고 지원해 주셔서 감사합니다.
 
 ---
 
-사용 중 궁금한 점이 있거나 본 프로젝트에 대한 의견 및 제안이 있으시면 아래의 방법으로 문의해 주시기 바랍니다.
+이번 업데이트 안내는 여기까지입니다. 이용 중 궁금한 점이나 의견이 있으시면 아래 채널을 통해 문의해 주세요:
 
-* **Discord 플레이어 커뮤니티**: [Endfield Surveying Institute 참여](https://discord.gg/BFMAKZSUG7)
-* **지원 및 규정 준수 팀 이메일**: [support@opendfieldmap.org](mailto:support@opendfieldmap.org)
-* **프로젝트 오픈 소스 코드 저장소**: [Atlos on GitHub](https://github.com/Terra-Online/Atlos)
-* **Bluesky 공식 계정**: [Open Endfield Map 팔로우](https://bsky.app/profile/opendfieldmap.bsky.social)
+* **Discord 커뮤니티**: [Endfield Surveying Institute 참여하기](https://discord.gg/BFMAKZSUG7)
+* **지원 이메일**: [support@opendfieldmap.org](mailto:support@opendfieldmap.org)
+* **GitHub**: [Atlos](https://github.com/Terra-Online/Atlos)
+* **Bluesky**: [Open Endfield Map 팔로우하기](https://bsky.app/profile/opendfieldmap.bsky.social)

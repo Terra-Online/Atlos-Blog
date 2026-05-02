@@ -1,5 +1,5 @@
 ---
-title: 책임 면제 고지
+title: 면책사항
 description: Open Endfield Map의 책임 면제 및 위험 감수에 대한 고지입니다.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 免責事項に関する声明
+title: 免責事項
 description: 終末地マップ集 (Open Endfield Map) の免責事項およびリスクの自己負担に関する声明。
 ---
 
