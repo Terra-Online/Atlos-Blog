@@ -44,7 +44,7 @@ We are also launching the **Marker Tracking** feature. When enabled, approaching
 Marker tracking is enabled by default using the **Balance** strategy. You can adjust the tracking scope in the configuration panel:
 
 * **Balance**: Tracks a recommended set of markers curated for general exploration and gathering, ideal for most players' daily needs.
-* **Collectibles**: Tracks collection and **Archive**-related markers, such as **Caches, Ether, Exploration Points, and Guiding Butterflies**.
+* **Collectibles**: Tracks collection and **Archive**-related markers, such as **Crates, Ether, Gather Points, and Guiding Butterflies**.
 * **Craft Manual**: Tracks **rare markers listed in the Craft Manual**, including enemies (drops) and selected rare natural resource nodes.
 
 Different strategies can be selected simultaneously and will merge their effects, allowing you to customize the tracking scope according to your exploration preferences.
