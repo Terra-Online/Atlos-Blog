@@ -5,6 +5,8 @@ out/
 .next/
 .open-next/
 
+tsconfig.tsbuildinfo
+
 _REF
 
 # Generated files

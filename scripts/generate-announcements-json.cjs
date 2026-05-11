@@ -83,6 +83,18 @@ function parseFrontmatter(frontmatterRaw) {
   return parsed;
 }
 
+function toAbsoluteAnnouncementLinks(content, locale) {
+  const baseUrl = 'https://blog.opendfieldmap.org/' + locale;
+
+  return content
+    .replaceAll(/href="\.\.\/\.\.\/\.\.\/docs\/([^"]+)"/g, (_match, slug) => {
+      return `href="${baseUrl}/docs/${slug}"`;
+    })
+    .replaceAll(/\]\(\.\.\/\.\.\/\.\.\/docs\/([^)]+)\)/g, (_match, slug) => {
+      return `](${baseUrl}/docs/${slug})`;
+    });
+}
+
 const result = {};
 
 const markdownFiles = collectMarkdownFiles(ANNOUNCEMENTS_ROOT).sort((a, b) => a.localeCompare(b));
@@ -102,7 +114,7 @@ for (const filePath of markdownFiles) {
     id,
     title: frontmatter.title || '',
     description: frontmatter.description || '',
-    content: body,
+    content: toAbsoluteAnnouncementLinks(body, locale),
     date: frontmatter.date ? String(frontmatter.date).trim() : '',
     url,
     locale,
