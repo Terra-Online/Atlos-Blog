@@ -85,14 +85,39 @@ function parseFrontmatter(frontmatterRaw) {
 
 function toAbsoluteAnnouncementLinks(content, locale) {
   const baseUrl = 'https://blog.opendfieldmap.org/' + locale;
+  const normalizeTarget = (target) => {
+    const cleaned = target.trim();
+    if (
+      cleaned.startsWith('http://') ||
+      cleaned.startsWith('https://') ||
+      cleaned.startsWith('mailto:') ||
+      cleaned.startsWith('#') ||
+      cleaned.startsWith('//')
+    ) {
+      return null;
+    }
+
+    if (cleaned.startsWith('../../../')) {
+      return cleaned.slice(9);
+    }
+
+    if (cleaned.startsWith('./')) {
+      return cleaned.slice(2);
+    }
+
+    return null;
+  };
+
+  const toAbsoluteUrl = (target) => {
+    const normalized = normalizeTarget(target);
+    if (normalized === null) return target;
+
+    return baseUrl + '/' + normalized.replace(/^\/+/, '');
+  };
 
   return content
-    .replaceAll(/href="\.\.\/\.\.\/\.\.\/docs\/([^"]+)"/g, (_match, slug) => {
-      return `href="${baseUrl}/docs/${slug}"`;
-    })
-    .replaceAll(/\]\(\.\.\/\.\.\/\.\.\/docs\/([^)]+)\)/g, (_match, slug) => {
-      return `](${baseUrl}/docs/${slug})`;
-    });
+    .replaceAll(/href="([^"]+)"/g, (_match, target) => `href="${toAbsoluteUrl(target)}"`)
+    .replaceAll(/\]\(([^)]+)\)/g, (_match, target) => `](${toAbsoluteUrl(target)})`);
 }
 
 const result = {};
