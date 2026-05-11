@@ -17,6 +17,12 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  "r2_buckets": [
+    {
+      "binding": "BLOG_MEDIA",
+      "bucket_name": "opendfieldmap-blog"
+    }
+  ],
   "services": [
     {
       // Self-reference service binding — name must match the worker name above.

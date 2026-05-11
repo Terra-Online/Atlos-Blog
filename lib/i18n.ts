@@ -42,4 +42,11 @@ export const sectionLabels = {
     "zh-cn": "更多",
     "zh-hk": "更多",
   },
+  sponsors: {
+    en: "Sponsors",
+    ja: "スポンサー",
+    ko: "후원자",
+    "zh-cn": "赞助者",
+    "zh-hk": "贊助者",
+  },
 };

@@ -60,4 +60,4 @@ description: 终末地地图集 (Open Endfield Map) 用户生成内容协议及�
 
 * **支持与合规团队邮箱**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
 * **项目开源代码仓库**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)
-* **Discord 玩家社区**：[Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)
+* **Discord 玩家社区**：[加入「Endfield Surveying Institute」](https://discord.gg/BFMAKZSUG7)

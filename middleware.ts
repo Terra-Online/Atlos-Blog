@@ -4,7 +4,23 @@ import type { NextRequest } from 'next/server';
 const defaultLocale = 'zh-hk';
 const locales = ['zh-hk', 'en', 'zh-cn', 'ja', 'ko'];
 
+function isBlogMediaPath(pathname: string) {
+  return pathname === '/blogs' || pathname.startsWith('/blogs/');
+}
+
+function shouldProxyBlogMedia(pathname: string) {
+  return process.env.NEXTJS_ENV === 'production' && isBlogMediaPath(pathname);
+}
+
 function isBypassPath(pathname: string) {
+  if (pathname.startsWith('/__media/')) {
+    return false;
+  }
+
+  if (isBlogMediaPath(pathname)) {
+    return false;
+  }
+
   return (
     pathname.startsWith('/api') ||
     pathname.startsWith('/_next') ||
@@ -17,6 +33,16 @@ function isBypassPath(pathname: string) {
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  if (pathname.startsWith('/__media/')) {
+    return NextResponse.next();
+  }
+
+  if (shouldProxyBlogMedia(pathname)) {
+    const url = request.nextUrl.clone();
+    url.pathname = `/__media${pathname}`;
+    return NextResponse.rewrite(url);
+  }
 
   if (isBypassPath(pathname)) {
     return NextResponse.next();

@@ -1,20 +1,20 @@
 {
-  "version": "1777712064762",
+  "version": "1778508868482",
   "locales": {
     "en": {
-      "latestId": "update-26May"
+      "latestId": "update-26May-2"
     },
     "zh-cn": {
-      "latestId": "update-26May"
+      "latestId": "update-26May-2"
     },
     "zh-hk": {
-      "latestId": "update-26May"
+      "latestId": "update-26May-2"
     },
     "ja": {
-      "latestId": "update-26May"
+      "latestId": "update-26May-2"
     },
     "ko": {
-      "latestId": "update-26May"
+      "latestId": "update-26May-2"
     }
   }
 }

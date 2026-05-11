@@ -1,3 +1,4 @@
+import { sectionLabels } from '@/lib/i18n';
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 import type { LinkItemType } from 'fumadocs-ui/layouts/links';
 
@@ -60,6 +61,9 @@ export const socialLinkItems: LinkItemType[] = [
 export function siteBaseOptions(lang: string): BaseLayoutProps {
   const withLocale = (path: string) =>
     lang === 'zh-hk' ? path : `/${lang}${path}`;
+  const sectionText = (section: keyof typeof sectionLabels) =>
+    sectionLabels[section][lang as keyof (typeof sectionLabels)[typeof section]] ??
+    sectionLabels[section].en;
 
   return {
     nav: {
@@ -84,22 +88,22 @@ export function siteBaseOptions(lang: string): BaseLayoutProps {
     },
     links: [
       {
-        text: 'Documentation',
+        text: sectionText('docs'),
         url: withLocale('/docs'),
         active: 'nested-url',
       },
       {
-        text: 'Blog',
+        text: sectionText('blog'),
         url: withLocale('/blog'),
         active: 'nested-url',
       },
       {
-        text: 'Community',
+        text: sectionText('community'),
         url: withLocale('/community'),
         active: 'nested-url',
       },
       {
-        text: 'Sponsors',
+        text: sectionText('sponsors'),
         url: withLocale('/sponsors'),
         active: 'nested-url',
       },
