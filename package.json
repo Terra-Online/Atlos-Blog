@@ -2,6 +2,7 @@
   "name": "open-endfield-map-blog",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.17.1",
   "scripts": {
     "generate:announcements": "node scripts/generate-announcements-json.cjs",
     "build": "pnpm run generate:announcements && next build",
