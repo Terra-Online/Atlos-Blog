@@ -59,7 +59,7 @@ When you turn off marker tracking, the tracking strategy buttons at the top will
 
 ## Documentation Updates and Future Plans
 
-**We deeply value your account security and game assets.** Following this update, we have revised the relevant clauses within the Open Endfield Map [Terms of Service](./tos) and [Privacy Policy](./privacy), and have added a [Data Collection and Usage Checklist](./personal-info-checklist) and [Disclaimer of Liability](./disclaimer) applicable to OEM. Please review these changes before enabling the new features, and continue only after acknowledging them.
+**We deeply value your account security and game assets.** Following this update, we have revised the relevant clauses within the Open Endfield Map [Terms of Service](/docs/tos) and [Privacy Policy](/docs/privacy), and have added a [Data Collection and Usage Checklist](/docs/data-collection) and [Disclaimer of Liability](/docs/disclaimer) applicable to OEM. Please review these changes before enabling the new features, and continue only after acknowledging them.
 
 Location sync and marker tracking form the foundation for OEM's upcoming in-game auxiliary features. We will continue to adjust the alert radius, marker strategies, and configuration experience based on user feedback. Guided by a strict commitment to privacy and data security, we plan to progressively roll out more features tied to game progression.
 

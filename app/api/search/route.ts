@@ -1,5 +1,5 @@
-import { source } from '@/lib/source';
-import { createFromSource } from 'fumadocs-core/search/server';
+import { blogSource, communitySource, source, sponsorsSource } from '@/lib/source';
+import { createI18nSearchAPI, type AdvancedIndex } from 'fumadocs-core/search/server';
 import { type NextRequest } from 'next/server';
 import { i18n } from '@/lib/i18n';
 
@@ -30,14 +30,53 @@ const cjkTokenizer = {
   },
 };
 
-const search = createFromSource(source, undefined, {
+const searchOptions = {
   localeMap: {
     'zh-cn': { tokenizer: cjkTokenizer },
     'zh-hk': { tokenizer: cjkTokenizer },
     ja: { tokenizer: cjkTokenizer },
     ko: { tokenizer: cjkTokenizer },
   },
+};
+
+const sources = [source, blogSource, communitySource, sponsorsSource];
+
+function pageToIndex(
+  page: ReturnType<(typeof sources)[number]['getPages']>[number],
+): AdvancedIndex {
+  return {
+    title: page.data.title,
+    description:
+      'description' in page.data ? page.data.description : undefined,
+    url: page.url,
+    id: `${page.url}::${page.file.path}`,
+    structuredData: page.data.structuredData,
+  };
+}
+
+const search = createI18nSearchAPI('advanced', {
+  ...searchOptions,
+  i18n,
+  indexes: buildSearchIndexes(),
 });
+
+function buildSearchIndexes() {
+  const indexes = new Map<string, AdvancedIndex & { locale: string }>();
+
+  for (const locale of i18n.languages) {
+    for (const source of sources) {
+      for (const page of source.getPages(locale)) {
+        const index = pageToIndex(page);
+        indexes.set(`${locale}::${index.url}`, {
+          ...index,
+          locale,
+        });
+      }
+    }
+  }
+
+  return Array.from(indexes.values());
+}
 
 export async function GET(request: NextRequest) {
   const query = request.nextUrl.searchParams.get('query');
@@ -54,6 +93,12 @@ export async function GET(request: NextRequest) {
     i18n.languages.map((l) => search.search(query, { locale: l, tag })),
   );
 
+  return Response.json(dedupeResults(merged));
+}
+
+function dedupeResults(
+  merged: Awaited<ReturnType<typeof search.search>>[],
+) {
   const deduped = new Map<string, (typeof merged)[number][number]>();
   for (const list of merged) {
     for (const item of list) {
@@ -62,5 +107,5 @@ export async function GET(request: NextRequest) {
     }
   }
 
-  return Response.json(Array.from(deduped.values()));
+  return Array.from(deduped.values());
 }

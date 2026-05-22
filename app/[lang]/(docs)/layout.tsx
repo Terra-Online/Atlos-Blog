@@ -23,12 +23,6 @@ export default async function LangDocsLayout({
   if (!tree) notFound();
 
   tree.name = localizedSectionLabel('docs', lang);
-  for (const child of tree.children) {
-    if (child.type !== 'folder') continue;
-    if (child.name === 'community') child.name = localizedSectionLabel('community', lang);
-    if (child.name === 'blogs') child.name = localizedSectionLabel('blog', lang);
-    if (child.name === 'more') child.name = localizedSectionLabel('more', lang);
-  }
 
   return (
     <AppI18nProvider

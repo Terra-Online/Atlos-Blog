@@ -1,4 +1,5 @@
 import { sectionLabels } from '@/lib/i18n';
+import { siteSections } from '@/lib/source';
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 import type { LinkItemType } from 'fumadocs-ui/layouts/links';
 
@@ -87,26 +88,11 @@ export function siteBaseOptions(lang: string): BaseLayoutProps {
       url: lang === 'zh-hk' ? '/' : `/${lang}/home`,
     },
     links: [
-      {
-        text: sectionText('docs'),
-        url: withLocale('/docs'),
-        active: 'nested-url',
-      },
-      {
-        text: sectionText('blog'),
-        url: withLocale('/blog'),
-        active: 'nested-url',
-      },
-      {
-        text: sectionText('community'),
-        url: withLocale('/community'),
-        active: 'nested-url',
-      },
-      {
-        text: sectionText('sponsors'),
-        url: withLocale('/sponsors'),
-        active: 'nested-url',
-      },
+      ...siteSections.map((section) => ({
+        text: sectionText(section.key),
+        url: withLocale(section.href),
+        active: 'nested-url' as const,
+      })),
       // Vertical divider between i18n toggle and social icons (right side)
       {
         type: 'custom',

@@ -1,0 +1,71 @@
+import { blogSource } from '@/lib/source';
+import {
+  DocsBody,
+  DocsDescription,
+  DocsTitle,
+} from 'fumadocs-ui/page';
+import defaultMdxComponents from 'fumadocs-ui/mdx';
+import { ImageZoom } from 'fumadocs-ui/components/image-zoom';
+import { format } from 'date-fns';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+
+function formatPostDate(date?: string | Date) {
+  if (!date) return null;
+  const parsed = new Date(date);
+  if (Number.isNaN(parsed.getTime())) return null;
+
+  return format(parsed, 'EEE, d MMM yyyy');
+}
+
+export default async function BlogPostPage(props: {
+  params: Promise<{ lang: string; slug?: string[] }>;
+}) {
+  const params = await props.params;
+  const page = blogSource.getPage(params.slug, params.lang);
+  if (!page) notFound();
+
+  const MDX = page.data.body;
+  const date = formatPostDate((page.data as { date?: string | Date }).date);
+
+  return (
+    <main className="mx-auto w-full max-w-[860px] px-4 py-12 md:px-8">
+      <article>
+        <header className="mb-8 border-b border-fd-border pb-6">
+          <DocsTitle className="mb-3 text-4xl">{page.data.title}</DocsTitle>
+          <DocsDescription className="mb-4 text-base">
+            {page.data.description}
+          </DocsDescription>
+          {date ? (
+            <p className="text-sm font-medium text-fd-primary">{date}</p>
+          ) : null}
+        </header>
+        <DocsBody>
+          <MDX
+            components={{
+              ...defaultMdxComponents,
+              img: (props) => <ImageZoom {...(props as any)} />,
+            }}
+          />
+        </DocsBody>
+      </article>
+    </main>
+  );
+}
+
+export function generateStaticParams() {
+  return blogSource.generateParams();
+}
+
+export async function generateMetadata(props: {
+  params: Promise<{ lang: string; slug?: string[] }>;
+}): Promise<Metadata> {
+  const params = await props.params;
+  const page = blogSource.getPage(params.slug, params.lang);
+  if (!page) notFound();
+
+  return {
+    title: page.data.title,
+    description: page.data.description,
+  };
+}

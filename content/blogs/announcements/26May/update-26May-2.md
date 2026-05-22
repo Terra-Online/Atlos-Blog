@@ -20,7 +20,7 @@ Images you upload will be displayed after passing moderation, so there may be a 
 
 ## User-Generated Content Guidelines Summary
 
-To maintain an effective and accurate data environment, please be sure to read and adhere to the following guidelines before uploading. For full details, please refer to the project's [UGC Content Statement](../../../docs/ugc) and [Community Guidelines](../../../docs/community-guidelines).
+To maintain an effective and accurate data environment, please be sure to read and adhere to the following guidelines before uploading. For full details, please refer to the project's [UGC Content Statement](/docs/ugc) and [Community Guidelines](/docs/community-guidelines).
 
 **You may upload:**
 * Clear **third-person screenshots** that showcase the marker's position in game.
@@ -41,7 +41,7 @@ To maintain an effective and accurate data environment, please be sure to read a
 
 We have officially activated the Karma system. Karma is a way to measure a user's level of activity on Open Endfield Map. We will also assign Pioneer or Admin roles to users who actively contribute, ensuring a smoother contribution experience.
 
-For detailed information regarding Karma and the user group system, you can refer to the [Guide for Karma and User Groups](../../../community/karma).
+For detailed information regarding Karma and the user group system, you can refer to the [Guide for Karma and User Groups](/community/karma).
 
 ---
 

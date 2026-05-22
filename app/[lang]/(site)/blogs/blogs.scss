@@ -1,0 +1,124 @@
+.blog-index {
+  gap: 2rem;
+}
+
+.blog-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.blog-section h2 {
+  width: fit-content;
+  text-decoration-line: underline;
+  text-decoration-color: hsl(var(--fd-primary));
+  text-decoration-thickness: 0.28rem;
+  text-underline-offset: -0.08rem;
+  font-size: clamp(1.45rem, 2vw, 1.85rem);
+  font-weight: 800;
+  color: hsl(var(--fd-foreground));
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.45rem;
+}
+
+.blog-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid hsl(var(--fd-border) / 0.7);
+  border-radius: 1rem;
+  background: hsl(var(--fd-card));
+  box-shadow: 0 10px 26px hsl(0 0% 0% / 0.11);
+  color: hsl(var(--fd-foreground));
+  text-decoration: none;
+}
+
+.blog-card:hover {
+  border-color: hsl(var(--fd-primary) / 0.45);
+  transform: translateY(-2px);
+}
+
+.blog-card-small {
+  display: flex;
+  min-height: 7.5rem;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.25rem 1.5rem;
+}
+
+.blog-card-small h3,
+.blog-card-large h3 {
+  margin: 0;
+  font-size: 1.18rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.blog-card-small p {
+  display: -webkit-box;
+  margin: 0.35rem 0 0;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  color: hsl(var(--fd-muted-foreground));
+  font-size: 0.95rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.blog-card-small time,
+.blog-card-large time {
+  display: block;
+  margin-top: 0.75rem;
+  color: hsl(var(--fd-primary));
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.blog-card-large {
+  display: block;
+  min-height: 16rem;
+}
+
+.blog-card-large-fallback {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, hsl(223 68% 45%), hsl(217 66% 31%) 56%, hsl(42 92% 54%));
+}
+
+.blog-card-large-overlay {
+  position: absolute;
+  inset: auto 0 0;
+  height: 56%;
+  background:
+    linear-gradient(to top, hsl(var(--fd-card)) 18%, hsl(var(--fd-card) / 0.9) 42%, hsl(var(--fd-card) / 0));
+  backdrop-filter: blur(8px);
+  mask-image: linear-gradient(to top, black 48%, transparent);
+}
+
+.blog-card-large-content {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 1.25rem 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-card-small {
+    min-height: 7rem;
+  }
+}

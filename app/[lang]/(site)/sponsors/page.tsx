@@ -1,3 +1,5 @@
+import { ContentIndex } from '@/app/components/content-index';
+import { sponsorsSource } from '@/lib/source';
 import type { ReactNode } from 'react';
 
 const copy: Record<string, { title: string; subtitle: string }> = {
@@ -26,11 +28,9 @@ export default async function SponsorsPage({
 }): Promise<ReactNode> {
   const { lang } = await params;
   const text = copy[lang] ?? copy.en;
+  const pages = sponsorsSource
+    .getPages(lang)
+    .sort((a, b) => a.data.title.localeCompare(b.data.title));
 
-  return (
-    <main className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-12">
-      <h1 className="text-3xl font-bold tracking-tight">{text.title}</h1>
-      <p className="text-fd-muted-foreground">{text.subtitle}</p>
-    </main>
-  );
+  return <ContentIndex title={text.title} subtitle={text.subtitle} pages={pages} />;
 }

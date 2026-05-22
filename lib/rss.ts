@@ -1,13 +1,13 @@
 import { Feed } from 'feed';
-import { source } from '@/lib/source';
+import { blogSource } from '@/lib/source';
 
 const baseUrl = 'https://blog.opendfieldmap.org/';
 
 export function getRSS() {
   const feed = new Feed({
     title: 'OEM Blog',
-    id: `${baseUrl}/blog`,
-    link: `${baseUrl}/blog`,
+    id: `${baseUrl}/blogs`,
+    link: `${baseUrl}/blogs`,
     language: 'zh-hk',
 
     image: `${baseUrl}/banner.png`,
@@ -15,8 +15,11 @@ export function getRSS() {
     copyright: 'All rights reserved 2026, Jacy Chan',
   });
 
-  for (const page of source.getPages()) {
-    const fallbackDate = page.data.lastModified
+  for (const page of blogSource.getPages()) {
+    const date = (page.data as { date?: string | Date }).date;
+    const fallbackDate = date
+      ? new Date(date)
+      : page.data.lastModified
       ? new Date(page.data.lastModified)
       : new Date();
 
