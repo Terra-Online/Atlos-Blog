@@ -11,4 +11,6 @@ const config = {
 
 export default withMDX(config);
 
-import('@opennextjs/cloudflare').then(m => m.initOpenNextCloudflareForDev());
+if (process.env.NEXTJS_ENV === 'cloudflare-dev') {
+  import('@opennextjs/cloudflare').then((m) => m.initOpenNextCloudflareForDev());
+}

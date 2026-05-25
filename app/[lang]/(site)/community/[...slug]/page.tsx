@@ -10,7 +10,13 @@ export default async function CommunityPage(props: {
   const page = communitySource.getPage(params.slug, params.lang);
   if (!page) notFound();
 
-  return <SiteDocPage page={page} />;
+  return (
+    <SiteDocPage
+      page={page}
+      contentPath={`content/community/${page.file.path}`}
+      showAuthorMeta
+    />
+  );
 }
 
 export function generateStaticParams() {

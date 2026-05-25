@@ -5,6 +5,8 @@ const SUPPORTED_LOCALES = new Set(['en', 'zh-cn', 'zh-hk', 'ja', 'ko']);
 const ANNOUNCEMENTS_ROOT = path.join(process.cwd(), 'content/blogs/announcements');
 const OUTPUT_PATH = path.join(process.cwd(), 'app/api/[locale]/announcements/data.json');
 const OUTPUT_META_PATH = path.join(process.cwd(), 'app/api/[locale]/announcements/meta.json');
+const SITE_ORIGIN = (process.env.NEXT_PUBLIC_SITE_URL || 'https://blog.opendfieldmap.org').replace(/\/+$/, '');
+const ASSET_ORIGIN = (process.env.NEXT_PUBLIC_ASSET_URL || SITE_ORIGIN).replace(/\/+$/, '');
 
 function collectMarkdownFiles(dirPath) {
   const files = [];
@@ -42,6 +44,18 @@ function parseLocaleAndId(filePath) {
     id: fileName.slice(0, -locale.length - 1),
     locale,
   };
+}
+
+function getAnnouncementPagePath(filePath, id) {
+  const relativeDir = path.dirname(path.relative(ANNOUNCEMENTS_ROOT, filePath));
+  const segments = ['blogs', 'announcements'];
+
+  if (relativeDir !== '.') {
+    segments.push(...relativeDir.split(path.sep).filter(Boolean));
+  }
+
+  segments.push(id);
+  return '/' + segments.join('/');
 }
 
 function splitFrontmatter(raw, filePath) {
@@ -83,8 +97,54 @@ function parseFrontmatter(frontmatterRaw) {
   return parsed;
 }
 
+function localizedPath(pathname, locale) {
+  const cleaned = pathname.replace(/^\/+/, '');
+
+  if ([...SUPPORTED_LOCALES].some((item) => cleaned === item || cleaned.startsWith(item + '/'))) {
+    return '/' + cleaned;
+  }
+
+  return '/' + locale + '/' + cleaned;
+}
+
+function toAbsoluteUrl(target, locale, { asset = false } = {}) {
+  const cleaned = target.trim();
+
+  if (
+    cleaned.startsWith('http://') ||
+    cleaned.startsWith('https://') ||
+    cleaned.startsWith('mailto:') ||
+    cleaned.startsWith('tel:') ||
+    cleaned.startsWith('#') ||
+    cleaned.startsWith('//')
+  ) {
+    return target;
+  }
+
+  const [withoutHash, hash = ''] = cleaned.split('#');
+  const [withoutQuery, query = ''] = withoutHash.split('?');
+  let pathname = withoutQuery;
+
+  if (pathname.startsWith('../../../')) {
+    pathname = pathname.slice(9);
+  } else if (pathname.startsWith('./')) {
+    pathname = pathname.slice(2);
+  }
+
+  const isAsset =
+    asset ||
+    /^\/?(?:media|icons)\//.test(pathname) ||
+    /\.(?:avif|gif|jpe?g|png|svg|webp)$/i.test(pathname);
+  const origin = isAsset ? ASSET_ORIGIN : SITE_ORIGIN;
+  const absolutePath = isAsset
+    ? '/' + pathname.replace(/^\/+/, '')
+    : localizedPath(pathname, locale);
+  const suffix = (query ? '?' + query : '') + (hash ? '#' + hash : '');
+
+  return origin + absolutePath + suffix;
+}
+
 function toAbsoluteAnnouncementLinks(content, locale) {
-  const baseUrl = 'https://blog.opendfieldmap.org/' + locale;
   const normalizeTarget = (target) => {
     const cleaned = target.trim();
     if (
@@ -108,16 +168,20 @@ function toAbsoluteAnnouncementLinks(content, locale) {
     return null;
   };
 
-  const toAbsoluteUrl = (target) => {
+  const legacyToAbsoluteUrl = (target) => {
     const normalized = normalizeTarget(target);
-    if (normalized === null) return target;
+    if (normalized === null) return toAbsoluteUrl(target, locale);
 
-    return baseUrl + '/' + normalized.replace(/^\/+/, '');
+    return toAbsoluteUrl(normalized, locale);
   };
 
   return content
-    .replaceAll(/href="([^"]+)"/g, (_match, target) => `href="${toAbsoluteUrl(target)}"`)
-    .replaceAll(/\]\(([^)]+)\)/g, (_match, target) => `](${toAbsoluteUrl(target)})`);
+    .replaceAll(/src="([^"]+)"/g, (_match, target) => `src="${toAbsoluteUrl(target, locale, { asset: true })}"`)
+    .replaceAll(/href="([^"]+)"/g, (_match, target) => `href="${legacyToAbsoluteUrl(target)}"`)
+    .replaceAll(/(!?)\[([^\]]*)\]\(([^)\s]+)(?:\s+("[^"]*"|'[^']*'))?\)/g, (_match, bang, label, target, title = '') => {
+      const absolute = toAbsoluteUrl(target, locale, { asset: bang === '!' });
+      return `${bang}[${label}](${absolute}${title ? ' ' + title : ''})`;
+    });
 }
 
 const result = {};
@@ -129,7 +193,7 @@ for (const filePath of markdownFiles) {
   const raw = fs.readFileSync(filePath, 'utf8');
   const { frontmatterRaw, body } = splitFrontmatter(raw, filePath);
   const frontmatter = parseFrontmatter(frontmatterRaw);
-  const url = '/' + locale + '/blogs/announcements/' + id;
+  const url = toAbsoluteUrl(getAnnouncementPagePath(filePath, id), locale);
 
   if (!result[locale]) {
     result[locale] = [];

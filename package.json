@@ -7,6 +7,7 @@
     "generate:announcements": "node scripts/generate-announcements-json.cjs",
     "build": "pnpm run generate:announcements && next build",
     "dev": "next dev",
+    "dev:cloudflare": "NEXTJS_ENV=cloudflare-dev next dev",
     "start": "next start",
     "postinstall": "fumadocs-mdx",
     "preview": "pnpm run generate:announcements && opennextjs-cloudflare build && opennextjs-cloudflare preview",
