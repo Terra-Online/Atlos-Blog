@@ -77,6 +77,15 @@
   ],
   "en": [
     {
+      "id": "update-26May-3",
+      "title": "CN Mirror Maintenance",
+      "description": "The CN mirror of Open Endfield Map will undergo maintenance starting May 26. Please back up your data in advance",
+      "content": "Thank you for your continued support and use of Open Endfield Map over the past months.\n\nWe need to update the ICP registration information for our mainland China deployment. **During the registration migration period, the CN mirror domain (opendfieldmap.cn) may become temporarily unavailable or fail to resolve properly**. Therefore, we plan to temporarily suspend services for the CN mirror **starting from 21:00 on May 26, 2026 (UTC+8)**.\n\nThe maintenance and registration migration process is expected to take approximately 5 to 12 business days. We will make every effort to restore access to the CN mirror before the release of version 1.3.\n\nDuring the suspension period, the global site (opendfieldmap.org) will remain fully operational.\n\nIf you need to continue using the map service during this period, we recommend exporting your data in advance using the export function shown below and transferring it to our [Global Site (opendfieldmap.org)](https://opendfieldmap.org). We apologize for any inconvenience this may cause and appreciate your understanding.\n\n![Fig1: Export and import operations](https://blog.opendfieldmap.org/blogs/announcements/26May/fig5.webp)\n*Figure 1: Exporting and importing data through the \"Protocol & Storage\" panel in the top headbar*\n\nYou can click the corresponding icon in the website’s top navigation bar to open the \"Protocol & Storage\" panel, then click the \"Export Data\" button to export your OEM progress locally. Afterwards, you may import the data at the same location on the international site (opendfieldmap.org)￼ to complete the migration process.”\n\n---\nIf you have any questions, feedback, or suggestions while using the map, feel free to reach out to us through the following channels:\n\n* **Discord Player Community**: [Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)\n* **Support and Compliance Team Email**: [support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **Project Open Source Repository**: [Atlos on GitHub](https://github.com/Terra-Online/Atlos)\n* **Official Account on Bluesky**: [Follow Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)",
+      "date": "2026-05-25",
+      "url": "https://blog.opendfieldmap.org/en/blogs/announcements/26May/update-26May-3",
+      "locale": "en"
+    },
+    {
       "id": "update-26May-2",
       "title": "Screenshot Update",
       "description": "Version 1.2 Update Notes III: Screenshot Upload and Karma system",
@@ -114,6 +123,15 @@
     }
   ],
   "zh-cn": [
+    {
+      "id": "update-26May-3",
+      "title": "CN镜像维护公告",
+      "description": "终末地地图集（大陆镜像）将于5月26日起进行维护，请预先备份您的数据",
+      "content": "感谢各位在过去一段时间内对终末地地图集（Open Endfield Map）的使用与支持。\n\n我们需要对终末地地图集中国大陆镜像站点的备案信息进行调整。**在备案迁移期间，CN镜像域名（opendfieldmap.cn）可能会暂时无法正常解析**。因此，我们计划**自 2026 年 5 月 26 日 21:00 起**，暂时停止中国大陆镜像站点的服务。\n\n预计维护与备案迁移周期约为 5 至 12 个工作日；我们将尽可能在 1.3 版本更新前重新恢复 CN 镜像站的访问服务。\n\nCN镜像停用后，国际站点（即 opendfieldmap.org）仍然正常提供服务。\n\n如果您在此期间内需要使用地图集的服务，我们建议您及时通过导出功能（如下图所示）将数据转移到我们的[国际站点（opendfieldmap.org）](https://opendfieldmap.org)。因此造成的不便，敬请谅解。\n\n![图1：数据导入和导出操作流程](https://blog.opendfieldmap.org/blogs/announcements/26May/fig5.webp)\n\n*图1：通过顶栏的“协议与储存”窗口，进行数据导出和导入*\n\n您可以点击图中所示网站顶栏的对应图标打开“协议与储存”窗口，并且点击“导出数据”按钮将您的 OEM 进度导出到本地；而后在[国际站点（opendfieldmap.org）](https://opendfieldmap.org)的相同位置导入数据，完成数据迁移。\n\n---\n如果您遇到任何问题，或对本项目有任何意见和建议，请通过以下方式联系我们：\n\n* **项目 QQ 群组**：[加入【终末地大地图交流】](https://qm.qq.com/q/OQbocvQzCO)\n* **Discord 玩家社区**：[加入【Endfield Surveying Institute】](https://discord.gg/BFMAKZSUG7)\n* **支持团队邮箱**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **代码仓库**：[在 GitHub 上查看 Atlos](https://github.com/Terra-Online/Atlos)\n* **Bluesky 账户**：[追踪 Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)",
+      "date": "2026-05-25",
+      "url": "https://blog.opendfieldmap.org/zh-cn/blogs/announcements/26May/update-26May-3",
+      "locale": "zh-cn"
+    },
     {
       "id": "update-26May-2",
       "title": "点位截图更新",
@@ -186,6 +204,15 @@
       "content": "感謝閣下對 OEM 的使用與支持。\n\n自 1.1 版本更新以來，OEM 開發團隊一直專注於新功能的開發，致力於讓 **Open Endfield Map** 成為最好用的終末地地圖工具。我們很高興為閣下帶來一次關於**地圖數據和使用方法**的重大功能更新；閱讀以下介紹內容可能改善閣下的使用體驗，請見下文：\n\n## 側邊欄與篩選器更新\n隨着點位增多和檢索條件複雜化，我們為側邊欄新增了可變寬度的功能，閣下可以透過拖曳側邊欄右側調整其寬度（**圖1**）；\n\n![圖1：可調整寬度的側邊欄](https://blog.opendfieldmap.org/blogs/announcements/26March/fig1.webp)\n*圖1：拖曳側邊欄右側邊緣即可調整寬度。*\n\n- 在更寬的側邊欄中，篩選器會變為三列佈局；\n- 對於「敵人」和「檔案」這類具有類似掉落物等多維屬性的點位，我們為其新增了一個分類選擇器（**圖2**），將具有一致屬性的篩選器聚合顯示，閣下便可以快捷地選中同類的點位。\n\n![圖2：篩選器分類選擇器](https://blog.opendfieldmap.org/blogs/announcements/26March/fig2.webp)\n*圖2：透過分類選擇器快速切換同屬性篩選項。*\n\n在未來更新中，我們還會推出更改聚合方式的功能，閣下屆時也可以根據敵人陣營/等階來篩選。\n\n---\n\n## 新增檔案數據集\n經過審慎的數據採集與清洗，我們為 OEM 添加了遊戲內「檔案庫」中所有可在地圖上收集的點位，並提供了單獨檢索任何單一檔案的能力。\n現有的幾個地圖（包括官方地圖）僅將檔案點位摺疊為一大類進行展示，然而在大部分場景中，用戶需要查找特定檔案進行補全，目前 OEM 提供了最方便的解決方案：\n- 所有可收集檔案現在都在側邊欄中單獨列出。  \n- 透過上文提及的**分類選擇器**，檔案的屬性現已與遊戲內檔案庫的「紙質記錄」「電子檔案」等完全對齊，方便閣下分類檢索缺失點位；\n- 整合全局搜索系統，閣下可以透過檔案的**標題或正文**直接檢索點位（**圖3**）。\n- 可在點位詳情直接點擊**查看完整內容**閱讀檔案資訊，無需離開地圖（**圖4**）。 \n\n![圖3：全局搜索中的檔案檢索](https://blog.opendfieldmap.org/blogs/announcements/26March/fig3.webp)\n*圖3：按標題或正文關鍵字檢索檔案與點位。*\n\n![圖4：點位詳情中的檔案完整內容](https://blog.opendfieldmap.org/blogs/announcements/26March/fig4.webp)\n*圖4：在點位詳情中直接查看檔案全文，並支援分享跳轉。*\n\n---\n\n## 全局搜索系統\n如**圖3**所示，「全域搜尋」功能已經迎來更新。\n- 快速查找**任意檔案與點位內容**，搜索結果包含正文摘要以及點位分佈情況；\n- 對於類型搜索結果，點擊搜索結果等效於點擊對應的篩選器，會選擇此類點位；  \n- 對於唯一點位的搜索結果，點擊即可 **跳轉對應點位**。\n\n---\n\n## 深度連結與點位分享\n如**圖4**所示：\n- 當前，每個點位都支援 **複製分享連結**。  \n- 可發送給好友或用作 **書籤收藏**，隨時返回查看，使用分享連結會直接導航至對應點位，並以動畫提示。\n\n---\n\n如在使用過程中有任何疑問，或對本項目有任何意見和建議，請使用以下方式聯絡我們：\n\n* **Discord 玩家社群**：[加入 Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)\n* **支援團隊電郵**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **代碼倉庫**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)\n* **Bluesky 帳號**：[追蹤 Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)",
       "date": "2026-03-22",
       "url": "https://blog.opendfieldmap.org/zh-hk/blogs/announcements/26March/update-26March",
+      "locale": "zh-hk"
+    },
+    {
+      "id": "update-26May-3",
+      "title": "",
+      "description": "",
+      "content": "感謝各位在過去一段時間內對終末地圖集（Open Endfield Map）的使用與支持。\n\n我們需要對中國大陸站點的備案資訊進行調整。**在備案遷移期間，CN鏡像域名（opendfieldmap.cn）可能會暫時無法正常解析。**因此，我們計劃**自 2026 年 5 月 26 日 21:00 起**，暫時停止中國大陸鏡像站點的服務。\n\n預計維護與備案遷移週期約為 5 至 12 個工作日；我們將盡可能在 1.3 版本更新前重新恢復 CN 鏡像站的訪問服務。\n\nCN鏡像停用後，國際站點（即 opendfieldmap.org）仍然正常提供服務。\n\n如果您在此期間內需要使用地圖集服務，我們建議您及時透過匯出功能（如下圖所示）將資料轉移至我們的[國際站點（opendfieldmap.org）](https://opendfieldmap.org)。對於因此造成的不便，敬請諒解。\n\n![图1：進度數據匯入與匯出操作流程](https://blog.opendfieldmap.org/blogs/announcements/26May/fig5.webp)\n\n*圖1：透過頂欄的「協議與儲存」視窗，進行資料匯出／匯入*\n\n您可以點擊圖中所示網站頂欄的對應圖示開啟「協議與儲存」視窗，並點擊「匯出資料」按鈕將您的 OEM 進度匯出至裝置；其後在[國際站點（opendfieldmap.org）](https://opendfieldmap.org)的相同位置匯入，完成數據遷移。\n\n---\n如閣下在使用地圖的過程中遇到任何疑問，或對本項目有任何意見及建議，歡迎透過以下方式與我們聯絡：\n\n* **Discord 玩家社群**：[加入 Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)\n* **支援團隊電郵**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **代碼倉庫**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)\n* **Bluesky 帳戶**：[追蹤 Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)",
+      "date": "",
+      "url": "https://blog.opendfieldmap.org/zh-hk/blogs/announcements/26May/update-26May-3",
       "locale": "zh-hk"
     }
   ]
