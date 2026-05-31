@@ -1,6 +1,4 @@
 @import 'fumadocs-ui/style.css';
-/* M PLUS 2: Google Fonts CDN supplies all Unicode ranges (Latin + CJK + Japanese) */
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@400;500;700&display=swap');
 
 /* ── Local Fonts ──────────────────────────────────────────────────────────── */
 
@@ -94,9 +92,9 @@
  *
  * Stack logic:
  *   en      → Geist (Latin)
- *   zh-cn   → Geist (Latin) → Chinese system fallbacks
- *   zh-hk   → Geist (Latin) → M PLUS 2 → Chinese system fallbacks
- *   ja      → Geist (Latin) → M PLUS 2 → Japanese system fallbacks
+ *   zh-cn   → Geist (Latin) → system sans-serif
+ *   zh-hk   → Geist (Latin) → system sans-serif
+ *   ja      → Geist (Latin) → system sans-serif
  * ──────────────────────────────────────────────────────────────────────────── */
 
 /* Default / English */
@@ -113,8 +111,7 @@ html[lang='zh-cn'],
 html[lang='zh-cn'] body {
   font-family:
     'Geist',
-    'PingFang SC', 'Microsoft YaHei',
-    ui-sans-serif, system-ui, sans-serif;
+    sans-serif;
 }
 
 /* Traditional Chinese */
@@ -122,9 +119,7 @@ html[lang='zh-hk'],
 html[lang='zh-hk'] body {
   font-family:
     'Geist',
-    'M PLUS 2',
-    'PingFang TC', 'Microsoft JhengHei',
-    ui-sans-serif, system-ui, sans-serif;
+    sans-serif;
 }
 
 /* Japanese */
@@ -132,9 +127,7 @@ html[lang='ja'],
 html[lang='ja'] body {
   font-family:
     'Geist',
-    'M PLUS 2',
-    'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo',
-    ui-sans-serif, system-ui, sans-serif;
+    sans-serif;
 }
 
 /* Code / monospace */
