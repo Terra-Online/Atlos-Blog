@@ -5,40 +5,49 @@
 .blog-section {
   display: flex;
   flex-direction: column;
-  gap: 1.35rem;
+  gap: 1rem;
 }
 
 .blog-section h2 {
+  position: relative;
   width: fit-content;
-  text-decoration-line: underline;
-  text-decoration-color: hsl(var(--fd-primary));
-  text-decoration-thickness: 0.28rem;
-  text-underline-offset: -0.08rem;
-  font-size: clamp(1.45rem, 2vw, 1.85rem);
-  font-weight: 800;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -.2px;
   color: hsl(var(--fd-foreground));
+  z-index: 1;
+  font-family: 'CoinBase Display Medium', sans-serif;
+  &::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 8px;
+    bottom: 9px;
+    background: hsl(var(--fd-highlight));
+    z-index: -1;
+  }
 }
 
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.45rem;
+  gap: 1.25rem;
 }
 
 .blog-card {
   position: relative;
   overflow: hidden;
-  border: 1px solid hsl(var(--fd-border) / 0.7);
+  border: 1px solid transparent;
   border-radius: 1rem;
-  background: hsl(var(--fd-card));
-  box-shadow: 0 10px 26px hsl(0 0% 0% / 0.11);
+  background: hsl(var(--fd-popover));
+  box-shadow: 0 5px 12px hsl(0 0% 0% / 0.1);
   color: hsl(var(--fd-foreground));
   text-decoration: none;
-}
-
-.blog-card:hover {
-  border-color: hsl(var(--fd-primary) / 0.45);
-  transform: translateY(-2px);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  &:hover {
+    background-color: hsl(var(--fd-muted-foreground) / 0.1);
+  }
 }
 
 .blog-card-small {
@@ -53,7 +62,7 @@
 .blog-card-large h3 {
   margin: 0;
   font-size: 1.18rem;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -76,7 +85,8 @@
   margin-top: 0.75rem;
   color: hsl(var(--fd-primary));
   font-size: 0.92rem;
-  font-weight: 700;
+  font-weight: 400;
+  font-family: 'CoinBase Display Regular', 'HarmonyOS Sans SC', 'HarmonyOS Sans', sans-serif;
 }
 
 .blog-card-large {

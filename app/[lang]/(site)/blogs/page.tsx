@@ -4,28 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import './blogs.scss';
 
-const copy: Record<string, { title: string; subtitle: string }> = {
-  en: {
-    title: 'Blog',
-    subtitle: 'Development articles, operation reports, and project updates.',
-  },
-  'zh-cn': {
-    title: '博客',
-    subtitle: '开发文章、运营报告与项目动态。',
-  },
-  'zh-hk': {
-    title: '部落格',
-    subtitle: '開發文章、運營報告與項目動態。',
-  },
-  ja: {
-    title: 'ブログ',
-    subtitle: '開発記事・運営報告・プロジェクトの最新情報。',
-  },
-  ko: {
-    title: '블로그',
-    subtitle: '개발 아티클, 운영 리포트, 프로젝트 업데이트.',
-  },
-};
+
 
 type BlogCard = {
   title: string;
@@ -130,16 +109,11 @@ export default async function BlogIndexPage({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  const text = copy[lang] ?? copy.en;
   const cards = getCards(lang);
   const sections = Array.from(new Set(cards.map((card) => card.section)));
 
   return (
     <main className="blog-index mx-auto flex w-full max-w-[1120px] flex-col px-4 py-12 md:px-8">
-      <header className="mb-10 max-w-3xl">
-        <h1 className="text-4xl font-bold tracking-tight">{text.title}</h1>
-        <p className="mt-3 text-fd-muted-foreground">{text.subtitle}</p>
-      </header>
       {sections.map((section) => {
         const sectionCards = cards.filter((card) => card.section === section);
 

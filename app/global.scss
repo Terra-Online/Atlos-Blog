@@ -5,19 +5,19 @@
 /* ── Local Fonts ──────────────────────────────────────────────────────────── */
 
 @font-face {
-  font-family: 'HarmonyOS Sans';
-  src: url('/fonts/HarmonyOS_Sans/HMSans.woff2') format('woff2'),
-       url('/fonts/HarmonyOS_Sans/HMSans.woff') format('woff'),
-       url('/fonts/HarmonyOS_Sans/HMSans.ttf') format('truetype');
+  font-family: 'Geist';
+  src: url('/fonts/Geist/Geist.woff2') format('woff2'),
+       url('/fonts/Geist/Geist.woff') format('woff');
+  font-style: normal;
   font-weight: 100 900;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'HarmonyOS Sans SC';
-  src: url('/fonts/HarmonyOS_Sans_SC/HMSans_SC.woff2') format('woff2'),
-       url('/fonts/HarmonyOS_Sans_SC/HMSans_SC.woff') format('woff'),
-       url('/fonts/HarmonyOS_Sans_SC/HMSans_SC.ttf') format('truetype');
+  font-family: 'Geist';
+  src: url('/fonts/Geist/Geist.woff2') format('woff2'),
+       url('/fonts/Geist/Geist.woff') format('woff');
+  font-style: normal;
   font-weight: 100 900;
   font-display: swap;
 }
@@ -25,6 +25,22 @@
 @font-face {
   font-family: 'MPlus1Code60';
   src: url('/fonts/MPlus1Code60/MplusCodeLatin60-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CoinBase Display Medium';
+  src: url('/fonts/CoinBase/CoinbaseDisplay-Medium.woff2') format('woff2'),
+       url('/fonts/CoinBase/CoinbaseDisplay-Medium.woff') format('woff');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CoinBase Display Regular';
+  src: url('/fonts/CoinBase/CoinbaseDisplay-Regular.woff2') format('woff2'),
+       url('/fonts/CoinBase/CoinbaseDisplay-Regular.woff') format('woff');
   font-weight: 400;
   font-display: swap;
 }
@@ -46,6 +62,8 @@
   --fd-accent:               0 0% 0% 0;   /* light amber tint on hover */
   --fd-accent-foreground:   10 64.4% 56.3%;   /* dark red on amber */
   --fd-ring:                10 64.4% 56.3%;
+
+  --fd-highlight: 25 100% 61%; /* $primary-accent-5 light orange */
 }
 
 .dark {
@@ -65,36 +83,36 @@
   --fd-accent:               44 20% 18%;   /* dark amber tint */
   --fd-accent-foreground:    38 100% 57.8%;   /* light amber on dark bg */
   --fd-ring:                 38 100% 57.8%;
+
+  --fd-highlight: 224, 73%, 43%; /* $primary-accent-3 golden yellow */
 }
 
 /* ── Font Application ─────────────────────────────────────────────────────── *
  *
  * Override fumadocs-ui's hardcoded `ui-sans-serif` body font.
- * CSS variables --font-inter / --font-montserrat / --font-mplus2 are injected
- * by next/font's className on <html> (see app/layout.tsx).
+ * Geist is self-hosted via local @font-face declarations above.
  *
  * Stack logic:
- *   en      → Inter (Latin) → HarmonyOS Sans (CJK fallback)
- *   zh-cn   → Montserrat (Latin glyphs) → HarmonyOS Sans SC (Simplified CJK)
- *   zh-hk   → Montserrat (Latin glyphs) → M PLUS 2 (CJK + JP) → PingFang TC
- *   ja      → Montserrat (Latin glyphs) → M PLUS 2 (Japanese) → Hiragino
+ *   en      → Geist (Latin)
+ *   zh-cn   → Geist (Latin) → Chinese system fallbacks
+ *   zh-hk   → Geist (Latin) → M PLUS 2 → Chinese system fallbacks
+ *   ja      → Geist (Latin) → M PLUS 2 → Japanese system fallbacks
  * ──────────────────────────────────────────────────────────────────────────── */
 
 /* Default / English */
 html,
 html body {
   font-family:
-    var(--font-inter),
-    'HarmonyOS Sans',
+    'Geist',
     ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "ss02" on, "ss03" on, "ss04" on, "ss05" on, "ss06" on; /* Use proportional numbers for better readability */
 }
 
 /* Simplified Chinese */
 html[lang='zh-cn'],
 html[lang='zh-cn'] body {
   font-family:
-    var(--font-montserrat),
-    'HarmonyOS Sans SC',
+    'Geist',
     'PingFang SC', 'Microsoft YaHei',
     ui-sans-serif, system-ui, sans-serif;
 }
@@ -103,7 +121,7 @@ html[lang='zh-cn'] body {
 html[lang='zh-hk'],
 html[lang='zh-hk'] body {
   font-family:
-    var(--font-montserrat),
+    'Geist',
     'M PLUS 2',
     'PingFang TC', 'Microsoft JhengHei',
     ui-sans-serif, system-ui, sans-serif;
@@ -113,7 +131,7 @@ html[lang='zh-hk'] body {
 html[lang='ja'],
 html[lang='ja'] body {
   font-family:
-    var(--font-montserrat),
+    'Geist',
     'M PLUS 2',
     'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo',
     ui-sans-serif, system-ui, sans-serif;
@@ -157,4 +175,10 @@ html:not([data-theme-ready]) *::after {
 
 h2 a {
   color: hsl(var(--fd-primary));
+}
+
+h1, h2, h3 {
+  font-family: 'CoinBase Display Medium', sans-serif;
+  font-weight: 500 !important;
+  font-feature-settings: "ss01" on, "ss02" on, "ss03" on !important;
 }

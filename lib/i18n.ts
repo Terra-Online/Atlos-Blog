@@ -1,7 +1,7 @@
 import type { I18nConfig } from 'fumadocs-core/i18n';
 
 export const i18n: I18nConfig = {
-  defaultLanguage: 'zh-hk',
+  defaultLanguage: 'en',
   languages: ['en', 'zh-cn', 'zh-hk', 'ja', 'ko'],
 };
 

@@ -1,4 +1,4 @@
-import { sectionLabels } from '@/lib/i18n';
+import { i18n, sectionLabels } from '@/lib/i18n';
 import { siteSections } from '@/lib/source';
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 import type { LinkItemType } from 'fumadocs-ui/layouts/links';
@@ -61,7 +61,7 @@ export const socialLinkItems: LinkItemType[] = [
  */
 export function siteBaseOptions(lang: string): BaseLayoutProps {
   const withLocale = (path: string) =>
-    lang === 'zh-hk' ? path : `/${lang}${path}`;
+    lang === i18n.defaultLanguage ? path : `/${lang}${path}`;
   const sectionText = (section: keyof typeof sectionLabels) =>
     sectionLabels[section][lang as keyof (typeof sectionLabels)[typeof section]] ??
     sectionLabels[section].en;
@@ -85,7 +85,7 @@ export function siteBaseOptions(lang: string): BaseLayoutProps {
           <span>Open Endfield Map</span>
         </span>
       ),
-      url: lang === 'zh-hk' ? '/' : `/${lang}/home`,
+      url: '/',
     },
     links: [
       ...siteSections.map((section) => ({

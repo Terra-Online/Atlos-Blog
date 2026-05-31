@@ -29,13 +29,13 @@ export function AppI18nProvider({
       const hasLocalePrefix = segments[0] ? allLocales.has(segments[0]) : false;
       const baseSegments = hasLocalePrefix ? segments.slice(1) : segments;
       const normalizedBase = baseSegments.length === 0 ? ['home'] : baseSegments;
+      const isHome = normalizedBase.length === 1 && normalizedBase[0] === 'home';
 
       let nextPath: string;
-      if (nextLocale === i18n.defaultLanguage) {
-        nextPath =
-          normalizedBase.length === 1 && normalizedBase[0] === 'home'
-            ? '/'
-            : `/${normalizedBase.join('/')}`;
+      if (isHome) {
+        nextPath = '/';
+      } else if (nextLocale === i18n.defaultLanguage) {
+        nextPath = `/${normalizedBase.join('/')}`;
       } else {
         nextPath = `/${nextLocale}/${normalizedBase.join('/')}`;
       }

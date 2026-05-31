@@ -31,7 +31,7 @@ This Project is deployed using a globally decentralized architecture (Serverless
 
 ## UGC (User-Generated Content) Special Risk Warning
 
-As an open-source project, the co-creation of community content is the foundation of our development. However, please be aware of the potential risks of providing UGC content:
+As an open-source project, the co-creation of community content is the foundation of our development. However, please be aware of the potential risks of providing such content:
 
 * **Public Visibility**: Once you submit third-person screenshots, comments, and coordinate markers, you authorize us to display them publicly, and **all users accessing this project can view them**. Please strictly avoid including sensitive privacy information such as your real name, contact information, or plaintext official account passwords in screenshots.
 * **Independent Responsibility**: You are fully legally responsible for all UGC you generate. This project is not responsible for any in-game losses or disputes caused by trusting erroneous UGC submitted by others.

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-const defaultLocale = 'zh-hk';
+const defaultLocale = 'en';
 const locales = ['zh-hk', 'en', 'zh-cn', 'ja', 'ko'];
 
 function isBlogMediaPath(pathname: string) {
@@ -48,14 +48,26 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  if (pathname === '/home') {
+    const url = request.nextUrl.clone();
+    url.pathname = '/';
+    return NextResponse.redirect(url);
+  }
+
   const prefixedLocale = locales.find(
     (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`),
   );
 
+  if (prefixedLocale && pathname === `/${prefixedLocale}/home`) {
+    const url = request.nextUrl.clone();
+    url.pathname = '/';
+    return NextResponse.redirect(url);
+  }
+
   if (prefixedLocale === defaultLocale) {
     const url = request.nextUrl.clone();
     const nextPath = pathname.replace(new RegExp(`^/${defaultLocale}`), '') || '/';
-    url.pathname = nextPath;
+    url.pathname = nextPath === '/home' ? '/' : nextPath;
     return NextResponse.redirect(url);
   }
 
