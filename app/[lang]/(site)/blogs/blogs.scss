@@ -1,5 +1,8 @@
 .blog-index {
   gap: 2rem;
+  * {
+      font-feature-settings: "ss01" on, "ss02" on, "ss03" on, "ss04" off, "ss05" off, "ss06" off;
+  }
 }
 
 .blog-section {
@@ -9,6 +12,7 @@
 }
 
 .blog-section h2 {
+  padding-left: 0.5rem;
   position: relative;
   width: fit-content;
   font-size: clamp(1.5rem, 2vw, 2rem);
@@ -21,9 +25,10 @@
     position: absolute;
     content: "";
     display: block;
-    width: 100%;
+    width: 102%;
     height: 8px;
-    bottom: 9px;
+    bottom: 8px;
+    left: 2px;
     background: hsl(var(--fd-highlight));
     z-index: -1;
   }
@@ -52,16 +57,16 @@
 
 .blog-card-small {
   display: flex;
-  min-height: 7.5rem;
+  min-height: 7rem;
   flex-direction: column;
   justify-content: center;
-  padding: 1.25rem 1.5rem;
+  padding: 1rem 1rem;
 }
 
 .blog-card-small h3,
 .blog-card-large h3 {
   margin: 0;
-  font-size: 1.18rem;
+  font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: 0;
@@ -75,7 +80,7 @@
   -webkit-line-clamp: 2;
   color: hsl(var(--fd-muted-foreground));
   font-size: 0.95rem;
-  font-weight: 650;
+  font-weight: 400;
   line-height: 1.35;
 }
 
@@ -86,7 +91,7 @@
   color: hsl(var(--fd-primary));
   font-size: 0.92rem;
   font-weight: 400;
-  font-family: 'CoinBase Display Regular', 'HarmonyOS Sans SC', 'HarmonyOS Sans', sans-serif;
+  font-family: 'CoinBase Display Regular', sans-serif;
 }
 
 .blog-card-large {

@@ -4,6 +4,7 @@ out/
 .output/
 .next/
 .open-next/
+public/fonts
 
 tsconfig.tsbuildinfo
 

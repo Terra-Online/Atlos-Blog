@@ -12,11 +12,74 @@
 }
 
 @font-face {
-  font-family: 'Geist';
-  src: url('/fonts/Geist/Geist.woff2') format('woff2'),
-       url('/fonts/Geist/Geist.woff') format('woff');
+  font-family: 'UDShinGo SC';
+  src: url('/fonts/UD/UDShinGo_CN_DB.woff2') format('woff2');
   font-style: normal;
-  font-weight: 100 900;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UDShinGo SC';
+  src: url('/fonts/UD/UDShinGo_CN_R.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UDShinGo SC';
+  src: url('/fonts/UD/UDShinGo_CN_M.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UDShinGo HK';
+  src: url('/fonts/UD/UDShinGo_HK_R.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UDShinGo HK';
+  src: url('/fonts/UD/UDShinGo_HK_M.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UDShinGo HK';
+  src: url('/fonts/UD/UDShinGo_HK_DB.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UDShinGo JP';
+  src: url('/fonts/UD/UDShinGo_JP_R.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UDShinGo JP';
+  src: url('/fonts/UD/UDShinGo_JP_M.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UDShinGo JP';
+  src: url('/fonts/UD/UDShinGo_JP_DB.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 700;
   font-display: swap;
 }
 
@@ -87,46 +150,39 @@
 
 /* ── Font Application ─────────────────────────────────────────────────────── *
  *
- * Override fumadocs-ui's hardcoded `ui-sans-serif` body font.
- * Geist is self-hosted via local @font-face declarations above.
- *
- * Stack logic:
- *   en      → Geist (Latin)
- *   zh-cn   → Geist (Latin) → system sans-serif
- *   zh-hk   → Geist (Latin) → system sans-serif
- *   ja      → Geist (Latin) → system sans-serif
+ * Default to Geist for Latin text, then switch CJK locales to the matching
+ * UDShinGo suffix so headers and body copy follow the language-specific files.
  * ──────────────────────────────────────────────────────────────────────────── */
 
-/* Default / English */
 html,
 html body {
   font-family:
     'Geist',
     ui-sans-serif, system-ui, sans-serif;
-    font-feature-settings: "ss02" on, "ss03" on, "ss04" on, "ss05" on, "ss06" on; /* Use proportional numbers for better readability */
+  font-feature-settings: "ss02" on, "ss03" on, "ss04" on, "ss05" on, "ss06" on, "liga" on;
 }
 
-/* Simplified Chinese */
 html[lang='zh-cn'],
 html[lang='zh-cn'] body {
   font-family:
     'Geist',
+    'UDShinGo SC',
     sans-serif;
 }
 
-/* Traditional Chinese */
 html[lang='zh-hk'],
 html[lang='zh-hk'] body {
   font-family:
     'Geist',
+    'UDShinGo HK',
     sans-serif;
 }
 
-/* Japanese */
 html[lang='ja'],
 html[lang='ja'] body {
   font-family:
     'Geist',
+    'UDShinGo JP',
     sans-serif;
 }
 
@@ -170,8 +226,65 @@ h2 a {
   color: hsl(var(--fd-primary));
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'CoinBase Display Medium', sans-serif;
   font-weight: 500 !important;
-  font-feature-settings: "ss01" on, "ss02" on, "ss03" on !important;
+  font-feature-settings: "ss01" on, "ss02" on, "ss03" on, "ss04" off, "ss05" off, "ss06" off !important;
+}
+
+html[lang='zh-cn'] h1,
+html[lang='zh-cn'] h2,
+html[lang='zh-cn'] h3,
+html[lang='zh-cn'] h4,
+html[lang='zh-cn'] h5,
+html[lang='zh-cn'] h6 {
+  font-family: 'CoinBase Display Medium', 'UDShinGo SC', sans-serif;
+  font-weight: 700 !important;
+}
+
+html[lang='zh-hk'] h1,
+html[lang='zh-hk'] h2,
+html[lang='zh-hk'] h3,
+html[lang='zh-hk'] h4,
+html[lang='zh-hk'] h5,
+html[lang='zh-hk'] h6 {
+  font-family: 'CoinBase Display Medium', 'UDShinGo HK', sans-serif;
+  font-weight: 700 !important;
+}
+
+html[lang='ja'] h1,
+html[lang='ja'] h2,
+html[lang='ja'] h3,
+html[lang='ja'] h4,
+html[lang='ja'] h5,
+html[lang='ja'] h6 {
+  font-family: 'CoinBase Display Medium', 'UDShinGo JP', sans-serif;
+  font-weight: 700 !important;
+}
+
+html[lang='zh-cn'] strong,
+html[lang='zh-cn'] b,
+html[lang='zh-cn'] .font-semibold,
+html[lang='zh-cn'] .font-medium,
+html[lang='zh-cn'] .font-bold {
+  font-family: 'Geist', 'UDShinGo SC', sans-serif;
+  font-weight: 500 !important;
+}
+
+html[lang='zh-hk'] strong,
+html[lang='zh-hk'] b,
+html[lang='zh-hk'] .font-semibold,
+html[lang='zh-hk'] .font-medium,
+html[lang='zh-hk'] .font-bold {
+  font-family: 'Geist', 'UDShinGo HK', sans-serif;
+  font-weight: 500 !important;
+}
+
+html[lang='ja'] strong,
+html[lang='ja'] b,
+html[lang='ja'] .font-semibold,
+html[lang='ja'] .font-medium,
+html[lang='ja'] .font-bold {
+  font-family: 'Geist', 'UDShinGo JP', sans-serif;
+  font-weight: 500 !important;
 }
