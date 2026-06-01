@@ -10,18 +10,12 @@ type RouteContext = {
 };
 
 const contentTypes: Record<string, string> = {
-  avif: 'image/avif',
   eot: 'application/vnd.ms-fontobject',
-  gif: 'image/gif',
-  jpg: 'image/jpeg',
-  jpeg: 'image/jpeg',
   otf: 'font/otf',
-  png: 'image/png',
   svg: 'image/svg+xml',
   ttf: 'font/ttf',
   woff: 'font/woff',
   woff2: 'font/woff2',
-  webp: 'image/webp',
 };
 
 function getContentType(key: string) {
@@ -38,7 +32,7 @@ function toObjectKey(pathSegments: string[] | undefined) {
     }
   }
 
-  return `blogs/${pathSegments.join('/')}`;
+  return `fonts/${pathSegments.join('/')}`;
 }
 
 function getEdgeCache() {
@@ -61,7 +55,7 @@ function notModifiedResponse(request: NextRequest, headers: Headers) {
   });
 }
 
-async function serveBlogMedia(request: NextRequest, context: RouteContext, headOnly: boolean) {
+async function serveFontMedia(request: NextRequest, context: RouteContext, headOnly: boolean) {
   const { path } = await context.params;
   const key = toObjectKey(path);
 
@@ -143,9 +137,9 @@ async function serveBlogMedia(request: NextRequest, context: RouteContext, headO
 }
 
 export function GET(request: NextRequest, context: RouteContext) {
-  return serveBlogMedia(request, context, false);
+  return serveFontMedia(request, context, false);
 }
 
 export function HEAD(request: NextRequest, context: RouteContext) {
-  return serveBlogMedia(request, context, true);
+  return serveFontMedia(request, context, true);
 }

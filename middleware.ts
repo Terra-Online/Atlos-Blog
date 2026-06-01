@@ -8,8 +8,12 @@ function isBlogMediaPath(pathname: string) {
   return pathname === '/blogs' || pathname.startsWith('/blogs/');
 }
 
-function shouldProxyBlogMedia(pathname: string) {
-  return process.env.NEXTJS_ENV === 'production' && isBlogMediaPath(pathname);
+function isFontMediaPath(pathname: string) {
+  return pathname === '/fonts' || pathname.startsWith('/fonts/');
+}
+
+function shouldProxyBucketMedia(pathname: string) {
+  return process.env.NEXTJS_ENV === 'production' && (isBlogMediaPath(pathname) || isFontMediaPath(pathname));
 }
 
 function isBypassPath(pathname: string) {
@@ -38,7 +42,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  if (shouldProxyBlogMedia(pathname)) {
+  if (shouldProxyBucketMedia(pathname)) {
     const url = request.nextUrl.clone();
     url.pathname = `/__media${pathname}`;
     return NextResponse.rewrite(url);

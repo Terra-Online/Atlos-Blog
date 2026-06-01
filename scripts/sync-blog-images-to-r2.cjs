@@ -5,7 +5,6 @@ const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 
 const bucket = process.env.BLOG_MEDIA_R2_BUCKET || 'opendfieldmap-blog';
-const sourceDir = path.resolve(process.cwd(), process.env.BLOG_MEDIA_SOURCE_DIR || 'public/blogs');
 const cacheControl =
   process.env.BLOG_MEDIA_CACHE_CONTROL ||
   'public, max-age=31536000, stale-while-revalidate=604800';
@@ -14,13 +13,31 @@ const local = process.argv.includes('--local');
 
 const contentTypes = {
   '.avif': 'image/avif',
+  '.eot': 'application/vnd.ms-fontobject',
   '.gif': 'image/gif',
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
+  '.otf': 'font/otf',
   '.png': 'image/png',
   '.svg': 'image/svg+xml',
+  '.ttf': 'font/ttf',
+  '.woff': 'font/woff',
+  '.woff2': 'font/woff2',
   '.webp': 'image/webp',
 };
+
+const assetGroups = [
+  {
+    name: 'blog media',
+    sourceDir: path.resolve(process.cwd(), process.env.BLOG_MEDIA_SOURCE_DIR || 'public/blogs'),
+    keyPrefix: 'blogs',
+  },
+  {
+    name: 'blog fonts',
+    sourceDir: path.resolve(process.cwd(), process.env.BLOG_FONT_SOURCE_DIR || 'public/fonts'),
+    keyPrefix: 'fonts',
+  },
+];
 
 function collectFiles(dir) {
   const result = [];
@@ -41,9 +58,9 @@ function collectFiles(dir) {
   return result;
 }
 
-function upload(filePath) {
-  const relativePath = path.relative(sourceDir, filePath).split(path.sep).join('/');
-  const key = `blogs/${relativePath}`;
+function upload(filePath, group) {
+  const relativePath = path.relative(group.sourceDir, filePath).split(path.sep).join('/');
+  const key = `${group.keyPrefix}/${relativePath}`;
   const contentType = contentTypes[path.extname(filePath).toLowerCase()] || 'application/octet-stream';
   const destination = `${bucket}/${key}`;
 
@@ -66,7 +83,7 @@ function upload(filePath) {
     return;
   }
 
-  console.log(`uploading ${relativePath} -> ${destination}`);
+  console.log(`uploading ${group.name}: ${relativePath} -> ${destination}`);
   const result = spawnSync('wrangler', args, {
     stdio: 'inherit',
     shell: process.platform === 'win32',
@@ -77,20 +94,26 @@ function upload(filePath) {
   }
 }
 
-if (!fs.existsSync(sourceDir)) {
-  console.error(`source directory not found: ${sourceDir}`);
-  process.exit(1);
+let uploadedCount = 0;
+
+for (const group of assetGroups) {
+  if (!fs.existsSync(group.sourceDir)) {
+    console.error(`source directory not found for ${group.name}: ${group.sourceDir}`);
+    process.exit(1);
+  }
+
+  const files = collectFiles(group.sourceDir).sort((a, b) => a.localeCompare(b));
+
+  if (files.length === 0) {
+    console.log(`no files found under ${group.sourceDir}`);
+    continue;
+  }
+
+  for (const file of files) {
+    upload(file, group);
+  }
+
+  uploadedCount += files.length;
 }
 
-const files = collectFiles(sourceDir).sort((a, b) => a.localeCompare(b));
-
-if (files.length === 0) {
-  console.log(`no files found under ${sourceDir}`);
-  process.exit(0);
-}
-
-for (const file of files) {
-  upload(file);
-}
-
-console.log(`${dryRun ? 'checked' : 'uploaded'} ${files.length} file(s)`);
+console.log(`${dryRun ? 'checked' : 'uploaded'} ${uploadedCount} file(s)`);
