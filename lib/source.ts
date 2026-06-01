@@ -1,30 +1,14 @@
-import { i18n, sectionLabels } from './i18n';
+import { sectionLabels } from './i18n';
 import { blogs, community, docs, sponsors } from '@/.source';
-import { loader } from 'fumadocs-core/source';
+import { createLocalizedContentSource } from './localized-content-source';
 
-export const source = loader({
-  i18n,
-  baseUrl: '/docs',
-  source: docs.toFumadocsSource(),
-});
+export const source = createLocalizedContentSource(docs, '/docs');
 
-export const blogSource = loader({
-  i18n,
-  baseUrl: '/blogs',
-  source: blogs.toFumadocsSource(),
-});
+export const blogSource = createLocalizedContentSource(blogs, '/blogs');
 
-export const communitySource = loader({
-  i18n,
-  baseUrl: '/community',
-  source: community.toFumadocsSource(),
-});
+export const communitySource = createLocalizedContentSource(community, '/community');
 
-export const sponsorsSource = loader({
-  i18n,
-  baseUrl: '/sponsors',
-  source: sponsors.toFumadocsSource(),
-});
+export const sponsorsSource = createLocalizedContentSource(sponsors, '/sponsors');
 
 export const siteSections = [
   {

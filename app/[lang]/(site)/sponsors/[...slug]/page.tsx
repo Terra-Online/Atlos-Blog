@@ -10,7 +10,12 @@ export default async function SponsorsPage(props: {
   const page = sponsorsSource.getPage(params.slug, params.lang);
   if (!page) notFound();
 
-  return <SiteDocPage page={page} />;
+  return (
+    <SiteDocPage
+      page={page}
+      missingTranslation={page.missingTranslation}
+    />
+  );
 }
 
 export function generateStaticParams() {

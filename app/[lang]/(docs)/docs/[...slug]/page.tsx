@@ -14,6 +14,7 @@ import {
   getGitAuthorsForContentPath,
   resolveContentLastModified,
 } from '@/lib/git-authors';
+import { MissingTranslation } from '@/app/components/missing-translation';
 
 export default async function Page(props: {
   params: Promise<{ lang: string; slug?: string[] }>;
@@ -31,22 +32,28 @@ export default async function Page(props: {
 
   return (
     <DocsPage
-      toc={page.data.toc}
+      toc={page.missingTranslation ? [] : page.data.toc}
       tableOfContent={{ style: 'clerk' }}
-      lastUpdate={hasValidLastModified ? lastModifiedDate : undefined}
+      lastUpdate={!page.missingTranslation && hasValidLastModified ? lastModifiedDate : undefined}
       full={page.data.full}
     >
       <DocsTitle className="mb-3">{page.data.title}</DocsTitle>
       <DocsDescription className="mb-3">{page.data.description}</DocsDescription>
-      <AuthorMeta authors={gitAuthors} lastModified={lastModified} />
-      <DocsBody>
-        <MDX
-          components={{
-            ...defaultMdxComponents,
-            img: MdxImage,
-          }}
-        />
-      </DocsBody>
+      {page.missingTranslation ? (
+        <MissingTranslation />
+      ) : (
+        <>
+          <AuthorMeta authors={gitAuthors} lastModified={lastModified} />
+          <DocsBody>
+            <MDX
+              components={{
+                ...defaultMdxComponents,
+                img: MdxImage,
+              }}
+            />
+          </DocsBody>
+        </>
+      )}
     </DocsPage>
   );
 }

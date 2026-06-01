@@ -14,6 +14,7 @@ import {
   getGitAuthorsForContentPath,
   resolveContentLastModified,
 } from '@/lib/git-authors';
+import { MissingTranslation } from '@/app/components/missing-translation';
 
 function formatPostDate(date?: string | Date) {
   if (!date) return null;
@@ -39,24 +40,30 @@ export default async function BlogPostPage(props: {
   return (
     <main className="mx-auto w-full max-w-[860px] px-4 py-12 md:px-8">
       <article>
-        <header className="mb-8">
-          <DocsTitle className="mb-3 text-4xl">{page.data.title}</DocsTitle>
-          <DocsDescription className="mb-4 text-base">
+        <header>
+          <DocsTitle className="mb-3 text-4xl blog-title">{page.data.title}</DocsTitle>
+          <DocsDescription className="mb-2 text-base">
             {page.data.description}
           </DocsDescription>
           {date ? (
             <p className="mb-4 text-sm font-medium text-fd-primary">{date}</p>
           ) : null}
-          <AuthorMeta authors={gitAuthors} lastModified={lastModified} />
         </header>
-        <DocsBody>
-          <MDX
-            components={{
-              ...defaultMdxComponents,
-              img: MdxImage,
-            }}
-          />
-        </DocsBody>
+        {page.missingTranslation ? (
+          <MissingTranslation />
+        ) : (
+          <>
+            <AuthorMeta authors={gitAuthors} lastModified={lastModified} />
+            <DocsBody className="blog-post-body">
+              <MDX
+                components={{
+                  ...defaultMdxComponents,
+                  img: MdxImage,
+                }}
+              />
+            </DocsBody>
+          </>
+        )}
       </article>
     </main>
   );

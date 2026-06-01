@@ -12,7 +12,7 @@ export default async function DocsIndexPage({
   const pages = source.getPages(lang);
 
   return (
-    <main className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-12">
+    <main className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-12">
       <h1 className="text-3xl font-bold tracking-tight">Documentation</h1>
       <p className="text-fd-muted-foreground">
         Browse the sidepanel to find documentation articles and policies.

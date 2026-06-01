@@ -5,13 +5,14 @@ import {
 } from 'fumadocs-ui/page';
 import type { TableOfContents } from 'fumadocs-core/server';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
-import type { ComponentType } from 'react';
+import type { ComponentType, ReactNode } from 'react';
 import { AuthorMeta, type GitAuthor } from '@/app/components/author-meta';
 import { MdxImage } from '@/app/components/mdx-image';
 import {
   getGitAuthorsForContentPath,
   resolveContentLastModified,
 } from '@/lib/git-authors';
+import { MissingTranslation } from '@/app/components/missing-translation';
 
 type SiteDocPageData = {
   title: string;
@@ -31,14 +32,34 @@ export async function SiteDocPage({
   page,
   contentPath,
   showAuthorMeta = false,
+  missingTranslation = false,
 }: {
   page: { data: SiteDocPageData };
   contentPath?: string;
   showAuthorMeta?: boolean;
+  missingTranslation?: boolean;
 }) {
-  const loaded = page.data.load ? await page.data.load() : undefined;
+  const loaded = !missingTranslation && page.data.load ? await page.data.load() : undefined;
   const MDX = loaded?.body ?? page.data.body;
-  if (!MDX) return null;
+  let body: ReactNode;
+
+  if (missingTranslation) {
+    body = <MissingTranslation />;
+  } else {
+    const Content = MDX;
+    if (!Content) return null;
+
+    body = (
+      <DocsBody>
+        <Content
+          components={{
+            ...defaultMdxComponents,
+            img: MdxImage,
+          }}
+        />
+      </DocsBody>
+    );
+  }
 
   const authors = contentPath
     ? getGitAuthorsForContentPath(contentPath)
@@ -56,7 +77,7 @@ export async function SiteDocPage({
           <DocsDescription className="mb-3 text-base">
             {page.data.description}
           </DocsDescription>
-          {showAuthorMeta ? (
+          {showAuthorMeta && !missingTranslation ? (
             <AuthorMeta
               authors={authors}
               lastModified={lastModified}
@@ -65,14 +86,7 @@ export async function SiteDocPage({
             <div className="border-b border-fd-border pb-6" />
           )}
         </header>
-        <DocsBody>
-          <MDX
-            components={{
-              ...defaultMdxComponents,
-              img: MdxImage,
-            }}
-          />
-        </DocsBody>
+        {body}
       </article>
     </main>
   );

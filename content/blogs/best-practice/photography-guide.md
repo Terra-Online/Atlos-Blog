@@ -1,18 +1,27 @@
 ---
-title: "塔卫二影像指南"
-description: "对于不同类型的点位，如何拍摄并在地图集上传对大家最有帮助的图片？"
+title: "Lonely Talos II Publications"
+description: "A practical guide to documenting the world of Talos II, from scenic vistas to useful landmarks, for the benefit of every OEM explorer."
 date: 2026-06-01
 ---
-感谢您使用终末地地图集的图片上传功能！游戏内截图作为点位数据重要补充，能够帮助其他玩家更快地确认自己是否到达正确位置；我们衷心感谢每一位参与地图集图像库建设的贡献者。
+Thank you for using the OEM Image Database. In-game screenshots serve as an important complement to POI data, helping other players quickly verify whether they have reached the correct location. We sincerely appreciate every contributor who helps build and maintain our OEM Image Database.
 
-为了帮助您和其他用户更好地利用这一功能，我们撰写了这篇指南，希望能够帮助您了解什么样的图片最具参考价值，以及如何上传能够真正帮助其他玩家的内容。
+We've put together this guide to highlight the elements that make an image genuinely useful, as well as best practices for capturing and uploading images that provide meaningful value to fellow explorers.
 
-## 上传须知
-地图集会对您上传的图片进行规格校验及处理，我们支持以下的图片：
-- 图片格式为 JPEG/PNG/WebP/AVIF/HEIC 格式；
-- 图片体积不大于 16 MB；
-- 任意分辨率的图片；我们推荐您使用 4K 或以下的分辨率的原始图片；
-- 您不需要自行压缩为 WebP 格式！地图集会进行详尽的尺寸压缩和格式后处理 (◕ᴗ◕)
+## Upload Requirements
 
-## 通用图片建议
+All uploaded images are validated and processed by OEM. We currently support images that meet the following requirements:
+- JPEG, PNG, WebP, AVIF, or HEIC formats;
+- File size no larger than 16 MB;
+- Images of any resolution, though original images at 4K resolution or below are recommended;
+- No need to convert images to WebP yourself — OEM will automatically perform image optimization, resizing, and format processing for you. (◕ᴗ◕)
 
+## General Guidelines
+
+For information regarding acceptable and prohibited content, please refer to the [Community Guidelines](../../docs/community-guidelines). In addition, a good reference image should ideally possess the following characteristics:
+
+| Image Element | Description |
+| :---: | :---: |
+| Effective Use of Photo Mode | We recommend using the in-game Photo Mode whenever possible. Adjust focal length, depth of field, and filters as needed while ensuring that recognizable environmental features remain clearly visible. |
+| Route or Puzzle Annotations | For locations that require complex navigation, special traversal methods, or puzzle-solving, consider adding annotations in an image editor to provide additional context and improve the image’s usefulness. |
+| Minimize UI Distractions | Standard screenshots are acceptable, but whenever possible, hide quest trackers, event notifications, player IDs, and other interface elements that may distract from the location itself. |
+| Easy Perspectives | Prioritize perspectives that players are most likely to encounter during normal exploration. Avoid highly specialized camera angles or close-up shots that show only the point of interest without sufficient environmental context. |

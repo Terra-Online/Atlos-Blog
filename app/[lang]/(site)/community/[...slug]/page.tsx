@@ -15,6 +15,7 @@ export default async function CommunityPage(props: {
       page={page}
       contentPath={`content/community/${page.file.path}`}
       showAuthorMeta
+      missingTranslation={page.missingTranslation}
     />
   );
 }
