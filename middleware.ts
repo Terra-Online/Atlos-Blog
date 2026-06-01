@@ -3,6 +3,7 @@ import type { NextRequest } from 'next/server';
 
 const defaultLocale = 'en';
 const locales = ['zh-hk', 'en', 'zh-cn', 'ja', 'ko'];
+const mediaRoutePrefix = '/r2-media';
 
 function isBlogMediaPath(pathname: string) {
   return pathname === '/blogs' || pathname.startsWith('/blogs/');
@@ -13,11 +14,11 @@ function isFontMediaPath(pathname: string) {
 }
 
 function shouldProxyBucketMedia(pathname: string) {
-  return process.env.NEXTJS_ENV === 'production' && (isBlogMediaPath(pathname) || isFontMediaPath(pathname));
+  return process.env.NODE_ENV !== 'development' && (isBlogMediaPath(pathname) || isFontMediaPath(pathname));
 }
 
 function isBypassPath(pathname: string) {
-  if (pathname.startsWith('/__media/')) {
+  if (pathname.startsWith(`${mediaRoutePrefix}/`)) {
     return false;
   }
 
@@ -38,13 +39,13 @@ function isBypassPath(pathname: string) {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  if (pathname.startsWith('/__media/')) {
+  if (pathname.startsWith(`${mediaRoutePrefix}/`)) {
     return NextResponse.next();
   }
 
   if (shouldProxyBucketMedia(pathname)) {
     const url = request.nextUrl.clone();
-    url.pathname = `/__media${pathname}`;
+    url.pathname = `${mediaRoutePrefix}${pathname}`;
     return NextResponse.rewrite(url);
   }
 

@@ -85,6 +85,10 @@ function upload(filePath, group) {
 
   console.log(`uploading ${group.name}: ${relativePath} -> ${destination}`);
   const result = spawnSync('wrangler', args, {
+    env: {
+      ...process.env,
+      NODE_OPTIONS: [process.env.NODE_OPTIONS, '--dns-result-order=ipv4first'].filter(Boolean).join(' '),
+    },
     stdio: 'inherit',
     shell: process.platform === 'win32',
   });

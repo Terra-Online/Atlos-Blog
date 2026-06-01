@@ -10,12 +10,18 @@ type RouteContext = {
 };
 
 const contentTypes: Record<string, string> = {
+  avif: 'image/avif',
   eot: 'application/vnd.ms-fontobject',
+  gif: 'image/gif',
+  jpg: 'image/jpeg',
+  jpeg: 'image/jpeg',
   otf: 'font/otf',
+  png: 'image/png',
   svg: 'image/svg+xml',
   ttf: 'font/ttf',
   woff: 'font/woff',
   woff2: 'font/woff2',
+  webp: 'image/webp',
 };
 
 function getContentType(key: string) {
@@ -32,7 +38,7 @@ function toObjectKey(pathSegments: string[] | undefined) {
     }
   }
 
-  return `fonts/${pathSegments.join('/')}`;
+  return `blogs/${pathSegments.join('/')}`;
 }
 
 function getEdgeCache() {
@@ -55,7 +61,7 @@ function notModifiedResponse(request: NextRequest, headers: Headers) {
   });
 }
 
-async function serveFontMedia(request: NextRequest, context: RouteContext, headOnly: boolean) {
+async function serveBlogMedia(request: NextRequest, context: RouteContext, headOnly: boolean) {
   const { path } = await context.params;
   const key = toObjectKey(path);
 
@@ -120,6 +126,7 @@ async function serveFontMedia(request: NextRequest, context: RouteContext, headO
 
   headers.set('Cache-Control', CACHE_CONTROL);
   headers.set('X-Content-Type-Options', 'nosniff');
+  headers.set('X-Blog-Asset-Source', 'r2');
 
   const notModified = notModifiedResponse(request, headers);
   if (notModified) return notModified;
@@ -137,9 +144,9 @@ async function serveFontMedia(request: NextRequest, context: RouteContext, headO
 }
 
 export function GET(request: NextRequest, context: RouteContext) {
-  return serveFontMedia(request, context, false);
+  return serveBlogMedia(request, context, false);
 }
 
 export function HEAD(request: NextRequest, context: RouteContext) {
-  return serveFontMedia(request, context, true);
+  return serveBlogMedia(request, context, true);
 }
