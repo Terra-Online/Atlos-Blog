@@ -1,5 +1,5 @@
-import { execFileSync } from 'node:child_process';
 import path from 'node:path';
+import snapshot from '../git-authors-snapshot.json';
 
 export interface GitAuthor {
   name: string;
@@ -8,67 +8,23 @@ export interface GitAuthor {
 
 export type LastModifiedInput = Date | string | number | undefined;
 
-let repoRoot: string | null = null;
-let noreplyMap: Map<string, string> | null = null;
+type SnapshotEntry = {
+  authors: GitAuthor[];
+  lastModified?: string;
+};
+
+type Snapshot = Record<string, SnapshotEntry>;
+
+const gitAuthorsSnapshot = snapshot as Snapshot;
 const authorCache = new Map<string, GitAuthor[]>();
 const lastModifiedCache = new Map<string, Date | undefined>();
 
-function getRepoRoot() {
-  if (repoRoot) return repoRoot;
-
-  repoRoot = execFileSync('git', ['rev-parse', '--show-toplevel'], {
-    encoding: 'utf-8',
-    timeout: 3000,
-    stdio: ['pipe', 'pipe', 'pipe'],
-  }).trim();
-
-  return repoRoot;
-}
-
-function buildGlobalNoreplyMap(root: string) {
-  const map = new Map<string, string>();
-
-  try {
-    const raw = execFileSync('git', ['log', '--all', '--format=%aN%x09%aE'], {
-      cwd: root,
-      encoding: 'utf-8',
-      timeout: 5000,
-      stdio: ['pipe', 'pipe', 'pipe'],
-    }).trim();
-
-    for (const line of raw.split('\n').map((item) => item.trim()).filter(Boolean)) {
-      const tab = line.indexOf('\t');
-      if (tab === -1) continue;
-
-      const name = line.slice(0, tab).trim();
-      const email = line.slice(tab + 1).trim();
-      if (!name) continue;
-
-      if (/@users\.noreply\.github\.com$/i.test(email) || !map.has(name)) {
-        map.set(name, email);
-      }
-    }
-  } catch {
-    // Git metadata is optional in some deployment environments.
+function toContentPath(filePath: string) {
+  if (!path.isAbsolute(filePath)) {
+    return filePath.split(path.sep).join('/');
   }
 
-  return map;
-}
-
-function getNoreplyMap(root: string) {
-  if (!noreplyMap) {
-    noreplyMap = buildGlobalNoreplyMap(root);
-  }
-
-  return noreplyMap;
-}
-
-function toGitPath(filePath: string, root: string) {
-  const absolutePath = path.isAbsolute(filePath)
-    ? filePath
-    : path.resolve(root, filePath);
-
-  return path.relative(root, absolutePath);
+  return path.relative(process.cwd(), filePath).split(path.sep).join('/');
 }
 
 function legacyPaths(filePath: string) {
@@ -94,92 +50,32 @@ function legacyPaths(filePath: string) {
   return Array.from(new Set(paths));
 }
 
-function readRawAuthors(paths: string[], root: string) {
-  for (const gitPath of paths) {
-    const raw = execFileSync(
-      'git',
-      ['log', '--all', '--follow', '--format=%aN%x09%aE', '--', gitPath],
-      {
-        cwd: root,
-        encoding: 'utf-8',
-        timeout: 5000,
-        stdio: ['pipe', 'pipe', 'pipe'],
-      },
-    ).trim();
-
-    if (raw) return raw;
+function readSnapshot(filePath: string) {
+  for (const candidate of legacyPaths(toContentPath(filePath))) {
+    const entry = gitAuthorsSnapshot[candidate];
+    if (entry) return entry;
   }
 
-  return '';
-}
-
-function readRawLastModified(paths: string[], root: string) {
-  for (const gitPath of paths) {
-    const raw = execFileSync(
-      'git',
-      ['log', '--all', '--follow', '-1', '--format=%cI', '--', gitPath],
-      {
-        cwd: root,
-        encoding: 'utf-8',
-        timeout: 5000,
-        stdio: ['pipe', 'pipe', 'pipe'],
-      },
-    ).trim();
-
-    if (raw) return raw;
-  }
-
-  return '';
+  return undefined;
 }
 
 export function getGitAuthorsForContentPath(filePath: string): GitAuthor[] {
   if (authorCache.has(filePath)) return authorCache.get(filePath)!;
 
-  try {
-    const root = getRepoRoot();
-    const raw = readRawAuthors(legacyPaths(toGitPath(filePath, root)), root);
-    const preferredEmails = getNoreplyMap(root);
-    const seen = new Set<string>();
-    const authors: GitAuthor[] = [];
-
-    for (const line of raw.split('\n').map((item) => item.trim()).filter(Boolean)) {
-      const tab = line.indexOf('\t');
-      if (tab === -1) continue;
-
-      const name = line.slice(0, tab).trim();
-      if (!name || seen.has(name)) continue;
-
-      seen.add(name);
-      authors.push({
-        name,
-        email: preferredEmails.get(name) ?? line.slice(tab + 1).trim(),
-      });
-    }
-
-    authorCache.set(filePath, authors);
-    return authors;
-  } catch {
-    authorCache.set(filePath, []);
-    return [];
-  }
+  const authors = readSnapshot(filePath)?.authors ?? [];
+  authorCache.set(filePath, authors);
+  return authors;
 }
 
 export function getGitLastModifiedForContentPath(filePath: string): Date | undefined {
   if (lastModifiedCache.has(filePath)) return lastModifiedCache.get(filePath);
 
-  try {
-    const root = getRepoRoot();
-    const raw = readRawLastModified(legacyPaths(toGitPath(filePath, root)), root);
-    const date = raw ? new Date(raw) : undefined;
-    const lastModified =
-      date && !Number.isNaN(date.getTime()) ? date : undefined;
+  const raw = readSnapshot(filePath)?.lastModified;
+  const date = raw ? new Date(raw) : undefined;
+  const lastModified = date && !Number.isNaN(date.getTime()) ? date : undefined;
 
-    lastModifiedCache.set(filePath, lastModified);
-    return lastModified;
-  } catch {
-    lastModifiedCache.set(filePath, undefined);
-    return undefined;
-  }
+  lastModifiedCache.set(filePath, lastModified);
+  return lastModified;
 }
 
 export function resolveContentLastModified(

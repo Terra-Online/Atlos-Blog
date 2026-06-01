@@ -5,6 +5,8 @@ out/
 .next/
 .open-next/
 public/fonts
+meta.json
+git-authors-snapshot.json
 
 tsconfig.tsbuildinfo
 

@@ -33,6 +33,9 @@ jobs:
       - name: Generate announcements JSON
         run: pnpm run generate:announcements
 
+      - name: Generate git authors snapshot
+        run: pnpm run generate:git-authors
+
       - name: Build (Next.js → OpenNext → Cloudflare Worker)
         run: pnpm exec opennextjs-cloudflare build
 
