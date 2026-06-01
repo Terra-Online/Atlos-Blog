@@ -6,7 +6,7 @@ const locales = ['zh-hk', 'en', 'zh-cn', 'ja', 'ko'];
 const mediaRoutePrefix = '/r2-media';
 
 function isBlogMediaPath(pathname: string) {
-  return pathname === '/blogs' || pathname.startsWith('/blogs/');
+  return pathname.startsWith('/blogs/') && /\.[^/.]+$/.test(pathname);
 }
 
 function isFontMediaPath(pathname: string) {

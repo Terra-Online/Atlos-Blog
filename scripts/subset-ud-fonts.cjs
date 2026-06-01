@@ -5,7 +5,7 @@ const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 
-const announcementsRoot = path.resolve(process.cwd(), 'content/blogs/announcements');
+const contentRoot = path.resolve(process.cwd(), 'content');
 const sourceDir = path.resolve(process.cwd(), process.env.UD_FONT_SOURCE_DIR || 'public/fonts/UD');
 const outputDir = path.resolve(process.cwd(), process.env.UD_FONT_SUBSET_DIR || 'public/fonts/UD_subset');
 const pyftsubset = process.env.PYFTSUBSET_BIN || 'pyftsubset';
@@ -20,27 +20,6 @@ const commonText = [
   '.,;:!?()[]{}<>/\\|-_+=*&%$#@"\'`~',
   '，。？！、；：「」『』（）【】《》〈〉—…·～',
 ].join('');
-
-const localeConfigs = [
-  {
-    name: 'zh-cn',
-    suffix: '.zh-cn',
-    textSuffixes: ['.zh-cn'],
-    fonts: ['UDShinGo_CN_R.woff2', 'UDShinGo_CN_M.woff2', 'UDShinGo_CN_DB.woff2'],
-  },
-  {
-    name: 'zh-hk',
-    suffix: '.zh-hk',
-    textSuffixes: ['.zh-hk'],
-    fonts: ['UDShinGo_HK_R.woff2', 'UDShinGo_HK_M.woff2', 'UDShinGo_HK_DB.woff2'],
-  },
-  {
-    name: 'ja',
-    suffix: '.ja',
-    textSuffixes: ['.ja'],
-    fonts: ['UDShinGo_JP_R.woff2', 'UDShinGo_JP_M.woff2', 'UDShinGo_JP_DB.woff2'],
-  },
-];
 
 function collectMarkdownFiles(dir) {
   const files = [];
@@ -59,22 +38,6 @@ function collectMarkdownFiles(dir) {
   }
 
   return files;
-}
-
-function getLocaleText(files, config) {
-  const matchedFiles = files.filter((file) => {
-    const baseName = path.basename(file).replace(/\.(md|mdx)$/, '');
-    return config.textSuffixes.some((suffix) => baseName.endsWith(suffix));
-  });
-
-  if (matchedFiles.length === 0) {
-    throw new Error(`No announcement files found for ${config.name}`);
-  }
-
-  return matchedFiles
-    .sort((a, b) => a.localeCompare(b))
-    .map((file) => fs.readFileSync(file, 'utf8'))
-    .join('\n');
 }
 
 function uniqueText(value) {
@@ -101,8 +64,8 @@ function subsetFont(sourceFile, outputFile, textFile) {
   }
 }
 
-if (!fs.existsSync(announcementsRoot)) {
-  console.error(`announcements directory not found: ${announcementsRoot}`);
+if (!fs.existsSync(contentRoot)) {
+  console.error(`content directory not found: ${contentRoot}`);
   process.exit(1);
 }
 
@@ -114,15 +77,26 @@ if (!fs.existsSync(sourceDir)) {
 fs.mkdirSync(outputDir, { recursive: true });
 
 const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'oem-ud-subset-'));
-const announcementFiles = collectMarkdownFiles(announcementsRoot);
+const contentFiles = collectMarkdownFiles(contentRoot);
+const contentText = uniqueText(
+  `${commonText}\n${contentFiles
+    .sort((a, b) => a.localeCompare(b))
+    .map((file) => fs.readFileSync(file, 'utf8'))
+    .join('\n')}`,
+);
 
 try {
-  for (const config of localeConfigs) {
-    const localeText = uniqueText(`${commonText}\n${getLocaleText(announcementFiles, config)}`);
-    const textFile = path.join(tempDir, `${config.name}.txt`);
-    fs.writeFileSync(textFile, localeText, 'utf8');
+  const textFile = path.join(tempDir, 'content.txt');
+  fs.writeFileSync(textFile, contentText, 'utf8');
 
-    for (const fontName of config.fonts) {
+  const fontGroups = [
+    ['UDShinGo_CN_R.woff2', 'UDShinGo_CN_M.woff2', 'UDShinGo_CN_DB.woff2'],
+    ['UDShinGo_HK_R.woff2', 'UDShinGo_HK_M.woff2', 'UDShinGo_HK_DB.woff2'],
+    ['UDShinGo_JP_R.woff2', 'UDShinGo_JP_M.woff2', 'UDShinGo_JP_DB.woff2'],
+  ];
+
+  for (const group of fontGroups) {
+    for (const fontName of group) {
       const sourceFile = path.join(sourceDir, fontName);
       const outputFile = path.join(outputDir, fontName);
 
@@ -131,7 +105,7 @@ try {
         process.exit(1);
       }
 
-      console.log(`subsetting ${fontName} for ${config.name} with ${Array.from(localeText).length} chars`);
+      console.log(`subsetting ${fontName} from entire content tree with ${Array.from(contentText).length} chars`);
       subsetFont(sourceFile, outputFile, textFile);
     }
   }
