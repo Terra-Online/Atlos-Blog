@@ -29,6 +29,15 @@ function toContentPath(filePath: string) {
 
 function legacyPaths(filePath: string) {
   const paths = [filePath];
+  const extensionSwap = filePath.endsWith('.mdx')
+    ? filePath.replace(/\.mdx$/, '.md')
+    : filePath.endsWith('.md')
+      ? filePath.replace(/\.md$/, '.mdx')
+      : undefined;
+
+  if (extensionSwap) {
+    paths.push(extensionSwap);
+  }
 
   if (filePath.startsWith('content/docs/')) {
     paths.push(filePath.replace('content/docs/', 'content/docs/docs/'));

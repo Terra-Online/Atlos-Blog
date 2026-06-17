@@ -1,5 +1,13 @@
-import { SiteDocPage } from '@/app/components/site-doc-page';
+import { AuthorMeta } from '@/app/components/author-meta';
+import { MdxImage } from '@/app/components/mdx-image';
+import { MissingTranslation } from '@/app/components/missing-translation';
+import {
+  getGitAuthorsForContentPath,
+  resolveContentLastModified,
+} from '@/lib/git-authors';
 import { communitySource } from '@/lib/source';
+import { DocsBody, DocsDescription, DocsTitle } from 'fumadocs-ui/page';
+import defaultMdxComponents from 'fumadocs-ui/mdx';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -10,13 +18,37 @@ export default async function CommunityPage(props: {
   const page = communitySource.getPage(params.slug, params.lang);
   if (!page) notFound();
 
+  const MDX = page.data.body;
+  const contentPath = `content/community/${page.file.path}`;
+  const gitAuthors = getGitAuthorsForContentPath(contentPath);
+  const lastModified = resolveContentLastModified(contentPath, page.data.lastModified);
+
   return (
-    <SiteDocPage
-      page={page}
-      contentPath={`content/community/${page.file.path}`}
-      showAuthorMeta
-      missingTranslation={page.missingTranslation}
-    />
+    <main className="mx-auto w-full max-w-[860px] px-4 py-12 md:px-8">
+      <article>
+        <header>
+          <DocsTitle className="mb-3 text-4xl blog-title">{page.data.title}</DocsTitle>
+          <DocsDescription className="mb-2 text-base">
+            {page.data.description}
+          </DocsDescription>
+        </header>
+        {page.missingTranslation ? (
+          <MissingTranslation />
+        ) : (
+          <>
+            <AuthorMeta authors={gitAuthors} lastModified={lastModified} />
+            <DocsBody className="blog-post-body">
+              <MDX
+                components={{
+                  ...defaultMdxComponents,
+                  img: MdxImage,
+                }}
+              />
+            </DocsBody>
+          </>
+        )}
+      </article>
+    </main>
   );
 }
 

@@ -1,6 +1,9 @@
-import { ContentIndex } from '@/app/components/content-index';
 import { communitySource } from '@/lib/source';
+import { resolveContentLastModified } from '@/lib/git-authors';
+import { format } from 'date-fns';
+import Link from 'next/link';
 import type { ReactNode } from 'react';
+import '../blogs/blogs.scss';
 
 const copy: Record<string, { title: string; subtitle: string }> = {
   en: {
@@ -21,6 +24,37 @@ const copy: Record<string, { title: string; subtitle: string }> = {
   },
 };
 
+type CommunityCard = {
+  title: string;
+  description?: string;
+  lastModified?: string | Date;
+  url: string;
+};
+
+function formatPostDate(date?: string | Date) {
+  if (!date) return null;
+  const parsed = new Date(date);
+  if (Number.isNaN(parsed.getTime())) return null;
+
+  return format(parsed, 'EEE, d MMM yyyy');
+}
+
+function CommunityCard({ card }: { card: CommunityCard }) {
+  const date = formatPostDate(card.lastModified);
+
+  return (
+    <Link href={card.url} className="blog-card blog-card-small">
+      <h3>{card.title}</h3>
+      {card.description ? <p>{card.description}</p> : null}
+      {date ? (
+        <time dateTime={new Date(card.lastModified as string | Date).toISOString()}>
+          {date}
+        </time>
+      ) : null}
+    </Link>
+  );
+}
+
 export default async function CommunityIndexPage({
   params,
 }: {
@@ -28,9 +62,36 @@ export default async function CommunityIndexPage({
 }): Promise<ReactNode> {
   const { lang } = await params;
   const text = copy[lang] ?? copy.en;
-  const pages = communitySource
+  const cards = communitySource
     .getPages(lang)
-    .sort((a, b) => a.data.title.localeCompare(b.data.title));
+    .map((page): CommunityCard => {
+      const data = page.data as typeof page.data & {
+        lastModified?: string | Date;
+      };
 
-  return <ContentIndex title={text.title} subtitle={text.subtitle} pages={pages} />;
+      return {
+        title: data.title,
+        description: data.description,
+        lastModified: resolveContentLastModified(
+          `content/community/${page.file.path}`,
+          data.lastModified,
+        ) as string | Date | undefined,
+        url: page.url,
+      };
+    })
+    .sort((a, b) => a.title.localeCompare(b.title));
+
+  return (
+    <main className="blog-index mx-auto flex w-full max-w-[1120px] flex-col px-4 py-12 md:px-8">
+      <section className="blog-section">
+        <h2>{text.title}</h2>
+        <p className="blog-section-subtitle">{text.subtitle}</p>
+        <div className="blog-grid">
+          {cards.map((card) => (
+            <CommunityCard key={card.url} card={card} />
+          ))}
+        </div>
+      </section>
+    </main>
+  );
 }

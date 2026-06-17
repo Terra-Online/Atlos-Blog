@@ -25,3 +25,19 @@ For information regarding acceptable and prohibited content, please refer to the
 | Route or Puzzle Annotations | For locations that require complex navigation, special traversal methods, or puzzle-solving, consider adding annotations in an image editor to provide additional context and improve the image’s usefulness. |
 | Minimize UI Distractions | Standard screenshots are acceptable, but whenever possible, hide quest trackers, event notifications, player IDs, and other interface elements that may distract from the location itself. |
 | Easy Perspectives | Prioritize perspectives that players are most likely to encounter during normal exploration. Avoid highly specialized camera angles or close-up shots that show only the point of interest without sufficient environmental context. |
+
+### Typical Cases
+> Once there are serveral corresponding markers within one ss -
+
+> Once the marker in the ss requries going upstairs/downstairs -
+
+## Best Practices For Different Marker Types 
+
+### Crate
+### Aurylene
+### Delta BOt
+### Pressure Plate
+### Guiding Butterfile
+### Gather Spot
+### Intels
+### Wooden Box
