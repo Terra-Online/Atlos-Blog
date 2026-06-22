@@ -29,14 +29,14 @@ date: 2026-04-15
 
 ## 用户面板介绍
 
-您的用户面板上包含如下信息：（**图3**）
+您的用户面板（**图3**）包含如下信息：
 ![图3：信息档案概览](/blogs/announcements/26April/fig3.zh-cn.webp)
 
-* **您的用户组与 Karma 等级。**未登录的用户均呈现为游客用户；对于已经注册的用户，会首先默认分配一个常规用户组；Karma等级是用户组徽标下方的类似电池条的东西，表征用户的活跃与贡献程度；更多的用户组（如先锋用户与管理员）与 Karma 规则与后续推出的社区功能相关。
-* **帐号注册时间。**
-* **您的昵称。**您会在首次注册完成后，被引导输入您的昵称——您可以随时变更您的昵称！
-* **您的 UID。**UID是在首次设定昵称后被分配的，且在分配后不可更改——不必担心，这个UID只用于您在社交媒体分享时呈现的面板，与用户身份和账号数据均无关系。
-* ——当然，还有可爱管理员和干员们的头像。
+-  **您的用户组与 Karma 等级。** 未登录的用户均呈现为游客用户；对于已经注册的用户，会首先默认分配一个常规用户组；Karma等级是用户组徽标下方的类似电池条的东西，表征用户的活跃与贡献程度；更多的用户组（如先锋用户与管理员）与 Karma 规则与后续推出的社区功能相关。
+- **帐号注册时间。**
+- **您的昵称。** 您会在首次注册完成后，被引导输入您的昵称——您可以随时变更您的昵称！
+- **您的 UID。** UID是在首次设定昵称后被分配的，且在分配后不可更改——不必担心，这个UID只用于您在社交媒体分享时呈现的面板，与用户身份和账号数据均无关系。
+- ——当然，还有可爱管理员和干员们的头像。
 
 ---
 
@@ -52,14 +52,14 @@ date: 2026-04-15
 
 但是由于开发任务量太大，且伴随着更多的开支项，我们无法在预期的开发周期内完成所有任务；所以我们决定首先公开用户注册系统并且推荐各位用户尝鲜，注册的用户将在功能推出的第一时间收到推送，并且安全快捷地管理您的游戏进度。
 
-如果您也期待这些功能，欢迎持续关注 OEM；您也可以通过页面左下方的**【支持我们】**通道，为开发者们提供一些力所能及的支持，这些支持将会全数用于加速新功能的开发！
+如果您也期待这些功能，欢迎持续关注 OEM；您也可以通过页面左下方的 **【支持我们】** 通道，为开发者们提供一些力所能及的支持，这些支持将会全数用于加速新功能的开发！
 
 ---
 
 以上就是本次更新公告的全部内容，如在使用过程中有任何疑问，或对本项目有任何意见和建议，请通过以下方式联系我们：
 
-* **项目 QQ 群组**：[加入【终末地大地图交流】](https://qm.qq.com/q/OQbocvQzCO)
-* **Discord 玩家社区**：[加入【Endfield Surveying Institute】](https://discord.gg/BFMAKZSUG7)
-* **支持团队邮箱**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
-* **代码仓库**：[在 GitHub 上查看 Atlos](https://github.com/Terra-Online/Atlos)
-* **Bluesky 账户**：[追踪 Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)
+- **项目 QQ 群组**：[加入【终末地大地图交流】](https://qm.qq.com/q/OQbocvQzCO)
+- **Discord 玩家社区**：[加入【Endfield Surveying Institute】](https://discord.gg/BFMAKZSUG7)
+- **支持团队邮箱**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
+- **代码仓库**：[在 GitHub 上查看 Atlos](https://github.com/Terra-Online/Atlos)
+- **Bluesky 账户**：[追踪 Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)
