@@ -25,7 +25,19 @@
   initial-value: 0px;
 }
 
+@property --opacity {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
 #nd-toc {
+  [style*='--track-top'] {
+    transition-property: --track-top, --track-bottom, --offset-distance, --opacity;
+    transition-duration: 320ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
   .transition-\[clip-path\] {
     transition-duration: 320ms;
     transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
