@@ -16,6 +16,4 @@ export const sponsors = defineDocs({
   dir: 'content/sponsors',
 });
 
-export default defineConfig({
-  lastModifiedTime: 'none',
-});
+export default defineConfig();

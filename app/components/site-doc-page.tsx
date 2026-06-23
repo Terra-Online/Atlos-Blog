@@ -2,8 +2,8 @@ import {
   DocsBody,
   DocsDescription,
   DocsTitle,
-} from 'fumadocs-ui/page';
-import type { TableOfContents } from 'fumadocs-core/server';
+} from 'fumadocs-ui/layouts/docs/page';
+import type { TableOfContents } from 'fumadocs-core/toc';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import type { ComponentType, ReactNode } from 'react';
 import { AuthorMeta, type GitAuthor } from '@/app/components/author-meta';
@@ -50,7 +50,7 @@ export async function SiteDocPage({
     if (!Content) return null;
 
     body = (
-      <DocsBody>
+      <DocsBody className="blog-post-body site-prose-body">
         <Content
           components={{
             ...defaultMdxComponents,
@@ -70,11 +70,11 @@ export async function SiteDocPage({
       : page.data.lastModified;
 
   return (
-    <main className="mx-auto w-full max-w-[860px] px-4 py-12 md:px-8">
+    <main className="site-article-shell">
       <article>
-        <header className="mb-8">
-          <DocsTitle className="mb-3 text-4xl">{page.data.title}</DocsTitle>
-          <DocsDescription className="mb-3 text-base">
+        <header className="site-article-header">
+          <DocsTitle className="text-4xl">{page.data.title}</DocsTitle>
+          <DocsDescription className="site-doc-description text-base">
             {page.data.description}
           </DocsDescription>
           {showAuthorMeta && !missingTranslation ? (
@@ -83,7 +83,7 @@ export async function SiteDocPage({
               lastModified={lastModified}
             />
           ) : (
-            <div className="border-b border-fd-border pb-6" />
+            <div className="site-author-meta border-b border-fd-border" />
           )}
         </header>
         {body}

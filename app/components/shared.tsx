@@ -1,7 +1,6 @@
 import { i18n, sectionLabels } from '@/lib/i18n';
 import { siteSections } from '@/lib/source';
-import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
-import type { LinkItemType } from 'fumadocs-ui/layouts/links';
+import type { BaseLayoutProps, LinkItemType } from 'fumadocs-ui/layouts/shared';
 
 function GithubIcon() {
   return (

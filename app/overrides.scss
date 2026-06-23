@@ -30,7 +30,36 @@
 .blog-title {
   font-size: 24px;
 }
-.prose.blog-post-body {
+
+.site-article-shell {
+  width: 100%;
+  max-width: 860px;
+  margin-inline: auto;
+  padding: 3rem 1rem;
+}
+
+.site-article-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.site-doc-description {
+  margin-bottom: 0 !important;
+}
+
+.site-author-meta {
+  padding-block: 0.75rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .site-article-shell {
+    padding-inline: 2rem;
+  }
+}
+
+.prose.site-prose-body {
   :is(h1, h2, h3) {
     font-size: 20px;
     line-height: 1.25;
@@ -38,17 +67,39 @@
 
   :is(h4, h5, h6) {
     font-size: 18px;
-    line-height: 1;
+    line-height: 1.25;
   }
 
-  :is(h1, h2, h3, h4, h5, h6) {
-    margin-top: 0;
+  :where(h1):not(:where([class~=not-prose], [class~=not-prose] *)) {
+    margin-top: 1.5em !important;
+    margin-bottom: 1em !important;
+  }
+
+  :where(h2):not(:where([class~=not-prose], [class~=not-prose] *)) {
+    margin-top: 1.5em !important;
+    margin-bottom: 1em !important;
+  }
+
+  :where(h3):not(:where([class~=not-prose], [class~=not-prose] *)) {
+    margin-top: 1.25em !important;
+    margin-bottom: 0.75em !important;
+  }
+
+  :where(h4, h5, h6):not(:where([class~=not-prose], [class~=not-prose] *)) {
+    margin-top: 1.1em !important;
+    margin-bottom: 0.5em !important;
+  }
+
+  :where(hr):not(:where([class~=not-prose], [class~=not-prose] *)) {
+    margin-top: 1.5em !important;
+    margin-bottom: 1.5em !important;
   }
 
   table {
     margin-top: 0;
   }
 }
+
 
 @media (min-width: 1024px) {
   #nd-nav {

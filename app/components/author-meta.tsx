@@ -100,7 +100,7 @@ function AuthorChip({ author }: { author: GitAuthor }) {
 export function AuthorMeta({
   authors,
   lastModified,
-  className = 'mb-4 border-b border-fd-border pb-4',
+  className = 'site-author-meta border-b border-fd-border',
 }: {
   authors?: GitAuthor[];
   lastModified?: Date | string | number;

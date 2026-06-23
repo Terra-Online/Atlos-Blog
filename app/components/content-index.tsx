@@ -8,11 +8,11 @@ type PageLike = {
   data: {
     title: string;
     description?: string;
-    lastModified?: Date;
+    lastModified?: Date | string | number;
   };
 };
 
-function formatDate(date?: string | Date) {
+function formatDate(date?: string | number | Date) {
   if (!date) return null;
   const parsed = new Date(date);
   if (Number.isNaN(parsed.getTime())) return null;

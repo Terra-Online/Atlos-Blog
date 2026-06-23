@@ -82,7 +82,7 @@ export default async function CommunityIndexPage({
     .sort((a, b) => a.title.localeCompare(b.title));
 
   return (
-    <main className="blog-index mx-auto flex w-full max-w-[1120px] flex-col px-4 py-12 md:px-8">
+    <main className="blog-index">
       <section className="blog-section">
         <h2>{text.title}</h2>
         <p className="blog-section-subtitle">{text.subtitle}</p>

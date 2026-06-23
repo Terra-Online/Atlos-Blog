@@ -4,7 +4,8 @@ import {
   DocsBody,
   DocsTitle,
   DocsDescription,
-} from 'fumadocs-ui/page';
+  PageLastUpdate,
+} from 'fumadocs-ui/layouts/docs/page';
 import { notFound } from 'next/navigation';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { type Metadata } from 'next';
@@ -34,17 +35,18 @@ export default async function Page(props: {
     <DocsPage
       toc={page.missingTranslation ? [] : page.data.toc}
       tableOfContent={{ style: 'clerk' }}
-      lastUpdate={!page.missingTranslation && hasValidLastModified ? lastModifiedDate : undefined}
       full={page.data.full}
     >
-      <DocsTitle className="mb-3">{page.data.title}</DocsTitle>
-      <DocsDescription className="mb-3">{page.data.description}</DocsDescription>
+      <DocsTitle>{page.data.title}</DocsTitle>
+      <DocsDescription className="site-doc-description">
+        {page.data.description}
+      </DocsDescription>
       {page.missingTranslation ? (
         <MissingTranslation />
       ) : (
         <>
           <AuthorMeta authors={gitAuthors} lastModified={lastModified} />
-          <DocsBody>
+          <DocsBody className="site-docs-body site-prose-body">
             <MDX
               components={{
                 ...defaultMdxComponents,
@@ -52,6 +54,9 @@ export default async function Page(props: {
               }}
             />
           </DocsBody>
+          {hasValidLastModified ? (
+            <PageLastUpdate date={lastModifiedDate} />
+          ) : null}
         </>
       )}
     </DocsPage>

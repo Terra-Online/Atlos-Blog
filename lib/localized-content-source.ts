@@ -2,26 +2,56 @@ import { i18n } from './i18n';
 import {
   createGetUrl,
   getSlugs,
-  parseFilePath,
-  type Page,
+  PathUtils,
 } from 'fumadocs-core/source';
-import type { PageTree } from 'fumadocs-core/server';
-import type { ReactNode } from 'react';
+import type * as PageTree from 'fumadocs-core/page-tree';
+import type { StructuredData } from 'fumadocs-core/mdx-plugins/remark-structure';
+import type { TableOfContents } from 'fumadocs-core/toc';
+import type { ComponentType, ReactNode } from 'react';
 
 type RuntimeDoc = {
-  _file: {
+  _file?: {
     path: string;
     absolutePath: string;
   };
+  info?: {
+    path: string;
+    fullPath: string;
+  };
   title: string;
+  description?: string;
   icon?: string;
+  body: ComponentType<any>;
+  toc: TableOfContents;
+  structuredData: StructuredData;
+  full?: boolean;
+  lastModified?: Date | string | number;
+  date?: Date | string;
+  section?: string;
+  card?: string;
+  cover?: string;
 };
 
 type RuntimeDocsCollection<T extends RuntimeDoc> = {
   docs: T[];
 };
 
-export type LocalizedContentPage<T extends RuntimeDoc> = Page<T> & {
+type ParsedFilePath = {
+  path: string;
+  absolutePath: string;
+  name: string;
+  flattenedPath: string;
+  ext: string;
+  dirname: string;
+  locale?: string;
+};
+
+export type LocalizedContentPage<T extends RuntimeDoc> = {
+  file: ParsedFilePath;
+  slugs: string[];
+  url: string;
+  data: T & RuntimeDoc;
+  locale?: string;
   missingTranslation?: boolean;
   sourceLocale: string;
 };
@@ -37,6 +67,48 @@ function pathToName(name: string): string {
     .filter(Boolean)
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(' ');
+}
+
+function getFileInfo(data: RuntimeDoc) {
+  if (data._file) {
+    return {
+      path: data._file.path,
+      absolutePath: data._file.absolutePath,
+    };
+  }
+
+  if (data.info) {
+    return {
+      path: data.info.path,
+      absolutePath: data.info.fullPath,
+    };
+  }
+
+  throw new Error('Missing file metadata from Fumadocs source entry.');
+}
+
+function parseLocalizedFilePath(file: ReturnType<typeof getFileInfo>): ParsedFilePath {
+  const normalizedPath = PathUtils.normalize(file.path);
+  const ext = PathUtils.extname(normalizedPath);
+  const dirname = PathUtils.dirname(normalizedPath);
+  const basename = PathUtils.basename(normalizedPath, ext);
+  const parts = basename.split('.');
+  const localeCandidate = parts.length > 1 ? parts.at(-1) : undefined;
+  const locale = localeCandidate && i18n.languages.includes(localeCandidate)
+    ? localeCandidate
+    : undefined;
+  const name = locale ? parts.slice(0, -1).join('.') : basename;
+  const flattenedPath = PathUtils.joinPath(dirname, name);
+
+  return {
+    path: normalizedPath,
+    absolutePath: file.absolutePath,
+    name,
+    flattenedPath,
+    ext,
+    dirname,
+    locale,
+  };
 }
 
 function cloneForLanguage<T extends RuntimeDoc>(
@@ -86,9 +158,7 @@ function buildTree<T extends RuntimeDoc>(
       type: 'page',
       name: page.data.title as ReactNode,
       url: page.url,
-      $ref: {
-        file: page.file.path,
-      },
+      $ref: page.file.path,
     });
   }
 
@@ -102,14 +172,14 @@ export function createLocalizedContentSource<T extends RuntimeDoc>(
   const getUrl = createGetUrl(baseUrl, i18n);
   const entries: PageEntry<T>[] = collection.docs
     .map((data) => {
-      const file = parseFilePath(data._file.path);
-      const slugs = getSlugs(file);
+      const file = parseLocalizedFilePath(getFileInfo(data));
+      const slugs = getSlugs(file.flattenedPath);
       const sourceLocale = file.locale ?? i18n.defaultLanguage;
       const page: LocalizedContentPage<T> = {
         file,
         slugs,
         url: getUrl(slugs, sourceLocale),
-        data,
+        data: data as T & RuntimeDoc,
         locale: sourceLocale,
         sourceLocale,
       };

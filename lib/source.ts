@@ -1,5 +1,5 @@
 import { sectionLabels } from './i18n';
-import { blogs, community, docs, sponsors } from '@/.source';
+import { blogs, community, docs, sponsors } from '@/.source/server';
 import { createLocalizedContentSource } from './localized-content-source';
 
 export const source = createLocalizedContentSource(docs, '/docs');

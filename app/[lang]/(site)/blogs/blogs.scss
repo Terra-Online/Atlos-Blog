@@ -1,7 +1,20 @@
 .blog-index {
+  display: flex;
+  width: 100%;
+  max-width: 1120px;
+  flex-direction: column;
   gap: 2rem;
+  margin-inline: auto;
+  padding: 3rem 1rem;
+
   * {
       font-feature-settings: "ss01" on, "ss02" on, "ss03" on, "ss04" off, "ss05" off, "ss06" off;
+  }
+}
+
+@media (min-width: 768px) {
+  .blog-index {
+    padding-inline: 2rem;
   }
 }
 

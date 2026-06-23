@@ -2,7 +2,7 @@
 
 import { type ReactNode, useCallback } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { I18nProvider } from 'fumadocs-ui/i18n';
+import { I18nProvider } from 'fumadocs-ui/contexts/i18n';
 import { i18n } from '@/lib/i18n';
 
 type LocaleItem = {
@@ -47,7 +47,7 @@ export function AppI18nProvider({
   );
 
   return (
-    <I18nProvider locale={locale} locales={locales} onChange={onChange}>
+    <I18nProvider locale={locale} locales={locales} onLocaleChange={onChange}>
       {children}
     </I18nProvider>
   );

@@ -113,7 +113,7 @@ export default async function BlogIndexPage({
   const sections = Array.from(new Set(cards.map((card) => card.section)));
 
   return (
-    <main className="blog-index mx-auto flex w-full max-w-[1120px] flex-col px-4 py-12 md:px-8">
+    <main className="blog-index">
       {sections.map((section) => {
         const sectionCards = cards.filter((card) => card.section === section);
 

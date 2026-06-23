@@ -6,7 +6,7 @@ import {
   resolveContentLastModified,
 } from '@/lib/git-authors';
 import { communitySource } from '@/lib/source';
-import { DocsBody, DocsDescription, DocsTitle } from 'fumadocs-ui/page';
+import { DocsBody, DocsDescription, DocsTitle } from 'fumadocs-ui/layouts/docs/page';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -24,28 +24,28 @@ export default async function CommunityPage(props: {
   const lastModified = resolveContentLastModified(contentPath, page.data.lastModified);
 
   return (
-    <main className="mx-auto w-full max-w-[860px] px-4 py-12 md:px-8">
+    <main className="site-article-shell">
       <article>
-        <header>
-          <DocsTitle className="mb-3 text-4xl blog-title">{page.data.title}</DocsTitle>
-          <DocsDescription className="mb-2 text-base">
+        <header className="site-article-header">
+          <DocsTitle className="text-4xl blog-title">{page.data.title}</DocsTitle>
+          <DocsDescription className="site-doc-description text-base">
             {page.data.description}
           </DocsDescription>
+          {!page.missingTranslation ? (
+            <AuthorMeta authors={gitAuthors} lastModified={lastModified} />
+          ) : null}
         </header>
         {page.missingTranslation ? (
           <MissingTranslation />
         ) : (
-          <>
-            <AuthorMeta authors={gitAuthors} lastModified={lastModified} />
-            <DocsBody className="blog-post-body">
-              <MDX
-                components={{
-                  ...defaultMdxComponents,
-                  img: MdxImage,
-                }}
-              />
-            </DocsBody>
-          </>
+          <DocsBody className="blog-post-body site-prose-body">
+            <MDX
+              components={{
+                ...defaultMdxComponents,
+                img: MdxImage,
+              }}
+            />
+          </DocsBody>
         )}
       </article>
     </main>

@@ -3,7 +3,7 @@ import {
   DocsBody,
   DocsDescription,
   DocsTitle,
-} from 'fumadocs-ui/page';
+} from 'fumadocs-ui/layouts/docs/page';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { format } from 'date-fns';
 import type { Metadata } from 'next';
@@ -38,31 +38,31 @@ export default async function BlogPostPage(props: {
   const lastModified = resolveContentLastModified(contentPath, page.data.lastModified);
 
   return (
-    <main className="mx-auto w-full max-w-[860px] px-4 py-12 md:px-8">
+    <main className="site-article-shell">
       <article>
-        <header>
-          <DocsTitle className="mb-3 text-4xl blog-title">{page.data.title}</DocsTitle>
-          <DocsDescription className="mb-2 text-base">
+        <header className="site-article-header">
+          <DocsTitle className="text-4xl blog-title">{page.data.title}</DocsTitle>
+          <DocsDescription className="site-doc-description text-base">
             {page.data.description}
           </DocsDescription>
           {date ? (
-            <p className="mb-4 text-sm font-medium text-fd-primary">{date}</p>
+            <p className="text-sm font-medium text-fd-primary">{date}</p>
+          ) : null}
+          {!page.missingTranslation ? (
+            <AuthorMeta authors={gitAuthors} lastModified={lastModified} />
           ) : null}
         </header>
         {page.missingTranslation ? (
           <MissingTranslation />
         ) : (
-          <>
-            <AuthorMeta authors={gitAuthors} lastModified={lastModified} />
-            <DocsBody className="blog-post-body">
-              <MDX
-                components={{
-                  ...defaultMdxComponents,
-                  img: MdxImage,
-                }}
-              />
-            </DocsBody>
-          </>
+          <DocsBody className="blog-post-body site-prose-body">
+            <MDX
+              components={{
+                ...defaultMdxComponents,
+                img: MdxImage,
+              }}
+            />
+          </DocsBody>
         )}
       </article>
     </main>
