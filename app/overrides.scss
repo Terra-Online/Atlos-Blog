@@ -6,6 +6,37 @@
 #nd-sidebar {
   backdrop-filter: blur(20px) brightness(1.1) !important;
 }
+
+@property --track-top {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 0px;
+}
+
+@property --track-bottom {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 0px;
+}
+
+@property --offset-distance {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 0px;
+}
+
+#nd-toc {
+  .transition-\[clip-path\] {
+    transition-duration: 320ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .transition-\[opacity\,offset-distance\] {
+    transition-duration: 320ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
 .prose {
   .prose :where(ul > li):not(:where([class~=not-prose], [class~=not-prose] *)) {
     list-style-type: square;

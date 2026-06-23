@@ -197,14 +197,16 @@ html pre {
 
 /* ── Theme Transition ─────────────────────────────────────────────────────── */
 
-*,
-*::before,
-*::after {
-  transition:
-    background-color 0.3s ease,
-    border-color     0.3s ease,
-    color            0.3s ease,
-    box-shadow       0.3s ease;
+@layer base {
+  *,
+  *::before,
+  *::after {
+    transition:
+      background-color 0.3s ease,
+      border-color     0.3s ease,
+      color            0.3s ease,
+      box-shadow       0.3s ease;
+  }
 }
 
 /* Suppress transitions on initial page load to avoid FOUC */

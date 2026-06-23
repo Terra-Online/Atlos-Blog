@@ -34,7 +34,6 @@ export default async function Page(props: {
   return (
     <DocsPage
       toc={page.missingTranslation ? [] : page.data.toc}
-      tableOfContent={{ style: 'clerk' }}
       full={page.data.full}
     >
       <DocsTitle>{page.data.title}</DocsTitle>
