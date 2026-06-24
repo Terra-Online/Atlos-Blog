@@ -127,10 +127,18 @@ function buildSnapshot() {
     const seen = new Set();
     const authors = [];
     let lastModified;
+    let createdAt;
 
     for (const line of raw.split('\n').map((item) => item.trim()).filter(Boolean)) {
       const parts = line.split('\t');
       if (parts.length < 3) continue;
+
+      const timestamp = parts[2].trim();
+      if (!lastModified) {
+        lastModified = timestamp;
+      }
+
+      createdAt = timestamp;
 
       const name = parts[0].trim();
       if (!name || seen.has(name)) continue;
@@ -140,16 +148,13 @@ function buildSnapshot() {
         name,
         email: noreplyMap.get(name) ?? parts[1].trim(),
       });
-
-      if (!lastModified) {
-        lastModified = parts[2].trim();
-      }
     }
 
     const keys = legacyPaths(filePath);
     const entry = {
       authors,
       lastModified: lastModified || undefined,
+      createdAt: createdAt || undefined,
     };
 
     for (const key of keys) {

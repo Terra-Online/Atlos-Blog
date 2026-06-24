@@ -11,6 +11,7 @@ export type LastModifiedInput = Date | string | number | undefined;
 type SnapshotEntry = {
   authors: GitAuthor[];
   lastModified?: string;
+  createdAt?: string;
 };
 
 type Snapshot = Record<string, SnapshotEntry>;
@@ -18,6 +19,7 @@ type Snapshot = Record<string, SnapshotEntry>;
 const gitAuthorsSnapshot = snapshot as Snapshot;
 const authorCache = new Map<string, GitAuthor[]>();
 const lastModifiedCache = new Map<string, Date | undefined>();
+const createdAtCache = new Map<string, Date | undefined>();
 
 function toContentPath(filePath: string) {
   if (!path.isAbsolute(filePath)) {
@@ -85,6 +87,17 @@ export function getGitLastModifiedForContentPath(filePath: string): Date | undef
 
   lastModifiedCache.set(filePath, lastModified);
   return lastModified;
+}
+
+export function getGitCreatedAtForContentPath(filePath: string): Date | undefined {
+  if (createdAtCache.has(filePath)) return createdAtCache.get(filePath);
+
+  const raw = readSnapshot(filePath)?.createdAt;
+  const date = raw ? new Date(raw) : undefined;
+  const createdAt = date && !Number.isNaN(date.getTime()) ? date : undefined;
+
+  createdAtCache.set(filePath, createdAt);
+  return createdAt;
 }
 
 export function resolveContentLastModified(
