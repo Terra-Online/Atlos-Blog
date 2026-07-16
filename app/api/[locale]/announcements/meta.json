@@ -1,20 +1,20 @@
 {
-  "version": "1b028cf34ae15c65",
+  "version": "cc1a850acf9ad5a5",
   "locales": {
     "en": {
-      "latestId": "update-26July-1"
+      "latestId": "update-26July-2"
     },
     "zh-cn": {
-      "latestId": "update-26July-1"
+      "latestId": "update-26July-2"
     },
     "zh-hk": {
-      "latestId": "update-26July-1"
+      "latestId": "update-26July-2"
     },
     "ja": {
-      "latestId": "update-26July-1"
+      "latestId": "update-26July-2"
     },
     "ko": {
-      "latestId": "update-26July-1"
+      "latestId": "update-26July-2"
     }
   }
 }
