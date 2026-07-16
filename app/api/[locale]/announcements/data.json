@@ -1,15 +1,6 @@
 {
   "ja": [
     {
-      "id": "update-26July-2",
-      "title": "サービス障害のお知らせ",
-      "description": "アカウント、クラウド同期、画像投稿機能の一時停止について",
-      "content": "## English\n\nWe sincerely apologize for the current service outage. The issue was caused by a failure in Cloudflare's D1 infrastructure. We are actively working with Cloudflare Support to resolve the incident and discuss possible compensation.\n\nYour local collection progress is not affected. Once the service is restored, all locally saved data will be synchronized back to the cloud automatically at the earliest opportunity.\n\nPreviously uploaded images remain accessible through our pre-warmed KV cache. However, signing in, cloud synchronization, and uploading new images are temporarily unavailable until the database service has fully recovered.\n\nThank you for your patience and understanding. We will provide further updates as soon as more information becomes available.\n\n---\n\n## 日本語\n\n現在発生しているサービス障害につきまして、心よりお詫び申し上げます。本件は Cloudflare の D1 インフラストラクチャの障害により発生しました。現在、Cloudflare サポートと連携して問題の解決に取り組むとともに、補償の可能性について協議しています。\n\n端末に保存されている収集進捗には影響ありません。サービス復旧後、ローカルに保存されたすべてのデータは、可能な限り速やかに自動でクラウドへ同期されます。\n\n以前に投稿された画像は、事前にウォームアップ済みの KV キャッシュを通じて引き続きご覧いただけます。ただし、データベースサービスが完全に復旧するまで、ログイン、クラウド同期、および新しい画像の投稿は一時的にご利用いただけません。\n\nご不便をおかけしますが、何卒ご理解とご協力をお願いいたします。新たな情報が入り次第、速やかに続報をお知らせします。",
-      "date": "2026-07-17",
-      "url": "https://blog.opendfieldmap.org/ja/blogs/announcements/26July/update-26July-2",
-      "locale": "ja"
-    },
-    {
       "id": "update-26July-1",
       "title": "ポイント詳細の更新",
       "description": "Ver.1.4 更新情報｜コメント機能、複数画像投稿と各種改善",
@@ -53,18 +44,18 @@
       "date": "2026-04-15",
       "url": "https://blog.opendfieldmap.org/ja/blogs/announcements/26April/update-26April",
       "locale": "ja"
+    },
+    {
+      "id": "update-26March",
+      "title": "1.1マップポイント更新",
+      "description": "バージョン1.1更新内容：アーカイブマーカーと新機能の紹介",
+      "content": "OEMをご利用いただき、誠にありがとうございます。\n\nバージョン1.1のアップデート以来、OEM開発チームは新機能の開発に注力し、**Open Endfield Map** を最も使いやすいエンドフィールドのマップツールにすることを目指してきました。今回、**マップデータと使用方法**に関する重要な機能アップデートをお届けできることを嬉しく思います。以下の紹介内容をお読みいただくことで、より快適にご利用いただけるようになります。\n\n## サイドバーとフィルターの更新\nマーカーの増加と検索条件の複雑化に伴い、サイドバーの幅を変更できる機能を追加しました。サイドバーの右側をドラッグすることで幅を調整できます（**図1**）。\n\n![図1：幅調整可能なサイドバー](https://blog.opendfieldmap.org/blogs/announcements/26March/fig1.webp)\n*図1：サイドバーの右端をドラッグして幅を調整します。*\n\n- より広いサイドバーでは、フィルターが3列レイアウトで表示されます。\n- 「敵」や「アーカイブ」といった、ドロップアイテムなどの多次元属性を持つマーカーに対して、カテゴリセレクター（**図2**）を追加しました。同じ属性を持つフィルターをまとめて表示し、同種のマーカーを素早く選択できるようになります。\n\n![図2：フィルターのカテゴリセレクター](https://blog.opendfieldmap.org/blogs/announcements/26March/fig2.webp)\n*図2：カテゴリセレクターで同じ属性のフィルター項目をすばやく切り替えます。*\n\n今後のアップデートでは、グループ化の方式を変更する機能も追加する予定です。これにより、敵の陣営やランクでのフィルタリングも可能になります。\n\n---\n\n## アーカイブデータセットの追加\n慎重なデータ収集と整理を経て、ゲーム内の「アーカイブ」にあるマップ上で収集可能なすべてのマーカーをOEMに追加し、単一のアーカイブを個別に検索できるようにしました。\n既存のいくつかのマップ（公式マップを含む）では、アーカイブマーカーを大きなカテゴリに折りたたんで表示しているだけですが、多くの場合、ユーザーは特定のアーカイブを探して補完する必要があります。現在、OEMは最も便利なソリューションを提供しています。\n- 収集可能なすべてのアーカイブがサイドバーに個別にリストされるようになりました。  \n- 前述の**カテゴリセレクター**により、アーカイブの属性がゲーム内アーカイブの「紙の記録」や「電子アーカイブ」などと完全に一致するようになり、不足しているマーカーをカテゴリ別に検索しやすくなりました。\n- グローバル検索システムを統合し、アーカイブの**タイトルまたは本文**からマーカーを直接検索できるようになりました（**図3**）。\n- マーカーの詳細から**完全な内容を表示**をクリックするだけで、マップから離れることなくアーカイブ情報を読むことができます（**図4**）。 \n\n![図3：グローバル検索でのアーカイブ検索](https://blog.opendfieldmap.org/blogs/announcements/26March/fig3.webp)\n*図3：タイトルまたは本文のキーワードでアーカイブとマーカーを検索します。*\n\n![図4：マーカー詳細でのアーカイブ全文](https://blog.opendfieldmap.org/blogs/announcements/26March/fig4.webp)\n*図4：マーカーの詳細でアーカイブの全文を直接確認でき、共有リンクでのジャンプにも対応しています。*\n\n---\n\n## グローバル検索システム\n**図3**に示すように、「全体検索」機能がアップデートされました。\n- **任意のアーカイブとマーカーのコンテンツ**をすばやく検索でき、検索結果には本文の要約とマーカーの分布状況が含まれます。\n- カテゴリの検索結果の場合、検索結果をクリックすることは、対応するフィルターをクリックすることと同じであり、その種類のマーカーが選択されます。  \n- 単一のマーカーの検索結果の場合、クリックすると**該当するマーカーにジャンプ**します。\n\n---\n\n## ディープリンクとマーカーの共有\n**図4**に示すように：\n- 現在、すべてのマーカーで**共有リンクのコピー**がサポートされています。  \n- フレンドに送信したり、**ブックマークに保存**していつでも確認したりできます。共有リンクを使用すると、該当するマーカーに直接ナビゲートされ、アニメーションで強調表示されます。\n\n---\n\nご利用中にご不明な点がある場合、または本プロジェクトに対するご意見・ご提案がございましたら、以下の方法でお問い合わせください。\n\n* **Discord プレイヤーコミュニティ**：[Endfield Surveying Instituteに参加](https://discord.gg/BFMAKZSUG7)\n* **サポートおよびコンプライアンスチームのメールアドレス**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **プロジェクトのオープンソースリポジトリ**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)\n* **Bluesky 公式アカウント**：[Open Endfield Map をフォロー](https://bsky.app/profile/opendfieldmap.bsky.social)",
+      "date": "2026-03-22",
+      "url": "https://blog.opendfieldmap.org/ja/blogs/announcements/26March/update-26March",
+      "locale": "ja"
     }
   ],
   "ko": [
-    {
-      "id": "update-26July-2",
-      "title": "서비스 장애 안내",
-      "description": "계정 로그인, 클라우드 동기화 및 이미지 업로드 서비스 일시 중단",
-      "content": "## English\n\nWe sincerely apologize for the current service outage. The issue was caused by a failure in Cloudflare's D1 infrastructure. We are actively working with Cloudflare Support to resolve the incident and discuss possible compensation.\n\nYour local collection progress is not affected. Once the service is restored, all locally saved data will be synchronized back to the cloud automatically at the earliest opportunity.\n\nPreviously uploaded images remain accessible through our pre-warmed KV cache. However, signing in, cloud synchronization, and uploading new images are temporarily unavailable until the database service has fully recovered.\n\nThank you for your patience and understanding. We will provide further updates as soon as more information becomes available.\n\n---\n\n## 한국어\n\n현재 발생한 서비스 장애에 대해 진심으로 사과드립니다. 이번 문제는 Cloudflare의 D1 인프라 장애로 인해 발생했습니다. 현재 Cloudflare 지원팀과 적극적으로 협력하여 문제를 해결하고 있으며, 가능한 보상 방안도 함께 논의하고 있습니다.\n\n기기에 저장된 수집 진행도에는 영향이 없습니다. 서비스가 복구되면 로컬에 저장된 모든 데이터가 가능한 한 빠른 시일 내에 자동으로 클라우드에 동기화됩니다.\n\n이전에 업로드된 이미지는 미리 워밍된 KV 캐시를 통해 계속 확인할 수 있습니다. 다만 데이터베이스 서비스가 완전히 복구될 때까지 로그인, 클라우드 동기화 및 새 이미지 업로드 기능은 일시적으로 이용할 수 없습니다.\n\n기다려 주시고 이해해 주셔서 감사합니다. 추가 정보가 확인되는 대로 신속하게 후속 소식을 안내해 드리겠습니다.",
-      "date": "2026-07-17",
-      "url": "https://blog.opendfieldmap.org/ko/blogs/announcements/26July/update-26July-2",
-      "locale": "ko"
-    },
     {
       "id": "update-26July-1",
       "title": "포인트 상세 업데이트",
@@ -109,18 +100,18 @@
       "date": "2026-04-15",
       "url": "https://blog.opendfieldmap.org/ko/blogs/announcements/26April/update-26April",
       "locale": "ko"
+    },
+    {
+      "id": "update-26March",
+      "title": "지도 포인트 업데이트 1.1",
+      "description": "1.1 버전 업데이트 안내: 아카이브 마커 및 새로운 기능 소개",
+      "content": "OEM을 이용해 주시고 지원해 주셔서 감사합니다.\n\n1.1 버전 업데이트 이후, OEM 개발팀은 **Open Endfield Map**을 가장 사용하기 편리한 엔드필드 지도 도구로 만들기 위해 새로운 기능 개발에 집중해 왔습니다. 이번에 **지도 데이터 및 사용 방법**과 관련된 중요한 기능 업데이트를 여러분께 선보이게 되어 기쁩니다. 아래의 소개 내용을 읽어보시면 사용자 경험을 개선하는 데 도움이 될 것입니다.\n\n## 사이드바 및 필터 업데이트\n마커가 늘어나고 검색 조건이 복잡해짐에 따라, 사이드바의 너비를 조절할 수 있는 기능을 추가했습니다. 사이드바 오른쪽을 드래그하여 너비를 조정할 수 있습니다 (**그림 1**).\n\n![그림 1: 너비 조절이 가능한 사이드바](https://blog.opendfieldmap.org/blogs/announcements/26March/fig1.webp)\n*그림 1: 사이드바 오른쪽 가장자리를 드래그하여 너비를 조절합니다.*\n\n- 더 넓어진 사이드바에서는 필터가 3열 레이아웃으로 변경됩니다.\n- '적'이나 '아카이브'처럼 드롭 아이템 등 다차원 속성을 가진 마커의 경우, 카테고리 선택기(**그림 2**)를 추가했습니다. 동일한 속성을 가진 필터를 모아서 표시하여, 같은 종류의 마커를 빠르게 선택할 수 있습니다.\n\n![그림 2: 필터 카테고리 선택기](https://blog.opendfieldmap.org/blogs/announcements/26March/fig2.webp)\n*그림 2: 카테고리 선택기를 통해 동일한 속성의 필터 항목을 빠르게 전환합니다.*\n\n향후 업데이트에서는 그룹화 방식을 변경하는 기능도 추가할 예정이며, 그때는 적의 진영이나 등급에 따라 필터링할 수도 있게 됩니다.\n\n---\n\n## 신규 아카이브 데이터 세트\n신중한 데이터 수집 및 정리 과정을 거쳐, 게임 내 '아카이브'에서 지도 상으로 수집할 수 있는 모든 마커를 OEM에 추가했으며, 단일 아카이브를 개별적으로 검색할 수 있는 기능을 제공합니다.\n기존의 몇몇 지도(공식 지도 포함)는 아카이브 마커를 큰 카테고리로 접어서 보여주기만 하지만, 대부분의 경우 사용자는 특정 아카이브를 찾아 보완해야 합니다. 현재 OEM은 가장 편리한 솔루션을 제공합니다.\n- 수집 가능한 모든 아카이브가 이제 사이드바에 개별적으로 나열됩니다.  \n- 앞서 언급한 **카테고리 선택기**를 통해 아카이브의 속성이 게임 내 아카이브의 '종이 기록', '전자 아카이브' 등과 완전히 일치하게 되어, 누락된 마커를 카테고리별로 쉽게 검색할 수 있습니다.\n- 전체 검색 시스템을 통합하여, 아카이브의 **제목이나 본문**을 통해 마커를 직접 검색할 수 있습니다 (**그림 3**).\n- 마커 세부 정보에서 **전체 내용 보기**를 직접 클릭하여 지도를 벗어나지 않고도 아카이브 정보를 읽을 수 있습니다 (**그림 4**). \n\n![그림 3: 전체 검색에서의 아카이브 검색](https://blog.opendfieldmap.org/blogs/announcements/26March/fig3.webp)\n*그림 3: 제목 또는 본문 키워드로 아카이브 및 마커를 검색합니다.*\n\n![그림 4: 마커 세부 정보의 아카이브 전체 내용](https://blog.opendfieldmap.org/blogs/announcements/26March/fig4.webp)\n*그림 4: 마커 세부 정보에서 아카이브 전문을 직접 확인하고, 공유 링크 이동을 지원합니다.*\n\n---\n\n## 전체 검색 시스템\n**그림 3**과 같이 검색 기능이 업데이트되었습니다.\n- **임의의 아카이브 및 마커 내용**을 빠르게 찾을 수 있으며, 검색 결과에는 본문 요약과 마커 분포 상황이 포함됩니다.\n- 카테고리 검색 결과의 경우, 검색 결과를 클릭하는 것은 해당 필터를 클릭하는 것과 같으며, 해당 종류의 마커가 선택됩니다.  \n- 단일 마커 검색 결과의 경우, 클릭하면 **해당 마커로 이동**합니다.\n\n---\n\n## 딥 링크 및 마커 공유\n**그림 4**와 같이:\n- 현재 모든 마커는 **공유 링크 복사**를 지원합니다.  \n- 친구에게 보내거나 **북마크에 저장**하여 언제든지 다시 볼 수 있으며, 공유 링크를 사용하면 해당 마커로 직접 이동하고 애니메이션으로 표시됩니다.\n\n---\n\n이번 업데이트 안내는 여기까지입니다. 이용 중 궁금한 점이나 의견이 있으시면 아래 채널을 통해 문의해 주세요:\n\n* **Discord 커뮤니티**: [Endfield Surveying Institute 참여하기](https://discord.gg/BFMAKZSUG7)\n* **지원 이메일**: [support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **GitHub**: [Atlos](https://github.com/Terra-Online/Atlos)\n* **Bluesky**: [Open Endfield Map 팔로우하기](https://bsky.app/profile/opendfieldmap.bsky.social)",
+      "date": "2026-03-22",
+      "url": "https://blog.opendfieldmap.org/ko/blogs/announcements/26March/update-26March",
+      "locale": "ko"
     }
   ],
   "en": [
-    {
-      "id": "update-26July-2",
-      "title": "Service Outage Notice",
-      "description": "Temporary interruption to account, synchronization, and image upload services",
-      "content": "## English\n\nWe sincerely apologize for the current service outage. The issue was caused by a failure in Cloudflare's D1 infrastructure. We are actively working with Cloudflare Support to resolve the incident and discuss possible compensation.\n\nYour local collection progress is not affected. Once the service is restored, all locally saved data will be synchronized back to the cloud automatically at the earliest opportunity.\n\nPreviously uploaded images remain accessible through our pre-warmed KV cache. However, signing in, cloud synchronization, and uploading new images are temporarily unavailable until the database service has fully recovered.\n\nThank you for your patience and understanding. We will provide further updates as soon as more information becomes available.",
-      "date": "2026-07-17",
-      "url": "https://blog.opendfieldmap.org/en/blogs/announcements/26July/update-26July-2",
-      "locale": "en"
-    },
     {
       "id": "update-26July-1",
       "title": "Marker Detail Updates",
@@ -165,18 +156,18 @@
       "date": "2026-05-02",
       "url": "https://blog.opendfieldmap.org/en/blogs/announcements/26May/update-26May",
       "locale": "en"
+    },
+    {
+      "id": "update-26April",
+      "title": "User System Update",
+      "description": "Version 1.2 Update Notes: User System and Related Features",
+      "content": "Thank you for your continued support and use of OEM.\n\nSince our last update announcement, the OEM development team has shifted its focus to backend development, striving to bring you an even better user experience through a robust, reliable, and flexible backend architecture. Today, we are absolutely thrilled to bring you a major feature update focusing on the **User System**. Reading the introduction below might just level up your experience, so let's dive in:\n\n## User Registration\nThe user card is located at the bottom of the sidebar. You can click the avatar to register, sign in, or manage your profile (**Figure 1**).\n\n![Figure 1: User Panel Overview](https://blog.opendfieldmap.org/blogs/announcements/26April/fig1.webp)\n\nAt this current stage, you can use your email to receive a verification code, or use supported third-party OAuth providers (currently Discord and Google) to register and sign in to your Open Endfield Map account (**Figure 2**).\n\n![Figure 2: Registration Panel Overview](https://blog.opendfieldmap.org/blogs/announcements/26April/fig2.webp)\n\nYou will need to:\n- First, enter a valid email address to receive and input the verification code;\n- Set a password consisting of 8-20 alphanumeric characters (which must include at least one uppercase letter).\nOnly then can the registration form be successfully submitted. Once everything checks out, we will automatically submit it for you. Alternatively, you can simply press the Enter/Return key to submit the form!\n\n*During our testing phase, we received feedback regarding **Outlook's** restrictions on new sender domains. Currently, emails sent to **@outlook.com** addresses have a chance of ending up in the spam folder—please be sure to check both your inbox and your spam folder after requesting a verification code!*\n\n---\n\n## Profile Overview\nYour profile contains the following information (**Figure 3**):\n![Figure 3: Profile Overview](https://blog.opendfieldmap.org/blogs/announcements/26April/fig3.webp)\n* **Your Group and Karma.** Unauthenticated users will appear as a \"Guest\"; registered users will default to the \"Normal\" group. Karma is the battery-like bar beneath your group badge, representing your activity and contribution levels. Additional groups (like \"Pioneer\" and \"Admin\") and detailed Karma rules will tie into upcoming community features.\n* **Account Registration Date (Since).**\n* **Your Nickname.** You will be prompted to set up a nickname right after your first registration—and you can change it anytime!\n* **Your UID.** Your UID is assigned when you first set up your nickname and cannot be changed. Don't worry, though! This UID is purely for the display panel when sharing your profile on social media and has no direct ties to your core identity or account data.\n* —And of course, cute avatars of our admins and operators!\n\n---\n\n## A Sneak Peek at the Community System\nOur original plan was to complete all backend milestones before doing a full deployment. We have mapped out a ton of account-related features including, but not limited to:\n* **Cloud sync** for collection progress—seamlessly share your collection progress across any device or browser;\n* **Marker screenshot viewing & uploading**—view in-game screenshots uploaded by other active users to aid your exploration. Anyone can upload screenshots and share the collective fruits of our labor.\n* The Karma — Karma reflects your activity. You can boost it by using OEM, uploading markers, and providing valuable comments;\n* In-game progress synchronization;\n* Community profile card sharing;\n* ...and more!\n\nHowever, due to the massive development workload and accompanying operational costs, we couldn't squeeze all of this into the expected dev cycle. Therefore, we decided to roll out the user registration system first and invite everyone to try it out!\n\nRegistered users will be the first to receive notifications when new features drop, allowing you to safely and quickly manage your game progress.\n\nIf you are as excited about these features as we are, stay tuned to OEM! You can also lend the dev team a hand via the **[Support Us]** channel at the bottom left of the page. Every bit of support goes directly toward accelerating the development of these awesome new features!\n\n---\n\nThat's a wrap for this update announcement! If you have any questions, feedback, or suggestions while using the map, feel free to reach out to us through the following channels:\n\n* **Discord Player Community**: [Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)\n* **Support and Compliance Team Email**: [support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **Project Open Source Repository**: [Atlos on GitHub](https://github.com/Terra-Online/Atlos)\n* **Official Account on Bluesky**: [Follow Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)",
+      "date": "2026-04-15",
+      "url": "https://blog.opendfieldmap.org/en/blogs/announcements/26April/update-26April",
+      "locale": "en"
     }
   ],
   "zh-cn": [
-    {
-      "id": "update-26July-2",
-      "title": "服务中断公告",
-      "description": "账户登录、云同步与图片上传服务暂时中断",
-      "content": "## English\n\nWe sincerely apologize for the current service outage. The issue was caused by a failure in Cloudflare's D1 infrastructure. We are actively working with Cloudflare Support to resolve the incident and discuss possible compensation.\n\nYour local collection progress is not affected. Once the service is restored, all locally saved data will be synchronized back to the cloud automatically at the earliest opportunity.\n\nPreviously uploaded images remain accessible through our pre-warmed KV cache. However, signing in, cloud synchronization, and uploading new images are temporarily unavailable until the database service has fully recovered.\n\nThank you for your patience and understanding. We will provide further updates as soon as more information becomes available.\n\n---\n\n## 简体中文\n\n对于当前的服务中断，我们深表歉意。本次问题由 Cloudflare 的 D1 基础设施故障所致。我们正积极与 Cloudflare 支持团队合作解决此次事故，并就可能的补偿方案进行沟通。\n\n您的本地收集进度不受影响。服务恢复后，所有保存在本地的数据将尽快自动同步回云端。\n\n此前上传的图片仍可通过我们预热的 KV 缓存正常访问。但是，在数据库服务完全恢复之前，账户登录、云同步和上传新图片功能将暂时无法使用。\n\n感谢您的耐心与理解。一旦获得更多信息，我们将尽快发布后续更新。",
-      "date": "2026-07-17",
-      "url": "https://blog.opendfieldmap.org/zh-cn/blogs/announcements/26July/update-26July-2",
-      "locale": "zh-cn"
-    },
     {
       "id": "update-26July-1",
       "title": "点位详情更新",
@@ -221,18 +212,18 @@
       "date": "2026-05-02",
       "url": "https://blog.opendfieldmap.org/zh-cn/blogs/announcements/26May/update-26May",
       "locale": "zh-cn"
+    },
+    {
+      "id": "update-26April",
+      "title": "用户系统更新",
+      "description": "1.2版本更新说明：用户系统与相关功能",
+      "content": "感谢各位对OEM的使用与支持。\n\n自上期更新公告发出后，OEM开发团队就将工作重心转向了后端开发，希求通过稳健、可靠、灵活的后端程序为各位带来更好的使用体验。我们很高兴为各位带来一次关于**用户系统**的重大功能更新；阅读以下介绍内容可能改善您的使用体验，请见下文：\n\n## 用户注册\n\n用户卡片被安排在侧边栏底部，您可以点击用户卡片头像进行注册、登录与个人信息注册等操作（**图1**）。\n\n![图1：用户面板概览](https://blog.opendfieldmap.org/blogs/announcements/26April/fig1.zh-cn.webp)\n\n在当前阶段，您可以使用电子邮箱收发验证码，或者通过支持的第三方 OAuth 服务提供方（目前支持 Discord 与 Google），进行Open Endfield Map 帐号的注册与登录（**图2**）。\n\n![图2：注册面板概览](https://blog.opendfieldmap.org/blogs/announcements/26April/fig2.zh-cn.webp)\n\n您需要：\n\n- 首先输入格式有效的邮箱来接收与填写验证码；\n- 使用8-20位的数字与字母序列作为密码（其中包含至少一位大写字母）；\n  才能成功提交注册表单；我们会在检测无误后自动帮您提交表单。或者您也可以通过回车/Enter键尝试提交表单。\n\n注意：*在测试阶段，我们已收到关于 **Outlook 邮箱**对于新发件域名限制处理的反馈，目前通过 **@outlook.com** 邮箱寄送的邮件有概率被归类至垃圾桶 —— 请在发送验证码邮件后，检查您的收件箱以及垃圾桶！*\n\n## 用户面板介绍\n\n您的用户面板（**图3**）包含如下信息：\n![图3：信息档案概览](https://blog.opendfieldmap.org/blogs/announcements/26April/fig3.zh-cn.webp)\n\n-  **您的用户组与 Karma 等级。** 未登录的用户均呈现为游客用户；对于已经注册的用户，会首先默认分配一个常规用户组；Karma等级是用户组徽标下方的类似电池条的东西，表征用户的活跃与贡献程度；更多的用户组（如先锋用户与管理员）与 Karma 规则与后续推出的社区功能相关。\n- **帐号注册时间。**\n- **您的昵称。** 您会在首次注册完成后，被引导输入您的昵称——您可以随时变更您的昵称！\n- **您的 UID。** UID是在首次设定昵称后被分配的，且在分配后不可更改——不必担心，这个UID只用于您在社交媒体分享时呈现的面板，与用户身份和账号数据均无关系。\n- ——当然，还有可爱管理员和干员们的头像。\n\n---\n\n## 社区系统前瞻\n\n我们原本的计划是完成所有后端功能后，再进行整体部署；我们规划了包括但不限于以下的账号相关功能：\n\n* 收集进度的云同步——在任何设备或者浏览器间共用一套属于您的收集进度；\n* 点位截图的查看与上传——查看其他活跃用户上传的游戏内点位截图，协助您的收集，任何用户都可以上传点位的截图，并共享全体用户的成果。\n* Karma 系统——Karma 是您活跃度的体现，通过使用 OEM 和上传点位与提供有价值的评论提升Karma；\n* 游戏内进度同步；\n* 社区名片分享；\n\n但是由于开发任务量太大，且伴随着更多的开支项，我们无法在预期的开发周期内完成所有任务；所以我们决定首先公开用户注册系统并且推荐各位用户尝鲜，注册的用户将在功能推出的第一时间收到推送，并且安全快捷地管理您的游戏进度。\n\n如果您也期待这些功能，欢迎持续关注 OEM；您也可以通过页面左下方的 **【支持我们】** 通道，为开发者们提供一些力所能及的支持，这些支持将会全数用于加速新功能的开发！\n\n---\n\n以上就是本次更新公告的全部内容，如在使用过程中有任何疑问，或对本项目有任何意见和建议，请通过以下方式联系我们：\n\n- **项目 QQ 群组**：[加入【终末地大地图交流】](https://qm.qq.com/q/OQbocvQzCO)\n- **Discord 玩家社区**：[加入【Endfield Surveying Institute】](https://discord.gg/BFMAKZSUG7)\n- **支持团队邮箱**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n- **代码仓库**：[在 GitHub 上查看 Atlos](https://github.com/Terra-Online/Atlos)\n- **Bluesky 账户**：[追踪 Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)",
+      "date": "2026-04-15",
+      "url": "https://blog.opendfieldmap.org/zh-cn/blogs/announcements/26April/update-26April",
+      "locale": "zh-cn"
     }
   ],
   "zh-hk": [
-    {
-      "id": "update-26July-2",
-      "title": "服務中斷公告",
-      "description": "帳戶登入、雲端同步及圖片上載服務暫時中斷",
-      "content": "## English\n\nWe sincerely apologize for the current service outage. The issue was caused by a failure in Cloudflare's D1 infrastructure. We are actively working with Cloudflare Support to resolve the incident and discuss possible compensation.\n\nYour local collection progress is not affected. Once the service is restored, all locally saved data will be synchronized back to the cloud automatically at the earliest opportunity.\n\nPreviously uploaded images remain accessible through our pre-warmed KV cache. However, signing in, cloud synchronization, and uploading new images are temporarily unavailable until the database service has fully recovered.\n\nThank you for your patience and understanding. We will provide further updates as soon as more information becomes available.\n\n---\n\n## 繁體中文\n\n對於目前的服務中斷，我們深表歉意。是次問題由 Cloudflare 的 D1 基礎設施故障所致。我們正積極與 Cloudflare 支援團隊合作解決是次事故，並商討可能的補償方案。\n\n閣下的本機收集進度不受影響。服務恢復後，所有儲存於本機的資料將盡快自動同步回雲端。\n\n早前上載的圖片仍可透過我們已預熱的 KV 快取正常存取。然而，在資料庫服務完全恢復之前，帳戶登入、雲端同步及上載新圖片功能將暫時無法使用。\n\n感謝閣下的耐心與理解。一旦有更多資訊，我們將盡快發佈後續更新。",
-      "date": "2026-07-17",
-      "url": "https://blog.opendfieldmap.org/zh-hk/blogs/announcements/26July/update-26July-2",
-      "locale": "zh-hk"
-    },
     {
       "id": "update-26July-1",
       "title": "點位詳情更新",
@@ -276,6 +267,15 @@
       "content": "感謝閣下對 OEM 的使用與支持。\n\n我們很高興為大家帶來 OEM 用戶系統上線後的首批進階功能：**位置同步**與**點位提醒**。您現可將遊戲帳戶綁定至 OEM 帳戶，並在此基礎上啟用位置追蹤，OEM 便可根據您在遊戲中的位置提供實時輔助資訊。\n\n這一功能尚處於持續完善階段，若閣下遇到任何問題，請透過文末的渠道進行反映；閱讀以下介紹內容可能改善閣下的使用體驗，請見下文：\n\n## 綁定遊戲帳戶\n\n閣下可透過地圖上的**定位入口**啟用位置同步。此操作將引導閣下註冊或登入 OEM 帳戶，其後可依照面板指示完成遊戲帳戶授權與綁定。\n\n![圖1：綁定面板概覽](https://blog.opendfieldmap.org/blogs/announcements/26May/fig1.zh-cn.webp)\n\n完成綁定後，閣下可於定位入口旁查看當前已綁定角色，並可隨時進入設定面板以切換或解除綁定。\n\n---\n\n## 位置同步\n\n啟用位置同步後（下圖右側，左上／下），地圖將依據遊戲中位置顯示位置標記（下圖左側）。當閣下切換遊戲區域或進入不同場景時，地圖將盡可能自動跟隨所在區域，以減少手動拖動或切換地圖操作。\n\n如閣下暫時拖動或縮放地圖以查看其他區域，定位圖示將切換為回正狀態（下圖右側，右上）；再次點擊定位按鈕，即可返回當前遊戲位置。\n\n![圖2：位置同步相關圖示](https://blog.opendfieldmap.org/blogs/announcements/26May/fig2.webp)\n\n需注意，位置同步功能依賴遊戲帳戶授權及即時狀態。如同步連線已過期、遊戲未處於在線狀態，或閣下尚未完成授權，OEM 將於頁面中提供相應提示，並引導閣下重新綁定或授權。\n\n有關圖層自動切換之功能，現仍在完善中，預計將於近期連同點位圖層劃分一併推出。\n\n---\n\n## 點位追蹤\n\n我們亦同步推出**點位追蹤**功能。啟用後，當閣下接近特定 POI 時，地圖將臨時顯示相關點位，並以 Pulsing 效果標示，方便閣下於遊戲中發現附近目標。\n\n![圖3：點位追蹤設定](https://blog.opendfieldmap.org/blogs/announcements/26May/fig3.zh-cn.webp)\n\n點位追蹤功能預設為開啟，並採用 **平衡** 策略。閣下可於設定面板中選擇不同之追蹤範圍：\n\n* **平衡**：追蹤由所我們挑選的一組推薦點位，適合大多數玩家日常探索及收集之用途。\n\n* **收集物**：追蹤**儲藏箱、醚質、採集點及引路蝴蝶**等收集類點位，以及與**檔案**相關之點位。\n\n* **簡製手冊**：追蹤**簡製手冊內之稀有點位**，包括敵人（掉落物）及部分稀有自然資源點。\n\n各項策略可同時選擇並合併生效，閣下可按自身探索需要自由組合。\n\n為避免點位一經顯示即導致整類篩選器被自動啟用，本次更新亦調整了點位提醒之顯示方式：於接近範圍內追蹤的點位將以臨時形式出現；如閣下未有點擊該點位，其將保留於當前區域，直至重新載入頁面或切換區域為止。僅於閣下點擊該點位時，OEM 方會自動選取對應篩選器，使該類點位於後續持續顯示。\n\n此設計旨在使提醒功能更接近「發現附近目標」，而非直接改變閣下原有之地圖篩選習慣。\n\n當閣下關閉追蹤點位後，上方之追蹤策略按鈕將進入停用狀態，表示該等策略暫不影響附近點位之提醒。\n\n---\n\n## 文件更新與後續計劃\n\n**我們重視閣下的帳戶安全與遊戲資產。** 就本次更新之功能，我們已修訂終末地地圖集之[《使用條款》](https://blog.opendfieldmap.org/zh-hk/docs/tos)與[《私隱權政策》](https://blog.opendfieldmap.org/zh-hk/docs/privacy)，並補充了適用於本站之[《個人資訊收集與使用清單》](https://blog.opendfieldmap.org/zh-hk/docs/data-collection)及[《責任豁免聲明》](https://blog.opendfieldmap.org/zh-hk/docs/disclaimer)。在啟用新功能前，請閣下細閱並了解上述變更及相關條款內容，並於確認後繼續使用相關服務。\n\n位置同步與點位追蹤為 OEM 後續遊戲內輔助功能之基礎。我們將持續根據閣下之反饋優化提醒範圍、點位策略及設定體驗，並在確保私隱與數據安全之前提下，逐步推出更多與遊戲進度相關功能。\n\n如閣下於使用過程中遇到綁定失敗、位置未能同步、或提醒點位不合理等情況，歡迎從下方渠道與我們聯絡。閣下之意見將有助我們持續改進後續版本。\n\n---\n\n以上為本次更新公告的全部內容。如閣下在使用地圖的過程中遇到任何疑問，或對本項目有任何意見及建議，歡迎透過以下方式與我們聯絡：\n\n* **Discord 玩家社群**：[加入 Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)\n* **支援團隊電郵**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **代碼倉庫**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)\n* **Bluesky 帳戶**：[追蹤 Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)",
       "date": "2026-05-02",
       "url": "https://blog.opendfieldmap.org/zh-hk/blogs/announcements/26May/update-26May",
+      "locale": "zh-hk"
+    },
+    {
+      "id": "update-26April",
+      "title": "用戶系統更新",
+      "description": "1.2版本更新說明：用戶系統與相關功能",
+      "content": "感謝閣下對 OEM 的使用與支持。\n\n自上次更新公告發佈後，OEM 開發團隊已將工作重心轉移至後端開發，期望透過穩健、可靠且靈活的後端架構，為閣下帶來更佳的使用體驗。我們很高興為閣下帶來一項關於**用戶系統**的重大功能更新；閱讀以下介紹內容可能改善閣下的使用體驗，請見下文：\n\n## 用戶註冊\n用戶卡片設於側邊欄底部，閣下可點擊用戶卡片頭像以進行註冊、登入及管理個人資料等操作（**圖1**）。\n\n![圖1：用戶面板概覽](https://blog.opendfieldmap.org/blogs/announcements/26April/fig1.zh-cn.webp)\n\n於現階段，閣下可使用電郵地址收發驗證碼，或透過本平台支援的第三方 OAuth 服務供應商（目前支援 Discord 與 Google），以註冊及登入 Open Endfield Map 帳戶（**圖2**）。\n\n![圖2：註冊面板概覽](https://blog.opendfieldmap.org/blogs/announcements/26April/fig2.zh-cn.webp)\n\n閣下需要：\n- 首先，輸入格式正確的電郵地址，以接收並填寫流動驗證碼；\n- 設定包含 8-20 位英數字的密碼（當中須包含最少一個大楷字母）；\n方能成功遞交註冊表格。當系統核對無誤後，將會自動為閣下遞交表格；閣下亦可直接按下 Enter 鍵以嘗試遞交。\n\n*※在測試階段，我們收到關於 **Outlook 電郵**對新發件網域實施限制的反映。目前透過 **@outlook.com** 電郵地址發送的驗證碼郵件，有機會被歸類至垃圾郵件箱——請閣下在要求發送流動驗證碼後，一併檢查收件箱及垃圾郵件箱！*\n\n---\n\n## 用戶面板簡介\n閣下的用戶面板包含以下資訊：（**圖3**）\n![圖3：資訊檔案概覽](https://blog.opendfieldmap.org/blogs/announcements/26April/fig3.zh-cn.webp)\n* **閣下的用戶組與 Karma 等級。** 未登入的用戶均會顯示為「訪客」；已註冊的用戶則預設獲分配至「常規」用戶組。Karma 等級是顯示於用戶組徽章下方、類似電池的進度列，代表閣下的活躍程度與貢獻值。更多的高級用戶組（如「先鋒」與「管理員」）及詳細的 Karma 規則，將與後續推出的社群功能掛鈎。\n* **帳戶註冊時間。**\n* **閣下的暱稱。** 完成首次註冊後，系統會指引閣下設定暱稱——暱稱可隨時更改！\n* **閣下的 UID。** UID 會在首次設定暱稱時獲分配，且一經分配便無法更改。但請放心！此 UID 僅用於閣下在社交媒體分享面板時作展示之用，與核心用戶身份及帳戶數據無關。\n* ——當然，還有可愛的管理員及幹員們的頭像！\n\n---\n\n## 社群系統前瞻\n我們的原定計劃是待所有後端項目完成後，再作全面部署。我們規劃了多項帳戶相關功能，當中包括但不限於：\n* 收集進度雲端同步——在任何裝置或瀏覽器之間，無縫共用閣下專屬的收集進度；\n* 點位截圖查看與上傳——查看其他活躍用戶上傳的遊戲內點位截圖，以協助閣下進行探索。任何用戶均可上傳截圖，並與全體用戶共享成果；\n* Karma 系統——Karma 是活躍度的象徵。透過使用 OEM、上傳點位資訊及留下有價值的評論，即可提升 Karma；\n* 遊戲內進度同步功能；\n* 社群名片分享功能；\n* ……以及更多！\n\n然而，礙於開發工作量龐大，且伴隨着持續增加的營運開支，我們無法於預期的開發週期內完成所有項目。因此，我們決定率先推出用戶註冊系統，並邀請各位用戶搶先體驗！已註冊的用戶將會在各項新功能推出時第一時間收到通知，並能安全、快捷地管理遊戲進度。\n\n若閣下亦期待上述功能，請繼續密切留意 OEM 的最新動向。閣下亦可透過頁面左下方的【支持我們】渠道，為開發團隊提供力所能及的援助，所有贊助將全數撥作加速開發各項新功能之用。\n\n---\n\n以上為本次更新公告的全部內容。如閣下在使用地圖的過程中遇到任何疑問，或對本項目有任何意見及建議，歡迎透過以下方式與我們聯絡：\n\n* **Discord 玩家社群**：[加入 Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)\n* **支援團隊電郵**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **代碼倉庫**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)\n* **Bluesky 帳戶**：[追蹤 Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)",
+      "date": "2026-04-15",
+      "url": "https://blog.opendfieldmap.org/zh-hk/blogs/announcements/26April/update-26April",
       "locale": "zh-hk"
     }
   ]
