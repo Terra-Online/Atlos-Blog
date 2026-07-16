@@ -13,13 +13,14 @@
     "start": "next start",
     "postinstall": "fumadocs-mdx",
     "preview": "pnpm run generate:announcements && pnpm run generate:git-authors && pnpm run generate:rss && pnpm run generate:ud-subsets && opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "pnpm run generate:announcements && pnpm run generate:git-authors && pnpm run generate:rss && pnpm run generate:ud-subsets && opennextjs-cloudflare build && pnpm run prune:static-fonts && pnpm run sync:blog-assets && NODE_OPTIONS=--dns-result-order=ipv4first opennextjs-cloudflare deploy",
+    "deploy": "pnpm run generate:announcements && pnpm run generate:git-authors && pnpm run generate:rss && pnpm run generate:ud-subsets && opennextjs-cloudflare build && pnpm run prune:static-fonts && pnpm run sync:blog-assets && NODE_OPTIONS=--dns-result-order=ipv4first opennextjs-cloudflare deploy && pnpm run purge:announcements-cache",
     "upload": "pnpm run generate:announcements && pnpm run generate:git-authors && pnpm run generate:rss && pnpm run generate:ud-subsets && opennextjs-cloudflare build && pnpm run prune:static-fonts && pnpm run sync:blog-assets && NODE_OPTIONS=--dns-result-order=ipv4first opennextjs-cloudflare upload",
     "generate:geist-fonts": "node scripts/generate-geist-fonts.cjs",
     "generate:ud-subsets": "node scripts/subset-ud-fonts.cjs",
     "prune:static-fonts": "node scripts/prune-open-next-font-assets.cjs",
     "sync:blog-assets": "node scripts/sync-blog-images-to-r2.cjs",
     "sync:blog-images": "pnpm run sync:blog-assets",
+    "purge:announcements-cache": "node scripts/purge-announcements-cache.cjs",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {

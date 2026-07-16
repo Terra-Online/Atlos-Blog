@@ -2,6 +2,10 @@ import { NextResponse } from 'next/server';
 import { i18n } from '@/lib/i18n';
 import metaData from '../meta.json';
 
+export const dynamicParams = false;
+
+const CACHE_CONTROL = 'public, max-age=0, s-maxage=31536000, stale-while-revalidate=604800';
+
 type LocaleMeta = {
   latestId: string | null;
 };
@@ -13,6 +17,10 @@ type AnnouncementMeta = {
 
 function isLocaleSupported(locale: string): boolean {
   return i18n.languages.includes(locale);
+}
+
+export function generateStaticParams() {
+  return i18n.languages.map((locale) => ({ locale }));
 }
 
 export async function GET(
@@ -45,6 +53,7 @@ export async function GET(
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Methods': 'GET',
+          'Cache-Control': CACHE_CONTROL,
         },
       },
     );

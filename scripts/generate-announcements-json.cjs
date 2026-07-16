@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const SUPPORTED_LOCALES = new Set(['en', 'zh-cn', 'zh-hk', 'ja', 'ko']);
 const ANNOUNCEMENTS_ROOT = path.join(process.cwd(), 'content/blogs/announcements');
@@ -7,6 +8,7 @@ const OUTPUT_PATH = path.join(process.cwd(), 'app/api/[locale]/announcements/dat
 const OUTPUT_META_PATH = path.join(process.cwd(), 'app/api/[locale]/announcements/meta.json');
 const SITE_ORIGIN = (process.env.NEXT_PUBLIC_SITE_URL || 'https://blog.opendfieldmap.org').replace(/\/+$/, '');
 const ASSET_ORIGIN = (process.env.NEXT_PUBLIC_ASSET_URL || SITE_ORIGIN).replace(/\/+$/, '');
+const ANNOUNCEMENTS_LIMIT = 6;
 
 function collectMarkdownFiles(dirPath) {
   const files = [];
@@ -81,8 +83,15 @@ function parseFrontmatter(frontmatterRaw) {
     const separatorIndex = trimmed.indexOf(':');
     if (separatorIndex === -1) continue;
 
-    const key = trimmed.slice(0, separatorIndex).trim();
+    let key = trimmed.slice(0, separatorIndex).trim();
     let value = trimmed.slice(separatorIndex + 1).trim();
+
+    if (
+      (key.startsWith('"') && key.endsWith('"')) ||
+      (key.startsWith('\'') && key.endsWith('\''))
+    ) {
+      key = key.slice(1, -1);
+    }
 
     if (
       (value.startsWith('"') && value.endsWith('"')) ||
@@ -95,6 +104,19 @@ function parseFrontmatter(frontmatterRaw) {
   }
 
   return parsed;
+}
+
+function getDateTime(value) {
+  const time = new Date(value).getTime();
+  return Number.isNaN(time) ? Number.NEGATIVE_INFINITY : time;
+}
+
+function compareAnnouncementsByDateDesc(a, b) {
+  const aTime = getDateTime(a.date);
+  const bTime = getDateTime(b.date);
+  if (aTime !== bTime) return bTime - aTime;
+
+  return a.id.localeCompare(b.id);
 }
 
 function localizedPath(pathname, locale) {
@@ -211,10 +233,15 @@ for (const filePath of markdownFiles) {
 }
 
 for (const locale of Object.keys(result)) {
-  result[locale].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  result[locale].sort(compareAnnouncementsByDateDesc);
+  result[locale] = result[locale].slice(0, ANNOUNCEMENTS_LIMIT);
 }
 
-const buildVersion = String(Date.now());
+const buildVersion = crypto
+  .createHash('sha256')
+  .update(JSON.stringify(result))
+  .digest('hex')
+  .slice(0, 16);
 const localesMeta = {};
 for (const locale of SUPPORTED_LOCALES) {
   const latestItem = result[locale]?.[0];
