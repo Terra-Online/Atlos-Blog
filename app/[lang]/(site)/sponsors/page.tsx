@@ -19,6 +19,14 @@ const copy: Record<string, { title: string; subtitle: string }> = {
     title: 'スポンサー',
     subtitle: 'このプロジェクトを支えてくださる個人・組織のご紹介。',
   },
+  ko: {
+    title: '후원자',
+    subtitle: '이 프로젝트를 가능하게 하는 개인과 단체를 소개합니다.',
+  },
+  ru: {
+    title: 'Спонсоры',
+    subtitle: 'Люди и организации, благодаря которым существует этот проект.',
+  },
 };
 
 export default async function SponsorsPage({

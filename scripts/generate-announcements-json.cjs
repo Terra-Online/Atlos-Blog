@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-const SUPPORTED_LOCALES = new Set(['en', 'zh-cn', 'zh-hk', 'ja', 'ko']);
+const SUPPORTED_LOCALES = new Set(['en', 'zh-cn', 'zh-hk', 'ja', 'ko', 'ru']);
 const ANNOUNCEMENTS_ROOT = path.join(process.cwd(), 'content/blogs/announcements');
 const OUTPUT_PATH = path.join(process.cwd(), 'app/api/[locale]/announcements/data.json');
 const OUTPUT_META_PATH = path.join(process.cwd(), 'app/api/[locale]/announcements/meta.json');

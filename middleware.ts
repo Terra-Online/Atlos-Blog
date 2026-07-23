@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 const defaultLocale = 'en';
-const locales = ['zh-hk', 'en', 'zh-cn', 'ja', 'ko'];
+const locales = ['zh-hk', 'en', 'zh-cn', 'ja', 'ko', 'ru'];
 const mediaRoutePrefix = '/r2-media';
 
 function isBlogMediaPath(pathname: string) {

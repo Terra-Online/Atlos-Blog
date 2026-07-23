@@ -3,6 +3,15 @@ title: コンテンツ出所
 description: Open Endfield Map におけるコンテンツ出所、著作権表示、ユーザー生成コンテンツ規約および利用プラットフォームについて。
 ---
 
+> **現行情報**: この節は最新の出典情報です。以下と矛盾する場合は優先されます。
+
+## 権利、UGC、基盤
+
+OEM は非公式・非営利のオープンソースコミュニティプロジェクトです。Arknights: Endfield の画像、文章、アイコン、音声、地図、ゲームデータは [Hypergryph](https://www.hypergryph.com/)、[Gryphline](https://www.gryphline.com/en-us/home) その他の権利者に帰属し、OEM は所有権を主張せず有効な削除要請に対応します。ユーザーの画像、コメント、ルート、修正は作者が権利を保持し、運営、審査、翻訳、表示、維持に必要な許諾を OEM に与えます。
+
+Cloudflare は配信・計算・保存、Upstash はレート制限と短期キャッシュ、OpenAI は審査、Google Cloud Translation は承認済みコメントの翻訳、Resend はメール、Google・Discord・GitHub は任意 OAuth を提供します。ソースと依存関係のライセンスは [Atlos repository](https://github.com/Terra-Online/Atlos) にあり、プロジェクトコードは AGPL v3.0 です。
+
+
 Open Endfield Map（以下「本プロジェクト」といいます）の運営および発展は、ゲームコンテンツ、オープンソースソフトウェアのエコシステム、ならびに多くのユーザーの共同参加と支援によって成り立っています。本ページでは、本プロジェクトにおけるコンテンツの出所、著作権の帰属、利用プラットフォームの状況、ならびにユーザー生成コンテンツ（UGC）に関する権利および義務について定めます。
 
 ## ゲームに関する知的財産権および素材の帰属

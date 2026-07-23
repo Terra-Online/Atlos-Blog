@@ -3,6 +3,14 @@ title: 內容來源
 description: Open Endfield Map 的內容來源、版權聲明、用戶生成內容協議及支援平台。
 ---
 
+> **現行資料**：本節為最新內容來源說明；如與下文不一致，概以本節為準。
+
+## 權利、UGC 與平台
+
+OEM 為非官方、非商業開源社群項目。《明日方舟：終末地》相關圖像、文字、圖示、音訊、底圖及遊戲資料屬 [Hypergryph](https://www.hypergryph.com/)、[Gryphline](https://www.gryphline.com/en-us/home) 及相關權利人；OEM 不主張所有權並會處理有效下架要求。用戶提交的圖片、評論、路線及修正由作者保留原創權利，並授予本項目營運、審核、翻譯、展示及維護所需許可。
+
+本服務使用 Cloudflare 提供傳遞、運算和儲存，Upstash 提供限流及短期快取，OpenAI 提供審核，Google Cloud Translation 翻譯已通過的評論，Resend 發送電郵，Google、Discord、GitHub 提供可選 OAuth。源碼及依賴授權見 [Atlos repository](https://github.com/Terra-Online/Atlos)，項目程式碼採用 AGPL v3.0。
+
 Open Endfield Map（以下簡稱「本項目」）之營運與發展，有賴遊戲內容、開源軟件生態以及廣大用戶之共同建設與支持。本頁面詳列本項目的內容來源、版權歸屬、平台使用情況，以及用戶生成內容（UGC）之相關權利與義務協議。
 
 ## 遊戲知識產權及資源歸屬

@@ -22,6 +22,14 @@ const copy: Record<string, { title: string; subtitle: string }> = {
     title: 'コミュニティ',
     subtitle: 'プロジェクトの詳細、参加方法、サポート方法についてご覧ください。',
   },
+  ko: {
+    title: '커뮤니티',
+    subtitle: '프로젝트와 참여 및 후원 방법을 알아보세요.',
+  },
+  ru: {
+    title: 'Сообщество',
+    subtitle: 'Узнайте о проекте, способах участия и поддержки.',
+  },
 };
 
 type CommunityCard = {

@@ -3,6 +3,16 @@ title: Cookies 政策
 description: Open Endfield Map Cookies 及本機資料同步政策。
 ---
 
+> **現行規則**：本節為最新儲存及同步政策；如與下文不一致，概以本節為準。
+
+## Cookie、本機資料與同步
+
+我們使用登入 Cookie 維持工作階段，並使用 LocalStorage 儲存語言、主題、側欄、篩選器、地圖視圖、點位完成狀態及公告閱讀狀態；SessionStorage 可保存分頁暫存狀態，IndexedDB 和 Cache Storage 可快取資源及結構化資料。未登入時，完成狀態、地圖視圖和 UI 偏好只儲存在目前瀏覽器；清除站點資料、無痕模式或更換裝置後可能遺失。瀏覽地圖仍會向伺服器及 CDN 請求資料、圖片、圖磚和公開 UGC。
+
+登入後可同步已完成點位的 ID 集合及版本、校驗和、更新時間等必要資料。主題、語言、圖層、篩選器、地圖視圖及其他 UI 偏好仍保留在本機。D1 保存帳戶、工作階段、進度中繼資料、角色綁定與 UGC 紀錄；R2 保存處理後圖片；KV、Durable Objects 及 Cache API 用於快取和同步協調；Upstash Redis 僅用於限流及短期快取。
+
+閣下可登出以停止後續帳戶同步，並可清除 Cookie、站點資料和快取；此舉不會自動刪除已同步的伺服器資料或 UGC。必要 Cookie 被封鎖時，登入、同步、UGC 提交及角色綁定可能無法使用。Cloudflare 可處理 IP、請求標頭及安全 Cookie；Google、Discord、GitHub 按其政策處理 OAuth。
+
 歡迎使用 **Open Endfield Map**（以下簡稱「我們」、「本項目」或「OEM」）。我們深明閣下的私隱及資料安全之重要性。本政策旨在詳細說明我們在閣下瀏覽及使用本網站時，如何使用 Cookie、本機儲存技術（LocalStorage / IndexedDB）以及資料同步機制。
 
 > **注意**：本政策乃[《服務條款》](./tos)之補充文件，與[《私隱權政策》](./privacy)共同構成閣下使用本項目服務時的完整約束協議，具有同等效力。
