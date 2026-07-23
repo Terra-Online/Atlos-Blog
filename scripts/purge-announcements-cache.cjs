@@ -1,5 +1,8 @@
 const locales = ['en', 'zh-cn', 'zh-hk', 'ja', 'ko'];
 const fs = require('fs');
+const path = require('path');
+
+const generatedMetaPath = path.join(process.cwd(), 'app/api/[locale]/announcements/meta.json');
 
 function loadDevVars() {
   const filePath = '.dev.vars';
@@ -38,15 +41,46 @@ const zoneName =
   env.CLOUDFLARE_ZONE_NAME ||
   new URL(origin).hostname.split('.').slice(-2).join('.');
 
-if (!apiToken) {
-  console.error('Missing CF_BLOG_CACHE_API_TOKEN, CLOUDFLARE_API_TOKEN, or CF_API_TOKEN.');
-  process.exit(1);
-}
-
 const files = locales.flatMap((locale) => [
   `${origin}/api/${locale}/announcements/latest`,
   `${origin}/api/${locale}/announcements`,
 ]);
+
+function readGeneratedLatestIds() {
+  const metadata = JSON.parse(fs.readFileSync(generatedMetaPath, 'utf8'));
+  return Object.fromEntries(
+    locales.map((locale) => [locale, metadata.locales?.[locale]?.latestId ?? null]),
+  );
+}
+
+async function readRemoteLatestIds() {
+  const entries = await Promise.all(locales.map(async (locale) => {
+    const response = await fetch(`${origin}/api/${locale}/announcements/latest`, {
+      headers: { Accept: 'application/json' },
+    });
+    const body = await response.json().catch(() => null);
+    if (!response.ok || !body || typeof body !== 'object') {
+      throw new Error(`Failed to read remote latest announcement for ${locale} (HTTP ${response.status}).`);
+    }
+    return [locale, typeof body.latestId === 'string' ? body.latestId : null];
+  }));
+
+  return Object.fromEntries(entries);
+}
+
+async function hasNewAnnouncement() {
+  const generated = readGeneratedLatestIds();
+  const remote = await readRemoteLatestIds();
+  const changedLocales = locales.filter((locale) => generated[locale] !== remote[locale]);
+
+  if (changedLocales.length === 0) {
+    console.log('announcement latest IDs unchanged; skipping cache purge');
+    return false;
+  }
+
+  console.log(`new announcement detected for locale(s): ${changedLocales.join(', ')}`);
+  return true;
+}
 
 async function resolveZoneId() {
   if (configuredZoneId) return configuredZoneId;
@@ -69,6 +103,10 @@ async function resolveZoneId() {
 }
 
 async function purgeCache() {
+  if (!apiToken) {
+    throw new Error('Missing CF_BLOG_CACHE_API_TOKEN, CLOUDFLARE_API_TOKEN, or CF_API_TOKEN.');
+  }
+
   const zoneId = await resolveZoneId();
   const response = await fetch(`https://api.cloudflare.com/client/v4/zones/${zoneId}/purge_cache`, {
     method: 'POST',
@@ -90,7 +128,12 @@ async function purgeCache() {
   console.log(`purged ${files.length} announcement cache URLs`);
 }
 
-purgeCache().catch((error) => {
+async function main() {
+  if (!(await hasNewAnnouncement())) return;
+  await purgeCache();
+}
+
+main().catch((error) => {
   console.error(error);
   process.exit(1);
 });
