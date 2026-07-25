@@ -31,11 +31,13 @@ type SiteDocPageData = {
 export async function SiteDocPage({
   page,
   contentPath,
+  locale = 'en',
   showAuthorMeta = false,
   missingTranslation = false,
 }: {
   page: { data: SiteDocPageData };
   contentPath?: string;
+  locale?: string;
   showAuthorMeta?: boolean;
   missingTranslation?: boolean;
 }) {
@@ -81,6 +83,7 @@ export async function SiteDocPage({
             <AuthorMeta
               authors={authors}
               lastModified={lastModified}
+              locale={locale}
             />
           ) : (
             <div className="site-author-meta border-b border-fd-border" />

@@ -4,7 +4,6 @@ import {
   DocsBody,
   DocsTitle,
   DocsDescription,
-  PageLastUpdate,
 } from 'fumadocs-ui/layouts/docs/page';
 import { notFound } from 'next/navigation';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
@@ -28,8 +27,6 @@ export default async function Page(props: {
   const contentPath = `content/docs/${page.file.path}`;
   const gitAuthors = getGitAuthorsForContentPath(contentPath);
   const lastModified = resolveContentLastModified(contentPath, page.data.lastModified);
-  const lastModifiedDate = lastModified ? new Date(lastModified) : null;
-  const hasValidLastModified = !!lastModifiedDate && !Number.isNaN(lastModifiedDate.getTime());
 
   return (
     <DocsPage
@@ -44,7 +41,11 @@ export default async function Page(props: {
         <MissingTranslation />
       ) : (
         <>
-          <AuthorMeta authors={gitAuthors} lastModified={lastModified} />
+          <AuthorMeta
+            authors={gitAuthors}
+            lastModified={lastModified}
+            locale={params.lang}
+          />
           <DocsBody className="site-docs-body site-prose-body">
             <MDX
               components={{
@@ -53,9 +54,6 @@ export default async function Page(props: {
               }}
             />
           </DocsBody>
-          {hasValidLastModified ? (
-            <PageLastUpdate date={lastModifiedDate} />
-          ) : null}
         </>
       )}
     </DocsPage>

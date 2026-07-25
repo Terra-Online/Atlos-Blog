@@ -1,6 +1,6 @@
 import { communitySource } from '@/lib/source';
 import { resolveContentLastModified } from '@/lib/git-authors';
-import { format } from 'date-fns';
+import { RelativeTime } from '@/app/components/relative-time';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import '../blogs/blogs.scss';
@@ -39,25 +39,23 @@ type CommunityCard = {
   url: string;
 };
 
-function formatPostDate(date?: string | Date) {
+function toTimestamp(date?: string | Date) {
   if (!date) return null;
   const parsed = new Date(date);
   if (Number.isNaN(parsed.getTime())) return null;
 
-  return format(parsed, 'EEE, d MMM yyyy');
+  return parsed.toISOString();
 }
 
-function CommunityCard({ card }: { card: CommunityCard }) {
-  const date = formatPostDate(card.lastModified);
+function CommunityCard({ card, locale }: { card: CommunityCard; locale: string }) {
+  const timestamp = toTimestamp(card.lastModified);
 
   return (
     <Link href={card.url} className="blog-card blog-card-small">
       <h3>{card.title}</h3>
       {card.description ? <p>{card.description}</p> : null}
-      {date ? (
-        <time dateTime={new Date(card.lastModified as string | Date).toISOString()}>
-          {date}
-        </time>
+      {timestamp ? (
+        <RelativeTime timestamp={timestamp} locale={locale} />
       ) : null}
     </Link>
   );
@@ -96,7 +94,7 @@ export default async function CommunityIndexPage({
         <p className="blog-section-subtitle">{text.subtitle}</p>
         <div className="blog-grid">
           {cards.map((card) => (
-            <CommunityCard key={card.url} card={card} />
+            <CommunityCard key={card.url} card={card} locale={lang} />
           ))}
         </div>
       </section>

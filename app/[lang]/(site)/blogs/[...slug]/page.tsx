@@ -49,7 +49,11 @@ export default async function BlogPostPage(props: {
             <p className="text-sm font-medium text-fd-primary">{date}</p>
           ) : null}
           {!page.missingTranslation ? (
-            <AuthorMeta authors={gitAuthors} lastModified={lastModified} />
+            <AuthorMeta
+              authors={gitAuthors}
+              lastModified={lastModified}
+              locale={params.lang}
+            />
           ) : null}
         </header>
         {page.missingTranslation ? (

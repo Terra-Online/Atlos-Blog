@@ -1,5 +1,5 @@
-import { formatDistanceToNow } from 'date-fns';
 import type { GitAuthor } from '@/lib/git-authors';
+import { RelativeTime } from '@/app/components/relative-time';
 
 export type { GitAuthor };
 
@@ -100,20 +100,22 @@ function AuthorChip({ author }: { author: GitAuthor }) {
 export function AuthorMeta({
   authors,
   lastModified,
+  locale = 'en',
   className = 'site-author-meta border-b border-fd-border',
 }: {
   authors?: GitAuthor[];
   lastModified?: Date | string | number;
+  locale?: string;
   className?: string;
 }) {
   const lastModifiedDate = lastModified ? new Date(lastModified) : null;
   const hasValidLastModified =
     !!lastModifiedDate && !Number.isNaN(lastModifiedDate.getTime());
-  const lastModifiedAgo = hasValidLastModified
-    ? formatDistanceToNow(lastModifiedDate, { addSuffix: true })
+  const lastModifiedTimestamp = hasValidLastModified
+    ? lastModifiedDate.toISOString()
     : null;
 
-  if ((!authors || authors.length === 0) && !lastModifiedAgo) return null;
+  if ((!authors || authors.length === 0) && !lastModifiedTimestamp) return null;
 
   return (
     <div
@@ -127,7 +129,9 @@ export function AuthorMeta({
           ))}
         </div>
       ) : null}
-      {lastModifiedAgo ? <span>{lastModifiedAgo}.</span> : null}
+      {lastModifiedTimestamp ? (
+        <RelativeTime timestamp={lastModifiedTimestamp} locale={locale} />
+      ) : null}
     </div>
   );
 }

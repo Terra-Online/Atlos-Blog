@@ -32,7 +32,11 @@ export default async function CommunityPage(props: {
             {page.data.description}
           </DocsDescription>
           {!page.missingTranslation ? (
-            <AuthorMeta authors={gitAuthors} lastModified={lastModified} />
+            <AuthorMeta
+              authors={gitAuthors}
+              lastModified={lastModified}
+              locale={params.lang}
+            />
           ) : null}
         </header>
         {page.missingTranslation ? (

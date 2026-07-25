@@ -13,6 +13,7 @@ export default async function SponsorsPage(props: {
   return (
     <SiteDocPage
       page={page}
+      locale={params.lang}
       missingTranslation={page.missingTranslation}
     />
   );
