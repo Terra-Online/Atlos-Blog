@@ -18,10 +18,10 @@ description: Open Endfield Map 的內容來源、版權聲明、用戶生成內�
 
 ## 用戶生成內容（UGC）協議
 
-我們在現有地圖點位中提供圖片、評論、回覆、投票及舉報等互動功能。提交相關內容時，須遵守以下協議：
+我們在現有或日後提供的地圖功能中支援圖片、評論、回覆、投票、舉報、點位及路線貢獻與回饋等互動。提交相關內容時，須遵守以下協議：
 
-1. **內容定義**：「用戶生成內容」（UGC）主要指閣下主動提交的點位圖片、評論、回覆、投票、舉報及修正回饋。個人點位完成狀態及介面偏好不屬於公開 UGC。
-2. **所有權及授權許可**：閣下保留其原創內容的所有權。然而，提交 UGC 即表示閣下授予本項目一項全球、免版稅、非專屬及永久有效的許可，讓我們可在提供及改善地圖服務的範圍內使用、儲存、展示或修改該等內容。如閣下上載任何公開內容，即表示同意其他用戶存取及合理使用該等內容。
+1. **內容定義**：「用戶生成內容」（UGC）主要指閣下主動提交的點位圖片、評論、回覆、投票、舉報、修正回饋，以及在相關功能開放時提交的點位、路線或標註。個人點位完成狀態及介面偏好不屬於公開 UGC。
+2. **所有權及授權許可**：閣下保留依法就原創內容享有的權利。提交 UGC 即表示閣下授予本項目一項全球、免版稅及非專屬的許可，讓我們可在提供及維持服務所需期間，為營運、審核、翻譯、展示、快取、格式轉換、備份及改善服務而使用、儲存、複製、處理及傳播相關內容。其他用戶可存取公開內容，但不會因此取得超出適用法律及原權利人許可的權利。
 3. **內容限制及行為準則**：閣下須就其帳戶下產生的一切 UGC 承擔全部責任。嚴禁提交侵犯第三方知識產權、違反法律法規、包含惡意程式碼、垃圾廣告，或蓄意上載錯誤圖片以誤導他人的內容。
 4. **審核及免責聲明**：本項目不保證 UGC 的準確性或合法性。我們保留毋須事先通知而自行決定修改、隱藏或永久刪除任何違規內容的權利，亦毋須就用戶內容引致的糾紛或資料遺失負責。如閣下提供改善建議（Feedback），我們有權免費及不受限制地使用該等回饋以改善項目。
 > **注意**：有關 UGC 內容的完整條款及限制，請參閱[《UGC 內容聲明》](./ugc)。
@@ -43,7 +43,7 @@ description: Open Endfield Map 的內容來源、版權聲明、用戶生成內�
 
 ## 開源依賴使用情況
 
-本項目之 Web 客戶端構建於多項開源技術之上。我們在此向所有開源貢獻者致以誠摯謝意。
+本項目自有源代碼按程式碼倉庫所載 AGPL v3.0 許可證發佈。以下清單以 Web 客戶端 `package.json` 聲明的直接依賴，以及構建及測試環境所需的核心工具為範圍；各第三方元件仍適用其各自的許可證。我們在此向所有開源貢獻者致謝。
 
 ### 框架與核心庫
 
@@ -126,7 +126,7 @@ SOFTWARE.
 ```text
 Apache License
 Version 2.0, January 2004
-[http://www.apache.org/licenses/](http://www.apache.org/licenses/)
+http://www.apache.org/licenses/
 
 TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
@@ -502,7 +502,7 @@ terms and conditions:
   ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THIS LICENSE,
   UNDER ANY KIND OF LEGAL CLAIM.
 
-This Hippocratic License is an Ethical Source license ([https://ethicalsource.dev](https://ethicalsource.dev))
+This Hippocratic License is an Ethical Source license (https://ethicalsource.dev)
 and is offered for use by licensors and licensees at their own risk, on an
 "AS IS" basis, and with no warranties express or implied, to the maximum extent
 permitted by Laws.
@@ -549,7 +549,7 @@ THIS SOFTWARE.
 ```text
 The MIT License (MIT)
 
-Copyright (c) 2024 Motion ([https://motion.dev](https://motion.dev)) B.V.
+Copyright (c) 2024 Motion (https://motion.dev) B.V.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -952,6 +952,228 @@ SOFTWARE.
 MIT License
 
 Copyright (c) Han Lin Yap
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+</details>
+
+### 其他直接依賴
+
+#### @orama/orama
+
+* Source: `https://github.com/oramasearch/orama`
+* License: Apache-2.0 License
+
+<details>
+<summary>查看授權協議全文</summary>
+
+```text
+Copyright 2023 OramaSearch Inc
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
+</details>
+
+#### @orama/tokenizers
+
+* Source: `https://github.com/oramasearch/orama`
+* License: Apache-2.0 License
+
+<details>
+<summary>查看授權協議全文</summary>
+
+```text
+Copyright 2023 OramaSearch Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
+</details>
+
+#### better-auth
+
+* Source: `https://github.com/better-auth/better-auth`
+* License: MIT License
+
+<details>
+<summary>查看授權協議全文</summary>
+
+```text
+The MIT License (MIT)
+Copyright (c) 2024 - present, Bereket Engida
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the “Software”), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+```
+
+</details>
+
+#### blueimp-md5
+
+* Source: `https://github.com/blueimp/JavaScript-MD5`
+* License: MIT License
+
+<details>
+<summary>查看授權協議全文</summary>
+
+```text
+MIT License
+
+Copyright © 2011 Sebastian Tschan, https://blueimp.net
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
+
+</details>
+
+#### pinyin-pro
+
+* Source: `https://github.com/zh-lx/pinyin-pro`
+* License: MIT License
+
+<details>
+<summary>查看授權協議全文</summary>
+
+```text
+MIT License
+
+Copyright (c) 2022-present zh-lx
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+</details>
+
+#### react-markdown
+
+* Source: `https://github.com/remarkjs/react-markdown`
+* License: MIT License
+
+<details>
+<summary>查看授權協議全文</summary>
+
+```text
+The MIT License (MIT)
+
+Copyright (c) Espen Hovlandsdal
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+</details>
+
+#### trackpad-input
+
+* Source: `https://github.com/cirisus/trackpad-input`
+* License: MIT License
+
+<details>
+<summary>查看授權協議全文</summary>
+
+```text
+MIT License
+
+Copyright (c) 2026 cirisus
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

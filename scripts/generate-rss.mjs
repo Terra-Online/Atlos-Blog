@@ -17,7 +17,7 @@ const FEED_URL = `${SITE_URL}/rss.xml`;
 const CONTENT_ROOT = path.join(process.cwd(), 'content/blogs');
 const OUTPUT_PATH = path.join(process.cwd(), 'public/rss.xml');
 const SNAPSHOT_PATH = path.join(process.cwd(), 'git-authors-snapshot.json');
-const LANGUAGES = ['en', 'zh-cn', 'zh-hk', 'ja', 'ko'];
+const LANGUAGES = ['en', 'zh-cn', 'zh-hk', 'ja', 'ko', 'ru'];
 const DEFAULT_LANGUAGE = 'en';
 const AUTHOR = {
   name: 'Jacy Chan',

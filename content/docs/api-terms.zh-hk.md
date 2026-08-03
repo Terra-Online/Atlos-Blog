@@ -49,7 +49,7 @@ description: Open Endfield Map 的 API 使用條款。
 
 ## 署名要求
 如閣下使用本 API 建立公開服務，必須在應用程式介面的顯眼位置（例如頁尾、關於頁面）清楚註明資料來源，並加入指向 OEM 官方網站的有效超連結。
-*聲明範例：「本應用程式的地形與座標資料由 [Open Endfield Map](https://openendfieldmap.com) 提供支援。」*
+*聲明範例：「本應用程式的地形與座標資料由 [Open Endfield Map](https://opendfieldmap.org/) 提供支援。」*
 
 ---
 

@@ -13,15 +13,15 @@ description: Open Endfield Map 的内容来源、版权声明、用户生成内�
 
 * **版权归属**：本项目内所引用、展示的所有与《明日方舟：终末地》（Arknights: Endfield）相关的图像资源（包括但不限于地图底图、图标、UI 元素、插画）、文字说明、音效、世界观设定及游戏数据，其使用目的仅为更准确呈现游戏内元素及提升用户体验。上述内容的全部版权、商标权及其他知识产权均完全属于 **上海鹰角网络科技有限公司（Hypergryph）** 及/或其关联公司（如 Gryphline 等游戏服务提供者及著作权人）。
 * **侵权处理与用户限制**：本项目无意侵犯官方任何权利。未经权利人明确授权，严禁任何用户擅自公开、商业化或再分发本网站所引用的官方美术资源。
-  
+
 ---
 
 ## 用户生成内容 (UGC) 协议
 
-我们在既有地图点位中提供图片、评论、回复、投票和举报等互动功能。提交相关内容时，需遵守以下协议：
+我们在现有或后续提供的地图功能中支持图片、评论、回复、投票、举报、点位与路线贡献及反馈等互动。提交相关内容时，需遵守以下协议：
 
-1. **内容定义**：“用户生成内容”（UGC）主要指您主动提交的点位图片、评论、回复、投票、举报及纠错反馈。个人点位完成状态和 UI 偏好不属于公开 UGC。
-2. **所有权与授权许可**：您对您的原创内容保留所有权。但当您提交 UGC 时，即表示您授予本项目一项全球性、免版税、非独占且永久有效的许可，允许我们在提供和优化地图服务的范围内使用、存储、展示或修改您的内容。如您上传任何公共内容，即同意其他用户访问并合理使用这些内容。
+1. **内容定义**：“用户生成内容”（UGC）主要指您主动提交的点位图片、评论、回复、投票、举报、纠错反馈，以及在相应功能开放时提交的点位、路线或标注。个人点位完成状态和 UI 偏好不属于公开 UGC。
+2. **所有权与授权许可**：您对原创内容保留依法享有的权利。提交 UGC 即表示您授予本项目一项全球性、免版税、非独占的许可，使我们可在提供和维护服务所需期间，为运营、审核、翻译、展示、缓存、格式转换、备份及改进服务而使用、存储、复制、处理和传播相关内容。公开内容可由其他用户访问，但不因此取得超出适用法律及原权利人许可的权利。
 3. **内容限制与行为准则**：您必须对您账号下产生的所有 UGC 负完全责任。严禁提交侵犯第三方知识产权、违反法律法规、包含恶意代码、发布垃圾广告，或蓄意上传错误图片以误导他人的内容。
 4. **审核与免责声明**：本项目不对 UGC 的准确性或合法性做出任何保证。我们保留在不事先通知的情况下，自行决定修改、隐藏或永久删除任何违规内容的权利，且不对因用户内容导致的纠纷或数据丢失承担责任。如果您提供改进建议（Feedback），我们有权无偿且不受限制地使用这些反馈来优化项目。
 > **注意**：针对 UGC 内容的完整相关条款与限制，请查阅 [UGC 内容声明](./ugc)。
@@ -43,7 +43,7 @@ description: Open Endfield Map 的内容来源、版权声明、用户生成内�
 
 ## 开源依赖使用情况
 
-本项目的 Web 客户端构建于以下开源技术之上。我们在此向所有开源贡献者致谢。
+本项目自有源代码按仓库所载 AGPL v3.0 许可发布。以下清单以 Web 客户端 `package.json` 声明的直接依赖及构建、测试环境所需的核心工具为范围；各第三方组件仍适用其各自的许可证。我们在此向所有开源贡献者致谢。
 
 ### 框架与核心库
 
@@ -952,6 +952,228 @@ SOFTWARE.
 MIT License
 
 Copyright (c) Han Lin Yap
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+</details>
+
+### 其他直接依赖
+
+#### @orama/orama
+
+* Source: `https://github.com/oramasearch/orama`
+* License: Apache-2.0 License
+
+<details>
+<summary>查看授权协议全文</summary>
+
+```text
+Copyright 2023 OramaSearch Inc
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
+</details>
+
+#### @orama/tokenizers
+
+* Source: `https://github.com/oramasearch/orama`
+* License: Apache-2.0 License
+
+<details>
+<summary>查看授权协议全文</summary>
+
+```text
+Copyright 2023 OramaSearch Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
+</details>
+
+#### better-auth
+
+* Source: `https://github.com/better-auth/better-auth`
+* License: MIT License
+
+<details>
+<summary>查看授权协议全文</summary>
+
+```text
+The MIT License (MIT)
+Copyright (c) 2024 - present, Bereket Engida
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the “Software”), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+```
+
+</details>
+
+#### blueimp-md5
+
+* Source: `https://github.com/blueimp/JavaScript-MD5`
+* License: MIT License
+
+<details>
+<summary>查看授权协议全文</summary>
+
+```text
+MIT License
+
+Copyright © 2011 Sebastian Tschan, https://blueimp.net
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
+
+</details>
+
+#### pinyin-pro
+
+* Source: `https://github.com/zh-lx/pinyin-pro`
+* License: MIT License
+
+<details>
+<summary>查看授权协议全文</summary>
+
+```text
+MIT License
+
+Copyright (c) 2022-present zh-lx
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+</details>
+
+#### react-markdown
+
+* Source: `https://github.com/remarkjs/react-markdown`
+* License: MIT License
+
+<details>
+<summary>查看授权协议全文</summary>
+
+```text
+The MIT License (MIT)
+
+Copyright (c) Espen Hovlandsdal
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+</details>
+
+#### trackpad-input
+
+* Source: `https://github.com/cirisus/trackpad-input`
+* License: MIT License
+
+<details>
+<summary>查看授权协议全文</summary>
+
+```text
+MIT License
+
+Copyright (c) 2026 cirisus
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
