@@ -1,23 +1,23 @@
 {
-  "version": "199e23ba053bb2e1",
+  "version": "961ceb66824d74f4",
   "locales": {
     "en": {
-      "latestId": "update-26Aug-1"
+      "latestId": "update-26Sept-1"
     },
     "zh-cn": {
-      "latestId": "update-26Aug-1"
+      "latestId": "update-26Sept-1"
     },
     "zh-hk": {
-      "latestId": "update-26Aug-1"
+      "latestId": "update-26Sept-1"
     },
     "ja": {
-      "latestId": "update-26Aug-1"
+      "latestId": "update-26Sept-1"
     },
     "ko": {
-      "latestId": "update-26Aug-1"
+      "latestId": "update-26Sept-1"
     },
     "ru": {
-      "latestId": "update-26Aug-1"
+      "latestId": "update-26Sept-1"
     }
   }
 }
