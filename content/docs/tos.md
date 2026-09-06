@@ -23,7 +23,8 @@ When registering and using an account, you must follow these rules:
 2. **Account security**: You must safeguard your password and other sign-in credentials. The project and development team are not responsible for account loss or data disclosure caused by your failure to protect them.
 3. **Third-party game credentials (Skland/SKPORT)**: When using live location synchronization, **you must provide credentials only for a Skland or SKPORT account that you lawfully own**. Binding another person's credentials is prohibited. Because this feature uses a proxy to official interfaces, you assume any resulting risk of official security controls or account bans. See the [Disclaimer](./disclaimer).
 4. **Account restrictions**: An account may be used only by its registrant and must not be gifted, loaned, rented, transferred, or sold.
-5. **Enforcement authority**: If an account is used for malicious registration, API abuse, or any violation of these Terms, the development team may **freeze, ban, or permanently delete the account and associated data** without prior notice.
+5. **Enforcement authority**: If an account is used for malicious registration, API abuse, or any violation of these Terms, the development team may **freeze, ban, or permanently delete the account and associated data**. Before banning an account, the project will send a warning or notice to the user through `moderation@opendfieldmap.org`.
+6. **Notice and appeal**: Users have the right to receive a warning or notice from the project through `moderation@opendfieldmap.org` before a ban, and may appeal a specific enforcement action through that address. Appeals are assessed strictly against the specific conduct, records, and applicable terms; the project does not guarantee acceptance, a response, reversal, or any change to the original action.
 
 ### Permission to use and general restrictions
 
@@ -139,5 +140,6 @@ We may update this notice as the project and applicable law evolve. Material cha
 For questions about these Terms, contact:
 
 * **Support and compliance**: [support@opendfieldmap.org](mailto:support@opendfieldmap.org)
+* **Content moderation and ban appeals**: [moderation@opendfieldmap.org](mailto:moderation@opendfieldmap.org)
 * **Project source code**: [Atlos on GitHub](https://github.com/Terra-Online/Atlos)
 * **Discord community**: [Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)

@@ -3,7 +3,7 @@ title: User-Generated Content Statement
 description: User-generated content rules for Open Endfield Map.
 ---
 
-Open Endfield Map allows signed-in users to submit images and comments for existing map points and to participate in replies, votes, reports, and content maintenance. This statement supplements the [Terms of Use](./tos), [Privacy Policy](./privacy), and [Community Guidelines](./community-guidelines).
+Open Endfield Map allows signed-in users to submit images and comments for existing map points and to participate in replies, votes, reports, and content maintenance. This statement supplements the [Terms of Use](./tos), [Privacy Policy](./privacy), and [Community Guidelines](./community-guidelines). For Karma thresholds and user groups, see the [Karma and User Groups Guide](/community/karma).
 
 ## Scope of UGC
 
@@ -32,7 +32,11 @@ You must not submit:
 2. Unlawful, sexual, hateful, harassing, threatening, extremist, or severely violent content;
 3. Cheats, unfair-play tools, unauthorized game servers, scams, malicious links, viruses, scripts, or promotional advertising;
 4. Personal information that should not be public, including real names, contact details, passwords, verification codes, authorization tokens, or chat logs;
-5. Content unrelated to the associated point or Arknights: Endfield, clearly incorrect information, repetitive spam, or material intended to mislead players.
+5. Content unrelated to the associated point or Arknights: Endfield, clearly incorrect information, repetitive spam, or material intended to mislead players;
+6. External links outside OEM's own domains[^own-domains] when your Karma is below 1 and the comment area is a normal discussion area;
+7. Repeated or bulk comments or replies consisting only of external links without necessary context.
+
+> In this statement, an "external link" means a link to a website, page, or service outside OEM's own domains. Internal links to those domains are not subject to the Karma threshold, and Karma of 1 or higher does not permit bulk context-free link posting. External links related to a point should include brief context such as their purpose or location.
 
 ## Moderation and interactions
 
@@ -40,7 +44,7 @@ You must not submit:
 2. Approved content may be displayed publicly. Content under moderation or awaiting human review is normally visible only to its submitter and administrators.
 3. Approved comments may be sent to Google Cloud Translation to pre-generate selected common-language translations or answer translation requests. Translation results may be cached.
 4. Signed-in users may vote on or report public content when the product provides that capability. A report may place content into review but does not establish that the reported reason is valid.
-5. We may hide, reject, flag, withdraw, or remove content that violates the rules and may restrict accounts for serious or repeated violations.
+5. We may hide, reject, flag, withdraw, or remove content that violates the rules. For violations of the Karma link threshold, bulk context-free link posting, or other flooding rules, we may request additional context, delay moderation, or restrict commenting, replying, uploading, and other community interactions. Serious or repeated violations may result in suspension or a ban.
 
 ## Withdrawal, editing, and deletion
 
@@ -58,3 +62,5 @@ To report prohibited content or ask about this statement, contact:
 * **Reports and compliance**: [report@opendfieldmap.org](mailto:report@opendfieldmap.org)
 * **Project source code**: [Atlos on GitHub](https://github.com/Terra-Online/Atlos)
 * **Discord community**: [Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)
+
+[^own-domains]: OEM's own domains currently include `oem.re`, `opendfieldmap.org`, and `opendfieldmap.cn`.

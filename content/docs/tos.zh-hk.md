@@ -23,7 +23,8 @@ description: 終末地地圖集（Open Endfield Map）的用戶使用條款。
 2. **帳戶安全**：用戶須妥善保管帳戶密碼及其他登入憑證。因用戶保管不善而引致帳戶遺失或資料外洩，本項目及開發團隊概不負責。
 3. **第三方遊戲憑證（森空島／SKPORT）授權**：使用「實時位置同步」功能時，**閣下必須及只可提供本人合法持有的森空島或 SKPORT 帳戶憑證**。嚴禁盜用他人憑證進行綁定。由於該功能涉及代理官方介面，閣下須自行承擔可能觸發官方風險監控或封禁帳戶的風險（詳見下文及[《免責聲明》](./disclaimer)）。
 4. **帳戶限制**：帳戶只限註冊者本人使用，禁止以任何形式贈予、借用、出租、轉讓或出售。
-5. **處理權限**：如發現帳戶涉及惡意註冊、濫用 API 或違反本條款任何規定，開發團隊保留毋須事先通知而**凍結、封禁或永久刪除該帳戶及其關聯資料**的權利。
+5. **處理權限**：如發現帳戶涉及惡意註冊、濫用 API 或違反本條款任何規定，開發團隊有權**凍結、封禁或永久刪除該帳戶及其關聯資料**。在封禁帳戶前，項目會透過 `moderation@opendfieldmap.org` 向用戶發出警告或通知。
+6. **通知及申訴**：用戶有權在封禁前收到項目透過 `moderation@opendfieldmap.org` 發出的警告或通知，亦有權透過該電郵就具體封禁行為提出申訴。申訴將嚴格根據相關具體行為、紀錄及適用條款評估；項目不保證一定受理、回覆、撤銷或改變原處置決定。
 
 ### 使用權限及一般限制
 
@@ -139,5 +140,6 @@ description: 終末地地圖集（Open Endfield Map）的用戶使用條款。
 如對本聲明有任何疑問，或需要查詢任何與使用條款相關的內容，請透過以下方式聯絡我們：
 
 * **支援及合規團隊電郵**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)
+* **內容審核及封禁申訴電郵**：[moderation@opendfieldmap.org](mailto:moderation@opendfieldmap.org)
 * **項目源代碼倉庫**：[在 GitHub 上查看 Atlos](https://github.com/Terra-Online/Atlos)
 * **Discord 玩家社群**：[加入「Endfield Surveying Institute」](https://discord.gg/BFMAKZSUG7)

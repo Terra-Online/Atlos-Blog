@@ -14,7 +14,7 @@ User Groups are a type of community identity we use to better encourage user con
 On the Open Endfield Map user identity card, the user group tag is located to the right of the username and is distinguished by a single letter. The details are as follows:
 | User Group (Abbr.) | Icon | Permissions and Description |
 | :---: | :---: | :--- |
-| Normal User (N) | ![](/media/community/karma/n.svg) | Acquired upon registering with OEM. Can use map features normally, upload marker screenshots, post comments, and maintain content. |
+| Normal User (N) | ![](/media/community/karma/n.svg) | Acquired upon registering with OEM. Can use map features normally, upload marker screenshots, post comments, and maintain content; when Karma is below 1, cannot post links to external domains in OEM's normal discussion areas. |
 | Pioneer User (P) | ![](/media/community/karma/p.svg) | Trusted early contributors or long-term active users. Typically granted early access to experimental features, and participate in community building and feature testing. |
 | Admin User (A) | ![](/media/community/karma/a.svg) | OEM management members, responsible for content moderation, user management, system maintenance, and community order. |
 | Guest User (G) | ![](/media/community/karma/g.svg) | Unregistered users, only allowed to browse public content and basic map information; related upload features require registration. |
@@ -62,6 +62,10 @@ User groups do not provide a direct bonus to Karma itself, but some user groups 
 
 No. Karma reflects your expertise and how much you help others in the community, not your popularity.
 
+#### Q: Can I post links?
+
+You may post internal OEM links with specific context at any time (for example, `https://oem.re/18LW1qX`). However, when your Karma is below 1, you may not post external links outside OEM's own domains[^own-domains] in normal discussion areas. Regardless of your Karma, do not post confusing, context-free links repeatedly or in bulk; this may result in account restrictions or a ban.
+
 #### Q: I am very active, but my Karma is low. What should I do?
 
 Activity and contributions are not the sole factors in calculating Karma. We have designed various evaluation metrics and, as is our standard practice, open-sourced the corresponding algorithms. You can review them in our [backend repository](https://github.com/Terra-Online/Bayes), but we will not publicly disclose specific thresholds and calculation cycles.
@@ -73,3 +77,5 @@ Karma levels are recalculated periodically; your activity level and tier may exp
 #### Q: Can people cheat the Karma system?
 
 We will continuously improve the algorithm to measure true user activity. But we cannot think of a reason why people would cheat—even if someone could cheat to increase their activity value, other users can easily verify their contribution history to see if they are genuinely active.
+
+[^own-domains]: OEM's own domains currently include `oem.re`, `opendfieldmap.org`, and `opendfieldmap.cn`.
