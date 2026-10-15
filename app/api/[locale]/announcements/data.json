@@ -1,6 +1,15 @@
 {
   "ja": [
     {
+      "id": "update-26Oct-1",
+      "title": "コミュニティ機能アップデート",
+      "description": "Ver.1.6 更新情報｜ユーザーセンター、リッチテキストコメント、コミュニティの多言語対応。",
+      "content": "いつも終末地マップ集をご利用、ご支援いただき、誠にありがとうございます。Ver.1.6「丹青渡」のポイントデータを更新しました。あわせて、以下の機能を改善しています。\n\n## ユーザーセンター\n\n![](https://blog.opendfieldmap.org/blogs/announcements/26Oct/fig1.webp)\n\nサイドバーのアカウントパネルから[ユーザーセンター](https://oem.re/me)に移動し、アカウント情報やコミュニティへの投稿をまとめて確認できるようになりました。\n\n- **個人情報**ページでアバターを変更できます。選択したアバターはすぐに同期されます。\n- **コンテンツセンター**で自分が投稿した画像やコメントの履歴を確認できます。投稿の提出、自動審査、手動審査から公開またはアーカイブまでの進行状況も表示されます。\n- 投稿に関連付けられたポイントを選ぶと、マップ上の該当位置に戻れます。\n\nユーザーセンターは、このバージョンの期間中も拡充していく予定です。過去の進捗の振り返りや複数のアカウント連携など、さらなる機能をお待ちください！\n\n## リッチテキストコメント\n\n![](https://blog.opendfieldmap.org/blogs/announcements/26Oct/fig2.webp)\n\nポイントへのコメントで、より多彩な書式を使えるようになりました。太字、斜体、下線、取り消し線、インラインコードに加え、安全なリンクや**絵文字**も挿入できます！\n\n## 多言語で参加できるコミュニティ\n\n終末地マップ集のUI翻訳を[Crowdin](https://crowdin.com/project/oem)に連携しました。複数の言語に詳しい方や各言語のネイティブスピーカーの皆さま、ぜひ翻訳の校正にご協力ください。世界中のより多くの管理者がマップを快適に使えるよう、皆さまの時間とご協力に心より感謝いたします。\n\n---\n\n以上が今回の主なアップデート内容です。マップの利用中にご不明な点がある場合や、今回の機能についてご意見・ご提案がございましたら、以下の窓口よりお気軽にご連絡ください。\n\n* **Discord プレイヤーコミュニティ**：[Endfield Surveying Instituteに参加](https://discord.gg/BFMAKZSUG7)\n* **Bluesky 公式アカウント**：[Open Endfield Map をフォロー](https://bsky.app/profile/opendfieldmap.bsky.social)\n* **X 公式アカウント**：[Open Endfield Map をフォロー](https://x.com/OpenEndfieldMap)\n* **サポートチームメールアドレス**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **Atlosソースコード**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)",
+      "date": "2026-10-15",
+      "url": "https://blog.opendfieldmap.org/ja/blogs/announcements/26Oct/update-26Oct-1",
+      "locale": "ja"
+    },
+    {
       "id": "update-26Sept-2",
       "title": "1.5後半アップデート",
       "description": "Ver.1.5 更新情報②｜右クリックメニュー、パフォーマンス向上、新しいOEM SDKをご紹介します。",
@@ -44,18 +53,18 @@
       "date": "2026-06-05",
       "url": "https://blog.opendfieldmap.org/ja/blogs/announcements/26June/update-26June-1",
       "locale": "ja"
-    },
-    {
-      "id": "update-26May-2",
-      "title": "マーカー画像アップロード機能の追加",
-      "description": "1.2 更新情報③｜マーカー画像のアップロード",
-      "content": "いつも終末地マップ集をご利用いただき、誠にありがとうございます。\n\nゲーム本体の次期大型アップデートに先立ち、アカウント機能リリースに続く第2弾の機能として、**マーカー画像アップロード機能およびKarmaシステム**を追加いたしました。収集対象のマーカーについて、ゲーム内の三人称視点のスクリーンショットをアップロードできるようになり、皆様のより快適なマップ利用をサポートします。手順は以下の通りです：\n\n## 画像のアップロード方法\n\n現在、**「収集物」「探索」「アーカイブ」**カテゴリ内のマップマーカーをクリックすると、マーカー詳細に画像スロットが表示されます。スロットが空の場合は、クリックすることで画像をアップロードできます。\n\n![図1：画像アップロードエリア](https://blog.opendfieldmap.org/blogs/announcements/26May/fig4.webp)\n\nアップロードされた画像は審査を通過した後に表示されるため、反映までに一定の時間がかかる場合があります。\n\n## ユーザー生成コンテンツ（UGC）ガイドラインの概要\n\n正確で有用なデータ環境を維持するため、アップロード前に必ず以下のガイドラインをお読みいただき、遵守してください。詳細な規定については、本プロジェクトの[『UGCコンテンツに関する声明』](https://blog.opendfieldmap.org/ja/docs/ugc)および[『コミュニティガイドライン』](https://blog.opendfieldmap.org/ja/docs/community-guidelines)をご参照ください。\n\n**アップロード可能な画像：**\n* マーカーの特徴を明確に示す**三人称視点のゲーム内スクリーンショット**。\n* ゲーム内の撮影機能を使用し、不要なUIや視覚的ノイズを排除した、必要なゲーム画面のみを含む写真。\n* 複雑な地形や隠されたアイテムの識別を補助するための、適度なマークが追加されたガイド画像。\n\n**アップロードを禁止する画像：**\n* 個人の機密情報（本名、連絡先、ゲームUID、パスワードの平文など）を含むスクリーンショット。\n* 第三者の知的財産権を侵害する画像、またはゲームの収集要素と無関係な画像。\n* 政治的に敏感な内容、ポルノ、暴力、流血表現を含む画像。\n* スパム広告、誘導用のQRコード、またはチートツールの宣伝用ウォーターマークを含む画像。\n\n**プライバシーと審査に関する注意事項：**\n* **公開のリスク**：アップロードされたすべてのスクリーンショットは、自動または手動の審査を通過後、**OEM内で一般公開**されます。本プロジェクトにアクセスするすべてのユーザーが閲覧可能となります。プライバシーの漏洩を完全に防ぐため、アップロード前に必ず確認し、必要に応じてトリミングを行ってください。\n* **安全審査と対応**：アップロードされたコンテンツは、安全性およびコンプライアンスの審査対象となります。開発者は、事前の通知なしに違反画像を非表示または削除する権利を有します。また、アップロードインターフェースを悪用したり、違反を繰り返したりするユーザーに対しては、アカウントへの処罰を行う権利を留保します。\n\n## Karmaとユーザーグループの概要\n\nKarmaシステムを正式に導入しました。Karmaは、Open Endfield Mapでのユーザーの活動状況を測定するための指標です。また、積極的に貢献してくださるユーザーに対しては、よりスムーズな貢献活動を支援するため、パイオニア（Pioneer）または管理人（Admin）のユーザーグループ権限を付与いたします。\n\nKarmaおよびユーザーグループ制度の詳細については、[Karmaとユーザーグループガイド](https://blog.opendfieldmap.org/ja/community/karma)をご覧ください。\n\n---\n\n上述の機能は現在も継続的に改善を行っております。ご不明点やご意見がございましたら、以下の連絡先からお問い合わせください：\n\n* **Discord プレイヤーコミュニティ**：[Endfield Surveying Instituteに参加](https://discord.gg/BFMAKZSUG7)\n* **サポートおよびコンプライアンスチームのメールアドレス**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **プロジェクトのオープンソースリポジトリ**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)\n* **Bluesky 公式アカウント**：[Open Endfield Map をフォロー](https://bsky.app/profile/opendfieldmap.bsky.social)",
-      "date": "2026-05-11",
-      "url": "https://blog.opendfieldmap.org/ja/blogs/announcements/26May/update-26May-2",
-      "locale": "ja"
     }
   ],
   "ko": [
+    {
+      "id": "update-26Oct-1",
+      "title": "커뮤니티 기능 업데이트",
+      "description": "1.6 업데이트: 사용자 센터, 서식 있는 댓글, 다국어 커뮤니티.",
+      "content": "항상 엔드필드 지도를 이용하고 응원해 주셔서 감사합니다. 1.6 버전 「단청도」의 포인트 데이터를 업데이트했습니다. 이와 함께 다음과 같은 기능도 개선했습니다.\n\n## 사용자 센터\n\n![](https://blog.opendfieldmap.org/blogs/announcements/26Oct/fig1.webp)\n\n이제 사이드바의 계정 패널에서 [사용자 센터](https://oem.re/me)로 이동해 계정 정보와 커뮤니티 기여 내역을 한곳에서 확인할 수 있습니다.\n\n- **개인 정보** 페이지에서 계정 아바타를 변경하면 선택한 이미지가 즉시 동기화됩니다.\n- **콘텐츠 센터**에서 자신이 올린 커뮤니티 이미지와 댓글 기록을 확인하고, 제출부터 자동 심사와 수동 심사를 거쳐 공개 또는 보관되기까지의 처리 진행 상황을 볼 수 있습니다.\n- 게시물과 연결된 포인트를 누르면 지도에서 해당 위치를 확인할 수 있습니다.\n\n이번 버전에서도 사용자 센터를 계속 개선할 예정입니다. 지난 진행 상황 돌아보기와 여러 계정 채널 연결 등 더 다양한 기능을 기대해 주세요!\n\n## 서식 있는 댓글\n\n![](https://blog.opendfieldmap.org/blogs/announcements/26Oct/fig2.webp)\n\n이제 포인트 댓글에서 더 다양한 편집 기능을 사용할 수 있습니다. 굵게, 기울임꼴, 밑줄, 취소선, 인라인 코드는 물론 안전한 링크와 **이모지**도 넣을 수 있습니다!\n\n## 다국어 커뮤니티\n\n엔드필드 지도의 UI 번역을 [Crowdin](https://crowdin.com/project/oem)과 연동했습니다. 여러 언어를 아는 분들과 각 언어의 원어민 여러분의 번역 검토 참여를 환영합니다. 전 세계 더 많은 관리자가 지도를 편하게 사용할 수 있도록 시간을 내어 도와주시는 모든 분께 진심으로 감사드립니다.\n\n---\n\n이상으로 이번 업데이트의 주요 내용을 소개했습니다. 지도 사용 중 궁금한 점이 있거나 이번 기능에 대한 의견 및 제안이 있으시면 아래 채널을 통해 연락해 주세요.\n\n* **Discord 커뮤니티**: [Endfield Surveying Institute 참여하기](https://discord.gg/BFMAKZSUG7)\n* **Bluesky**: [Open Endfield Map 팔로우하기](https://bsky.app/profile/opendfieldmap.bsky.social)\n* **X**: [Open Endfield Map 팔로우하기](https://x.com/OpenEndfieldMap)\n* **지원 이메일**: [support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **Atlos 소스 코드**: [Atlos on GitHub](https://github.com/Terra-Online/Atlos)",
+      "date": "2026-10-15",
+      "url": "https://blog.opendfieldmap.org/ko/blogs/announcements/26Oct/update-26Oct-1",
+      "locale": "ko"
+    },
     {
       "id": "update-26Sept-2",
       "title": "1.5 하반기 업데이트",
@@ -100,18 +109,18 @@
       "date": "2026-06-05",
       "url": "https://blog.opendfieldmap.org/ko/blogs/announcements/26June/update-26June-1",
       "locale": "ko"
-    },
-    {
-      "id": "update-26May-2",
-      "title": "마커 스크린샷 업데이트",
-      "description": "1.2 업데이트 안내 (3): 마커 스크린샷 업로드",
-      "content": "엔드필드 지도를 이용해 주셔서 감사합니다.\n\n게임의 다음 주요 업데이트에 앞서, OEM 계정 시스템 출시 이후 두 번째로 선보이는 기능인 **마커 스크린샷 업로드 및 Karma 시스템**을 소개합니다. 수집이 필요한 마커의 경우, 이제 아래 안내에 따라 게임 내 3인칭 시점 스크린샷을 업로드하여 본인과 다른 사용자의 이용 경험을 향상시킬 수 있습니다:\n\n## 스크린샷 업로드 방법\n\n현재 **수집물, 탐색, 아카이브** 카테고리 하위의 지도 마커를 클릭하면 마커 상세 정보에서 이미지 슬롯을 확인할 수 있습니다. 슬롯이 비어 있는 경우, 슬롯을 클릭하여 이미지를 업로드할 수 있습니다.\n\n![그림 1: 이미지 업로드 영역](https://blog.opendfieldmap.org/blogs/announcements/26May/fig4.webp)\n\n업로드하신 이미지는 검토를 거친 후 표시되므로 약간의 지연이 발생할 수 있습니다.\n\n## 사용자 생성 콘텐츠(UGC) 가이드라인 요약\n\n유용하고 정확한 데이터 환경을 유지하기 위해, 업로드 전에 반드시 다음 가이드라인을 읽고 준수해 주시기 바랍니다. 자세한 내용은 본 프로젝트의 [UGC 콘텐츠 정책](https://blog.opendfieldmap.org/ko/docs/ugc) 및 [커뮤니티 가이드라인](https://blog.opendfieldmap.org/ko/docs/community-guidelines)을 참조하십시오.\n\n**업로드 가능:**\n* 마커의 특징을 명확히 보여주는 **3인칭 시점의 게임 내 스크린샷**.\n* 게임 내 사진 촬영 기능을 사용하여 불필요한 시각적 방해 요소 없이 필요한 게임 화면만 포함한 사진.\n* 복잡한 지형이나 숨겨진 아이템을 식별하는 데 도움이 되도록 적절히 표시를 추가한 보조 안내 이미지.\n\n**업로드 불가:**\n* 개인 민감 정보(실명, 연락처, 게임 UID, 일반 텍스트 비밀번호 등)가 포함된 스크린샷.\n* 제3자의 지적 재산권을 침해하거나 게임 수집과 무관한 이미지.\n* 정치적으로 민감하거나 선정적, 폭력적, 잔혹한 내용이 포함된 이미지.\n* 스팸 광고, 유도용 QR 코드 또는 불법 프로그램 홍보 워터마크가 포함된 이미지.\n\n**개인정보 및 검토 안내:**\n* **공개 위험**: 업로드한 모든 스크린샷은 자동 또는 수동 검토를 통과한 후 **OEM 내에 공개적으로 표시**됩니다. 본 프로젝트에 접속하는 모든 사용자가 볼 수 있습니다. 사생활 유출을 방지하기 위해 업로드 전에 주의 깊게 확인하고 필요한 경우 자르기를 수행하십시오.\n* **보안 검토 및 조치**: 업로드된 콘텐츠는 보안 및 규정 준수 검토를 받을 수 있습니다. 개발자는 사전 통지 없이 규정을 위반한 이미지를 숨기거나 삭제할 권리를 보유합니다. 업로드 인터페이스를 악용하거나 규정을 반복적으로 위반하는 사용자의 경우, 개발자는 계정에 대한 제재를 가할 권리를 보유합니다.\n\n## Karma 및 사용자 그룹 요약\n\nKarma 시스템이 공식적으로 활성화되었습니다. Karma는 Open Endfield Map에서 사용자의 활동 수준을 측정하는 지표입니다. 또한 적극적으로 기여하는 사용자에게는 더 원활한 기여 환경을 보장하기 위해 파이오니어(Pioneer) 또는 관리자(Admin) 사용자 그룹 권한을 부여할 예정입니다.\n\nKarma 및 사용자 그룹 제도에 대한 자세한 내용은 [Karma 및 사용자 그룹 가이드](https://blog.opendfieldmap.org/ko/community/karma)를 참조하십시오.\n\n---\n\n상기 기능들은 현재도 지속적으로 개선 중입니다. 이용 중 궁금한 점이나 의견이 있으시면 아래 채널을 통해 문의해 주세요:\n\n* **Discord 커뮤니티**: [Endfield Surveying Institute 참여하기](https://discord.gg/BFMAKZSUG7)\n* **지원 이메일**: [support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **GitHub**: [Atlos on GitHub](https://github.com/Terra-Online/Atlos)\n* **Bluesky**: [Open Endfield Map 팔로우하기](https://bsky.app/profile/opendfieldmap.bsky.social)",
-      "date": "2026-05-10",
-      "url": "https://blog.opendfieldmap.org/ko/blogs/announcements/26May/update-26May-2",
-      "locale": "ko"
     }
   ],
   "en": [
+    {
+      "id": "update-26Oct-1",
+      "title": "Community Features Update",
+      "description": "Version 1.6 update: User Center, rich-text comments, and community L10N.",
+      "content": "Thank you for your continued use and support of Open Endfield Map. Marker data for the Version 1.6 update, **Sanctuary of Ink**, is now available. We have also made the following improvements to the community experience.\n\n## User Center\n\n![](https://blog.opendfieldmap.org/blogs/announcements/26Oct/fig1.webp)\n\nYou can now open the [User Center](https://oem.re/me) from the account panel in the sidebar to view your account details and community contributions in one place.\n\n- Change your avatar on the **Personal Information** page; your selection syncs immediately.\n- View your community images and comment history in the **Content Center**, and follow each submission from receipt through automated and manual review to publication or archiving.\n- Select the marker linked to a contribution to return to its location on the map.\n\nWe plan to keep improving the User Center throughout this version, with more features such as reviewing past progress and linking multiple account channels. Stay tuned!\n\n## Rich-Text Comments\n\n![](https://blog.opendfieldmap.org/blogs/announcements/26Oct/fig2.webp)\n\nMarker comments now support more ways to express yourself. You can use bold, italics, underlining, strikethrough, and inline code, as well as add safe links and **emoji**!\n\n## A Localized Community\n\nOEM's UI translations are now connected to [Crowdin](https://crowdin.com/project/oem). We welcome polyglots and native speakers to help review translations so more Endministrators around the world can use the map with ease. Thank you sincerely for your time and contributions.\n\n---\n\nThat covers the main changes in this update. If you have any questions while using the map, or feedback and suggestions about these features, please contact us through the following channels:\n\n* **Discord Community:** [Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)\n* **Bluesky:** [Follow Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)\n* **X:** [Follow Open Endfield Map](https://x.com/OpenEndfieldMap)\n* **Support Email:** [support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **Atlos Source Code:** [Atlos on GitHub](https://github.com/Terra-Online/Atlos)",
+      "date": "2026-10-15",
+      "url": "https://blog.opendfieldmap.org/en/blogs/announcements/26Oct/update-26Oct-1",
+      "locale": "en"
+    },
     {
       "id": "update-26Sept-2",
       "title": "Version 1.5 Update II",
@@ -156,18 +165,18 @@
       "date": "2026-06-05",
       "url": "https://blog.opendfieldmap.org/en/blogs/announcements/26June/update-26June-1",
       "locale": "en"
-    },
-    {
-      "id": "update-26May-3",
-      "title": "CN Mirror Maintenance",
-      "description": "The CN mirror of Open Endfield Map will undergo maintenance starting May 26. Please back up your data in advance",
-      "content": "Thank you for your continued support and use of Open Endfield Map over the past months.\n\nWe need to update the ICP registration information for our mainland China deployment. **During the registration migration period, the CN mirror domain (opendfieldmap.cn) may become temporarily unavailable or fail to resolve properly**. Therefore, we plan to temporarily suspend services for the CN mirror **starting from 21:00 on May 26, 2026 (UTC+8)**.\n\nThe maintenance and registration migration process is expected to take approximately 5 to 12 business days. We will make every effort to restore access to the CN mirror before the release of version 1.3.\n\nDuring the suspension period, the global site (opendfieldmap.org) will remain fully operational.\n\nIf you need to continue using the map service during this period, we recommend exporting your data in advance using the export function shown below and transferring it to our [Global Site (opendfieldmap.org)](https://opendfieldmap.org). We apologize for any inconvenience this may cause and appreciate your understanding.\n\n![Fig1: Export and import operations](https://blog.opendfieldmap.org/blogs/announcements/26May/fig5.webp)\n*Figure 1: Exporting and importing data through the \"Protocol & Storage\" panel in the top headbar*\n\nYou can click the corresponding icon in the website’s top navigation bar to open the \"Protocol & Storage\" panel, then click the \"Export Data\" button to export your OEM progress locally. Afterwards, you may import the data at the same location on the international site (opendfieldmap.org)￼ to complete the migration process.”\n\n---\nIf you have any questions, feedback, or suggestions while using the map, feel free to reach out to us through the following channels:\n\n* **Discord Player Community**: [Join Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)\n* **Support and Compliance Team Email**: [support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **Project Open Source Repository**: [Atlos on GitHub](https://github.com/Terra-Online/Atlos)\n* **Official Account on Bluesky**: [Follow Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)",
-      "date": "2026-05-25",
-      "url": "https://blog.opendfieldmap.org/en/blogs/announcements/26May/update-26May-3",
-      "locale": "en"
     }
   ],
   "zh-cn": [
+    {
+      "id": "update-26Oct-1",
+      "title": "社区系统更新",
+      "description": "1.6版本更新说明：用户中心、富文本评论与本地化社区",
+      "content": "感谢各位对终末地地图集的持续使用与支持。1.6版本「丹青渡」点位数据已更新，此外我们为各位带来了如下功能改进。\n\n## 用户中心\n\n![](https://blog.opendfieldmap.org/blogs/announcements/26Oct/fig1.zh-cn.webp)\n\n现在，您可以从侧边栏的账户面板进入[用户中心](https://oem.re/me)，集中查看账户资料和社区贡献。\n\n- 在**个人信息**页面更换账户头像，选择会即时同步。\n- 在**内容中心**查看自己的社区图片和发表评论历史，并查看其提交、自动审核、人工审核到公开或归档的处理进度。\n- 点击投稿关联的点位，即可返回地图查看对应位置。\n\n此外，用户中心预计会在此版本内不断完善，带来诸如历史进度回溯、多渠道绑定等更全面的功能。敬请期待！\n\n## 富文本评论\n\n![](https://blog.opendfieldmap.org/blogs/announcements/26Oct/fig2.webp)\n\n点位评论现在支持更丰富的编辑方式。您可以在评论中使用粗体、斜体、下划线、删除线和行内代码，也可以插入安全链接和**表情**！\n\n## 本地化社区\n\n地图集 UI 翻译现已接入 [Crowdin](https://crowdin.com/project/oem)。欢迎各位 Polyglot 和母语者参与校对，帮助全球更多管理员们更顺畅地使用地图集！衷心感谢您的付出与时间。\n\n---\n\n以上为本次更新的主要内容。如您在使用地图的过程中遇到任何疑问，或对上述功能有任何意见及建议，欢迎通过以下方式与我们联系：\n\n* **项目 QQ 群组**：[加入【终末地大地图交流】](https://qm.qq.com/q/OQbocvQzCO)\n* **Discord 玩家社区**：[加入【Endfield Surveying Institute】](https://discord.gg/BFMAKZSUG7)\n* **Bluesky 账户**：[追踪 Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)\n* **X 账户**：[追踪 Open Endfield Map](https://x.com/OpenEndfieldMap)\n* **支持团队邮箱**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **代码仓库**：[在 GitHub 上查看 Atlos](https://github.com/Terra-Online/Atlos)",
+      "date": "2026-10-15",
+      "url": "https://blog.opendfieldmap.org/zh-cn/blogs/announcements/26Oct/update-26Oct-1",
+      "locale": "zh-cn"
+    },
     {
       "id": "update-26Sept-2",
       "title": "1.5下半更新",
@@ -212,18 +221,18 @@
       "date": "2026-06-05",
       "url": "https://blog.opendfieldmap.org/zh-cn/blogs/announcements/26June/update-26June-1",
       "locale": "zh-cn"
-    },
-    {
-      "id": "update-26May-3",
-      "title": "CN镜像维护公告",
-      "description": "终末地地图集（大陆镜像）将于5月26日起进行维护，请预先备份您的数据",
-      "content": "感谢各位在过去一段时间内对终末地地图集（Open Endfield Map）的使用与支持。\n\n我们需要对终末地地图集中国大陆镜像站点的备案信息进行调整。**在备案迁移期间，CN镜像域名（opendfieldmap.cn）可能会暂时无法正常解析**。因此，我们计划**自 2026 年 5 月 26 日 21:00 起**，暂时停止中国大陆镜像站点的服务。\n\n预计维护与备案迁移周期约为 5 至 12 个工作日；我们将尽可能在 1.3 版本更新前重新恢复 CN 镜像站的访问服务。\n\nCN镜像停用后，国际站点（即 opendfieldmap.org）仍然正常提供服务。\n\n如果您在此期间内需要使用地图集的服务，我们建议您及时通过导出功能（如下图所示）将数据转移到我们的[国际站点（opendfieldmap.org）](https://opendfieldmap.org)。因此造成的不便，敬请谅解。\n\n![图1：数据导入和导出操作流程](https://blog.opendfieldmap.org/blogs/announcements/26May/fig5.webp)\n\n*图1：通过顶栏的“协议与储存”窗口，进行数据导出和导入*\n\n您可以点击图中所示网站顶栏的对应图标打开“协议与储存”窗口，并且点击“导出数据”按钮将您的 OEM 进度导出到本地；而后在[国际站点（opendfieldmap.org）](https://opendfieldmap.org)的相同位置导入数据，完成数据迁移。\n\n---\n如果您遇到任何问题，或对本项目有任何意见和建议，请通过以下方式联系我们：\n\n* **项目 QQ 群组**：[加入【终末地大地图交流】](https://qm.qq.com/q/OQbocvQzCO)\n* **Discord 玩家社区**：[加入【Endfield Surveying Institute】](https://discord.gg/BFMAKZSUG7)\n* **支持团队邮箱**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **代码仓库**：[在 GitHub 上查看 Atlos](https://github.com/Terra-Online/Atlos)\n* **Bluesky 账户**：[追踪 Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)",
-      "date": "2026-05-25",
-      "url": "https://blog.opendfieldmap.org/zh-cn/blogs/announcements/26May/update-26May-3",
-      "locale": "zh-cn"
     }
   ],
   "zh-hk": [
+    {
+      "id": "update-26Oct-1",
+      "title": "社群系統更新",
+      "description": "1.6 版本更新說明：用戶中心、富文本留言與在地化社群。",
+      "content": "感謝閣下持續使用及支持終末地地圖集。1.6 版本「丹青渡」的點位資料現已更新，此外，我們也發佈了如下功能改進。\n\n## 用戶中心\n\n![](https://blog.opendfieldmap.org/blogs/announcements/26Oct/fig1.zh-cn.webp)\n\n閣下現可從側邊欄的帳戶面板進入[用戶中心](https://oem.re/me)，集中查看帳戶資料及社群貢獻。\n\n- 在**個人資料**頁面更換帳戶頭像，選擇會即時同步。\n- 在**內容中心**查看自己的社群圖片及留言記錄，並追蹤投稿從提交、自動審核、人工審核，到公開或封存的處理進度。\n- 點選投稿所關聯的點位，即可返回地圖查看相應位置。\n\n我們預計在此版本內持續完善用戶中心，陸續帶來歷史進度回溯、多渠道綁定等更全面的功能。敬請期待！\n\n## 富文本留言\n\n![](https://blog.opendfieldmap.org/blogs/announcements/26Oct/fig2.webp)\n\n點位留言現已支援更豐富的編輯方式。閣下可在留言中使用粗體、斜體、底線、刪除線及行內程式碼，亦可插入安全連結和**表情符號**！\n\n## 在地化社群\n\n地圖集的 UI 翻譯現已接入 [Crowdin](https://crowdin.com/project/oem)。歡迎各界 Polyglot 同母語者參與校對，協助世界各地更多管理員更順暢地使用地圖集。衷心感謝閣下付出的時間與心力。\n\n---\n\n以上為本次更新的主要內容。若閣下在使用地圖期間遇到任何疑問，或對上述功能有任何意見及建議，歡迎透過以下方式與我們聯絡：\n\n* **Discord 玩家社群**：[加入【Endfield Surveying Institute】](https://discord.gg/BFMAKZSUG7)\n* **Bluesky 帳戶**：[追蹤 Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)\n* **X 帳戶**：[追蹤 Open Endfield Map](https://x.com/OpenEndfieldMap)\n* **支援團隊電郵**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **Atlos 代碼倉庫**：[在 GitHub 上查看 Atlos](https://github.com/Terra-Online/Atlos)",
+      "date": "2026-10-15",
+      "url": "https://blog.opendfieldmap.org/zh-hk/blogs/announcements/26Oct/update-26Oct-1",
+      "locale": "zh-hk"
+    },
     {
       "id": "update-26Sept-2",
       "title": "1.5 版本下半更新",
@@ -268,18 +277,18 @@
       "date": "2026-06-05",
       "url": "https://blog.opendfieldmap.org/zh-hk/blogs/announcements/26June/update-26June-1",
       "locale": "zh-hk"
-    },
-    {
-      "id": "update-26May-3",
-      "title": "CN鏡像維護公告",
-      "description": "終末地地圖集（大陸鏡像）將於5月26日起進行維護，請閣下預先備份數據",
-      "content": "感謝各位在過去一段時間內對終末地圖集（Open Endfield Map）的使用與支持。\n\n我們需要對中國大陸站點的備案資訊進行調整。**在備案遷移期間，CN鏡像域名（opendfieldmap.cn）可能會暫時無法正常解析。**因此，我們計劃**自 2026 年 5 月 26 日 21:00 起**，暫時停止中國大陸鏡像站點的服務。\n\n預計維護與備案遷移週期約為 5 至 12 個工作日；我們將盡可能在 1.3 版本更新前重新恢復 CN 鏡像站的訪問服務。\n\nCN鏡像停用後，國際站點（即 opendfieldmap.org）仍然正常提供服務。\n\n如果您在此期間內需要使用地圖集服務，我們建議您及時透過匯出功能（如下圖所示）將資料轉移至我們的[國際站點（opendfieldmap.org）](https://opendfieldmap.org)。對於因此造成的不便，敬請諒解。\n\n![图1：進度數據匯入與匯出操作流程](https://blog.opendfieldmap.org/blogs/announcements/26May/fig5.webp)\n\n*圖1：透過頂欄的「協議與儲存」視窗，進行資料匯出／匯入*\n\n您可以點擊圖中所示網站頂欄的對應圖示開啟「協議與儲存」視窗，並點擊「匯出資料」按鈕將您的 OEM 進度匯出至裝置；其後在[國際站點（opendfieldmap.org）](https://opendfieldmap.org)的相同位置匯入，完成數據遷移。\n\n---\n如閣下在使用地圖的過程中遇到任何疑問，或對本項目有任何意見及建議，歡迎透過以下方式與我們聯絡：\n\n* **Discord 玩家社群**：[加入 Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)\n* **支援團隊電郵**：[support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **代碼倉庫**：[Atlos on GitHub](https://github.com/Terra-Online/Atlos)\n* **Bluesky 帳戶**：[追蹤 Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)",
-      "date": "2026-05-25",
-      "url": "https://blog.opendfieldmap.org/zh-hk/blogs/announcements/26May/update-26May-3",
-      "locale": "zh-hk"
     }
   ],
   "ru": [
+    {
+      "id": "update-26Oct-1",
+      "title": "Обновление сообщества",
+      "description": "Обновление 1.6: центр пользователя, форматирование комментариев и локализация сообщества.",
+      "content": "Благодарим вас за постоянную поддержку и использование Open Endfield Map. Данные меток для версии 1.6 «Нарисованный приют» уже обновлены. Кроме того, мы улучшили следующие возможности сообщества.\n\n## Центр пользователя\n\n![](https://blog.opendfieldmap.org/blogs/announcements/26Oct/fig1.webp)\n\nТеперь из панели учётной записи в боковой панели можно перейти в [центр пользователя](https://oem.re/me), чтобы в одном месте просматривать сведения об учётной записи и свой вклад в сообщество.\n\n- На странице **Личная информация** можно сменить аватар; выбранное изображение сразу синхронизируется.\n- В **Центре контента** можно просмотреть свои изображения и историю комментариев, а также отслеживать путь каждой публикации от отправки через автоматическую и ручную проверку до публикации или архивации.\n- Нажав на метку, связанную с публикацией, можно вернуться к соответствующему месту на карте.\n\nВ течение этой версии мы планируем продолжать развивать центр пользователя. Среди будущих возможностей — просмотр истории прогресса и привязка нескольких способов входа. Следите за обновлениями!\n\n## Комментарии с форматированием\n\n![](https://blog.opendfieldmap.org/blogs/announcements/26Oct/fig2.webp)\n\nВ комментариях к меткам теперь доступно больше способов оформления текста: полужирный и курсивный шрифт, подчёркивание, зачёркивание и встроенный код. Также можно добавлять безопасные ссылки и **эмодзи**!\n\n## Локализация сообщества\n\nПереводы интерфейса OEM теперь подключены к [Crowdin](https://crowdin.com/project/oem). Приглашаем знатоков нескольких языков и носителей языков помочь с проверкой переводов, чтобы ещё больше администраторов по всему миру могли пользоваться картой с удобством. Искренне благодарим вас за уделённое время и помощь.\n\n---\n\nЭто основные изменения в данном обновлении. Если у вас возникнут вопросы при работе с картой или появятся отзывы и предложения по этим функциям, свяжитесь с нами через следующие каналы:\n\n* **Сообщество Discord:** [присоединиться к Endfield Surveying Institute](https://discord.gg/BFMAKZSUG7)\n* **Bluesky:** [подписаться на Open Endfield Map](https://bsky.app/profile/opendfieldmap.bsky.social)\n* **X:** [подписаться на Open Endfield Map](https://x.com/OpenEndfieldMap)\n* **Служба поддержки:** [support@opendfieldmap.org](mailto:support@opendfieldmap.org)\n* **Исходный код Atlos:** [Atlos на GitHub](https://github.com/Terra-Online/Atlos)",
+      "date": "2026-10-15",
+      "url": "https://blog.opendfieldmap.org/ru/blogs/announcements/26Oct/update-26Oct-1",
+      "locale": "ru"
+    },
     {
       "id": "update-26Sept-2",
       "title": "Обновление второй половины версии 1.5",
