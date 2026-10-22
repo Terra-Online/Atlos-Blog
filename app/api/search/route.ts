@@ -3,42 +3,6 @@ import { createI18nSearchAPI, type AdvancedIndex } from 'fumadocs-core/search/se
 import { type NextRequest } from 'next/server';
 import { i18n } from '@/lib/i18n';
 
-const cjkTokenizer = {
-  language: 'english',
-  normalizationCache: new Map<string, string>(),
-  tokenize(raw: string) {
-    const normalized = raw.trim().toLowerCase();
-    if (!normalized) return [];
-
-    const segments = normalized.match(/[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]+|[\p{L}\p{N}_-]+/gu) ?? [];
-    const tokens: string[] = [];
-
-    for (const segment of segments) {
-      if (/^[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]+$/u.test(segment)) {
-        const chars = Array.from(segment);
-        tokens.push(...chars);
-
-        for (let i = 0; i < chars.length - 1; i++) {
-          tokens.push(chars[i] + chars[i + 1]);
-        }
-      } else {
-        tokens.push(segment);
-      }
-    }
-
-    return tokens;
-  },
-};
-
-const searchOptions = {
-  localeMap: {
-    'zh-cn': { tokenizer: cjkTokenizer },
-    'zh-hk': { tokenizer: cjkTokenizer },
-    ja: { tokenizer: cjkTokenizer },
-    ko: { tokenizer: cjkTokenizer },
-  },
-};
-
 const sources = [source, blogSource, communitySource, sponsorsSource];
 
 function pageToIndex(
@@ -55,7 +19,6 @@ function pageToIndex(
 }
 
 const search = createI18nSearchAPI('advanced', {
-  ...searchOptions,
   i18n,
   indexes: buildSearchIndexes(),
 });

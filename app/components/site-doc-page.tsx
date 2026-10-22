@@ -5,6 +5,7 @@ import {
 } from 'fumadocs-ui/layouts/docs/page';
 import type { TableOfContents } from 'fumadocs-core/toc';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
+import { Lightbox } from 'fumadocs-ui/components/image-zoom';
 import type { ComponentType, ReactNode } from 'react';
 import { AuthorMeta, type GitAuthor } from '@/app/components/author-meta';
 import { MdxImage } from '@/app/components/mdx-image';
@@ -53,12 +54,14 @@ export async function SiteDocPage({
 
     body = (
       <DocsBody className="blog-post-body site-prose-body">
-        <Content
-          components={{
-            ...defaultMdxComponents,
-            img: MdxImage,
-          }}
-        />
+        <Lightbox>
+          <Content
+            components={{
+              ...defaultMdxComponents,
+              img: MdxImage,
+            }}
+          />
+        </Lightbox>
       </DocsBody>
     );
   }

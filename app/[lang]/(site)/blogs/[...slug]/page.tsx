@@ -5,6 +5,7 @@ import {
   DocsTitle,
 } from 'fumadocs-ui/layouts/docs/page';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
+import { Lightbox } from 'fumadocs-ui/components/image-zoom';
 import { format } from 'date-fns';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -60,12 +61,14 @@ export default async function BlogPostPage(props: {
           <MissingTranslation />
         ) : (
           <DocsBody className="blog-post-body site-prose-body">
-            <MDX
-              components={{
-                ...defaultMdxComponents,
-                img: MdxImage,
-              }}
-            />
+            <Lightbox>
+              <MDX
+                components={{
+                  ...defaultMdxComponents,
+                  img: MdxImage,
+                }}
+              />
+            </Lightbox>
           </DocsBody>
         )}
       </article>

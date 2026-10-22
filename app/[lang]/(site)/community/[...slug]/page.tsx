@@ -8,6 +8,7 @@ import {
 import { communitySource } from '@/lib/source';
 import { DocsBody, DocsDescription, DocsTitle } from 'fumadocs-ui/layouts/docs/page';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
+import { Lightbox } from 'fumadocs-ui/components/image-zoom';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -43,12 +44,14 @@ export default async function CommunityPage(props: {
           <MissingTranslation />
         ) : (
           <DocsBody className="blog-post-body site-prose-body">
-            <MDX
-              components={{
-                ...defaultMdxComponents,
-                img: MdxImage,
-              }}
-            />
+            <Lightbox>
+              <MDX
+                components={{
+                  ...defaultMdxComponents,
+                  img: MdxImage,
+                }}
+              />
+            </Lightbox>
           </DocsBody>
         )}
       </article>

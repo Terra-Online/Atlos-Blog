@@ -7,6 +7,7 @@ import {
 } from 'fumadocs-ui/layouts/docs/page';
 import { notFound } from 'next/navigation';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
+import { Lightbox } from 'fumadocs-ui/components/image-zoom';
 import { type Metadata } from 'next';
 import { AuthorMeta } from '@/app/components/author-meta';
 import { MdxImage } from '@/app/components/mdx-image';
@@ -47,12 +48,14 @@ export default async function Page(props: {
             locale={params.lang}
           />
           <DocsBody className="site-docs-body site-prose-body">
-            <MDX
-              components={{
-                ...defaultMdxComponents,
-                img: MdxImage,
-              }}
-            />
+            <Lightbox>
+              <MDX
+                components={{
+                  ...defaultMdxComponents,
+                  img: MdxImage,
+                }}
+              />
+            </Lightbox>
           </DocsBody>
         </>
       )}
