@@ -4,12 +4,43 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 
-const bucket = process.env.BLOG_MEDIA_R2_BUCKET || 'opendfieldmap-blog';
+const dryRun = process.argv.includes('--dry-run');
+const local = process.argv.includes('--local');
+const r2 = local ? undefined : readConfig();
+const bucket = process.env.BLOG_MEDIA_R2_BUCKET || r2?.bucket || 'opendfieldmap-blog';
 const cacheControl =
   process.env.BLOG_MEDIA_CACHE_CONTROL ||
   'public, max-age=31536000, stale-while-revalidate=604800';
-const dryRun = process.argv.includes('--dry-run');
-const local = process.argv.includes('--local');
+const concurrency = Number(process.env.BLOG_MEDIA_UPLOAD_CONCURRENCY ?? r2?.concurrency ?? 32);
+
+if (!bucket || /[:/\\]/.test(bucket)) {
+  throw new Error('The R2 bucket must be a bucket name without a path prefix.');
+}
+
+if (!local && (!Number.isSafeInteger(concurrency) || concurrency <= 0)) {
+  throw new Error('R2 upload concurrency must be a positive integer.');
+}
+
+function readConfig() {
+  let config;
+  try {
+    config = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'config.json'), 'utf8'));
+  } catch (error) {
+    console.error(error.code === 'ENOENT'
+      ? 'Missing config.json. Copy config.template.json and fill in the R2 S3 credentials.'
+      : 'Could not read config.json. Check that it contains valid JSON.');
+    process.exit(1);
+  }
+
+  for (const field of ['endpoint', 'bucket', 'accessKeyId', 'secretAccessKey']) {
+    if (typeof config?.r2?.[field] !== 'string' || !config.r2[field].trim()) {
+      console.error(`Missing r2.${field} in config.json.`);
+      process.exit(1);
+    }
+  }
+
+  return config.r2;
+}
 
 const contentTypes = {
   '.avif': 'image/avif',
@@ -58,7 +89,27 @@ function collectFiles(dir) {
   return result;
 }
 
-function upload(filePath, group) {
+function run(command, args, env = {}) {
+  const result = spawnSync(command, args, {
+    env: {
+      ...process.env,
+      ...env,
+      NODE_OPTIONS: [process.env.NODE_OPTIONS, '--dns-result-order=ipv4first'].filter(Boolean).join(' '),
+    },
+    stdio: 'inherit',
+    shell: command === 'wrangler' && process.platform === 'win32',
+  });
+
+  if (result.error) {
+    console.error(`could not run ${command}: ${result.error.message}`);
+  }
+
+  if (result.status !== 0) {
+    process.exit(result.status || 1);
+  }
+}
+
+function uploadLocal(filePath, group) {
   const relativePath = path.relative(group.sourceDir, filePath).split(path.sep).join('/');
   const key = `${group.keyPrefix}/${relativePath}`;
   const contentType = contentTypes[path.extname(filePath).toLowerCase()] || 'application/octet-stream';
@@ -75,7 +126,7 @@ function upload(filePath, group) {
     contentType,
     '--cache-control',
     cacheControl,
-    local ? '--local' : '--remote',
+    '--local',
   ];
 
   if (dryRun) {
@@ -84,28 +135,54 @@ function upload(filePath, group) {
   }
 
   console.log(`uploading ${group.name}: ${relativePath} -> ${destination}`);
-  const result = spawnSync('wrangler', args, {
-    env: {
-      ...process.env,
-      NODE_OPTIONS: [process.env.NODE_OPTIONS, '--dns-result-order=ipv4first'].filter(Boolean).join(' '),
-    },
-    stdio: 'inherit',
-    shell: process.platform === 'win32',
-  });
-
-  if (result.status !== 0) {
-    process.exit(result.status || 1);
-  }
+  run('wrangler', args);
 }
 
-let uploadedCount = 0;
+function uploadRemote(group) {
+  const destination = `blog:${bucket}/${group.keyPrefix}`;
+  console.log(`${dryRun ? 'checking' : 'copying'} ${group.sourceDir} -> ${destination} (${concurrency} transfers)`);
 
+  // Copy retains remote-only assets; checksums also skip files whose build timestamps changed.
+  const args = [
+    'copy',
+    group.sourceDir,
+    destination,
+    '--checksum',
+    '--transfers', String(concurrency),
+    '--checkers', String(concurrency),
+    '--s3-no-check-bucket',
+    '--header-upload', `Cache-Control: ${cacheControl}`,
+    '--stats', '5s',
+    '--stats-one-line',
+    '--log-level', 'INFO',
+  ];
+
+  if (dryRun) {
+    args.push('--dry-run');
+  }
+
+  // Keep credentials out of command arguments and the user's global rclone configuration.
+  run('rclone', args, {
+    RCLONE_CONFIG_BLOG_TYPE: 's3',
+    RCLONE_CONFIG_BLOG_PROVIDER: 'Cloudflare',
+    RCLONE_CONFIG_BLOG_ENDPOINT: r2.endpoint,
+    RCLONE_CONFIG_BLOG_REGION: r2.region || 'auto',
+    RCLONE_CONFIG_BLOG_ACCESS_KEY_ID: r2.accessKeyId,
+    RCLONE_CONFIG_BLOG_SECRET_ACCESS_KEY: r2.secretAccessKey,
+  });
+}
+
+// Validate both inputs before starting any uploads.
 for (const group of assetGroups) {
-  if (!fs.existsSync(group.sourceDir)) {
+  if (!fs.existsSync(group.sourceDir) || !fs.statSync(group.sourceDir).isDirectory()) {
     console.error(`source directory not found for ${group.name}: ${group.sourceDir}`);
     process.exit(1);
   }
+}
 
+let fileCount = 0;
+
+for (const group of assetGroups) {
   const files = collectFiles(group.sourceDir).sort((a, b) => a.localeCompare(b));
 
   if (files.length === 0) {
@@ -113,11 +190,15 @@ for (const group of assetGroups) {
     continue;
   }
 
-  for (const file of files) {
-    upload(file, group);
+  if (local) {
+    for (const file of files) {
+      uploadLocal(file, group);
+    }
+  } else {
+    uploadRemote(group);
   }
 
-  uploadedCount += files.length;
+  fileCount += files.length;
 }
 
-console.log(`${dryRun ? 'checked' : 'uploaded'} ${uploadedCount} file(s)`);
+console.log(`${dryRun ? 'checked' : 'processed'} ${fileCount} file(s)`);

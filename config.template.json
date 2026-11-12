@@ -1,0 +1,10 @@
+{
+  "r2": {
+    "endpoint": "https://<ACCOUNT_ID>.r2.cloudflarestorage.com",
+    "region": "auto",
+    "bucket": "opendfieldmap-blog",
+    "accessKeyId": "",
+    "secretAccessKey": "",
+    "concurrency": 32
+  }
+}
