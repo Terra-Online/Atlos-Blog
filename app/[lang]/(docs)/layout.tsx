@@ -6,6 +6,7 @@ import { i18n, languageLabels } from '@/lib/i18n';
 import { LangSetter } from '@/app/components/LangSetter';
 import { AppI18nProvider } from '@/app/components/AppI18nProvider';
 import { sectionLabels } from '@/lib/i18n';
+import { SiteBrand } from '@/app/components/site-brand';
 
 function localizedSectionLabel(section: keyof typeof sectionLabels, lang: string) {
   return sectionLabels[section][lang as keyof (typeof sectionLabels)[typeof section]] ?? sectionLabels[section].en;
@@ -36,7 +37,7 @@ export default async function LangDocsLayout({
       <DocsLayout
         tree={tree}
         nav={{
-          title: 'Open Endfield Map',
+          title: <SiteBrand />,
         }}
         i18n
       >

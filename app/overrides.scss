@@ -179,6 +179,24 @@
   letter-spacing: -.2px;
 }
 
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+  max-width: min(15rem, calc(100vw - 9rem));
+
+  svg {
+    flex: none;
+  }
+}
+
+.site-brand__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 #nd-side {
   backdrop-filter: blur(20px) brightness(1.1) !important;
 }

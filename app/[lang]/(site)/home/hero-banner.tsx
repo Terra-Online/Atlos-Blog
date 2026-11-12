@@ -60,12 +60,12 @@ const PARALLAX_LERP = 0.08;
 
 type SubtitleStyle = {
   color: string;
-  blendMode: string;
+  blendMode: React.CSSProperties["mixBlendMode"];
 };
 
 type SlideTextStyle = {
   titleColor: string;
-  titleBlendMode: string;
+  titleBlendMode: React.CSSProperties["mixBlendMode"];
   subtitle: SubtitleStyle;
 };
 
@@ -111,50 +111,35 @@ const SF_DISPLAY_FAMILY =
 // ── Helpers ────────────────────────────────────────────────────────────────
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
-const supportsBlendMode = (mode: string) =>
-  typeof CSS !== "undefined" && typeof CSS.supports === "function"
-    ? CSS.supports("mix-blend-mode", mode)
-    : false;
-
-const resolveBlendMode = (mode: string): React.CSSProperties["mixBlendMode"] => {
-  if (mode === "plus-darker" && !supportsBlendMode("plus-darker")) {
-    return "darken";
-  }
-  if (mode === "plus-lighter" && !supportsBlendMode("plus-lighter")) {
-    return "lighten";
-  }
-  return mode as React.CSSProperties["mixBlendMode"];
-};
-
 /**
  * Ease-in cubic – approximates CSS cubic-bezier(0.42, 0, 1, 1).
  * Input/output: [0, 1].  Starts slow, accelerates toward 1.
  */
 const easeInCubic = (t: number) => t * t * t;
 
-// ── Shared text content (rendered inside both layers, per slide config) ────
+// ── Text colors follow the active slide ────────────────────────────────────
 function TextLines({ slideIndex }: { slideIndex: number }) {
   const style = SLIDE_TEXT_STYLES[slideIndex % SLIDE_TEXT_STYLES.length];
   const colorTransition = `color ${TEXT_COLOR_TRANSITION_MS}ms ease`;
 
   return (
     <>
-      <p
+      <h1
         className="hero-banner__title"
         style={{
           color: style.titleColor,
-          mixBlendMode: resolveBlendMode(style.titleBlendMode),
+          mixBlendMode: style.titleBlendMode,
           transition: colorTransition,
           fontFamily: SF_DISPLAY_FAMILY,
         }}
       >
         Try Open Endfield Map
-      </p>
+      </h1>
       <p
         className="hero-banner__subtitle"
         style={{
           color: style.subtitle.color,
-          mixBlendMode: resolveBlendMode(style.subtitle.blendMode),
+          mixBlendMode: style.subtitle.blendMode,
           transition: colorTransition,
           fontFamily: SF_DISPLAY_FAMILY,
         }}
@@ -167,7 +152,8 @@ function TextLines({ slideIndex }: { slideIndex: number }) {
 
 // ── Component ──────────────────────────────────────────────────────────────
 export function HeroBanner() {
-  /** Outer clipping frame – captures mouse events. */
+  const [effectsEnabled, setEffectsEnabled] = useState(false);
+  /** Outer clipping frame for pointer coordinates. */
   const outerRef = useRef<HTMLDivElement>(null);
   /**
    * The images layer.  It is 105% × 105%, offset −2.5% from each edge
@@ -200,6 +186,14 @@ export function HeroBanner() {
   /** Raw target mouse position updated on mousemove. */
   const targetMouseRef = useRef({ x: 0.5, y: 0.5 });
   const parallaxRafRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const query = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
+    const update = () => setEffectsEnabled(query.matches);
+    update();
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
 
   // ── Transition logic ─────────────────────────────────────────────────────
   const runTransition = useCallback(() => {
@@ -307,23 +301,27 @@ export function HeroBanner() {
     transitionRafRef.current = requestAnimationFrame(tick);
   }, []);
 
-  // ── Start slideshow on mount ──────────────────────────────────────────────
+  // ── Start slideshow only for animated views ──────────────────────────────
   useEffect(() => {
-    // Initialise image.
-    if (currentRef.current) {
-      currentRef.current.style.backgroundImage = `url('${IMAGES[0]}')`;
-      currentRef.current.style.opacity = "1";
-    }
+    if (!effectsEnabled) return;
     timerRef.current = setTimeout(runTransition, DISPLAY_MS);
 
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
       if (transitionRafRef.current) cancelAnimationFrame(transitionRafRef.current);
+      isTransitioningRef.current = false;
+      if (layerRef.current) layerRef.current.style.filter = '';
+      if (currentRef.current) currentRef.current.style.opacity = '1';
+      if (nextRef.current) nextRef.current.style.opacity = '0';
     };
-  }, [runTransition]);
+  }, [effectsEnabled, runTransition]);
 
-  // ── Parallax RAF loop ────────────────────────────────────────────────────
+  // ── Pointer-driven parallax stops scheduling frames once settled ─────────
   useEffect(() => {
+    if (!effectsEnabled) return;
+    const outer = outerRef.current;
+    if (!outer) return;
+
     const animate = () => {
       const sm = smoothMouseRef.current;
       const tm = targetMouseRef.current;
@@ -340,35 +338,45 @@ export function HeroBanner() {
         layerRef.current.style.transform = `translate(${tx}px, ${ty}px)`;
       }
 
-      parallaxRafRef.current = requestAnimationFrame(animate);
+      const settled = Math.abs(sm.x - tm.x) < 0.001 && Math.abs(sm.y - tm.y) < 0.001;
+      parallaxRafRef.current = settled ? null : requestAnimationFrame(animate);
     };
 
-    parallaxRafRef.current = requestAnimationFrame(animate);
+    const schedule = () => {
+      if (parallaxRafRef.current === null) {
+        parallaxRafRef.current = requestAnimationFrame(animate);
+      }
+    };
+    const onMove = (event: PointerEvent) => {
+      const rect = outer.getBoundingClientRect();
+      targetMouseRef.current = {
+        x: (event.clientX - rect.left) / rect.width,
+        y: (event.clientY - rect.top) / rect.height,
+      };
+      schedule();
+    };
+    const onLeave = () => {
+      targetMouseRef.current = { x: 0.5, y: 0.5 };
+      schedule();
+    };
+
+    outer.addEventListener('pointermove', onMove);
+    outer.addEventListener('pointerleave', onLeave);
     return () => {
       if (parallaxRafRef.current) cancelAnimationFrame(parallaxRafRef.current);
+      parallaxRafRef.current = null;
+      outer.removeEventListener('pointermove', onMove);
+      outer.removeEventListener('pointerleave', onLeave);
+      smoothMouseRef.current = { x: 0.5, y: 0.5 };
+      targetMouseRef.current = { x: 0.5, y: 0.5 };
+      if (layerRef.current) layerRef.current.style.transform = '';
     };
-  }, []);
-
-  // ── Mouse event handlers ─────────────────────────────────────────────────
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = outerRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    targetMouseRef.current = {
-      x: (e.clientX - rect.left) / rect.width,
-      y: (e.clientY - rect.top) / rect.height,
-    };
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    targetMouseRef.current = { x: 0.5, y: 0.5 };
-  }, []);
+  }, [effectsEnabled]);
 
   return (
     <div
       className="hero-banner"
       ref={outerRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
     >
       <div
         className="hero-banner__layer"
@@ -380,9 +388,11 @@ export function HeroBanner() {
           top: `-${PARALLAX_PCT}%`,
         }}
       >
+        {/* Include the first image in server-rendered HTML, before hydration. */}
         <div
           className="hero-banner__image"
           ref={currentRef}
+          style={{ backgroundImage: `url('${IMAGES[0]}')` }}
         />
         <div
           className="hero-banner__image"
@@ -393,20 +403,17 @@ export function HeroBanner() {
         />
       </div>
 
-      {/*
-       * ── 2. Progressive blur overlay ─────────────────────────────────────
-       * No z-index so it does not create a stacking context that would
-       * isolate the text blend modes. DOM order (before text wrapper)
-       * ensures text is NOT in this element's backdrop → text stays sharp.
-       */}
-      <LinearBlur
-        className="hero-banner__progressive-blur"
-        side="left"
-        strength={135}
-        steps={12}
-        falloffPercentage={100}
-        style={{ width: "65%" }}
-      />
+      {/* Touch and reduced-motion views use a static scrim instead of GPU-heavy blur layers. */}
+      {effectsEnabled ? (
+        <LinearBlur
+          className="hero-banner__progressive-blur"
+          side="left"
+          strength={135}
+          steps={12}
+          falloffPercentage={100}
+          style={{ width: "65%" }}
+        />
+      ) : <div className="hero-banner__scrim" />}
       <div className="hero-banner__text">
         <TextLines slideIndex={slideTextIdx} />
           <div className="hero-banner__cta">

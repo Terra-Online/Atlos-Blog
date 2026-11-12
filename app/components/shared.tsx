@@ -1,6 +1,7 @@
 import { i18n, sectionLabels } from '@/lib/i18n';
 import { siteSections } from '@/lib/source';
 import type { BaseLayoutProps, LinkItemType } from 'fumadocs-ui/layouts/shared';
+import { SiteBrand } from './site-brand';
 
 function GithubIcon() {
   return (
@@ -67,23 +68,7 @@ export function siteBaseOptions(lang: string): BaseLayoutProps {
 
   return {
     nav: {
-      title: (
-        <span className="inline-flex items-center gap-2">
-          <img
-            src="/icons/favicon.svg"
-            alt=""
-            aria-hidden
-            className="size-5 dark:hidden"
-          />
-          <img
-            src="/icons/favicon_dark.svg"
-            alt=""
-            aria-hidden
-            className="hidden size-5 dark:block"
-          />
-          <span>Open Endfield Map</span>
-        </span>
-      ),
+      title: <SiteBrand />,
       url: '/',
     },
     links: [

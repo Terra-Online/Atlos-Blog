@@ -6,17 +6,20 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  padding: 1rem 2rem 2rem;
+  max-width: 100rem;
+  margin-inline: auto;
+  padding: 1rem clamp(1rem, 3.5vw, 3.5rem) 2rem;
 }
 
 .hero-banner {
-  width: calc(100vw - 7rem);
+  width: 100%;
 }
 .home-info {
-  width: calc(100vw - 11rem);
+  width: 100%;
+  padding-inline: 2rem;
 }
 .hero-banner {
-  height: 70dvh;
+  min-height: clamp(28rem, 70svh, 52rem);
   position: relative;
   overflow: hidden;
   border: 2px solid hsl(var(--fd-border));
@@ -40,41 +43,50 @@
 .hero-banner__progressive-blur {
   position: absolute;
   inset: 0;
+  pointer-events: none;
+}
+
+.hero-banner__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #f2f2ebed, #f2f2eb99 65%, #f2f2eb33);
+  pointer-events: none;
 }
 
 .hero-banner__text {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  min-height: inherit;
   pointer-events: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 2.5rem 3rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
   gap: 0.75rem;
 }
 
 .hero-banner__title {
   margin: 0;
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
 
 .hero-banner__subtitle {
-  padding-left: 6px;
-  font-size: 1.75rem;
+  margin: 0;
+  font-size: clamp(1.125rem, 2vw, 1.75rem);
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.01em;
+  // Unsupported inline blend modes fall back here without browser checks during hydration.
+  mix-blend-mode: darken;
 }
 
 .hero-banner__cta {
-  position: absolute;
-  bottom: 20%;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
   gap: 1rem;
 }
 
@@ -155,6 +167,7 @@
   font-family: "Odor Mean Chey", serif;
   padding-right: .75rem;
   z-index: 3;
+  white-space: nowrap;
 }
 
 .home-info {
@@ -167,7 +180,7 @@
 
 .home-info__text {
   margin: 0;
-  font-size: 31.5px;
+  font-size: clamp(1.125rem, 2.2vw, 1.96875rem);
   line-height: 1.425;
   font-weight: 300;
   color: hsl(var(--fd-foreground) / 0.8);
@@ -199,4 +212,19 @@
 .home-info__functionality {
   font-weight: 600;
   color: #FF8B38;
+}
+
+@media (max-width: 40rem) {
+  .home-info {
+    padding-inline: 0;
+  }
+
+  .hero-banner__cta {
+    flex-direction: column;
+    width: min(100%, 20rem);
+  }
+
+  .pill-button__label {
+    font-size: 1.125rem;
+  }
 }
