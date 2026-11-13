@@ -30,11 +30,23 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Generate announcements JSON
-        run: pnpm run generate:announcements
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
-      - name: Generate git authors snapshot
-        run: pnpm run generate:git-authors
+      - name: Install font build tools
+        run: |
+          python -m pip install -r scripts/requirements-fonts.txt
+          sudo apt-get update
+          sudo apt-get install -y rclone
+
+      - name: Fetch font sources from R2
+        env:
+          BLOG_R2_CONFIG: ${{ secrets.BLOG_R2_CONFIG }}
+        run: |
+          node -e "if (!process.env.BLOG_R2_CONFIG) throw new Error('Missing BLOG_R2_CONFIG secret'); require('node:fs').writeFileSync('config.json', process.env.BLOG_R2_CONFIG, { mode: 0o600 });"
+          pnpm run fetch:ud-fonts
 
       - name: Build (Next.js → OpenNext → Cloudflare Worker)
         run: pnpm exec opennextjs-cloudflare build
@@ -44,3 +56,7 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Remove temporary font inputs and credentials
+        if: always()
+        run: rm -rf config.json public/fonts/UD public/fonts/UD_subset .next .open-next

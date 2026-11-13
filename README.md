@@ -1,49 +1,63 @@
 # Open Endfield Map Blog
 
-## R2 asset uploads
+## Static assets and fonts
 
-Production asset uploads use [rclone](https://rclone.org/install/) and the R2 S3 API.
-Install rclone, then copy `config.template.json` to `config.json` in the repository
-root and fill in its `r2` section. `config.json` is ignored by Git.
+Images and runtime fonts are published with the site through Cloudflare Workers
+Static Assets. Existing `/blogs/...` and `/fonts/...` URLs are preserved. The
+Worker has no R2 binding or media proxy, and deployment does not upload to R2.
 
-- `endpoint`: `https://<account-id>.r2.cloudflarestorage.com`, `region`: `auto`.
-- Credentials: an R2 S3 access key ID and secret with Object Read & Write access
-  to the `opendfieldmap-blog` bucket. A Wrangler login or Cloudflare API token
-  is not an S3 credential. Set `accessKeyId` and `secretAccessKey` in `config.json`.
+Complete UD font sources remain in the existing `opendfieldmap-blog` R2 bucket
+under `fonts/UD/`. They are downloaded only as build inputs. This workflow never
+commits font files to the repository; the UD sources and generated subsets remain
+Git-ignored. `public/.assetsignore` also excludes the complete UD sources from
+the deployed assets, so only their generated subsets are published.
 
-To generate these credentials, open the Cloudflare dashboard, then **R2 Object
-Storage → Overview → Account Details → API Tokens → Manage**. Create an Account
-or User API token with **Object Read & Write**, scoped to `opendfieldmap-blog`.
-Copy the resulting Access Key ID and Secret Access Key; the secret is only shown
-once. See [Cloudflare's authentication guide](https://developers.cloudflare.com/r2/api/tokens/).
+### Local setup
 
-The script passes the configuration to rclone through its process environment;
-no global rclone remote is required.
-
-Verify access and preview changes before uploading:
+Install [rclone](https://rclone.org/install/) and the font build tools:
 
 ```sh
-pnpm run sync:blog-assets --dry-run
-pnpm run sync:blog-assets
+python3 -m pip install -r scripts/requirements-fonts.txt
+cp config.template.json config.json
 ```
 
-The dry run reads the remote to compare files but does not upload. Each source
-directory is copied with 32 concurrent transfers. Size and checksum comparisons
-skip unchanged files, including files whose timestamps changed during a build.
-`copy` preserves remote-only objects; it does not prune the bucket. Uploaded
-objects retain their inferred Content-Type and the configured Cache-Control.
+Fill in the ignored `config.json` with R2 S3 credentials that can read the bucket.
+An Object Read only token is sufficient. To create one, open **Cloudflare → R2
+Object Storage → Overview → Account Details → API Tokens → Manage**. Copy the
+Access Key ID and Secret Access Key into `r2.accessKeyId` and
+`r2.secretAccessKey`, and set the account's S3 endpoint. See
+[Cloudflare's authentication guide](https://developers.cloudflare.com/r2/api/tokens/).
 
-| Environment variable | Default |
-| --- | --- |
-| `BLOG_MEDIA_R2_BUCKET` | `r2.bucket` in `config.json` |
-| `BLOG_MEDIA_UPLOAD_CONCURRENCY` | `r2.concurrency`, or `32` (positive integer) |
-| `BLOG_MEDIA_SOURCE_DIR` | `public/blogs`, copied to `blogs/` |
-| `BLOG_FONT_SOURCE_DIR` | `public/fonts`, copied to `fonts/` |
-| `BLOG_MEDIA_CACHE_CONTROL` | `public, max-age=31536000, stale-while-revalidate=604800` |
+Fetch the complete sources once, or again when the R2 source fonts change:
 
-`pnpm run deploy` and `pnpm run upload` include this asset copy and therefore
-require rclone and `config.json`. Automated runners must supply this ignored
-configuration file before running the asset upload.
+```sh
+pnpm run fetch:ud-fonts --dry-run
+pnpm run fetch:ud-fonts
+pnpm run generate:ud-subsets
+pnpm dev
+```
 
-For local Wrangler R2 storage, use `pnpm run sync:blog-assets --local`.
-`--local --dry-run` prints the local Wrangler commands without writing files.
+`fetch:ud-fonts` copies from R2 to the local `public/fonts/UD` directory, with 32
+concurrent downloads and checksums to skip unchanged sources. It never uploads
+or deletes R2 objects. `r2.concurrency` controls download concurrency.
+`UD_FONT_SOURCE_DIR` overrides the local source directory;
+`UD_FONT_SUBSET_DIR` overrides the generated subset directory.
+
+Every production build regenerates subsets from the current content before
+building Next.js. Once the complete sources are present, builds and deployments
+do not need R2 credentials or a network connection to R2:
+
+```sh
+pnpm build
+pnpm preview
+pnpm run deploy
+```
+
+### GitHub Actions
+
+Set the repository's `BLOG_R2_CONFIG` Actions secret to the contents of the local
+`config.json`. The existing Cloudflare deployment secrets are still required.
+CI installs the pinned font tools, downloads complete sources to its temporary
+checkout, and builds fresh subsets. It does not commit fonts, cache them, or
+upload them as GitHub artifacts. An always-run cleanup removes the downloaded
+fonts, subsets and temporary credentials after the job.

@@ -1,0 +1,3 @@
+# Full font sources are build inputs; publish only the generated subsets.
+/fonts/UD/
+.DS_Store
